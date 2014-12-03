@@ -13,9 +13,7 @@
     return service;
 
     function catcher(message) {
-      return function(reason) {
-        logger.error(message, reason);
-      };
+      return logger.error(message);
     }
   }
 })();

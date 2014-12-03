@@ -1,4 +1,6 @@
 
+  'use strict';
+
   var nib     = require('nib');
 
   module.exports = function ( gulp, stylus, handleErrors ) {
@@ -6,6 +8,6 @@
       return gulp.src( 'front-end/resources/css/stylus/app.styl' )
         .pipe( stylus({use: [nib()]}) )
         .on( 'error', handleErrors )
-        .pipe(gulp.dest( 'front-end/.tmp/stylus' ))
-    })
-  }
+        .pipe(gulp.dest( 'front-end/.tmp/stylus' ));
+    });
+  };

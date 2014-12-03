@@ -27,6 +27,7 @@
         'ngplus',
         'mgcrea.ngStrap',
         'angular-flash.service',
-        'angular-flash.flash-alert-directive'
+        'angular-flash.flash-alert-directive',
+        'ui.bootstrap'
     ]);
 })();

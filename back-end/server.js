@@ -8,6 +8,12 @@
       cluster     = require('cluster'),
       numCPUs     = require('os').cpus().length,
       sample      = require('./routes/clientRoutes/sample'),
+      primary     = require('./routes/adminRoutes/primary'),
+
+      salesRepresentativeRegistration = require('./routes/adminRoutes/salesRepresentativeRegistration'),
+      customerRegistration            = require('./routes/adminRoutes/customerRegistration'),
+      quotationRegistration           = require('./routes/adminRoutes/quotationRegistration'),
+      invoiceRegistration             = require('./routes/adminRoutes/invoiceRegistration'),
       catchAll    = require('./routes/clientRoutes/all');
 
     /**
@@ -30,6 +36,11 @@
      ** Routes
     ***/
     app.use( '/', sample );
+    app.use( '/', primary );
+    app.use( '/', salesRepresentativeRegistration );
+    app.use( '/', customerRegistration );
+    app.use( '/', quotationRegistration );
+    app.use( '/', invoiceRegistration );
     app.use( '*', catchAll );
 
     /**

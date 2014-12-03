@@ -17,11 +17,15 @@
         'app.core',
         //'app.widgets',
 
-        /*
-         * Feature areas
-         */
-        //'app.avengers',
+        /**
+         ** Feature areas
+        ***/
         'app.sample',
+        'app.primary',
+        'app.salesRepresentativeRegistration',
+        'app.customerRegistration',
+        'app.quotationRegistration',
+        'app.invoiceRegistration',
 
         /*
          * Restangular Service
