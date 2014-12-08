@@ -24,10 +24,11 @@
         /*
          * 3rd Party modules
          */
-        'ngplus',
-        'mgcrea.ngStrap',
         'angular-flash.service',
         'angular-flash.flash-alert-directive',
+        'mgcrea.ngStrap',
+        'ngplus',
+        'ngTable',
         'ui.bootstrap'
     ]);
 })();

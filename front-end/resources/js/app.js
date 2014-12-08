@@ -23,6 +23,7 @@
         'app.sample',
         'app.primary',
         'app.salesRepresentativeRegistration',
+        'app.salesRepresentativeListing',
         'app.customerRegistration',
         'app.quotationRegistration',
         'app.invoiceRegistration',
