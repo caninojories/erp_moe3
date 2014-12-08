@@ -1,4 +1,4 @@
-magens_boilerplate
+erp_moe3
 ==================
 
-Boilerplate for creating new Projects
+Quoting System for Moe3
