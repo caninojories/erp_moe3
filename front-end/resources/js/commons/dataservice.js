@@ -3,9 +3,9 @@
 
   angular
     .module('commons.control')
-    .factory('commonsDataservice', commonsDataservice);
+    .factory('commonsDataService', commonsDataService);
 
-    function commonsDataservice() {
+    function commonsDataService() {
       var service = {
       };
 

@@ -7,19 +7,20 @@
       passport    = require('passport'),
       cluster     = require('cluster'),
       numCPUs     = require('os').cpus().length,
-      sample      = require('./routes/clientRoutes/sample'),
-      primary     = require('./routes/adminRoutes/primary'),
 
-      salesRepresentativeRegistration = require('./routes/adminRoutes/salesRepresentativeRegistration'),
-      salesRepresentativeListing      = require('./routes/adminRoutes/salesRepresentativeListing'),
-      customerRegistration            = require('./routes/adminRoutes/customerRegistration'),
-      quotationRegistration           = require('./routes/adminRoutes/quotationRegistration'),
-      invoiceRegistration             = require('./routes/adminRoutes/invoiceRegistration'),
+      sample      = require('./routes/client/sample'),
+      primary     = require('./routes/admin/primary'),
 
-      salesRepresentativeRegistrationApi = require( './routes/restApi/api/salesRepresentativeRegistrationApi' ),
-      salesRepresentativeListingApi      = require( './routes/restApi/api/salesRepresentativeListingApi'),
+      salesRepresentativeRegistration = require('./routes/admin/salesRepresentativeRegistration'),
+      salesRepresentativeListing      = require('./routes/admin/salesRepresentativeListing'),
+      customerRegistration            = require('./routes/admin/customerRegistration'),
+      quotationRegistration           = require('./routes/admin/quotationRegistration'),
+      invoiceRegistration             = require('./routes/admin/invoiceRegistration'),
 
-      catchAll    = require('./routes/clientRoutes/all');
+      salesRepresentativeRegistrationApi = require( './routes/restApi/API/salesRepresentativeRegistrationApi' ),
+      salesRepresentativeListingApi      = require( './routes/restApi/API/salesRepresentativeListingApi'),
+
+      catchAll    = require('./routes');
 
     /**
      ** Configuration File NoSQL Database

@@ -4,7 +4,7 @@
   router        = express.Router(),
   app           = express(),
 
-  postRegisterSalesRepresentative = require( '../adminPanel/salesRepresentativeRegistration/postIndex.js' );
+  postRegisterSalesRepresentative = require( '../adminApImplementation/salesRepresentativeRegistration/postIndex.js' );
 
   app.route( '/saveSalesRepresentative' )
   .post( postRegisterSalesRepresentative.saveSalesRepresentative );

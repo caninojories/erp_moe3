@@ -5,7 +5,7 @@
   router        = express.Router(),
   app           = express(),
 
-  getSalesRepresentativeList = require( '../adminPanel/salesRepresentativeListing/getIndex.js' );
+  getSalesRepresentativeList = require( '../adminApImplementation/salesRepresentativeListing/getIndex.js' );
 
   app.route( '/getSalesRepresentativeList' )
   .get( getSalesRepresentativeList.getSalesRepresentativeList );
