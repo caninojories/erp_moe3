@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('commons.control')
+    .module('app.commons')
     .factory('commonsDataService', commonsDataService);
 
     function commonsDataService() {

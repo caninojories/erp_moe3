@@ -16,7 +16,7 @@
   Layout.prototype.carousel = function() {
     $('.carousel').carousel({
       interval: 3000,
-      pause: "hover",
+      pause: 'hover',
       wrap: true
     });
   };
