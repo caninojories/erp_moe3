@@ -33,7 +33,7 @@
     /*
      * Restangular Service
     **/
-    'app.restangular',
+    'app.services',
 
     /***
      ** Restangular Service

@@ -1,7 +1,7 @@
  (function() {
   'use strict';
 
-  angular.module( 'app.restangular' )
+  angular.module( 'app.services' )
     .factory( 'authToken', authToken );
 
     function authToken( $window ) {

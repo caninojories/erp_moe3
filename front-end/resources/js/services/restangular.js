@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('app.restangular', [])
+  angular.module('app.services', [])
   .factory( 'salesRepresentativeServiceApi', function ( Restangular ) {
     return Restangular.all( 'salesRepresentativeApi' );
   })

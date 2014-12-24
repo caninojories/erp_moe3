@@ -2,17 +2,14 @@
   'use strict';
 
   angular
-    .module('app.restangular')
+    .module('app.services')
     .factory( 'authInterceptor', authInterceptor );
 
   function authInterceptor( authToken ) {
     return {
       request: function( config ) {
         var token = authToken.getToken();
-        if( token ) {
-          console.log( 'interceptor' );
-          config.headers.Authorization = 'Bearer ' + token;
-        }
+        if( token ) config.headers.Authorization = 'Bearer ' + token;
 
         return config;
       },
