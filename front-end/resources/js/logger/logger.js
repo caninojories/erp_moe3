@@ -1,3 +1,8 @@
+/**
+* Logger Factory
+* @namespace Factories
+*/
+
 (function() {
     'use strict';
 
@@ -11,6 +16,11 @@
          'positionClass' : 'toast-bottom-right'
      };
 
+     /**
+     * @namespace Logger
+     * @desc Application wide logger
+     * @memberOf Factories
+     */
     function logger($log, toastr) {
         var service = {
             showToasts: true,
@@ -26,7 +36,14 @@
 
         return service;
         /////////////////////
-
+        /**
+        * @name logError
+        * @desc Logs errors
+        * @param {String} msg Message to log
+        * @returns {String}
+        * @memberOf Factories.Logger
+        */
+        
         function error(message, data, title) {
             if( service.showToasts !== false ) {
               toastr.error(message, title);

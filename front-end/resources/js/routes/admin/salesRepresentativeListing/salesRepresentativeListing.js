@@ -2,34 +2,31 @@
   'use strict';
 
   angular
-  .module('app.salesRepresentativeListing')
-  .controller('SalesRepresentativeListing', SalesRepresentativeListing);
+  .module( 'app.salesRepresentativeListing' )
+  .controller( 'SalesRepresentativeListing', SalesRepresentativeListing );
 
-  SalesRepresentativeListing.$inject = ['$filter', '$q', '$rootScope','ngTableParams', 'Restangular',
-    'getSalesRepresentativeList', 'salesRepresentativeListingDataService'];
+  SalesRepresentativeListing.$inject = [ '$filter', '$rootScope','ngTableParams', 'Restangular',
+    'getSalesRepresentativeList'];
 
-  function SalesRepresentativeListing( $filter, $q, $rootScope, ngTableParams, Restangular,
-    getSalesRepresentativeList, salesRepresentativeListingDataService ) {
+  function SalesRepresentativeListing( $filter, $rootScope, ngTableParams, Restangular,
+    getSalesRepresentativeList ) {
     var vm = this;
 
-    //vm.jories = $rootScope.salesRepresentativeData;
-    vm.jories = Restangular.stripRestangular(getSalesRepresentativeList);
-
-    console.log( vm.jories );
+    vm.salesRepresentativeList = Restangular.stripRestangular(getSalesRepresentativeList);
 
     $rootScope.tableParams = new ngTableParams({
       page: 1,            // show first page
       count: 10,          // count per page
     }, {
-      total: vm.jories.length, // length of data
+      total: vm.salesRepresentativeList .length, // length of data
       getData: function($defer, params) {
         // use build-in angular filter
         var filteredData = params.filter() ?
-        $filter('filter')(vm.jories, params.filter()) :
-        vm.jories;
+        $filter('filter')(vm.salesRepresentativeList , params.filter()) :
+        vm.salesRepresentativeList ;
         var orderedData = params.sorting() ?
         $filter('orderBy')(filteredData, params.orderBy()) :
-        vm.jories;
+        vm.salesRepresentativeList ;
 
         params.total(orderedData.length); // set total for recalc pagination
         $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));

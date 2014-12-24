@@ -16,19 +16,19 @@
         /*
          * Our reusable cross app code modules
          */
-        //'blocks.exception',
         'blocks.logger',
         'blocks.router',
         'blocks.exception',
         'strapService',
+
         /*
          * 3rd Party modules
          */
         'angular-flash.service',
         'angular-flash.flash-alert-directive',
-        'mgcrea.ngStrap',
         'ngplus',
         'ngTable',
-        'ui.bootstrap'
+        //'ui.bootstrap',
+        'satellizer'
     ]);
 })();

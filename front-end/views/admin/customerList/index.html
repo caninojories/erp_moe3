@@ -1,0 +1,22 @@
+{% include 'commons/header.html' %}
+
+<div class='container-fluid'>
+  <table ng-table="tableParams" show-filter="true" class="table">
+    <tr ng-repeat="customerUser in $data">
+      <td>
+        <a href='#'>
+          <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="vm.deleteCustomer(customerUser)"></span>
+        </a>
+        <a href='/customerList/edit/{{customerUser._id}}'>
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        </a>
+      </td>
+      <td data-title="'First Name'" sortable="'firstName'" filter="{ 'firstName': 'text' }">
+        {{customerUser.firstName}}
+      </td>
+      <td data-title="'Last Name'" sortable="'lastName'" filter="{ 'lastName': 'text' }">
+        {{customerUser.lastName}}
+      </td>
+    </tr>
+  </table>
+</div>

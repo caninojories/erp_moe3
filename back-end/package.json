@@ -16,7 +16,9 @@
     "express": "~4.4.3",
     "express-session": "^1.7.4",
     "method-override": "~2.0.2",
+    "moment": "^2.8.4",
     "mongodb": "^1.4.7",
+    "mongoose": "^3.8.21",
     "morgan": "~1.1.1",
     "multer": "^0.1.6",
     "node-uuid": "^1.4.1",
@@ -24,6 +26,7 @@
     "passport": "^0.2.1",
     "passport-local": "^1.0.0",
     "promised-mongo": "^0.11.1",
+    "querystring": "^0.2.0",
     "run-sequence": "^0.3.6",
     "serve-favicon": "~2.0.1",
     "underscore": "^1.6.0"

@@ -5,7 +5,7 @@
       router  = express.Router();
 
   router.get('/admin/salesRepresentativeListing/index.html', function( reqw, res ) {
-    res.render('admin/salesRepresentativeListing/index.html');
+    res.render('admin/salesRepresentativeListing/index.html', {title: 'salesRepresentativeListing'});
   });
 
   module.exports = router;

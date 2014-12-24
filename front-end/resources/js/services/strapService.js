@@ -1,37 +1,73 @@
-
+(function() {
   'use strict';
 
-  angular.module( 'strapService', [] )
-    .service('$loginModal',function( $modal ){
-      var login   = $modal({template:'/commonsHtml/login.html', show:false});
+  angular
+  .module( 'strapService', ['mgcrea.ngStrap'] )
+    .service('$registerUserModal',function( $modal, $alert, $dropdown, $tooltip ){
+
+      var register   = $modal({
+        animation: 'am-fade-and-scale',
+        placement: 'center',
+        template:'/html_common/signup.html',
+        show:false
+      });
 
       this.show = function() {
-        login.$promise.then(login.show);
-      }
+        register.$promise.then(register.show);
+      };
 
       this.hide = function() {
-        login.$promise.then(login.hide);
-      }
-    })
-    .service( '$SignUpModal', function( $modal ) {
-      var signup  = $modal({template:'/commonsHtml/signup.html', show:false});
+        register.$promise.then( register.hide) ;
+      };
+     })
+    .service( '$alertSignUpModal', function( $alert ) {
+      var alert   = $alert({
+        title: 'Success!',
+        content: 'Successfully, created your account',
+        type: 'info',
+        container: 'alertSignUp',
+        show: false
+      });
 
       this.show = function() {
-        signup.$promise.then(signup.show);
-      }
+        alert.$promise.then( alert.show );
+      };
 
       this.hide = function() {
-        signup.$promise.then(signup.hide);
-      }
+        alert.$promise.then( alert.hide );
+      };
     })
-    .service( '$ParagalaLoginModal', function( $modal ) {
-      var paragalaLogin  = $modal({template:'/commonsHtml/paragalaLogin.html', show:false});
+    .service( '$alertLogInModal', function( $alert ) {
+      var alert   = $alert({
+        title: 'Something, went wrong!',
+        content: 'Wrong email/password',
+        type: 'info',
+        container: 'alertLogIn',
+        show: true
+      });
 
       this.show = function() {
-        paragalaLogin.$promise.then(paragalaLogin.show);
-      }
+        alert.$promise.then( alert.show );
+      };
 
       this.hide = function() {
-        paragalaLogin.$promise.then(paragalaLogin.hide);
-      }
+        alert.$promise.then( alert.hide );
+      };
     })
+    .service( '$logInUserModal', function( $modal ) {
+      var login   = $modal({
+        animation: 'am-fade-and-scale',
+        placement: 'center',
+        template:'/html_common/login.html',
+        show:false
+      });
+
+      this.show = function() {
+        login.$promise.then( login.show );
+      };
+
+      this.hide = function() {
+        login.$promise.then( login.hide) ;
+      };
+    });
+}());

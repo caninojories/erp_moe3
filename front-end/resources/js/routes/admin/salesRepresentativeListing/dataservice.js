@@ -4,8 +4,10 @@
   angular
     .module('app.salesRepresentativeListing')
     .factory('salesRepresentativeListingDataService', salesRepresentativeListingDataService);
-    salesRepresentativeListingDataService.$inject = ['exception', 'salesRepresentativeServiceApi'];
-    function salesRepresentativeListingDataService( exception, salesRepresentativeServiceApi ) {
+
+    salesRepresentativeListingDataService.$inject = [ '$state', 'exception', 'salesRepresentativeServiceApi'];
+
+    function salesRepresentativeListingDataService( $state, exception, salesRepresentativeServiceApi ) {
       var service = {
         getSalesRepresentative: getSalesRepresentative
       };
@@ -23,7 +25,8 @@
             ** Call the exception factory to show the error in the client for Development
             ** then wait for 5 seconds then redirect
             ***/
-            exception.catcher( 'Error in the saving the Sales Representative Data' );
+            exception.catcher( 'Error in getting the Sales Representative Data' );
+            //$state.go( 'primary' );
           });
 
           function getSalesRepresentativeCallBack( response, status, header, config ) {

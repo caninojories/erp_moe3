@@ -20,5 +20,13 @@
   },
   "author": "Jo-Ries P. Canino",
   "license": "MIT",
-  "homepage": ""
+  "homepage": "",
+  "dependencies": {
+    "crypto": "0.0.3",
+    "jwt-simple": "^0.2.0",
+    "moment": "^2.8.4",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0",
+    "request": "^2.51.0"
+  }
 }

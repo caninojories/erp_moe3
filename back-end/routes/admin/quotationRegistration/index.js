@@ -6,7 +6,7 @@
 
 
   router.get('/admin/quotationRegistration/index.html', function( req, res ) {
-    res.render('admin/quotationRegistration/index.html');
+    res.render('admin/quotationRegistration/index.html', {title: 'quotationRegistration'});
   });
 
   module.exports = router;

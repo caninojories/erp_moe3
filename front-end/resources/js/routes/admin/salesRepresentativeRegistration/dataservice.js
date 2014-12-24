@@ -15,7 +15,6 @@
       return service;
 
       function saveSalesRepresentative( api, param ) {
-        console.log( param );
         return salesRepresentativeServiceApi.all( api )
           .post( param )
           .then( saveSalesRepresentativeCallBack )

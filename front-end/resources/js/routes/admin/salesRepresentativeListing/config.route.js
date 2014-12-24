@@ -18,19 +18,12 @@
           controller: 'SalesRepresentativeListing as vm',
           title: 'SalesRepresentativeListing',
           resolve: {
-            getSalesRepresentativeList: function( $q, $rootScope, Restangular, salesRepresentativeListingDataService ) {
-              // $q.all( getSalesRepresentativeCallBack() )
-              //   .then(function( response ) {
-              //     return response;
-              //   });
-
-              //function getSalesRepresentativeCallBack() {
+            getSalesRepresentativeList: function( salesRepresentativeListingDataService ) {
                 return salesRepresentativeListingDataService
                   .getSalesRepresentative( 'getSalesRepresentativeList', {} )
                   .then(function( response ) {
                     return response;
                   });
-              //}
             }
           }
         }

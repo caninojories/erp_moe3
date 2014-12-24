@@ -1,13 +1,19 @@
+(function() {
+  'use strict';
 
-  "use strict";
-
-  var mongo  = require('mongodb').Db;
-  var server = require('mongodb').Server
-  var Promise = require('bluebird');
-  var bodyParser = Promise.promisify(require('body-parser').json());
-
+  var mongo  = require( 'mongodb' ).Db,
+      mongoose = require( 'mongoose' ),
+      server = require( 'mongodb' ).Server,
+      Promise = require( 'bluebird' );
+  // var bodyParser = Promise.promisify(require('body-parser').json());
 
   exports.db = function ( dbName ) {
-    var db  = require( 'promised-mongo' )( process.env.MONGODB || 'mongodb://localhost:27017/' + dbName );
-    return db;
-  }
+    if( mongoose.connection.readyState !== 1 ) {
+      var db  = Promise.all([mongoose.connect( process.env.MONGODB || 'mongodb://localhost:27017/' + dbName )]);
+      return db;
+    } else {
+      return Promise.all([mongoose]);
+    }
+  };
+
+}());

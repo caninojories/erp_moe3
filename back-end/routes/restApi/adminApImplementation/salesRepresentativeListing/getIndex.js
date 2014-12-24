@@ -2,7 +2,7 @@
   'use strict';
 
   var mongo = require('../../../../configuration/mongodb'),
-  url   = require('url');
+      url   = require('url');
 
   exports.getSalesRepresentativeList = function ( req, res, next ) {
     mongo.db( 'erp_moe3' )
@@ -15,5 +15,5 @@
         res.json( salesRepresentativeList );
       });
     };
-    
+
   })();

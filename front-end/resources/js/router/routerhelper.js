@@ -14,8 +14,9 @@
     /* jshint validthis:true */
     this.config = {
       // These are the properties we need to set
-      // $routeProvider: undefined
-      // docTitle: ''
+      $stateProvider: undefined,
+      $urlRouterProvider: undefined,
+      docTitle: ''
       // resolveAlways: {ready: function(){ } }
     };
 
@@ -69,7 +70,7 @@
                 'unknown target';
               var msg = 'Error routing to ' + destination + '. ' + (rejection.msg || '');
               logger.warning(msg, [current]);
-              $location.path('/');
+              $state.go( 'primay' );
             }
           );
         }

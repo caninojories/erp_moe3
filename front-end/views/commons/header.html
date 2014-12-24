@@ -14,20 +14,34 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="dropdown active">
+        <li class="dropdown" ng-class="{active : '<$ title $>' ==  'salesRepresentativeRegistration' || '<$ title $>' == 'customerRegistration'
+          || '<$ title $>' == 'quotationRegistration' || '<$ title $>' == 'invoiceRegistration'}">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">New Registrations <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li class='active'><a ui-sref='salesRepresentativeRegistration'>Sales Representative Registration</a></li>
-            <li><a ui-sref='customerRegistration'>Customer Registration</a></li>
-            <li><a ui-sref='quotationRegistration'>Quotation Registration</a></li>
-            <li><a ui-sref='invoiceRegistration'>Invoice Registration</a></li>
+            <li ng-class="{active : '<$ title $>' ==  'salesRepresentativeRegistration'}">
+              <a ui-sref='salesRepresentativeRegistration'>Sales Representative Registration</a>
+            </li>
+            <li ng-class="{active : '<$ title $>' ==  'customerRegistration'}">
+              <a ui-sref='customerRegistration'>Customer Registration</a>
+            </li>
+            <li ng-class="{active : '<$ title $>' ==  'quotationRegistration'}">
+              <a ui-sref='quotationRegistration'>Quotation Registration</a>
+            </li>
+            <li ng-class="{active : '<$ title $>' ==  'invoiceRegistration'}">
+              <a ui-sref='invoiceRegistration'>Invoice Registration</a>
+            </li>
           </ul>
         </li>
-        <li class="dropdown">
+        <li class="dropdown" ng-class="{active : '<$ title $>' ==  'salesRepresentativeListing' ||
+          '<$ title $>' == 'customerList'}">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">View/Edit<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a ui-sref='salesRepresentativeListing'>Sales Representative Listing</a></li>
-            <li><a href="#">Customer Listing</a></li>
+            <li ng-class="{active : '<$ title $>' ==  'salesRepresentativeListing'}">
+              <a ui-sref='salesRepresentativeListing'>Sales Representative Listing</a>
+            </li>
+            <li ng-class="{active : '<$ title $>' ==  'customerList'}">
+              <a ui-sref='customerList'>Customer Listing</a>
+            </li>
             <li><a href="#">Quotation Listing</a></li>
             <li><a href="#">Invoice Listing</a></li>
           </ul>
@@ -42,13 +56,42 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="username">
-          <input type="text" class="form-control" placeholder="password">
-        </div>
-        <button type="submit" class="btn btn-default">Login</button>
-      </form>
+      <ul class='nav navbar-nav navbar-right' ng-controller='Strap as vm'>
+        <li ng-hide='vm.isAuthenticated()'>
+          <a href='' ng-click='vm.registerUserStrap()' data-animation="am-fade-and-scale" data-placement="center">Register</a>
+        </li>
+        <li ng-show='vm.isAuthenticated()'>
+          <a href='' ng-click='vm.logout()' data-animation="am-fade-and-scale" data-placement="center">Logout</a>
+        </li>
+        <li ng-hide='vm.isAuthenticated()' class="dropdown login">
+          <a href='#' class="dropdown-toggle" data-toggle="dropdown" data-animation="am-fade-and-scale" data-placement="center">
+            Log-in
+            <span class="caret"></span>
+          </a>
+          <ul class="login dropdown-menu" role="menu">
+            <li class='local-login text-center'>
+              <a href="#" ng-click="vm.logInUserStrap()">
+                <span class='ion-android-happy'></span>
+                Local
+              </a>
+            </li>
+            <li class='login-facebook text-center'>
+              <a href="#" ng-click="vm.authenticate('facebook')">
+                <span class='ion-social-facebook'></span>
+                Sign in with Facebook
+              </a>
+            </li>
+            <li class='google-plus text-center'>
+              <a href="#" ng-click="vm.authenticate('google')">
+                <span class='ion-social-googleplus'></span>
+                Sign in with Google
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<alertSignUp></alertSignUp>
