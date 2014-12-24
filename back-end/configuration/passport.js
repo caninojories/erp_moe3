@@ -1,9 +1,7 @@
 (function() {
 	'use strict';
 
-	var User  				= require( '../model/User' ),
-			LocalStrategy = require('passport-local').Strategy,
-			mongo					= require('./mongodb');
+	var node_module = app_require( 'services/module.config' );
 
 	module.exports = function( passport ) {
 		passport.serializeUser(function( user, done ) {
@@ -11,12 +9,12 @@
 			done( null, user.id );
 		});
 
-		passport.use( 'local-login', new LocalStrategy({
+		passport.use( 'local-login', new node_module.LocalStrategy({
 			usernameField: 'email'
 		}, function( email, password, done ) {
-			mongo.db( 'erp_moe3' )
+			node_module.mongoDBDB.db( 'erp_moe3' )
 			.then(function( connection ) {
-				User.findOne({
+				node_module.User.findOne({
 					email: email
 				}, function( err, user ) {
 					if( err ) return done(err);
@@ -35,12 +33,12 @@
 			});
 		}));
 
-		passport.use( 'local-register', new LocalStrategy({
+		passport.use( 'local-register', new node_module.LocalStrategy({
 			usernameField: 'email'
 		}, function( email, password, done ) {
-			mongo.db( 'erp_moe3' )
+			node_module.mongoDB.db( 'erp_moe3' )
 			.then(function( connection ) {
-				var newUser = User({
+				var newUser = node_module.User({
 					email: email,
 					password: password
 				});

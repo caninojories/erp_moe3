@@ -1,18 +1,14 @@
 (function() {
   'use strict';
 
-  var mongo  = require( 'mongodb' ).Db,
-      mongoose = require( 'mongoose' ),
-      server = require( 'mongodb' ).Server,
-      Promise = require( 'bluebird' );
-  // var bodyParser = Promise.promisify(require('body-parser').json());
+  var node_module = app_require( 'services/module.config' );
 
   exports.db = function ( dbName ) {
-    if( mongoose.connection.readyState !== 1 ) {
-      var db  = Promise.all([mongoose.connect( process.env.MONGODB || 'mongodb://localhost:27017/' + dbName )]);
+    if( node_module.mongoose.connection.readyState !== 1 ) {
+      var db  = node_module.Promise.all([node_module.mongoose.connect( process.env.MONGODB || 'mongodb://localhost:27017/' + dbName )]);
       return db;
     } else {
-      return Promise.all([mongoose]);
+      return node_module.Promise.all([node_module.mongoose]);
     }
   };
 

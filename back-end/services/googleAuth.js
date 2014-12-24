@@ -2,25 +2,28 @@
   'use strict';
 
   module.exports = function( node_module, params, res ) {
-    node_module.request({
-      url: node_module.config.FACEBOOK_ACCESS_TOKEN_URL,
-      qs: params,
+    node_module.request( node_module.config.GOOGLE_ACESS_TOKEN_URL, {
+      form: params,
       json: true,
       method: 'POST'
-    }).then(function( accessToken, handleError ) {
-      accessToken = node_module.qs.parse( accessToken );
+    }).then(function( token, handleError ) {
+      // console.log( accessToken );
+      var accessToken = token.access_token;
+      var headers = {
+        Authorization: 'Bearer ' + accessToken
+      };
       return node_module.request({
-        url: node_module.config.FACEBOOK_GRAPHAPI_URL,
-        qs: accessToken,
+        url: node_module.config.GOOGLE_API_URL,
+        headers: headers,
         json: true,
-        Method: 'GET'
+        method: 'GET'
       });
     }).then(function( profile, handleError ) {
       node_module.mongoDB.db( 'erp_moe3' );
       return profile;
-    }).then(function( facebookData ) {
+    }).then(function( googleData ) {
       node_module.User.findOne({
-        facebookId: facebookData.id.toString()
+        googleId: googleData.sub
       }, findUser );
 
       function findUser( err, foundUser ) {
@@ -28,8 +31,8 @@
           node_module.createSendToken( node_module, foundUser, res );
         } else {
           var newUser = node_module.User({
-            facebookId: facebookData.id,
-            displayName: facebookData.name
+            googleId: googleData.sub,
+            displayName: googleData.name
           });
           newUser.save(function( err ) {
             node_module.createSendToken( node_module, newUser, res );
