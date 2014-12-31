@@ -27,8 +27,9 @@
         'angular-flash.service',
         'angular-flash.flash-alert-directive',
         'ngplus',
-        'ngTable',
         //'ui.bootstrap',
-        'satellizer'
+        'satellizer',
+        'angular-loading-bar',
+        'datatables'
     ]);
 })();

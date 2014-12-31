@@ -20,7 +20,8 @@
         version: '0.0.0'
     };
 
-    function loginConfig($authProvider) {
+    function loginConfig( $authProvider, cfpLoadingBarProvider ) {
+      cfpLoadingBarProvider.latencyThreshold = 500;
       $authProvider.loginUrl = 'http://localhost:3000/userApi/userLogIn';
       $authProvider.signupUrl = 'http://localhost:3000/userApi/userSignUp';
 

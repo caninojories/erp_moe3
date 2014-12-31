@@ -78,8 +78,12 @@
           email: vm.email,
           password: vm.password
         }).then(function( response ) {
-          console.log( response );
           $logInUserModal.hide();
+        }).catch(function( error ) {
+          $alertLogInModal.show();
+          $timeout(function() {
+            $alertLogInModal.hide();
+          }, 2000 );
         });
       }
 

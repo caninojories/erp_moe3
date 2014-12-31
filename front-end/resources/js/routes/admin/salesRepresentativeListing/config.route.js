@@ -17,15 +17,15 @@
           templateUrl: '/admin/salesRepresentativeListing/index.html',
           controller: 'SalesRepresentativeListing as vm',
           title: 'SalesRepresentativeListing',
-          resolve: {
-            getSalesRepresentativeList: function( salesRepresentativeListingDataService ) {
-                return salesRepresentativeListingDataService
-                  .getSalesRepresentative( 'getSalesRepresentativeList', {} )
-                  .then(function( response ) {
-                    return response;
-                  });
-            }
-          }
+          // resolve: {
+          //   getSalesRepresentativeList: function( salesRepresentativeListingDataService ) {
+          //       return salesRepresentativeListingDataService
+          //         .getSalesRepresentative( 'getSalesRepresentativeList', {} )
+          //         .then(function( response ) {
+          //           return response;
+          //         });
+          //   }
+          // }
         }
       }];
     }

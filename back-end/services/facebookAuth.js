@@ -16,7 +16,7 @@
         Method: 'GET'
       });
     }).then(function( profile, handleError ) {
-      node_module.mongoDB.db( 'erp_moe3' );
+      node_module.mongoDB.db( node_module, 'erp_moe3' );
       return profile;
     }).then(function( facebookData ) {
       node_module.User.findOne({

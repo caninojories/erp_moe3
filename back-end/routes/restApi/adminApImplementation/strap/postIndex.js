@@ -4,7 +4,7 @@
   var node_module = app_require( 'services/module.config' );
 
   exports.userSignUp = function( req, res, next ) {
-    node_module.createSendToken( req.user, res );
+    node_module.createSendToken( node_module, req.user, res );
   };
 
   exports.userLogIn = function( req, res, next ) {
@@ -12,8 +12,8 @@
       if( err ) next( err );
 
       req.login( user, function( err ) {
-        if( err ) next( err );
-        node_module.createSendToken( user, res );
+        if( err ) return next( err );
+        node_module.createSendToken( node_module, user, res );
       });
     })(req, res, next );
   };

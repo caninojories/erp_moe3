@@ -5,14 +5,13 @@
 
 	module.exports = function( passport ) {
 		passport.serializeUser(function( user, done ) {
-			console.log( user );
-			done( null, user.id );
+			done( null, user._id );
 		});
 
 		passport.use( 'local-login', new node_module.LocalStrategy({
 			usernameField: 'email'
 		}, function( email, password, done ) {
-			node_module.mongoDBDB.db( 'erp_moe3' )
+			node_module.mongoDB.db( node_module, 'erp_moe3' )
 			.then(function( connection ) {
 				node_module.User.findOne({
 					email: email
@@ -36,7 +35,7 @@
 		passport.use( 'local-register', new node_module.LocalStrategy({
 			usernameField: 'email'
 		}, function( email, password, done ) {
-			node_module.mongoDB.db( 'erp_moe3' )
+			node_module.mongoDB.db( node_module, 'erp_moe3' )
 			.then(function( connection ) {
 				var newUser = node_module.User({
 					email: email,

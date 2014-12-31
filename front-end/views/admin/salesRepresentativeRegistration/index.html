@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-        <form name="registerSalesRepresentative" ng-submit="vm.registerSalesRepresentative(vm.firstName, vm.lastName, vm.postalCode,
+        <form name="registerSalesRepresentativeForm" ng-submit="vm.registerSalesRepresentative(vm.firstName, vm.lastName, vm.postalCode,
         vm.salesOfficeAdd1, vm.salesOfficeAdd2, vm.salesOfficeAdd3, vm.salesOfficePhoneNumber)"
         ng-controller='SalesRepresentativeRegistration' novalidation>
           <h2>Sales Representative <small>Registration.</small></h2>
@@ -32,8 +32,17 @@
           <div class="form-group">
             <input type="text" name="salesOfficeAdd3" class="form-control input-md" placeholder="Sales Office Address 3" ng-model='vm.salesOfficeAdd3'>
           </div>
-          <div class="form-group">
-            <input type="text" name="salesOfficePhoneNumber" class="form-control input-md" placeholder="Sales Office Phone Number" ng-model='vm.salesOfficePhoneNumber'>
+          <div class='form-group' ng-class="{ 'has-error' : registerSalesRepresentativeForm.salesOfficePhoneNumber.$invalid &amp;&amp;
+            !registerSalesRepresentativeForm.salesOfficePhoneNumber.$pristine}">
+            <input type="text" name="salesOfficePhoneNumber" class="form-control input-md" placeholder="Sales Office Phone Number"
+              ng-model='vm.salesOfficePhoneNumber' number-valid='vm.salesOfficePhoneNumber' required>
+            <div class='help-block' ng-show='registerSalesRepresentativeForm.salesOfficePhoneNumber.$dirty &&
+            registerSalesRepresentativeForm.salesOfficePhoneNumber.$invalid && !registerSalesRepresentativeForm.salesOfficePhoneNumber.$error.phoneNumber'>
+              A Phone Number is required
+            </div>
+            <div class='help-block' ng-show='registerSalesRepresentativeForm.salesOfficePhoneNumber.$error.phoneNumber'>
+              Must be a Number
+            </div>
           </div>
           <hr class="colorgraph">
           <div class="row">

@@ -7,7 +7,7 @@
   exports.isEmailTaken = function( req, res, next ) {
     var query = url.parse( req.url, true ).query;
 
-    node_module.mongoDB.db( 'erp_moe3' )
+    node_module.mongoDB.db( node_module, 'erp_moe3' )
       .then(function( connection ) {
         node_module.User.findOne({email: query.email}, function( err, user ) {
           if( err ) throw err;

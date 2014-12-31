@@ -1,8 +1,18 @@
+(function() {
   'use strict';
-  
+
   global.app_require = function(name) {
-    return require(__dirname + '/' + name);
+    return require( __dirname + '/' + name );
   };
+
+  global.app_root = function( name ) {
+    // return require( __dirname + '/' + name;
+    var pathSerialize = require( './services/module.config' );
+    return require( './services/module.config' );
+  };
+
+  // console.log( modulesko );
+
   var express     = require( 'express' ),
       _           = require( 'underscore' )._,
       path        = require( 'path' ),
@@ -109,3 +119,4 @@
     function errorMsg() {
       console.error('Something must be wrong with the connection ...');
     }
+}());
