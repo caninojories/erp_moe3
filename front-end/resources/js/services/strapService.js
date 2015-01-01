@@ -69,5 +69,27 @@
       this.hide = function() {
         login.$promise.then( login.hide) ;
       };
+    })
+    .service( '$alertModal', function( $alert ) {
+      var modalAlertShow;
+      this.show = function( titleContent, content ) {
+        modalAlertShow = alert( $alert, titleContent, content );
+      };
+      this.hide = function() {
+        modalAlertShow.hide();
+      };
     });
+
+
+    var alert = function alertModal( $alert, titleContent, content, show ) {
+      var modalAlert   = $alert({
+        title: titleContent,
+        content: content,
+        type: 'info',
+        container: 'alert-logIn',
+        show: true
+      });
+
+      return modalAlert;
+    };
 }());

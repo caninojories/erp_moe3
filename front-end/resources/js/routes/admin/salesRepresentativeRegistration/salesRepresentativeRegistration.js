@@ -5,17 +5,25 @@
     .module('app.salesRepresentativeRegistration')
     .controller('SalesRepresentativeRegistration', SalesRepresentativeRegistration);
 
-    SalesRepresentativeRegistration.$inject = ['$q', 'salesRepresentativeRegistrationDataService'];
+    SalesRepresentativeRegistration.$inject = ['$q', '$timeout', '$alertModal', 'formReset', 'salesRepresentativeRegistrationDataService'];
 
-    function SalesRepresentativeRegistration( $q, salesRepresentativeRegistrationDataService ) {
+    function SalesRepresentativeRegistration( $q, $timeout, $alertModal, formReset, salesRepresentativeRegistrationDataService ) {
       var vm = this;
 
       vm.registerSalesRepresentative = registerSalesRepresentative;
 
-      function registerSalesRepresentative( firstName, lastName, postalCode, salesOfficeAdd1, salesOfficeAdd2,
+      function registerSalesRepresentative( form, firstName, lastName, postalCode, salesOfficeAdd1, salesOfficeAdd2,
         salesOfficeAdd3, salesOfficePhoneNumber) {
+        if( !form.$valid ) return;
         return $q.all( registerSalesRepresentativeCallBack() )
           .then(function( response ) {
+            $alertModal.show( 'Success!!', firstName + ' ' + lastName + ' has been registered' );
+            formReset.setResetForm( vm );
+            vm.originForm = angular.copy(form);
+            vm.originForm.$setPristine();
+            $timeout(function() {
+              $alertModal.hide();
+            }, 2000);
             return response;
           });
       }

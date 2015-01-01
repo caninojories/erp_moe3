@@ -16,12 +16,11 @@
 
       function link( scope, element, attrs, ngModelCtrl ) {
         function validateNumber( input ) {
-          console.log( scope.registerSalesRepresentativeForm.salesOfficePhoneNumber );
           if( input === undefined || null ) return;
-          // console.log( input.length );
-          if( input.length === 0 ) return   ngModelCtrl.$setValidity('phoneNumber', true);
+
+          if( input.length === 0 ) return   ngModelCtrl.$setValidity('number', true);
           var valid = ( input.match(/^[0-9 ]+$/) !== null );
-          ngModelCtrl.$setValidity('phoneNumber', valid);
+          ngModelCtrl.$setValidity('number', valid);
           return valid ? input : undefined;
         }
 
@@ -29,7 +28,6 @@
         ngModelCtrl.$formatters.push( validateNumber );
 
         scope.$watch( attrs.numberValid, function() {
-          // console.log( ngModelCtrl );
           ngModelCtrl.$setViewValue( ngModelCtrl.$viewValue );
         });
       }
