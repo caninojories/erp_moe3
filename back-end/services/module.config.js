@@ -15,6 +15,7 @@
       mongoDB         : require( '../configuration/mongodb' ),
       Customer        : require( '../model/Customer' ),
       SalesRep        : require( '../model/SalesRepresentative' ),
+      Quotation       : require( '../model/Quotation' ),
       User            : require( '../model/User' ),
 
       bodyParser     : require( 'body-parser' ),
@@ -38,6 +39,7 @@
       qs             : require( 'querystring' ),
       request        : require( 'request-promise' ),
       underscore     : require( 'underscore' ),
+      url            : require( 'url' ),
 
       faviconPath       : rootPath + 'front-end/resources/favicon.ico',
       nunjucksPath      : path.join( rootPath, 'front-end/views' ),
@@ -47,7 +49,6 @@
       js                : path.join( rootPath, 'front-end/resources/js' ),
       css_compile       : path.join( rootPath, 'front-end/.tmp' ),
       bower_components  : path.join( rootPath, 'front-end/bower' ),
-      html_common       : path.join( rootPath, 'front-end/views/commons' )
-
+      html_common       : path.join( rootPath, 'front-end/views/commons' ),
   };
 }());

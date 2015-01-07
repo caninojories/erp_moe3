@@ -116,3 +116,21 @@
     }
   }
 }
+
+.collapse.am-collapse {
+  animation-duration: .3s;
+  animation-timing-function: ease;
+  animation-fill-mode: backwards;
+  overflow: hidden;
+  &.in-remove {
+    animation-name: collapse;
+    display: block;
+  }
+  &.in-add {
+    animation-name: expand;
+  }
+}
+
+.editable-click, a.editable-click {
+  border-bottom: none;
+}

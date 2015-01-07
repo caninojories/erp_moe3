@@ -8,7 +8,7 @@
       var register   = $modal({
         animation: 'am-fade-and-scale',
         placement: 'center',
-        template:'/html_common/signup.html',
+        template:'/commons/signup.html',
         show:false
       });
 
@@ -58,7 +58,7 @@
       var login   = $modal({
         animation: 'am-fade-and-scale',
         placement: 'center',
-        template:'/html_common/login.html',
+        template:'/commons/login.html',
         show:false
       });
 
@@ -86,7 +86,7 @@
         title: titleContent,
         content: content,
         type: 'info',
-        container: 'alert-logIn',
+        container: 'alert-info',
         show: true
       });
 

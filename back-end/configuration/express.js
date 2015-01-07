@@ -37,9 +37,9 @@
     app.use( '/fonts', node_module.express.static( node_module.fonts ));
     app.use( '/images', node_module.express.static( node_module.images ));
     app.use( '/js', node_module.express.static( node_module.js ));
-    app.use( '/css_compile', node_module.express.static( node_module.css_compile ));
-    app.use( '/bower_components', node_module.express.static( node_module.bower_components ));
-    app.use( '/html_common', node_module.express.static( node_module.html_common ));
+    app.use( '/bower', node_module.express.static( node_module.bower_components ));
+    app.use( '/commons', node_module.express.static( node_module.html_common ));
+    app.use( '/.tmp', node_module.express.static( node_module.css_compile ));
 
     /***
     ** Setup for CORS

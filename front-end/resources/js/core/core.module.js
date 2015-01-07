@@ -30,6 +30,7 @@
         //'ui.bootstrap',
         'satellizer',
         'angular-loading-bar',
-        'datatables'
+        'datatables',
+        'xeditable'
     ]);
 })();

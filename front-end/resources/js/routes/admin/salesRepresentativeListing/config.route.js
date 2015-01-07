@@ -16,16 +16,15 @@
           url: '/salesRepresentativeListing',
           templateUrl: '/admin/salesRepresentativeListing/index.html',
           controller: 'SalesRepresentativeListing as vm',
-          title: 'SalesRepresentativeListing',
-          // resolve: {
-          //   getSalesRepresentativeList: function( salesRepresentativeListingDataService ) {
-          //       return salesRepresentativeListingDataService
-          //         .getSalesRepresentative( 'getSalesRepresentativeList', {} )
-          //         .then(function( response ) {
-          //           return response;
-          //         });
-          //   }
-          // }
+          title: 'SalesRepresentativeListing'
+        }
+      }, {
+        state: 'editSalesRepresentativeListing',
+        config: {
+          url: '/salesRepresentativeListing/edit/:id',
+          templateUrl: '/admin/salesRepresentativeListing/edit/index.html',
+          controller: 'EditSalesRepresentativeListing as vm',
+          title: 'EditSalesRepresentativeListing'
         }
       }];
     }

@@ -1,0 +1,104 @@
+
+{% include 'commons/header.html' %}
+<div class="container-fluid">
+  <alert-info></alert-info>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+      <form name="updateSalesRepresentativeForm" ng-submit="vm.updateSalesRepresentative( updateSalesRepresentativeForm,
+      vm.firstName, vm.lastName, vm.postalCode, vm.salesOfficeAdd1, vm.salesOfficeAdd2, vm.salesOfficeAdd3, vm.salesOfficePhoneNumber)" ng-controller='SalesRepresentativeRegistration' novalidate>
+        <h2>Sales Representative
+          <small>Update.</small>
+        </h2>
+        <hr class="colorgraph">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group" ng-class="{ 'has-error' : (updateSalesRepresentativeForm.firstName.$invalid &&
+            updateSalesRepresentativeForm.firstName.$dirty) || (updateSalesRepresentativeForm.firstName.$invalid &&
+            updateSalesRepresentativeForm.$submitted)}">
+              <input type="text" name="firstName" class="form-control input-md" placeholder="First Name" ng-model='vm.firstName' required>
+              <div class='help-block' ng-show='updateSalesRepresentativeForm.firstName.$dirty &&
+              updateSalesRepresentativeForm.firstName.$error.required'>
+                First Name is required
+              </div>
+              <div class='help-block' ng-show='updateSalesRepresentativeForm.firstName.$pristine &&
+              updateSalesRepresentativeForm.firstName.$error.required && updateSalesRepresentativeForm.$submitted'>
+                First Name is required
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group" ng-class="{ 'has-error' : (updateSalesRepresentativeForm.lastName.$invalid &&
+            updateSalesRepresentativeForm.lastName.$dirty) || (updateSalesRepresentativeForm.lastName.$invalid &&
+            updateSalesRepresentativeForm.$submitted)}">
+              <input type="text" name="lastName" class="form-control input-md" placeholder="Last Name" ng-model='vm.lastName' required>
+              <div class='help-block' ng-show='updateSalesRepresentativeForm.lastName.$dirty &&
+              updateSalesRepresentativeForm.lastName.$error.required'>
+                Last Name is required
+              </div>
+              <div class='help-block' ng-show='updateSalesRepresentativeForm.lastName.$pristine &&
+              updateSalesRepresentativeForm.lastName.$error.required && updateSalesRepresentativeForm.$submitted'>
+                Last Name is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='form-group' ng-class="{ 'has-error' : updateSalesRepresentativeForm.postalCode.$invalid &amp;&amp;
+        (!updateSalesRepresentativeForm.postalCode.$pristine || updateSalesRepresentativeForm.$submitted)}">
+          <input type="text" name="postalCode" class="form-control input-md" placeholder="Postal Code" ng-model='vm.postalCode' number-valid='vm.postalCode' required>
+          <div class='help-block' ng-show='updateSalesRepresentativeForm.postalCode.$dirty &&
+          updateSalesRepresentativeForm.postalCode.$invalid && !updateSalesRepresentativeForm.postalCode.$error.number'>
+            Postal Code is required
+          </div>
+          <div class='help-block' ng-show='updateSalesRepresentativeForm.postalCode.$pristine &&
+          updateSalesRepresentativeForm.$submitted'>
+            Postal Code is required
+          </div>
+          <div class='help-block' ng-show='updateSalesRepresentativeForm.postalCode.$error.number'>
+            Must be a Number
+          </div>
+        </div>
+        <div class='form-group' ng-class="{ 'has-error' : updateSalesRepresentativeForm.salesOfficeAdd1.$invalid &amp;&amp;
+        (!updateSalesRepresentativeForm.salesOfficeAdd1.$pristine || updateSalesRepresentativeForm.$submitted)}">
+          <input type="text" name="salesOfficeAdd1" class="form-control input-md" placeholder="Sales Office Address 1" ng-model='vm.salesOfficeAdd1' required>
+          <div class="help-block" ng-show="updateSalesRepresentativeForm.salesOfficeAdd1.$dirty &&
+          updateSalesRepresentativeForm.salesOfficeAdd1.$error.required">
+            Sales Office Address 1 is required
+          </div>
+          <div class="help-block" ng-show="updateSalesRepresentativeForm.salesOfficeAdd1.$pristine &&
+          updateSalesRepresentativeForm.$submitted">
+            Sales Office Address 1 is required
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="text" name="salesOfficeAdd2" class="form-control input-md" placeholder="Sales Office Address 2" ng-model='vm.salesOfficeAdd2'>
+        </div>
+        <div class="form-group">
+          <input type="text" name="salesOfficeAdd3" class="form-control input-md" placeholder="Sales Office Address 3" ng-model='vm.salesOfficeAdd3'>
+        </div>
+        <div class='form-group' ng-class="{ 'has-error' : updateSalesRepresentativeForm.salesOfficePhoneNumber.$invalid &amp;&amp;
+        (!updateSalesRepresentativeForm.salesOfficePhoneNumber.$pristine || updateSalesRepresentativeForm.$submitted)}">
+          <input type="text" name="salesOfficePhoneNumber" class="form-control input-md" placeholder="Sales Office Phone Number" ng-model='vm.salesOfficePhoneNumber' number-valid='vm.salesOfficePhoneNumber' required>
+          <div class='help-block' ng-show='updateSalesRepresentativeForm.salesOfficePhoneNumber.$dirty &&
+          updateSalesRepresentativeForm.salesOfficePhoneNumber.$invalid && !updateSalesRepresentativeForm.salesOfficePhoneNumber.$error.number'>
+            A Phone Number is required
+          </div>
+          <div class='help-block' ng-show='updateSalesRepresentativeForm.salesOfficePhoneNumber.$pristine &&
+          updateSalesRepresentativeForm.$submitted'>
+            A Phone Number is required
+          </div>
+          <div class='help-block' ng-show='updateSalesRepresentativeForm.salesOfficePhoneNumber.$error.number'>
+            Must be a Number
+          </div>
+        </div>
+        <hr class="colorgraph">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Update</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

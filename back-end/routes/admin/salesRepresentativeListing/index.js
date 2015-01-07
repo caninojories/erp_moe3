@@ -4,7 +4,7 @@
   var express = require('express'),
       router  = express.Router();
 
-  router.get('/admin/salesRepresentativeListing/index.html', function( reqw, res ) {
+  router.get('/admin/salesRepresentativeListing/index.html', function( req, res ) {
     res.render('admin/salesRepresentativeListing/index.html', {title: 'salesRepresentativeListing'});
   });
 

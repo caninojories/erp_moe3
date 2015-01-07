@@ -26,8 +26,8 @@
     'app.salesRepresentativeListing',
     'app.customerRegistration',
     'app.customerList',
-    'app.customerEdit',
     'app.quotationRegistration',
+    'app.quotationList',
     'app.invoiceRegistration',
 
     /*

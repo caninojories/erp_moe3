@@ -17,15 +17,14 @@
           templateUrl: '/admin/customerList/index.html',
           controller: 'CustomerList as vm',
           title: 'Customer List',
-          resolve: {
-            getCustomerList: function( customerDataService ) {
-              return customerDataService
-                .getCustomer( 'getCustomerList', {} )
-                .then(function( response ) {
-                  return response;
-                });
-            }
-          }
+        }
+      }, {
+        state: 'editCustomerList',
+        config: {
+          url: '/customerList/edit/:id',
+          templateUrl: '/admin/customerList/edit/index.html',
+          controller: 'EditCustomerList as vm',
+          title: 'EditCustomer List'
         }
       }];
     }

@@ -1,17 +1,19 @@
 (function(){
   'use strict';
 
-  var mongo     = require('../../../../configuration/mongodb'),
-      ObjectId  = require('mongodb').ObjectID,
-      url       = require('url');
+  var node_module = app_require( 'services/module.config' );
 
-  exports.deleteCustomer = function( req, res, next ) {
-    var query = url.parse(req.url, true).query;
-    mongo.db( 'erp_moe3' )
-      .collection( 'customer' )
-      .remove({'_id': new ObjectId(query.id.toString())})
-      .then(function( customer ) {
-        res.json({response: 'success'});
-      });
+  exports.deleteOne = function( req, res, next ) {
+    var query = node_module.url.parse( req.url, true ).query;
+    node_module.mongoDB.db( node_module, 'erp_moe3' )
+    .then(function() {
+      node_module.Customer
+      .findByIdAndRemove( query.id, callBack );
+
+      function callBack( err, document) {
+        if (err) next(err);
+        res.json( 200, document );
+      }
+    });
   };
 }());

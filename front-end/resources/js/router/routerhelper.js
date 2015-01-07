@@ -70,19 +70,29 @@
                 'unknown target';
               var msg = 'Error routing to ' + destination + '. ' + (rejection.msg || '');
               logger.warning(msg, [current]);
-              $state.go( 'primay' );
+              $state.go( 'primary' );
             }
           );
         }
 
         function init() {
           handleRoutingErrors();
+          stateStartDocTitle();
           updateDocTitle();
         }
+
+        function stateStartDocTitle() {
+          $rootScope.$on('$stateChangeStart',
+          function(event, toState, toParams, fromState, fromParams) {
+          }
+        );
+      }
 
         function updateDocTitle() {
           $rootScope.$on('$stateChangeSuccess',
             function(event, toState, toParams, fromState, fromParams) {
+              if( ( toState.name === 'salesRepresentativeListing' || toState.name === 'customerList' ) && fromState.name.length !== 0 )
+                $window.location.reload();
               routeCounts.changes++;
               handlingRouteChangeError = false;
               var title = routehelperConfig.config.docTitle + ' ' + (toState.title || '');

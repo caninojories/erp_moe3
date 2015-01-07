@@ -5,45 +5,31 @@
   .module('app.customerRegistration')
   .controller('CustomerRegistration', CustomerRegistration);
 
-  CustomerRegistration.$inject = ['$q', 'customerRegistrationDataService'];
+  CustomerRegistration.$inject = ['$q', '$timeout', '$alertModal', 'formReset', 'customerRegistrationDataService'];
 
-  function CustomerRegistration( $q, customerRegistrationDataService ) {
+  function CustomerRegistration( $q, $timeout, $alertModal, formReset, customerRegistrationDataService ) {
     var vm = this;
 
     vm.registerCustomer = registerCustomer;
 
-    init();
-
-    function init() {
-      customerViewCallBack();
-    }
-
-    function customerView() {
-      return $q.all( [customerViewCallBack()])
+    function registerCustomer( form ) {
+      return $q.all( [registerCustomerCallBack()] )
         .then(function( response ) {
-          console.log( response );
-          return response;
-        });
-    }
-
-    function customerViewCallBack() {
-      return customerRegistrationDataService
-        .customerView( 'getCustomerView', {} )
-        .then(function( response ) {
-          return response;
-        });
-    }
-
-    function registerCustomer() {
-      return $q.all( registerCustomerCallBack() )
-        .then(function( response ) {
+          $alertModal.show( 'Success!!',  vm.firstName + ' ' + vm.lastName +  ' has been registered' );
+          formReset.setResetForm( vm );
+          vm.originForm = angular.copy(form);
+          vm.originForm.$setPristine();
+          $timeout(function() {
+            $alertModal.hide();
+          }, 2000);
           return response;
         });
     }
 
     function registerCustomerCallBack() {
       return customerRegistrationDataService
-        .saveCustomer( 'saveCustomer', {firstName: vm.firstName,
+        .httpPOST( 'customerRegistration', {
+          firstName: vm.firstName,
           lastName: vm.lastName,
           department: vm.department,
           position: vm.position,

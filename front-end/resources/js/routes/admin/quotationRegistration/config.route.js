@@ -2,8 +2,8 @@
   'use strict';
 
   angular
-  .module('app.quotationRegistration')
-  .run(appRun);
+    .module('app.quotationRegistration')
+    .run(appRun);
 
   function appRun(routehelper) {
     routehelper.configureRoutes(getRoutes());

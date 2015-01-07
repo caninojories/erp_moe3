@@ -107,6 +107,43 @@
     background-color: #335190;
   }
 }
+.collapse.am-collapse {
+  -webkit-animation-duration: 0.3s;
+  -moz-animation-duration: 0.3s;
+  -o-animation-duration: 0.3s;
+  -ms-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: ease;
+  -moz-animation-timing-function: ease;
+  -o-animation-timing-function: ease;
+  -ms-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-fill-mode: backwards;
+  -moz-animation-fill-mode: backwards;
+  -o-animation-fill-mode: backwards;
+  -ms-animation-fill-mode: backwards;
+  animation-fill-mode: backwards;
+  overflow: hidden;
+}
+.collapse.am-collapse.in-remove {
+  -webkit-animation-name: collapse;
+  -moz-animation-name: collapse;
+  -o-animation-name: collapse;
+  -ms-animation-name: collapse;
+  animation-name: collapse;
+  display: block;
+}
+.collapse.am-collapse.in-add {
+  -webkit-animation-name: expand;
+  -moz-animation-name: expand;
+  -o-animation-name: expand;
+  -ms-animation-name: expand;
+  animation-name: expand;
+}
+.editable-click,
+a.editable-click {
+  border-bottom: none;
+}
 @-moz-keyframes my_animation {
   0% {
     opacity: 0;
@@ -323,4 +360,10 @@ a.DTTT_button:hover {
 }
 .customerRegistration button {
   margin-bottom: 20px;
+}
+.quotationRegistration .addItem {
+  margin-bottom: 10px;
+}
+.quotationRegistration .delete {
+  margin-left: 3px;
 }

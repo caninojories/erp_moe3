@@ -1,7 +1,8 @@
 (function() {
   'use strict';
 
-  var node_module = app_require( 'services/module.config' );
+  var node_module = app_require( 'services/module.config' ),
+      url         = require( 'url' );
 
   exports.getSalesRepresentativeList = function ( req, res, next ) {
     node_module.mongoDB.db( node_module, 'erp_moe3' )
@@ -15,15 +16,18 @@
           res.status(200).send( documentList );
         }
       });
-    // mongo.db( 'erp_moe3' )
-    //   .collection( 'salesRepresentative' )
-    //   .find({})
-    //   .sort({firstName: -1})
-    //   .toArray()
-    //   .then(function( salesRepresentativeList ) {
-    //     console.log( salesRepresentativeList );
-    //     res.json( salesRepresentativeList );
-    //   });
-    // };
+  };
+
+  exports.getOne = function( req, res, next ) {
+    var query = url.parse(req.url, true).query;
+    node_module.mongoDB.db( node_module, 'erp_moe3' )
+      .then(function() {
+        node_module.SalesRep
+          .findById( query.id,  callBack );
+          function callBack( err, document) {
+            if (err) next(err);
+            res.json( 200, document );
+          }
+      });
   };
   })();

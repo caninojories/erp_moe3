@@ -26,18 +26,21 @@
 
       salesRepresentativeRegistration = require( './routes/admin/salesRepresentativeRegistration' ),
       salesRepresentativeListing      = require( './routes/admin/salesRepresentativeListing' ),
+      editSalesRepresentativeListing  = require( './routes/admin/salesRepresentativeListing/edit' ),
       customerRegistration            = require( './routes/admin/customerRegistration' ),
       customerList                    = require( './routes/admin/customerList' ),
-      customerEdit                    = require( './routes/admin/customerEdit' ),
-      quotationRegistration           = require('./routes/admin/quotationRegistration' ),
-      invoiceRegistration             = require('./routes/admin/invoiceRegistration' ),
+      editCustomerList                = require( './routes/admin/customerList/edit' ),
+      quotationRegistration           = require( './routes/admin/quotationRegistration' ),
+      quotationList                   = require( './routes/admin/quotationList' ),
+      invoiceRegistration             = require( './routes/admin/invoiceRegistration' ),
 
       salesRepresentativeRegistrationApi = require( './routes/restApi/API/salesRepresentativeRegistrationApi' ),
       salesRepresentativeListingApi      = require( './routes/restApi/API/salesRepresentativeListingApi' ),
 
       customerRegistrationApi            = require( './routes/restApi/API/customerRegistrationApi' ),
       customerListApi                    = require( './routes/restApi/API/customerListApi' ),
-      customerEditApi                    = require( './routes/restApi/API/customerEditApi' ),
+      quotationRegistrationApi           = require( './routes/restApi/API/quotationRegistrationApi' ),
+      quotationListApi                   = require( './routes/restApi/API/quotationListApi' ),
 
       emailTakenApi = require( './routes/restApi/API/strapApi' ),
       userSignUpApi = require( './routes/restApi/Api/strapApi' ),
@@ -67,17 +70,20 @@
     app.use( '/salesRepresentativeApi', salesRepresentativeListingApi );
     app.use( '/customerApi', customerRegistrationApi );
     app.use( '/customerApi', customerListApi );
-    app.use( '/customerApi', customerEditApi );
+    app.use( '/qoutationApi', quotationRegistrationApi );
+    app.use( '/quotationApi', quotationListApi );
     app.use( '/userApi', emailTakenApi );
     app.use( '/userApi', userSignUpApi);
     app.use( '/', sample );
     app.use( '/', primary );
     app.use( '/', salesRepresentativeRegistration );
     app.use( '/', salesRepresentativeListing );
+    app.use( '/', editSalesRepresentativeListing);
     app.use( '/', customerRegistration );
     app.use( '/', customerList );
-    app.use( '/', customerEdit);
+    app.use( '/', editCustomerList);
     app.use( '/', quotationRegistration );
+    app.use( '/', quotationList );
     app.use( '/', invoiceRegistration );
     app.use( '*', catchAll );
 

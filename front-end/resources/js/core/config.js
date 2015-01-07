@@ -7,7 +7,8 @@
       .config(configure)
       .config(toastrConfig)
       .config(loginConfig)
-      .run(google);
+      .run(google)
+      .run(xEditable);
 
     function toastrConfig(toastr) {
       toastr.options.timeOut = 4000;
@@ -21,7 +22,7 @@
     };
 
     function loginConfig( $authProvider, cfpLoadingBarProvider ) {
-      cfpLoadingBarProvider.latencyThreshold = 500;
+      cfpLoadingBarProvider.latencyThreshold = 100;
       $authProvider.loginUrl = 'http://localhost:3000/userApi/userLogIn';
       $authProvider.signupUrl = 'http://localhost:3000/userApi/userSignUp';
 
@@ -58,5 +59,9 @@
         var code = decodeURIComponent(pair[1]);
         $window.opener.postMessage( code, $window.location.origin );
       }
+    }
+
+    function xEditable( editableOptions ) {
+      editableOptions.theme = 'bs3';
     }
 })();

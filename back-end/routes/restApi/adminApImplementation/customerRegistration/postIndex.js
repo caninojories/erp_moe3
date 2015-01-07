@@ -3,7 +3,7 @@
 
   var node_module = app_require( 'services/module.config' );
 
-  exports.saveCustomer = function( req, res, next ) {
+  exports.post = function( req, res, next ) {
     node_module.mongoDB.db( node_module, 'erp_moe3' )
       .then(function() {
         var customer = node_module.Customer({
@@ -21,14 +21,11 @@
           paymentTerms: req.body.paymentTerms
         });
         return customer;
-      }).then(function( customer, handleEerror ){
-        console.log( 'Customer :' + customer );
+      }).then(function( customer, handleEerror ) {
         customer.save(function( err ) {
           if( err ) next( err );
 
-          res.status(200).send({
-            response: 'success'
-          });
+          res.status(200).send(customer);
         });
       });
   };

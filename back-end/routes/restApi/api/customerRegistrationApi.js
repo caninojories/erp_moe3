@@ -4,14 +4,12 @@
   var express = require('express'),
       app     = express(),
 
-      postCustomerRegistration = require( '../adminApImplementation/customerRegistration/postIndex.js' ),
-      getCustomerView          = require( '../adminApImplementation/customerRegistration/getIndex.js' );
-
-    app.route( '/saveCustomer' )
-      .post( postCustomerRegistration.saveCustomer );
-
-    app.route( '/getCustomerView' )
-      .get( getCustomerView.customerView );
+      POST_CustomerRegistration = require( '../adminApImplementation/customerRegistration/postIndex.js' ),
+      GET_CustomerRegistration  = require( '../adminApImplementation/customerRegistration/getIndex.js' );
+      
+    app.route( '/customerRegistration' )
+      .get( GET_CustomerRegistration.getOne )
+      .post( POST_CustomerRegistration.post );
 
     module.exports = app;
 }());

@@ -18,31 +18,35 @@
           || '<$ title $>' == 'quotationRegistration' || '<$ title $>' == 'invoiceRegistration'}">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">New Registrations <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li ng-class="{active : '<$ title $>' ==  'salesRepresentativeRegistration'}">
+            <li ui-sref-active="active">
               <a ui-sref='salesRepresentativeRegistration'>Sales Representative Registration</a>
             </li>
-            <li ng-class="{active : '<$ title $>' ==  'customerRegistration'}">
+            <li ui-sref-active="active">
               <a ui-sref='customerRegistration'>Customer Registration</a>
             </li>
-            <li ng-class="{active : '<$ title $>' ==  'quotationRegistration'}">
+            <li ui-sref-active="active">
               <a ui-sref='quotationRegistration'>Quotation Registration</a>
             </li>
-            <li ng-class="{active : '<$ title $>' ==  'invoiceRegistration'}">
+            <li ui-sref-active="active">
               <a ui-sref='invoiceRegistration'>Invoice Registration</a>
             </li>
           </ul>
         </li>
         <li class="dropdown" ng-class="{active : '<$ title $>' ==  'salesRepresentativeListing' ||
           '<$ title $>' == 'customerList'}">
+          <!-- ng-class="{active : '<$ title $>' ==  'salesRepresentativeListing' ||
+          '<$ title $>' == 'customerList'}" -->
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">View/Edit<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li ng-class="{active : '<$ title $>' ==  'salesRepresentativeListing'}">
               <a ui-sref='salesRepresentativeListing' target="_self">Sales Representative Listing</a>
             </li>
-            <li ng-class="{active : '<$ title $>' ==  'customerList'}">
-              <a ui-sref='customerList'>Customer Listing</a>
+            <li ui-sref-active="active">
+              <a ui-sref='customerList' target="_self">Customer Listing</a>
             </li>
-            <li><a href="#">Quotation Listing</a></li>
+            <li ui-sef-active="active">
+              <a ui-sref="quotationList" target="_self">Quotation Listing</a>
+            </li>
             <li><a href="#">Invoice Listing</a></li>
           </ul>
         </li>

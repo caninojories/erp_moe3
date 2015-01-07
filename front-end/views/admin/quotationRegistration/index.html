@@ -1,158 +1,194 @@
 
   {% include 'commons/header.html' %}
 
-  <div class='col-sm-12'>
-    <h2>Quotation <small>Registration.</small></h2>
-  </div>
-  <div class='container'>
-    <hr class="colorgraph">
-    <div class='col-sm-6'>
-      <div ng-controller="QuotationRegistration">
+  <div class="quotationRegistration">
+    <div class='col-sm-12'>
+      <h2>Quotation <small>Registration.</small></h2>
+    </div>
+    <div class='container'>
+      <hr class="colorgraph">
+      <div class='col-sm-6'>
+        <div ng-controller="QuotationRegistration">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
+                <input type="text" class="form-control input-sm" placeholder='Date' ng-model="selectedDate" name="date"
+                bs-datepicker data-date-format="dd-MMMM-yyyy" ng-model="vm.date">
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-6">
-            <p class="input-group">
-              <input type="text" class="form-control" placeholder='Date' datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="$parent.opened" ng-required="true" close-text="Close" />
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="vm.openDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-              </span>
-            </p>
+            <div class="form-group">
+              <input type="text" name="department" class="form-control input-sm" placeholder="Quotation Number" ng-model="vm.department">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="form-group">
-        <input type="text" name="department" class="form-control input-sm" placeholder="Quotation Number" tabindex="3">
-      </div>
-      <div class="form-group">
-        <input type="text" name="department" class="form-control input-sm" placeholder="Postal Code" tabindex="3">
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-          <div class="form-group">
-            <input type="text" name="salesRepresentative" class="form-control input-sm" placeholder="Sales Representative First Name" tabindex="3">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" name="department" class="form-control input-sm" placeholder="Postal Code" ng-model="vm.postalCode">
+            </div>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-6">
-          <div class="form-group">
-            <input type="text" name="salesRepresentative" class="form-control input-sm" placeholder="Sales Representative Last Name" tabindex="3">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class='col-sm-6'>
-      <div class="form-group">
-        <input type="text" name="saleOfficeAddress1" class="form-control input-sm" placeholder="Sales Office Address 1" tabindex="3">
-      </div>
-      <div class="form-group">
-        <input type="text" name="saleOfficeAddress2" class="form-control input-sm" placeholder="Sales Office Address 2" tabindex="3">
-      </div>
-      <div class="form-group">
-        <input type="text" name="saleOfficeAddress3" class="form-control input-sm" placeholder="Sales Office Address 3" tabindex="3">
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class='container-fluid'>
-    <div class='col-sm-12'>
-      <hr class="colorgraph">
-    </div>
-    <div class='row'>
-      <div class='col-sm-6'>
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
-              <input type="text" name="customerFirstName" class="form-control input-sm" placeholder="Customer First Name" tabindex="3">
+              <input type="text" name="salesRepresentative" class="form-control input-sm" placeholder="Sales Representative First Name" ng-model="vm.salesRepFirstName">
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
-              <input type="text" name="customerLastName" class="form-control input-sm" placeholder="Customer Last Name" tabindex="3">
+              <input type="text" name="salesRepresentative" class="form-control input-sm" placeholder="Sales Representative Last Name" ng-model="vm.salesRepLastName">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='col-sm-6'>
+        <div class="form-group">
+          <input type="text" name="salesOfficeAddress1" class="form-control input-sm" placeholder="Sales Office Address 1" ng-model="vm.salesOfficeAddress1">
+        </div>
+        <div class="form-group">
+          <input type="text" name="salesOfficeAddress2" class="form-control input-sm" placeholder="Sales Office Address 2" ng-model="vm.salesOfficeAddress2">
+        </div>
+        <div class="form-group">
+          <input type="text" name="salesOfficeAddress3" class="form-control input-sm" placeholder="Sales Office Address 3" ng-model="vm.salesOfficeAddress3">
+        </div>
+        <div class="form-group">
+          <input type="text" name="salesOfficePhoneNumber" class="form-control input-sm" placeholder="Sales Office Phone Number" ng-model="vm.salesOfficePhoneNumber">
+        </div>
+      </div>
+    </div>
+
+    <div class='container-fluid'>
+      <div class='col-sm-12'>
+        <hr class="colorgraph">
+      </div>
+      <div class='row'>
+        <div class='col-sm-6'>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <input type="text" name="customerFirstName" class="form-control input-sm" placeholder="Customer First Name" ng-model="vm.customerFirstName">
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <input type="text" name="customerLastName" class="form-control input-sm" placeholder="Customer Last Name" ng-model="vm.customerLastName">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-3'>
+          <div class="form-group">
+            <input type="text" name="subject" class="form-control input-sm" placeholder="Subject" ng-model="vm.subject">
+          </div>
+        </div>
+      </div>
+      <div class="row addItem">
+        <div class="col-sm-5 pull-right">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="..." ng-model="vm.itemTitle">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" ng-click="vm.addQuotation()">Add Item</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="panel-group" ng-model="panels.activePanel" bs-collapse>
+        <div class="panel panel-default" ng-repeat="quotation in vm.quotationList">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a bs-collapse-toggle>
+                <span ng-show="quotation.item.show">{{ quotation.item.name }}</span>
+                <a href="#" class="pull-right delete" ng-click="vm.deleteItem(quotation)">
+                  <button class="btn btn-xs btn-danger"><i class="ion-backspace"></i></button>
+                </a>
+                <a href="#" editable-text="quotation.item.name" class="pull-right" ng-click="vm.xEditable(quotation)"
+                onaftersave="vm.afterSave(quotation)"  oncancel="vm.cancel(quotation)">
+                  <button class="btn btn-xs btn-warning"><i class="ion-compose"></i></button>
+                </a>
+              </a>
+            </h4>
+          </div>
+          <div class="panel-collapse" bs-collapse-target>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <input type="number" name="quantity" class="form-control input-sm" placeholder="quantity" ng-model="vm.values['quantity_' + $index]">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <input type="number" name="unitPrice" class="form-control input-sm" placeholder="Price" ng-model="vm.values['unitPrice_' + $index]">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <input type="number" name="amount" class="form-control input-sm" placeholder="Amount" ng-model="vm.values['amount_' + $index]">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <input type="text" name="amount" class="form-control input-sm" placeholder="Status" ng-model="vm.values['status_' + $index]">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <input type="text" name="quantity" class="form-control input-sm" placeholder="Condition" ng-model="vm.values['condition_' + $index]">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <input type="text" name="unitPrice" class="form-control input-sm" placeholder="Remark" ng-model="vm.values['remark_' + $index]">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <input type="text" name="amount" class="form-control input-sm" placeholder="Degree Of Sales Progress" ng-model="vm.values['salesProgress_' + $index]">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <input type="text" name="amount" class="form-control input-sm" placeholder="SPOT or Continuation Flag" ng-model="vm.values['SPOT_' + $index]">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label>Note for Quotation</label>
+                    <textarea name='noteForQuotation' class="form-control" rows="5" ng-model="vm.values['noteForQuotation_' + $index]"></textarea>
+                  </div>
+                </div>
+                <div class='col-sm-4'>
+                  <div class="form-group">
+                    <label>Sales Representative Comment</label>
+                    <textarea name='comment' class="form-control" rows="5" placeholder='' ng-model="vm.values['comment_' + $index]"></textarea>
+                  </div>
+                </div>
+                <div class='col-sm-4'>
+                  <div class="form-group">
+                    <label>Sales Representative Note</label>
+                    <textarea name='note' class="form-control" rows="5" placeholder='' ng-model="vm.values['note_' + $index]"></textarea>
+                  </div>
+                </div>
+              </div
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class='row'>
-      <div class='col-sm-3'>
-        <div class="form-group">
-          <input type="text" name="subject" class="form-control input-sm" placeholder="Subject" tabindex="3">
-        </div>
-      </div>
-    </div>
-    <button type="button" class="btn btn-primary" ng-click='vm.addQuotation()'>
-      ADD Item in Quotation
-    </button>
-    <button type="button" class="btn btn-primary" ng-click='vm.saveQuotation()'>
-      Save
-    </button>
-    <div class="bs-example">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Quantity</th>
-            <th>
-              Unit Price
-              <select >
-                <option>Yen</option>
-                <option>USD</option>
-              </select>
-            </th>
-            <th>
-              Amount
-              <select >
-                <option>Yen</option>
-                <option>USD</option>
-              </select>
-            </th>
-            <th>Note for Quotation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat='quotation in vm.quotationList'>
-            <td>
-              <div class="form-group">
-                <input type="text" name="itemName"  class="form-control input-sm" placeholder="Name" ng-model="vm.values['item_' + $index]">
-              </div>
-            </td>
-            <td>
-              <div class="form-group">
-                <input type="number" name="quantity" class="form-control input-sm" placeholder="quantity" ng-model="vm.values['quantity_' + $index]">
-              </div>
-            </td>
-            <td>
-              <div class="form-group">
-                <input type="number" name="unitPrice" class="form-control input-sm" placeholder="Price" ng-model="vm.values['unitPrice_' + $index]">
-              </div>
-            </td>
-            <td>
-              <div class="form-group">
-                <input type="number" name="amount" class="form-control input-sm" placeholder="Amount" ng-model="vm.values['amount_' + $index]">
-              </div>
-            </td>
-            <td>
-              <div class="form-group">
-                <textarea name='noteForQuotation' class="form-control" rows="3" ng-model="vm.values['noteForQuotation_' + $index]"></textarea>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class=commentAndNote>
-    <div class='container'>
-      <div class='col-sm-6'>
-        <div class="form-group">
-          <textarea name='noteForQuotation' class="form-control" rows="5" placeholder='Comment by Sales Representative'></textarea>
-        </div>
-      </div>
-      <div class='col-sm-6'>
-        <div class="form-group">
-          <textarea name='noteForQuotation' class="form-control" rows="5" placeholder='Note by Sales Representative'></textarea>
-        </div>
-      </div>
+    <div class="pull-right">
+      <button type="button" class="btn btn-xs btn-primary" ng-click="vm.saveQuotation()">Save</button>
     </div>
   </div>
