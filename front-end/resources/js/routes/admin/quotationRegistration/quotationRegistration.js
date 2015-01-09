@@ -14,7 +14,7 @@
     /***
      ** String Literals
      ***/
-
+    vm.selectedDate = new Date();
 
     /***
     ** Functions and Arrays
@@ -26,10 +26,10 @@
     vm.openDate        = openDate;
     vm.saveQuotation   = saveQuotation;
     vm.xEditable       = xEditable;
-    vm.quotationList   = [];
+    vm.quotationRegistrationList = [];
 
     function addQuotation() {
-      vm.quotationList.push({
+      vm.quotationRegistrationList.push({
         item: {
           name: vm.itemTitle || 'item',
           show: true
@@ -60,8 +60,8 @@
     }
 
     function deleteItem( quotation ) {
-      var position = vm.quotationList.indexOf(quotation);
-      vm.quotationList.splice( position, 1 );
+      var position = vm.quotationRegistrationList.indexOf(quotation);
+      vm.quotationRegistrationList.splice( position, 1 );
     }
 
     function openDate($event) {
@@ -75,10 +75,11 @@
     }
 
     function saveQuotation() {
-      vm.tempQuotationList = angular.copy(vm.quotationList);
-      for(var i = 0; i < vm.quotationList.length; i++) {
+      vm.tempQuotationList = angular.copy( vm.quotationRegistrationList );
+      for(var i = 0; i < vm.quotationRegistrationList.length; i++) {
         try {
-          vm.tempQuotationList[i].quantity = vm.values['quantity_' + i.toString()];
+          vm.tempQuotationList[i].item.name = vm.quotationRegistrationList[i].item.name;
+          vm.tempQuotationList[i].quantity  = vm.values['quantity_' + i.toString()];
           vm.tempQuotationList[i].unitPrice = vm.values['unitPrice_' + i.toString()];
           vm.tempQuotationList[i].amount    = vm.values['amount_' + i.toString()];
           vm.tempQuotationList[i].status    = vm.values['status_' + i.toString()];
@@ -95,7 +96,7 @@
           exception.catcher( 'Exception Module: try catch solution: ' + error );
         }
       }
-      // console.log( vm.tempQuotationList );
+
       return $q.all( [saveQuotationCallBack()] )
         .then(function( response ) {
           console.log( response );
@@ -104,9 +105,10 @@
     }
 
     function saveQuotationCallBack() {
+      console.log( vm.selectedDate );
       return quotationRegistrationDataService
         .httpPOST( 'quotationRegistration', {
-          date: vm.date,
+          date: vm.selectedDate,
           department: vm.department,
           postalCode: vm.postalCode,
           salesRepFirstName: vm.salesRepFirstName,
@@ -117,7 +119,7 @@
           salesOfficePhoneNumber: vm.salesOfficePhoneNumber,
           customerFirstName: vm.customerFirstName,
           customerLastName: vm.customerLastName,
-          title: vm.itemTitle,
+          subject: vm.subject,
           quotationObj: vm.tempQuotationList
         })
         .then(function( response ) {

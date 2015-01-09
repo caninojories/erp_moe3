@@ -4,7 +4,7 @@
   var mongoose = require( 'mongoose' );
 
   var QuotationSchema = new mongoose.Schema({
-    date: String,
+    date: Date,
     department: String,
     postalCode: Number,
     salesRepFirstName: String,
@@ -15,18 +15,8 @@
     salesOfficePhoneNumber: Number,
     customerFirstName: String,
     customerLastName: String,
-    title: String,
-    quantity: String,
-    unitPrice: String,
-    amount: Number,
-    status: String,
-    condition: String,
-    remark: String,
-    salesProgress: String,
-    spot: String,
-    noteForQuotation: String,
-    comment: String,
-    note: String
+    subject: String,
+    item: Array
   });
 
   module.exports = mongoose.model( 'Quotation', QuotationSchema );

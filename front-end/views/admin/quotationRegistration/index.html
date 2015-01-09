@@ -11,10 +11,12 @@
         <div ng-controller="QuotationRegistration">
           <div class="row">
             <div class="col-md-6">
-              <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
-                <input type="text" class="form-control input-sm" placeholder='Date' ng-model="selectedDate" name="date"
-                bs-datepicker data-date-format="dd-MMMM-yyyy" ng-model="vm.date">
-              </div>
+              <form name="datepickerForm" class="form-group" role="form">
+                <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
+                  <input type="text" class="form-control input-sm" placeholder='Date' ng-model="vm.selectedDate" name="date"
+                  bs-datepicker data-date-format="MMMM-dd-yyyy">
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -102,7 +104,7 @@
 
     <div class="container-fluid">
       <div class="panel-group" ng-model="panels.activePanel" bs-collapse>
-        <div class="panel panel-default" ng-repeat="quotation in vm.quotationList">
+        <div class="panel panel-default" ng-repeat="quotation in vm.quotationRegistrationList">
           <div class="panel-heading">
             <h4 class="panel-title">
               <a bs-collapse-toggle>

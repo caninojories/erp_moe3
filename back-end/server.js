@@ -32,6 +32,7 @@
       editCustomerList                = require( './routes/admin/customerList/edit' ),
       quotationRegistration           = require( './routes/admin/quotationRegistration' ),
       quotationList                   = require( './routes/admin/quotationList' ),
+      editQuotationList               = require( './routes/admin/quotationList/edit' ),
       invoiceRegistration             = require( './routes/admin/invoiceRegistration' ),
 
       salesRepresentativeRegistrationApi = require( './routes/restApi/API/salesRepresentativeRegistrationApi' ),
@@ -71,7 +72,7 @@
     app.use( '/customerApi', customerRegistrationApi );
     app.use( '/customerApi', customerListApi );
     app.use( '/qoutationApi', quotationRegistrationApi );
-    app.use( '/quotationApi', quotationListApi );
+    app.use( '/qoutationApi', quotationListApi );
     app.use( '/userApi', emailTakenApi );
     app.use( '/userApi', userSignUpApi);
     app.use( '/', sample );
@@ -84,6 +85,7 @@
     app.use( '/', editCustomerList);
     app.use( '/', quotationRegistration );
     app.use( '/', quotationList );
+    app.use( '/', editQuotationList );
     app.use( '/', invoiceRegistration );
     app.use( '*', catchAll );
 

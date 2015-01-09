@@ -91,7 +91,9 @@
         function updateDocTitle() {
           $rootScope.$on('$stateChangeSuccess',
             function(event, toState, toParams, fromState, fromParams) {
-              if( ( toState.name === 'salesRepresentativeListing' || toState.name === 'customerList' ) && fromState.name.length !== 0 )
+              if( ( toState.name === 'salesRepresentativeListing' ||
+                toState.name === 'customerList' || toState.name === 'quotationList' ) && 
+                fromState.name.length !== 0 )
                 $window.location.reload();
               routeCounts.changes++;
               handlingRouteChangeError = false;

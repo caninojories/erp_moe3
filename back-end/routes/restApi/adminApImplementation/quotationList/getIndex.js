@@ -8,7 +8,7 @@
       .then(function() {
         node_module.Quotation
           .find()
-          .sort({firstName: 1})
+          // .sort({firstName: 1})
           .exec( documents );
 
           function documents( handleError, documentList ) {

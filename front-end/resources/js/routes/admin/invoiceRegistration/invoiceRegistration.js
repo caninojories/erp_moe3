@@ -40,7 +40,6 @@
           amount: vm.amount,
           noteForInvoice: vm.noteForInvoice
         });
-        console.log( vm.quotationList );
       }
 
       function saveInvoice() {

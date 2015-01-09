@@ -9,7 +9,7 @@
     return Restangular.all( 'customerApi');
   })
   .factory( 'quotationServiceApi', function( Restangular ) {
-    return Restangular.all( 'qoutationApi' );
+    return Restangular.all( 'quotationApi' );
   })
   .factory( 'userServiceApi', function( Restangular ) {
     return Restangular.all( 'userApi' );
