@@ -84,6 +84,9 @@
         function stateStartDocTitle() {
           $rootScope.$on('$stateChangeStart',
           function(event, toState, toParams, fromState, fromParams) {
+            if( ( toState.name === 'salesRepresentativeListing' ||
+              toState.name === 'customerList' || toState.name === 'quotationList' ) &&
+              fromState.name.length !== 0 ) $rootScope.showContent = false;
           }
         );
       }
@@ -91,10 +94,16 @@
         function updateDocTitle() {
           $rootScope.$on('$stateChangeSuccess',
             function(event, toState, toParams, fromState, fromParams) {
+              console.log( angular.element('body').css('opacity', '1') );
+
               if( ( toState.name === 'salesRepresentativeListing' ||
-                toState.name === 'customerList' || toState.name === 'quotationList' ) && 
-                fromState.name.length !== 0 )
-                $window.location.reload();
+                toState.name === 'customerList' || toState.name === 'quotationList' ) &&
+                fromState.name.length !== 0 ) {
+                  $window.location.reload();
+                } else {
+                  $rootScope.showContent = true;
+                }
+
               routeCounts.changes++;
               handlingRouteChangeError = false;
               var title = routehelperConfig.config.docTitle + ' ' + (toState.title || '');

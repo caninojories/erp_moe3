@@ -5,7 +5,7 @@
 
   var QuotationSchema = new mongoose.Schema({
     date: Date,
-    department: String,
+    quotationNumber: String,
     postalCode: Number,
     salesRepFirstName: String,
     salesRepLastName : String,

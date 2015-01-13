@@ -16,8 +16,14 @@
           url: '/salesRepresentativeListing',
           templateUrl: '/admin/salesRepresentativeListing/index.html',
           controller: 'SalesRepresentativeListing as vm',
-          title: 'SalesRepresentativeListing'
-        }
+          title: 'SalesRepresentativeListing',
+          resolve: {
+            reload: function( $rootScope ) {
+              $rootScope.showContent = false;
+              return;
+            }
+          }
+        },
       }, {
         state: 'editSalesRepresentativeListing',
         config: {

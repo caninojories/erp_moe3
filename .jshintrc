@@ -22,6 +22,7 @@
   "predef"   : [
     "app_require",
     "angular",
+    "compatible-vendor-prefixes",
     "moment",
     "toastr",
     "jcaLayout"

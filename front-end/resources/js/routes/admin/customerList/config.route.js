@@ -17,6 +17,12 @@
           templateUrl: '/admin/customerList/index.html',
           controller: 'CustomerList as vm',
           title: 'Customer List',
+          resolve: {
+            reload: function( $rootScope ) {
+              $rootScope.showContent = false;
+              return;
+            }
+          }
         }
       }, {
         state: 'editCustomerList',

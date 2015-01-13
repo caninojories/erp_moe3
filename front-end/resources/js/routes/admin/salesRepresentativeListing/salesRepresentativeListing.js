@@ -6,10 +6,10 @@
   .controller( 'SalesRepresentativeListing', SalesRepresentativeListing );
 
   SalesRepresentativeListing.$inject = [ '$q', '$compile', '$filter', '$rootScope', '$scope', '$state', '$timeout', 'Restangular',
-    'DTOptionsBuilder', 'DTColumnBuilder', 'salesRepresentativeListingDataService' ];
+    'DTOptionsBuilder', 'DTColumnBuilder', 'reload', 'salesRepresentativeListingDataService' ];
 
   function SalesRepresentativeListing( $q, $compile, $filter, $rootScope, $scope, $state, $timeout, Restangular,
-    DTOptionsBuilder, DTColumnBuilder, salesRepresentativeListingDataService ) {
+    DTOptionsBuilder, DTColumnBuilder, reload, salesRepresentativeListingDataService ) {
 
     $scope.delete = function(id) {
       $q.all( [deleteCallBack(id)] )

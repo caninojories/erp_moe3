@@ -27,7 +27,7 @@
         });
       }
 
-      $scope.dtOptions = DTOptionsBuilder.fromSource( 'http://localhost:3000/qoutationApi/quotationList' )
+      $scope.dtOptions = DTOptionsBuilder.fromSource( 'http://localhost:3000/quotationApi/quotationList' )
       .withTableTools('/js/vendor/table-tools/swf/copy_csv_xls_pdf.swf')
       .withTableToolsButtons([
         'copy',
@@ -58,7 +58,7 @@
             var date = moment( data.date ).format('LL');
             return date;
           }),
-        DTColumnBuilder.newColumn('department').withTitle('Department').notSortable(),
+        DTColumnBuilder.newColumn('quotationNumber').withTitle('Number').notSortable(),
         DTColumnBuilder.newColumn('postalCode').withTitle('Postal Code').notSortable(),
         DTColumnBuilder.newColumn('salesRepFirstName').withTitle('Sale Representative First Name').notSortable(),
         DTColumnBuilder.newColumn('salesRepLastName').withTitle('Sale Representative Last Name').notSortable(),
@@ -75,7 +75,7 @@
             data.item.forEach(function( obj ) {
               objArray.push( '<a href="#" class=quotationItem>' + obj.item.name + '</a>');
             });
-            return objArray.join('\n');
+            return objArray.join('</br>');
           }),
         ];
     }

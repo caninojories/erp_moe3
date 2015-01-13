@@ -10,7 +10,7 @@
 
     function CustomerList( $q, $compile, $scope, Restangular, DTOptionsBuilder, DTColumnBuilder, customerDataService ) {
       var vm = this;
-
+      console.log( ((3 + 1) / 3) * 6 );
       $scope.delete = function(id) {
         $q.all( [deleteCallBack(id)] )
         .then(function( response ) {

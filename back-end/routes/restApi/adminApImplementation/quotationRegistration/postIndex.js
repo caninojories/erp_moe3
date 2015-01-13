@@ -11,7 +11,7 @@
       .then(function() {
         var quotation = node_module.Quotation({
           date: req.body.date || '',
-          department: req.body.department || '',
+          quotationNumber: req.body.quotationNumber || '',
           postalCode: req.body.postalCode || '',
           salesRepFirstName: req.body.salesRepFirstName || '',
           salesRepLastName : req.body.salesRepLastName || '',

@@ -109,7 +109,7 @@
       return quotationRegistrationDataService
         .httpPOST( 'quotationRegistration', {
           date: vm.selectedDate,
-          department: vm.department,
+          quotationNumber: vm.quotationNumber,
           postalCode: vm.postalCode,
           salesRepFirstName: vm.salesRepFirstName,
           salesRepLastName : vm.salesRepLastName,

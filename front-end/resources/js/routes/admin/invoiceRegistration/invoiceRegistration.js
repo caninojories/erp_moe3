@@ -14,13 +14,7 @@
       vm.addInvoice     = addInvoice;
       vm.saveInvoice    = saveInvoice;
 
-      vm.invoiceList = [{
-        item: vm.item,
-        quantity: vm.quantity,
-        unitPrice: vm.unitPrice,
-        amount: vm.amount,
-        noteForInvoice: vm.noteForInvoice
-      }];
+      vm.invoiceList = [];
 
       function openDate($event) {
         $event.preventDefault();
@@ -34,12 +28,24 @@
 
       function addInvoice() {
         vm.invoiceList.push({
-          item: '',
+          item: {
+            name: vm.itemTitle || 'item',
+            show: true
+          },
           quantity: vm.quantity,
           unitPrice: vm.unitPrice,
           amount: vm.amount,
-          noteForInvoice: vm.noteForInvoice
+          status: vm.status,
+          condition: vm.condition,
+          remark: vm.remark,
+          salesProgress: vm.salesProgress,
+          SPOT: vm.SPOT,
+          noteForQuotation: vm.noteForQuotation,
+          comment: vm.comment,
+          note: vm.note
         });
+
+        vm.itemTitle = '';
       }
 
       function saveInvoice() {

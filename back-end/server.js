@@ -71,8 +71,8 @@
     app.use( '/salesRepresentativeApi', salesRepresentativeListingApi );
     app.use( '/customerApi', customerRegistrationApi );
     app.use( '/customerApi', customerListApi );
-    app.use( '/qoutationApi', quotationRegistrationApi );
-    app.use( '/qoutationApi', quotationListApi );
+    app.use( '/quotationApi', quotationRegistrationApi );
+    app.use( '/quotationApi', quotationListApi );
     app.use( '/userApi', emailTakenApi );
     app.use( '/userApi', userSignUpApi);
     app.use( '/', sample );

@@ -1,3 +1,220 @@
+.customerRegistration button {
+  margin-bottom: 20px;
+}
+.quotationRegistration .addItem {
+  margin-bottom: 10px;
+}
+.quotationRegistration .delete {
+  margin-left: 3px;
+}
+@font-face {
+  font-family: 'gothic';
+  src: url("/fonts/gothic/webfonts/leaguegothic-regular-webfont.eot");
+  src: url("/fonts/gothic/webfonts/leaguegothic-regular-webfont.eot?#iefix") format('embedded-opentype'), url("/fonts/gothic/webfonts/leaguegothic-regular-webfont.woff") format('woff'), url("/fonts/gothic/webfonts/leaguegothic-regular-webfont.ttf") format('truetype'), url("/fonts/gothic/webfonts/leaguegothic-regular-webfont.svg#gothic") format('svg');
+}
+@font-face {
+  font-family: 'josefinslab-light';
+  src: url("/fonts/josefinfull/josefinslab-light-webfont.eot");
+  src: url("/fonts/josefinfull/josefinslab-light-webfont.eot?#iefix") format('embedded-opentype'), url("/fonts/josefinfull/josefinslab-light-webfont.woff") format('woff'), url("/fonts/josefinfull/josefinslab-light-webfont.ttf") format('truetype'), url("/fonts/josefinfull/josefinslab-light-webfont.svg#josefinslab-Light") format('svg');
+}
+@font-face {
+  font-family: 'josefinslab-bold';
+  src: url("/fonts/josefinfull/josefinslab-bold-webfont.eot");
+  src: url("/fonts/josefinfull/josefinslab-bold-webfont.eot?#iefix") format('embedded-opentype'), url("/fonts/josefinfull/josefinslab-bold-webfont.woff") format('woff'), url("/fonts/josefinfull/josefinslab-bold-webfont.ttf") format('truetype'), url("/fonts/josefinfull/josefinslab-bold-webfont.svg#josefinslab-bold") format('svg');
+}
+@font-face {
+  font-family: 'josefinslab-regular';
+  src: url("/fonts/josefinfull/josefinslab-regular-webfont.eot");
+  src: url("/fonts/josefinfull/josefinslab-regular-webfont.eot?#iefix") format('embedded-opentype'), url("/fonts/josefinfull/josefinslab-regular-webfont.woff") format('woff'), url("/fonts/josefinfull/josefinslab-regular-webfont.ttf") format('truetype'), url("/fonts/josefinfull/josefinslab-regular-webfont.svg#josefinslab-regular") format('svg');
+}
+@font-face {
+  font-family: 'SFCartoonistHandSCRegular';
+  src: url("/fonts/cartoonist/SF_Cartoonist_Hand-webfont.eot");
+  src: url("/fonts/cartoonist/SF_Cartoonist_Hand-webfont.eot?#iefix") format('embedded-opentype'), url("/fonts/cartoonist/SF_Cartoonist_Hand-webfont.woff") format('woff'), url("/fonts/cartoonist/SF_Cartoonist_Hand-webfont.ttf") format('truetype'), url("/fonts/cartoonist/SF_Cartoonist_Hand-webfont.svg#SFCartoonistHandSCRegular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.invoiceRegistration label {
+  font-family: SFCartoonistHandSCRegular;
+  font-size: 16px;
+  color: #5f5c5c;
+}
+.invoiceRegistration label.gothic {
+  font-family: gothic;
+  font-size: 22px;
+  color: #428bca;
+}
+.invoiceRegistration .header {
+  font-family: gothic;
+  font-size: 3em;
+  color: #428bca;
+}
+.invoiceRegistration button.gothic {
+  font-family: SFCartoonistHandSCRegular;
+  font-weight: 900;
+  color: #428bca;
+}
+.invoiceRegistration input {
+  font-family: josefinslab-bold;
+  font-size: 16px;
+  font-weight: 900;
+  color: #333;
+}
+.invoiceRegistration textarea {
+  font-family: josefinslab-bold;
+  font-size: 16px;
+  font-weight: 900;
+  color: #333;
+}
+.invoiceRegistration .addItem {
+  margin-bottom: 10px;
+}
+.invoiceRegistration .save {
+  margin-bottom: 10px;
+}
+.invoiceRegistration .delete {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.invoiceRegistration .am-collapse {
+  -webkit-animation-duration: 0.3s !important;
+  -moz-animation-duration: 0.3s !important;
+  -o-animation-duration: 0.3s !important;
+  -ms-animation-duration: 0.3s !important;
+  animation-duration: 0.3s !important;
+  -webkit-animation-timing-function: ease !important;
+  -moz-animation-timing-function: ease !important;
+  -o-animation-timing-function: ease !important;
+  -ms-animation-timing-function: ease !important;
+  animation-timing-function: ease !important;
+  -webkit-animation-fill-mode: backwards !important;
+  -moz-animation-fill-mode: backwards !important;
+  -o-animation-fill-mode: backwards !important;
+  -ms-animation-fill-mode: backwards !important;
+  animation-fill-mode: backwards !important;
+  overflow: hidden !important;
+}
+.invoiceRegistration .am-collapse {
+  overflow: visible;
+}
+.invoiceRegistration .panel-title > a {
+  font-family: josefinslab-bold;
+  color: #428bca;
+  text-decoration: none;
+}
+.invoiceRegistration .panel-title > a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.editable-click,
+a.editable-click {
+  border-bottom: none;
+}
+.colorgraph {
+  height: 2px;
+  border-top: 0;
+  background: #357ebd;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+button.DTTT_button,
+div.DTTT_button,
+a.DTTT_button {
+  position: relative;
+  display: inline-block;
+  margin-right: 3px;
+  padding: 5px 8px;
+  border: 1px solid #999;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff !important;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 3px #ccc;
+  box-shadow: 1px 1px 3px #ccc;
+  background: #fff;
+  background: -webkit-linear-gradient(top, #d9534f 0%, #d9534f 89%, #d9534f 100%);
+  background: -moz-linear-gradient(top, #d9534f 0%, #d9534f 89%, #d9534f 100%);
+  background: -o-linear-gradient(top, #d9534f 0%, #d9534f 89%, #d9534f 100%);
+  background: -ms-linear-gradient(top, #d9534f 0%, #d9534f 89%, #d9534f 100%);
+  background: linear-gradient(to bottom, #d9534f 0%, #d9534f 89%, #d9534f 100%);
+}
+button.DTTT_button:hover,
+div.DTTT_button:hover,
+a.DTTT_button:hover {
+  background: -webkit-linear-gradient(top, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
+  background: -moz-linear-gradient(top, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
+  background: -o-linear-gradient(top, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
+  background: -ms-linear-gradient(top, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
+  background: linear-gradient(to bottom, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
+}
+.dataTables_paginate .disabled {
+  color: #777 !important;
+  border: 1px solid #ddd !important;
+  cursor: not-allowed !important;
+}
+.dataTables_filter {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.dataTables_filter label {
+  display: inline;
+}
+.dataTables_filter label input[type=search] {
+  display: inline;
+  height: 30px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  margin-left: 5px;
+  color: #555;
+  background-color: #fff;
+sfss
+  background-image: none;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  -webkit-transition: 0.5s ease-in-out all;
+  -moz-transition: 0.5s ease-in-out all;
+  -o-transition: 0.5s ease-in-out all;
+  -ms-transition: 0.5s ease-in-out all;
+  transition: 0.5s ease-in-out all;
+}
+.dataTables_filter label input[type=search]:focus {
+  border-color: #66afe9;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.075) inset, 0 0 8px rgba(102,175,233,0.6);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.075) inset, 0 0 8px rgba(102,175,233,0.6);
+  outline: 0 none;
+}
+.dataTables_paginate {
+  float: right;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.dataTables_paginate .previous {
+  display: inline;
+  padding: 10px;
+  text-decoration: none;
+}
+.dataTables_paginate .paginate_button {
+  display: inline;
+  padding: 10px;
+  border: 1px solid #428bca;
+  cursor: pointer;
+  text-decoration: none;
+}
+.dataTables_paginate .current {
+  display: inline;
+  padding: 10px;
+  color: #fff;
+  cursor: default;
+  background-color: #428bca;
+  border: 1px solid #428bca;
+  text-decoration: none;
+}
 .ui-view-container {
   position: relative;
 }
@@ -107,43 +324,6 @@
     background-color: #335190;
   }
 }
-.collapse.am-collapse {
-  -webkit-animation-duration: 0.3s;
-  -moz-animation-duration: 0.3s;
-  -o-animation-duration: 0.3s;
-  -ms-animation-duration: 0.3s;
-  animation-duration: 0.3s;
-  -webkit-animation-timing-function: ease;
-  -moz-animation-timing-function: ease;
-  -o-animation-timing-function: ease;
-  -ms-animation-timing-function: ease;
-  animation-timing-function: ease;
-  -webkit-animation-fill-mode: backwards;
-  -moz-animation-fill-mode: backwards;
-  -o-animation-fill-mode: backwards;
-  -ms-animation-fill-mode: backwards;
-  animation-fill-mode: backwards;
-  overflow: hidden;
-}
-.collapse.am-collapse.in-remove {
-  -webkit-animation-name: collapse;
-  -moz-animation-name: collapse;
-  -o-animation-name: collapse;
-  -ms-animation-name: collapse;
-  animation-name: collapse;
-  display: block;
-}
-.collapse.am-collapse.in-add {
-  -webkit-animation-name: expand;
-  -moz-animation-name: expand;
-  -o-animation-name: expand;
-  -ms-animation-name: expand;
-  animation-name: expand;
-}
-.editable-click,
-a.editable-click {
-  border-bottom: none;
-}
 @-moz-keyframes my_animation {
   0% {
     opacity: 0;
@@ -231,139 +411,4 @@ a.editable-click {
     -ms-transform: translateX(0) rotateX(0deg);
     transform: translateX(0) rotateX(0deg);
   }
-}
-.colorgraph {
-  height: 2px;
-  border-top: 0;
-  background: #c4e17f;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: -ms-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
-}
-#DataTables_Table_0_filter label {
-  display: inline;
-}
-#DataTables_Table_0_filter label input[type=search] {
-  display: inline;
-  height: 30px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  margin-left: 5px;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-  -webkit-transition: 0.5s ease-in-out all;
-  -moz-transition: 0.5s ease-in-out all;
-  -o-transition: 0.5s ease-in-out all;
-  -ms-transition: 0.5s ease-in-out all;
-  transition: 0.5s ease-in-out all;
-}
-#DataTables_Table_0_filter label input[type=search]:focus {
-  border-color: #66afe9;
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.075) inset, 0 0 8px rgba(102,175,233,0.6);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.075) inset, 0 0 8px rgba(102,175,233,0.6);
-  outline: 0 none;
-}
-div#DataTables_Table_0_filter.dataTables_filter {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.dataTables_paginate paging_simple_numbers {
-  margin-top: 50px;
-}
-#DataTables_Table_0_paginate {
-  float: right;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-#DataTables_Table_0_paginate #DataTables_Table_0_previous {
-  display: inline;
-  padding: 10px;
-  text-decoration: none;
-}
-#DataTables_Table_0_paginate .paginate_button {
-  display: inline;
-  padding: 10px;
-  border: 1px solid #428bca;
-  cursor: pointer;
-  text-decoration: none;
-}
-#DataTables_Table_0_paginate .current {
-  display: inline;
-  padding: 10px;
-  color: #fff;
-  cursor: default;
-  background-color: #428bca;
-  border: 1px solid #428bca;
-  text-decoration: none;
-}
-a#DataTables_Table_0_previous.paginate_button.previous.disabled {
-  color: #777;
-  border: 1px solid #ddd;
-  cursor: not-allowed;
-}
-a#DataTables_Table_0_next.paginate_button.next.disabled {
-  color: #777;
-  border: 1px solid #ddd;
-  cursor: not-allowed;
-}
-button.DTTT_button,
-div.DTTT_button,
-a.DTTT_button {
-  position: relative;
-  display: inline-block;
-  margin-right: 3px;
-  padding: 5px 8px;
-  border: 1px solid #999;
-  cursor: pointer;
-  *cursor: hand;
-  font-size: 14px;
-  font-weight: 400;
-  color: #fff !important;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-box-shadow: 1px 1px 3px #ccc;
-  -moz-box-shadow: 1px 1px 3px #ccc;
-  -ms-box-shadow: 1px 1px 3px #ccc;
-  -o-box-shadow: 1px 1px 3px #ccc;
-  -webkit-box-shadow: 1px 1px 3px #ccc;
-  box-shadow: 1px 1px 3px #ccc;
-  background: #fff;
-  background: -webkit-linear-gradient(top, #d9534f 0%, #d9534f 89%, #d9534f 100%);
-  background: -moz-linear-gradient(top, #d9534f 0%, #d9534f 89%, #d9534f 100%);
-  background: -o-linear-gradient(top, #d9534f 0%, #d9534f 89%, #d9534f 100%);
-  background: -ms-linear-gradient(top, #d9534f 0%, #d9534f 89%, #d9534f 100%);
-  background: linear-gradient(to bottom, #d9534f 0%, #d9534f 89%, #d9534f 100%);
-}
-button.DTTT_button:hover,
-div.DTTT_button:hover,
-a.DTTT_button:hover {
-  background: -webkit-linear-gradient(top, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
-  background: -moz-linear-gradient(top, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
-  background: -o-linear-gradient(top, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
-  background: -ms-linear-gradient(top, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
-  background: linear-gradient(to bottom, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
-}
-.customerRegistration button {
-  margin-bottom: 20px;
-}
-.quotationRegistration .addItem {
-  margin-bottom: 10px;
-}
-.quotationRegistration .delete {
-  margin-left: 3px;
 }

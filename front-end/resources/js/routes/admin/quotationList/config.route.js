@@ -16,7 +16,13 @@
           url: '/quotationList',
           templateUrl: '/admin/quotationList/index.html',
           controller: 'QuotationList as vm',
-          title: 'Quotation List'
+          title: 'Quotation List',
+          resolve: {
+            reload: function( $rootScope ) {
+              $rootScope.showContent = false;
+              return;
+            }
+          }
         }
       }, {
         state: 'editQuotationList',

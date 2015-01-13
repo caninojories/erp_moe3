@@ -1,1 +1,257 @@
-SAMPLE QUOATIONLIST EDIT
+
+{% include 'commons/header.html' %}
+
+<div class="quotationRegistration">
+  <div class='col-sm-12'>
+    <h2>Quotation <small>Registration.</small></h2>
+  </div>
+  <div class='container'>
+    <hr class="colorgraph">
+    <div class='col-sm-6'>
+      <div ng-controller="QuotationRegistration">
+        <div class="row">
+          <div class="col-md-6">
+            <form name="datepickerForm" class="form-group" role="form">
+              <label> Date </label>
+              <a ng-disabled="true" class="col-xs-12">
+                {{ vm.selectedDate | date:"MMMM-dd-yyyy" }}
+              </a>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label> Number </label>
+            <div class="col-xs-12">
+              <a href="#" editable-text="vm.quotationNumber" onbeforesave="vm.updateQuotation('quotationNumber', $data)"
+              ng-model="vm.quotationNumber">{{vm.quotationNumber || 'empty'}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label> Postal Code </label>
+            <div class="col-xs-12">
+              <a href="#" editable-text="vm.postalCode" onbeforesave="vm.updateQuotation('postalCode', $data)"
+              ng-model="vm.postalCode">{{vm.postalCode || 'empty'}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="form-group">
+            <label> Sales Representative First Name </label>
+            <div class="col-xs-12">
+              <a href="#" editable-text="vm.salesRepFirstName" onbeforesave="vm.updateQuotation('salesRepFirstName', $data)"
+              ng-model="vm.salesRepFirstName">{{vm.salesRepFirstName || 'empty'}}</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="form-group">
+            <label> Sales Representative Last Name </label>
+            <div class="col-xs-12">
+              <a href="#" editable-text="vm.salesRepLastName" onbeforesave="vm.updateQuotation('salesRepLastName', $data)"
+              ng-model="vm.salesRepLastName">{{vm.salesRepLastName || 'empty'}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='col-sm-6'>
+      <div class="form-group">
+        <label> Sales Office Address 1 </label>
+        <div class="col-xs-12">
+          <a href="#" editable-textarea="vm.salesOfficeAddress1" onbeforesave="vm.updateQuotation('salesOfficeAddress1', $data)"
+          ng-model="vm.salesOfficeAddress1">{{vm.salesOfficeAddress1 || 'empty'}}</a>
+        </div>
+      </div>
+      <div class="form-group">
+        <label> Sales Office Address 2 </label>
+        <div class="col-xs-12">
+          <a href="#" editable-textarea="vm.salesOfficeAddress2" onbeforesave="vm.updateQuotation('salesOfficeAddress2', $data)"
+          ng-model="vm.salesOfficeAddress2">{{vm.salesOfficeAddress2 || 'empty'}}</a>
+        </div>
+      </div>
+      <div class="form-group">
+        <label> Sales Office Address 3 </label>
+        <div class="col-xs-12">
+          <a href="#" editable-textarea="vm.salesOfficeAddress3" onbeforesave="vm.updateQuotation('salesOfficeAddress3', $data)"
+          ng-model="vm.salesOfficeAddress3">{{vm.salesOfficeAddress3 || 'empty'}}</a>
+        </div>
+      </div>
+      <div class="form-group">
+        <label> Sales Office Phone Number </label>
+        <div class="col-xs-12">
+          <a href="#" editable-text="vm.salesOfficePhoneNumber" onbeforesave="vm.updateQuotation('salesOfficePhoneNumber', $data)"
+          ng-model="vm.salesOfficePhoneNumber">{{vm.salesOfficePhoneNumber || 'empty'}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='container-fluid'>
+    <div class='col-sm-12'>
+      <hr class="colorgraph">
+    </div>
+    <div class='row'>
+      <div class='col-sm-6'>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <label> Customer First Name </label>
+            <div class="col-xs-12">
+              <a href="#" editable-text="vm.customerFirstName" onbeforesave="vm.updateQuotation('customerFirstName', $data)"
+              ng-model="vm.customerFirstName">{{vm.customerFirstName || 'empty'}}</a>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <label> Customer Last Name </label>
+            <div class="col-xs-12">
+              <a href="#" editable-text="vm.customerLastName" onbeforesave="vm.updateQuotation('customerLastName', $data)"
+              ng-model="vm.customerLastName">{{vm.customerLastName || 'empty'}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-3'>
+        <label> Subject </label>
+        <div class="col-xs-12">
+          <a href="#" editable-text="vm.subject" onbeforesave="vm.updateQuotation('subject', $data)"
+          ng-model="vm.subject">{{vm.subject || 'empty'}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="row addItem">
+      <div class="col-sm-5 pull-right">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="..." ng-model="vm.itemTitle">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="vm.addQuotation()">Add Item</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="panel-group" ng-model="panels.activePanel" bs-collapse>
+      <div class="panel panel-default" ng-repeat="quotation in vm.quotationRegistrationList">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a bs-collapse-toggle>
+              <span ng-show="quotation.item.show">{{ quotation.item.name }}</span>
+              <a href="#" class="pull-right delete" ng-click="vm.deleteItem(quotation)">
+                <button class="btn btn-xs btn-danger"><i class="ion-backspace"></i></button>
+              </a>
+              <a href="#" editable-text="quotation.item.name" class="pull-right" ng-click="vm.xEditable(quotation)"
+              onaftersave="vm.afterSave(quotation)"  oncancel="vm.cancel(quotation)">
+              <button class="btn btn-xs btn-warning"><i class="ion-compose"></i></button>
+            </a>
+          </a>
+        </h4>
+      </div>
+      <div class="panel-collapse" bs-collapse-target>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-3">
+              <label> Quantity </label>
+              <div class="col-xs-12">
+                <a href="#" editable-number="quotation.quantity" onaftersave="vm.updateQuotationItem('item')"
+                ng-model="quotation.quantity">{{quotation.quantity || 'empty'}}</a>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <label> Unit Price </label>
+              <div class="col-xs-12">
+                <a href="#" editable-number="quotation.unitPrice" onaftersave="vm.updateQuotationItem('item')"
+                ng-model="quotation.unitPrice">{{quotation.unitPrice || 'empty'}}</a>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <label> Amount </label>
+              <div class="col-xs-12">
+                <a href="#" editable-number="quotation.amount" onaftersave="vm.updateQuotationItem('item')"
+                ng-model="quotation.amount">{{quotation.amount || 'empty'}}</a>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <label> Status </label>
+              <div class="col-xs-12">
+                <a href="#" editable-number="quotation.status" onaftersave="vm.updateQuotationItem('item')"
+                ng-model="quotation.status">{{quotation.status || 'empty'}}</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <label> Condition </label>
+              <div class="col-xs-12">
+                <a href="#" editable-text="quotation.condition" onaftersave="vm.updateQuotationItem('item')"
+                ng-model="quotation.condition">{{quotation.condition || 'empty'}}</a>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <label> Remark </label>
+              <div class="col-xs-12">
+                <a href="#" editable-text="quotation.remark" onaftersave="vm.updateQuotationItem('item')"
+                ng-model="quotation.remark">{{quotation.remark || 'empty'}}</a>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <label> Degree Of Sales Progress </label>
+              <div class="col-xs-12">
+                <a href="#" editable-text="quotation.salesProgress" onaftersave="vm.updateQuotationItem('item')"
+                ng-model="quotation.salesProgress">{{quotation.salesProgress || 'empty'}}</a>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <label> SPOT or Continuation Flag </label>
+              <div class="col-xs-12">
+                <a href="#" editable-text="quotation.SPOT" onaftersave="vm.updateQuotationItem('item')"
+                ng-model="quotation.SPOT">{{quotation.SPOT || 'empty'}}</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <label>Note for Quotation</label>
+              <div class="col-xs-12">
+                <a href="#" editable-textarea="quotation.noteForQuotation" onaftersave="vm.updateQuotationItem('item')"
+                ng-model="quotation.noteForQuotation" e-rows="7" e-cols="40">{{quotation.noteForQuotation || 'empty'}}</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class='col-sm-12'>
+              <label>Sales Representative Comment</label>
+              <div class="col-xs-12">
+                <a href="#" editable-textarea="quotation.comment" onaftersave="vm.updateQuotationItem('item')"
+                ng-model="quotation.comment" e-rows="7" e-cols="40">{{quotation.comment || 'empty'}}</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class='col-sm-12'>
+              <label>Sales Representative Note</label>
+              <div class="col-xs-12">
+                <a class="col-xs-12" href="#" editable-textarea="quotation.note" onaftersave="vm.updateQuotationItem('item')"
+                ng-model="quotation.note" e-rows="7" e-cols="40">{{quotation.note || 'empty'}}</a>
+              </div>
+            </div>
+            </div
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pull-right" ng-show="vm.showSave">
+    <button type="button" class="btn btn-xs btn-primary" ng-click="vm.saveQuotation()">Save</button>
+  </div>
+</div>
