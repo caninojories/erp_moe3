@@ -13,21 +13,25 @@
          * Commons module
         **/
         'app.commons',
+        'app.services',
+        'app.register',
+        'app.signin',
+        'app.widgets',
+
         /*
          * Our reusable cross app code modules
          */
         'blocks.logger',
         'blocks.router',
         'blocks.exception',
-        'strapService',
 
         /*
          * 3rd Party modules
          */
-        'angular-flash.service',
-        'angular-flash.flash-alert-directive',
-        'ngplus',
+        // 'angular-flash.service',
+        // 'angular-flash.flash-alert-directive',
         //'ui.bootstrap',
+        'mgcrea.ngStrap',
         'satellizer',
         'angular-loading-bar',
         'datatables',

@@ -5,10 +5,10 @@
     .module( 'app.quotationList' )
     .controller( 'QuotationList', QuotationList );
 
-    QuotationList.$inject = [ '$compile', '$q', '$scope', 'DTOptionsBuilder',
+    QuotationList.$inject = [ '$compile', '$q', '$scope', '$window', 'DTOptionsBuilder',
       'DTColumnBuilder', 'quotationListDataService' ];
 
-    function QuotationList( $compile, $q, $scope, DTOptionsBuilder,
+    function QuotationList( $compile, $q, $scope, $window, DTOptionsBuilder,
       DTColumnBuilder, quotationListDataService ) {
 
       $scope.delete = function(id) {
@@ -26,8 +26,8 @@
           return response;
         });
       }
-
-      $scope.dtOptions = DTOptionsBuilder.fromSource( 'http://localhost:3000/quotationApi/quotationList' )
+      
+      $scope.dtOptions = DTOptionsBuilder.fromSource( $window.location.origin + '/quotationApi/quotationList' )
       .withTableTools('/js/vendor/table-tools/swf/copy_csv_xls_pdf.swf')
       .withTableToolsButtons([
         'copy',

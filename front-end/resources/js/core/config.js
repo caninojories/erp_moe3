@@ -23,25 +23,24 @@
 
     function loginConfig( $authProvider, cfpLoadingBarProvider ) {
       cfpLoadingBarProvider.latencyThreshold = 100;
-      $authProvider.loginUrl = 'http://localhost:3000/userApi/userLogIn';
-      $authProvider.signupUrl = 'http://localhost:3000/userApi/userSignUp';
+      $authProvider.loginUrl = 'http://localhost:3001/userApi/userLogIn';
+      $authProvider.signupUrl = 'http://localhost:3001/userApi/userSignUp';
 
       $authProvider.google({
         clientId: '514855305579-vmrkir3l76c0v2t6b5mtnphh38uf9irp.apps.googleusercontent.com',
-        url: 'http://localhost:3000/userApi/logInUserGoogle'
+        url: 'http://localhost:3001/userApi/logInUserGoogle'
       });
 
       $authProvider.facebook({
         clientId: '789445017793242',
-        url: 'http://localhost:3000/userApi/logInUserFacebook'
+        url: 'http://localhost:3001/userApi/logInUserFacebook'
       });
     }
 
     function configure ( $locationProvider, $logProvider, $urlRouterProvider, $stateProvider,
       routehelperConfigProvider, exceptionHandlerProvider, $httpProvider, $authProvider ) {
-        $locationProvider
-        .html5Mode(true);
 
+        $locationProvider.html5Mode(true);
         if ($logProvider.debugEnabled)  $logProvider.debugEnabled(true);
 
         routehelperConfigProvider.config.$stateProvider = $stateProvider;

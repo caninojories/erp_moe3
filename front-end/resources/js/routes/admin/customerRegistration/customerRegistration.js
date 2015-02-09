@@ -5,9 +5,9 @@
   .module('app.customerRegistration')
   .controller('CustomerRegistration', CustomerRegistration);
 
-  CustomerRegistration.$inject = ['$q', '$timeout', '$alertModal', 'formReset', 'customerRegistrationDataService'];
+  CustomerRegistration.$inject = ['$q', '$timeout', 'strapAlert', 'formReset', 'commonsDataService', 'customerServiceApi'];
 
-  function CustomerRegistration( $q, $timeout, $alertModal, formReset, customerRegistrationDataService ) {
+  function CustomerRegistration($q, $timeout, strapAlert, formReset, commonsDataService, customerServiceApi) {
     var vm = this;
 
     vm.registerCustomer = registerCustomer;
@@ -15,19 +15,19 @@
     function registerCustomer( form ) {
       return $q.all( [registerCustomerCallBack()] )
         .then(function( response ) {
-          $alertModal.show( 'Success!!',  vm.firstName + ' ' + vm.lastName +  ' has been registered' );
+          strapAlert.show( 'Success!!',  vm.firstName + ' ' + vm.lastName +  ' has been registered' );
           formReset.setResetForm( vm );
           vm.originForm = angular.copy(form);
           vm.originForm.$setPristine();
           $timeout(function() {
-            $alertModal.hide();
+            strapAlert.hide();
           }, 2000);
           return response;
         });
     }
 
     function registerCustomerCallBack() {
-      return customerRegistrationDataService
+      return commonsDataService
         .httpPOST( 'customerRegistration', {
           firstName: vm.firstName,
           lastName: vm.lastName,
@@ -40,7 +40,9 @@
           customerAdd2: vm.customerAdd2,
           customerAdd3: vm.customerAdd3,
           email: vm.email,
-          paymentTerms: vm.paymentTerms} )
+          paymentTerms: vm.paymentTerms
+        },
+          customerServiceApi)
         .then(function( response ) {
           return response;
         });

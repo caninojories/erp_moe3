@@ -6,10 +6,10 @@
     .controller( 'EditSalesRepresentativeListing', EditSalesRepresentativeListing );
 
     EditSalesRepresentativeListing.$inject = ['$q', '$state', '$timeout', 'Restangular', 'salesRepresentativeListingDataService',
-      '$alertModal', 'formReset'];
+      'strapAlert', 'formReset'];
 
     function EditSalesRepresentativeListing( $q, $state, $timeout, Restangular, salesRepresentativeListingDataService,
-      $alertModal, formReset ) {
+      strapAlert, formReset ) {
       var vm = this;
 
       vm.SalesRepObj = null;
@@ -25,13 +25,12 @@
         return $q.all( [getOneSalesRepresentativeCallBack()])
           .then(function( response ) {
             vm.SalesRepObj = Restangular.stripRestangular( response[0] );
-            console.log( vm.SalesRepObj );
-            vm.firstName  = vm.SalesRepObj.firstName;
-            vm.lastName   = vm.SalesRepObj.lastName;
-            vm.postalCode = vm.SalesRepObj.postalCode;
-            vm.salesOfficeAdd1    = vm.SalesRepObj.salesOfficeAddress1;
-            vm.salesOfficeAdd2    = vm.SalesRepObj.salesOfficeAddress2;
-            vm.salesOfficeAdd3    = vm.SalesRepObj.salesOfficeAddress3;
+            vm.firstName              = vm.SalesRepObj.firstName;
+            vm.lastName               = vm.SalesRepObj.lastName;
+            vm.postalCode             = vm.SalesRepObj.postalCode;
+            vm.salesOfficeAddress1    = vm.SalesRepObj.salesOfficeAddress1;
+            vm.salesOfficeAddress2    = vm.SalesRepObj.salesOfficeAddress2;
+            vm.salesOfficeAddress3    = vm.SalesRepObj.salesOfficeAddress3;
             vm.salesOfficePhoneNumber = vm.SalesRepObj.salesOfficePhoneNumber;
             return response;
           });
@@ -49,32 +48,27 @@
         if( !form.$valid ) return;
         return $q.all( [updateSalesRepresentativeCallBack()] )
           .then(function( response ) {
-            $alertModal.show( 'Success!!', vm.firstName + ' ' + vm.lastName + ' has been updated' );
+            strapAlert.show( 'Success!!', vm.firstName + ' ' + vm.lastName + ' has been updated' );
             vm.originForm = angular.copy(form);
             vm.originForm.$setPristine();
             $timeout(function() {
-              $alertModal.hide();
+              strapAlert.hide();
             }, 2000);
             return response;
         });
       }
 
       function updateSalesRepresentativeCallBack() {
-        salesRepresentativeListingDataService
+        return salesRepresentativeListingDataService
           .httpPUT( 'salesRepresentativeList', {
-            id:$state.params.id,
-            firstName: vm.firstName,
-            lastName: vm.lastName,
-            department: vm.department,
-            position: vm.position,
-            personInCharge: vm.personInCharge,
-            phoneNumber: vm.phoneNumber,
-            postalCode: vm.postalCode,
-            customerAdd1: vm.customerAdd1,
-            customerAdd2: vm.customerAdd2,
-            customerAdd3: vm.customerAdd3,
-            email: vm.email,
-            paymentTerms: vm.paymentTerms
+            id                    :$state.params.id,
+            firstName             : vm.firstName,
+            lastName              : vm.lastName,
+            postalCode            : vm.postalCode,
+            salesOfficeAddress1   : vm.salesOfficeAddress1,
+            salesOfficeAddress2   : vm.salesOfficeAddress2,
+            salesOfficeAddress3   : vm.salesOfficeAddress3,
+            salesOfficePhoneNumber:vm.salesOfficePhoneNumber
           })
           .then(function( response ) {
             return response;

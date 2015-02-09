@@ -1,19 +1,19 @@
 (function() {
 	'use strict';
 
-	var node_module = app_require( 'services/module.config' );
+	var io = app_require( 'services/module.config' );
 
 	module.exports = function( passport ) {
 		passport.serializeUser(function( user, done ) {
 			done( null, user._id );
 		});
 
-		passport.use( 'local-login', new node_module.LocalStrategy({
+		passport.use( 'local-login', new io.LocalStrategy({
 			usernameField: 'email'
 		}, function( email, password, done ) {
-			node_module.mongoDB.db( node_module, 'erp_moe3' )
+			io.mongoDB( io, io.config.dbName )
 			.then(function( connection ) {
-				node_module.User.findOne({
+				io.User.findOne({
 					email: email
 				}, function( err, user ) {
 					if( err ) return done(err);
@@ -32,22 +32,22 @@
 			});
 		}));
 
-		passport.use( 'local-register', new node_module.LocalStrategy({
+		passport.use( 'local-register', new io.LocalStrategy({
 			usernameField: 'email'
 		}, function( email, password, done ) {
-			node_module.mongoDB.db( node_module, 'erp_moe3' )
-			.then(function( connection ) {
-				var newUser = node_module.User({
+			console.log('passport');
+			var options = {
+				io: io,
+				name: 'User',
+				details: {
 					email: email,
 					password: password
-				});
-				return newUser;
-			})
-			.then( function( user ) {
-				user.save(function(err) {
-					done( null, user );
-				});
-			});
+				},
+				done: done
+			};
+
+			io.mongoDB(io, io.config.dbName)
+				.then(io.save(options));
 		}));
 	};
 }());

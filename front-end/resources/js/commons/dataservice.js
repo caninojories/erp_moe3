@@ -9,6 +9,7 @@
 
     function commonsDataService( exception, userServiceApi ) {
       var service = {
+        httpPOST  : httpPOST,
         checkEmail: checkEmail,
         signup    : signup,
         login     : login,
@@ -16,6 +17,23 @@
       };
 
       return service;
+
+      function httpPOST( api, param, apiService ) {
+        return apiService.all( api )
+          .post( param )
+          .then( httpPOSTCallBack )
+          .catch(function( message ) {
+            /***
+            ** Call the exception factory to show the error in the client for Development
+            ** then wait for 5 seconds then redirect
+            ***/
+            exception.catcher( 'Error in the saving the Customer Data', message );
+          });
+
+          function httpPOSTCallBack( response, status, header, config ) {
+            return response;
+          }
+      }
 
       function checkEmail( api, param ) {
         return userServiceApi.one( api )

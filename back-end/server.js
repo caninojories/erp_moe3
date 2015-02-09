@@ -34,14 +34,17 @@
       quotationList                   = require( './routes/admin/quotationList' ),
       editQuotationList               = require( './routes/admin/quotationList/edit' ),
       invoiceRegistration             = require( './routes/admin/invoiceRegistration' ),
+      invoiceList                     = require( './routes/admin/invoiceList' ),
+      editInvoiceList                 = require( './routes/admin/invoiceList/edit' ),
 
       salesRepresentativeRegistrationApi = require( './routes/restApi/API/salesRepresentativeRegistrationApi' ),
       salesRepresentativeListingApi      = require( './routes/restApi/API/salesRepresentativeListingApi' ),
-
       customerRegistrationApi            = require( './routes/restApi/API/customerRegistrationApi' ),
       customerListApi                    = require( './routes/restApi/API/customerListApi' ),
       quotationRegistrationApi           = require( './routes/restApi/API/quotationRegistrationApi' ),
       quotationListApi                   = require( './routes/restApi/API/quotationListApi' ),
+      invoiceRegistrationApi             = require( './routes/restApi/API/invoiceRegistrationApi' ),
+      invoiceListApi                     = require( './routes/restApi/API/invoiceListApi'),
 
       emailTakenApi = require( './routes/restApi/API/strapApi' ),
       userSignUpApi = require( './routes/restApi/Api/strapApi' ),
@@ -73,6 +76,8 @@
     app.use( '/customerApi', customerListApi );
     app.use( '/quotationApi', quotationRegistrationApi );
     app.use( '/quotationApi', quotationListApi );
+    app.use( '/invoiceApi', invoiceRegistrationApi );
+    app.use( '/invoiceApi', invoiceListApi );
     app.use( '/userApi', emailTakenApi );
     app.use( '/userApi', userSignUpApi);
     app.use( '/', sample );
@@ -87,6 +92,8 @@
     app.use( '/', quotationList );
     app.use( '/', editQuotationList );
     app.use( '/', invoiceRegistration );
+    app.use( '/', invoiceList );
+    app.use( '/', editInvoiceList );
     app.use( '*', catchAll );
 
     /**

@@ -46,8 +46,10 @@
             </li>
             <li ui-sef-active="active">
               <a ui-sref="quotationList" target="_self">Quotation Listing</a>
+            </li >
+            <li ui-sef-active="active">
+              <a ui-sref="invoiceList" target="_self">Invoice Listing</a>
             </li>
-            <li><a href="#">Invoice Listing</a></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -60,21 +62,21 @@
           </ul>
         </li>
       </ul>
-      <ul class='nav navbar-nav navbar-right' ng-controller='Strap as vm'>
+      <ul class='nav navbar-nav navbar-right' ng-controller='Register as vm'>
         <li ng-hide='vm.isAuthenticated()'>
-          <a href='' ng-click='vm.registerUserStrap()' data-animation="am-fade-and-scale" data-placement="center">Register</a>
+          <a href='#' ng-click='vm.registerUser()'>Register</a>
         </li>
         <li ng-show='vm.isAuthenticated()'>
-          <a href='' ng-click='vm.logout()' data-animation="am-fade-and-scale" data-placement="center">Logout</a>
+          <a href='' ng-click='vm.logout()'>Logout</a>
         </li>
-        <li ng-hide='vm.isAuthenticated()' class="dropdown login">
-          <a href='#' class="dropdown-toggle" data-toggle="dropdown" data-animation="am-fade-and-scale" data-placement="center">
+        <li ng-hide='vm.isAuthenticated()' class="dropdown login" ng-controller="Signin as vm">
+          <a href='#' class="dropdown-toggle" data-toggle="dropdown">
             Log-in
             <span class="caret"></span>
           </a>
           <ul class="login dropdown-menu" role="menu">
             <li class='local-login text-center'>
-              <a href="#" ng-click="vm.logInUserStrap()">
+              <a href="#" ng-click="vm.loginUser()">
                 <span class='ion-android-happy'></span>
                 Local
               </a>
@@ -97,5 +99,3 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-<alertSignUp></alertSignUp>

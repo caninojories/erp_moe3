@@ -5,26 +5,15 @@
     .module('app.invoiceRegistration')
     .controller('InvoiceRegistration', InvoiceRegistration);
 
-    InvoiceRegistration.$inject = ['$rootScope', '$timeout', 'exception'];
+    InvoiceRegistration.$inject = [ '$q', '$rootScope', '$timeout', 'exception', 'invoiceRegistrationDataService' ];
 
-    function InvoiceRegistration( $rootScope, $timeout, exception ) {
+    function InvoiceRegistration( $q, $rootScope, $timeout, exception, invoiceRegistrationDataService ) {
       var vm = this;
 
-      vm.openDate       = openDate;
       vm.addInvoice     = addInvoice;
       vm.saveInvoice    = saveInvoice;
 
       vm.invoiceList = [];
-
-      function openDate($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-
-        $rootScope.opened = true;
-        setTimeout(function() {
-          $rootScope.opened = false;
-        }, 10);
-      }
 
       function addInvoice() {
         vm.invoiceList.push({
@@ -36,34 +25,44 @@
           unitPrice: vm.unitPrice,
           amount: vm.amount,
           status: vm.status,
-          condition: vm.condition,
-          remark: vm.remark,
-          salesProgress: vm.salesProgress,
-          SPOT: vm.SPOT,
-          noteForQuotation: vm.noteForQuotation,
-          comment: vm.comment,
-          note: vm.note
+          deliveryDate: vm.deliveryDate,
+          dateOfPayment: vm.dateOfPayment,
+          deliveryMethod: vm.deliveryMethod,
+          noteForInvoice: vm.noteForInvoice,
+          accountantComment: vm.accountantComment,
+          accountantNote: vm.accountantNote
         });
 
         vm.itemTitle = '';
       }
 
       function saveInvoice() {
-        vm.tempInvoiceList = angular.copy(vm.invoiceList);
-        for(var i = 0; i < vm.invoiceList.length; i++) {
-          try {
-            vm.tempInvoiceList[i].item = vm.values['item_' + i.toString()];
-            vm.tempInvoiceList[i].quantity = vm.values['quantity_' + i.toString()];
-            vm.tempInvoiceList[i].unitPrice = vm.values['unitPrice_' + i.toString()];
-            vm.tempInvoiceList[i].amount    = vm.values['amount_' + i.toString()];
-            vm.tempInvoiceList[i].noteForInvoice = vm.values['noteForInvoice' + i.toString()];
-          }catch( error ){
-            console.log( '**Use for error Messgaes**');
-            console.log( 'Exception Module: cannot be seen until the debug is false' );
-            exception.catcher( 'Exception Module: try catch solution: ' + error );
-          }
-        }
-        console.log( vm.tempInvoiceList );
+        return $q.all( [saveInvoiceCallBack()] )
+          .then(function( response ) {
+            return response;
+          });
+      }
+
+      function saveInvoiceCallBack() {
+        return invoiceRegistrationDataService
+          .httpPOST( 'invoiceRegistration', {
+            date: vm.selectedDate,
+            invoiceNumber: vm.invoiceNumber,
+            postalCode: vm.postalCode,
+            customerFirstName: vm.customerFirstName,
+            customerLastName: vm.customerLastName,
+            subject: vm.subject,
+            salesRepFirstName: vm.salesRepFirstName,
+            salesRepLastName: vm.salesRepLastName,
+            salesOfficeAddress1: vm.salesOfficeAddress1,
+            salesOfficeAddress2: vm.salesOfficeAddress2,
+            salesOfficeAddress3: vm.salesOfficeAddress3,
+            salesOfficePhoneNumber: vm.salesOfficePhoneNumber,
+            item: vm.invoiceList
+          })
+          .then(function( response ) {
+            return response;
+          });
       }
     }
 })();

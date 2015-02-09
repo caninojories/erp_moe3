@@ -1,32 +1,31 @@
 (function() {
   'use strict';
 
-  var node_module = app_require( 'services/module.config' );
+  var io = app_require( 'services/module.config' );
 
   exports.post = function( req, res, next ) {
-    node_module.mongoDB.db( node_module, 'erp_moe3' )
-      .then(function() {
-        var customer = node_module.Customer({
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-          department: req.body.department,
-          position: req.body.position,
-          personInCharge: req.body.personInCharge,
-          phoneNumber: req.body.phoneNumber,
-          postalCode: req.body.postalCode,
-          customerAdd1: req.body.customerAdd1,
-          customerAdd2: req.body.customerAdd2,
-          customerAdd3: req.body.customerAdd3,
-          email: req.body.email,
-          paymentTerms: req.body.paymentTerms
-        });
-        return customer;
-      }).then(function( customer, handleEerror ) {
-        customer.save(function( err ) {
-          if( err ) next( err );
+    var customer  = req.body,
+        options   = {
+          io      : io,
+          name    : 'Customer',
+          res     : res,
+          details : {
+            firstName     : customer.firstName,
+            lastName      : customer.lastName,
+            department    : customer.department,
+            position      : customer.position,
+            personInCharge: customer.personInCharge,
+            phoneNumber   : customer.phoneNumber,
+            postalCode    : customer.postalCode,
+            customerAdd1  : customer.customerAdd1,
+            customerAdd2  : customer.customerAdd2,
+            customerAdd3  : customer.customerAdd3,
+            email         : customer.email,
+            paymentTerms: req.body.paymentTerms
+          }
+        };
 
-          res.status(200).send(customer);
-        });
-      });
+    io.mongoDB( io, io.config.dbName )
+      .then(io.save(options));
   };
 }());

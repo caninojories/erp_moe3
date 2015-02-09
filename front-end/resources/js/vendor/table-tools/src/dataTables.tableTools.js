@@ -1,33 +1,33 @@
-/*! TableTools 2.2.3
- * 2009-2014 SpryMedia Ltd - datatables.net/license
- *
- * ZeroClipboard 1.0.4
- * Author: Joseph Huckaby - MIT licensed
- */
+/*! TableTools 2.2.0
+* 2009-2014 SpryMedia Ltd - datatables.net/license
+*
+* ZeroClipboard 1.0.4
+* Author: Joseph Huckaby - MIT licensed
+*/
 
 /**
- * @summary     TableTools
- * @description Tools and buttons for DataTables
- * @version     2.2.3
- * @file        dataTables.tableTools.js
- * @author      SpryMedia Ltd (www.sprymedia.co.uk)
- * @contact     www.sprymedia.co.uk/contact
- * @copyright   Copyright 2009-2014 SpryMedia Ltd.
- *
- * This source file is free software, available under the following license:
- *   MIT license - http://datatables.net/license/mit
- *
- * This source file is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
- *
- * For details please refer to: http://www.datatables.net
- */
+* @summary     TableTools
+* @description Tools and buttons for DataTables
+* @version     2.2.0
+* @file        dataTables.tableTools.js
+* @author      SpryMedia Ltd (www.sprymedia.co.uk)
+* @contact     www.sprymedia.co.uk/contact
+* @copyright   Copyright 2009-2014 SpryMedia Ltd.
+*
+* This source file is free software, available under the following license:
+*   MIT license - http://datatables.net/license/mit
+*
+* This source file is distributed in the hope that it will be useful, but
+* WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+* or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
+*
+* For details please refer to: http://www.datatables.net
+*/
 
 
 /* Global scope for TableTools for backwards compatibility.
- * Will be removed in 2.3
- */
+* Will be removed in 2.3
+*/
 var TableTools;
 
 (function(window, document, undefined) {
@@ -39,8 +39,8 @@ var factory = function( $, DataTable ) {
 
 //include ZeroClipboard.js
 /* ZeroClipboard 1.0.4
- * Author: Joseph Huckaby
- */
+* Author: Joseph Huckaby
+*/
 
 var ZeroClipboard_TableTools = {
 
@@ -434,29 +434,31 @@ ZeroClipboard_TableTools.Client.prototype = {
 window.ZeroClipboard_TableTools = ZeroClipboard_TableTools;
 //include TableTools.js
 /* TableTools
- * 2009-2014 SpryMedia Ltd - datatables.net/license
- */
+* 2009-2014 SpryMedia Ltd - datatables.net/license
+*/
 
-/*globals TableTools,ZeroClipboard_TableTools*/
+/*globals ZeroClipboard_TableTools*/
 
+/* Global scope for TableTools */
+var TableTools;
 
 (function($, window, document) {
 
-/** 
- * TableTools provides flexible buttons and other tools for a DataTables enhanced table
- * @class TableTools
- * @constructor
- * @param {Object} oDT DataTables instance. When using DataTables 1.10 this can
- *   also be a jQuery collection, jQuery selector, table node, DataTables API
- *   instance or DataTables settings object.
- * @param {Object} oOpts TableTools options
- * @param {String} oOpts.sSwfPath ZeroClipboard SWF path
- * @param {String} oOpts.sRowSelect Row selection options - 'none', 'single', 'multi' or 'os'
- * @param {Function} oOpts.fnPreRowSelect Callback function just prior to row selection
- * @param {Function} oOpts.fnRowSelected Callback function just after row selection
- * @param {Function} oOpts.fnRowDeselected Callback function when row is deselected
- * @param {Array} oOpts.aButtons List of buttons to be used
- */
+/**
+* TableTools provides flexible buttons and other tools for a DataTables enhanced table
+* @class TableTools
+* @constructor
+* @param {Object} oDT DataTables instance. When using DataTables 1.10 this can
+*   also be a jQuery collection, jQuery selector, table node, DataTables API
+*   instance or DataTables settings object.
+* @param {Object} oOpts TableTools options
+* @param {String} oOpts.sSwfPath ZeroClipboard SWF path
+* @param {String} oOpts.sRowSelect Row selection options - 'none', 'single', 'multi' or 'os'
+* @param {Function} oOpts.fnPreRowSelect Callback function just prior to row selection
+* @param {Function} oOpts.fnRowSelected Callback function just after row selection
+* @param {Function} oOpts.fnRowDeselected Callback function when row is deselected
+* @param {Array} oOpts.aButtons List of buttons to be used
+*/
 TableTools = function( oDT, oOpts )
 {
 	/* Santiy check that we are a new instance */
@@ -473,244 +475,244 @@ TableTools = function( oDT, oOpts )
 
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Public class variables
-	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	* Public class variables
+	* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 	/**
-	 * @namespace Settings object which contains customisable information for TableTools instance
-	 */
+	* @namespace Settings object which contains customisable information for TableTools instance
+	*/
 	this.s = {
 		/**
-		 * Store 'this' so the instance can be retrieved from the settings object
-		 * @property that
-		 * @type	 object
-		 * @default  this
-		 */
+		* Store 'this' so the instance can be retrieved from the settings object
+		* @property that
+		* @type	 object
+		* @default  this
+		*/
 		"that": this,
 
-		/** 
-		 * DataTables settings objects
-		 * @property dt
-		 * @type	 object
-		 * @default  <i>From the oDT init option</i>
-		 */
+		/**
+		* DataTables settings objects
+		* @property dt
+		* @type	 object
+		* @default  <i>From the oDT init option</i>
+		*/
 		"dt": dtSettings,
 
 		/**
-		 * @namespace Print specific information
-		 */
+		* @namespace Print specific information
+		*/
 		"print": {
-			/** 
-			 * DataTables draw 'start' point before the printing display was shown
-			 *  @property saveStart
-			 *  @type	 int
-			 *  @default  -1
-			 */
+			/**
+			* DataTables draw 'start' point before the printing display was shown
+			*  @property saveStart
+			*  @type	 int
+			*  @default  -1
+			*/
 			"saveStart": -1,
 
-			/** 
-			 * DataTables draw 'length' point before the printing display was shown
-			 *  @property saveLength
-			 *  @type	 int
-			 *  @default  -1
-			 */
+			/**
+			* DataTables draw 'length' point before the printing display was shown
+			*  @property saveLength
+			*  @type	 int
+			*  @default  -1
+			*/
 			"saveLength": -1,
 
-			/** 
-			 * Page scrolling point before the printing display was shown so it can be restored
-			 *  @property saveScroll
-			 *  @type	 int
-			 *  @default  -1
-			 */
+			/**
+			* Page scrolling point before the printing display was shown so it can be restored
+			*  @property saveScroll
+			*  @type	 int
+			*  @default  -1
+			*/
 			"saveScroll": -1,
 
-			/** 
-			 * Wrapped function to end the print display (to maintain scope)
-			 *  @property funcEnd
-			 *  @type	 Function
-			 *  @default  function () {}
-			 */
+			/**
+			* Wrapped function to end the print display (to maintain scope)
+			*  @property funcEnd
+			*  @type	 Function
+			*  @default  function () {}
+			*/
 			"funcEnd": function () {}
 		},
 
 		/**
-		 * A unique ID is assigned to each button in each instance
-		 * @property buttonCounter
-		 *  @type	 int
-		 * @default  0
-		 */
+		* A unique ID is assigned to each button in each instance
+		* @property buttonCounter
+		*  @type	 int
+		* @default  0
+		*/
 		"buttonCounter": 0,
 
 		/**
-		 * @namespace Select rows specific information
-		 */
+		* @namespace Select rows specific information
+		*/
 		"select": {
 			/**
-			 * Select type - can be 'none', 'single' or 'multi'
-			 * @property type
-			 *  @type	 string
-			 * @default  ""
-			 */
+			* Select type - can be 'none', 'single' or 'multi'
+			* @property type
+			*  @type	 string
+			* @default  ""
+			*/
 			"type": "",
 
 			/**
-			 * Array of nodes which are currently selected
-			 *  @property selected
-			 *  @type	 array
-			 *  @default  []
-			 */
+			* Array of nodes which are currently selected
+			*  @property selected
+			*  @type	 array
+			*  @default  []
+			*/
 			"selected": [],
 
 			/**
-			 * Function to run before the selection can take place. Will cancel the select if the
-			 * function returns false
-			 *  @property preRowSelect
-			 *  @type	 Function
-			 *  @default  null
-			 */
+			* Function to run before the selection can take place. Will cancel the select if the
+			* function returns false
+			*  @property preRowSelect
+			*  @type	 Function
+			*  @default  null
+			*/
 			"preRowSelect": null,
 
 			/**
-			 * Function to run when a row is selected
-			 *  @property postSelected
-			 *  @type	 Function
-			 *  @default  null
-			 */
+			* Function to run when a row is selected
+			*  @property postSelected
+			*  @type	 Function
+			*  @default  null
+			*/
 			"postSelected": null,
 
 			/**
-			 * Function to run when a row is deselected
-			 *  @property postDeselected
-			 *  @type	 Function
-			 *  @default  null
-			 */
+			* Function to run when a row is deselected
+			*  @property postDeselected
+			*  @type	 Function
+			*  @default  null
+			*/
 			"postDeselected": null,
 
 			/**
-			 * Indicate if all rows are selected (needed for server-side processing)
-			 *  @property all
-			 *  @type	 boolean
-			 *  @default  false
-			 */
+			* Indicate if all rows are selected (needed for server-side processing)
+			*  @property all
+			*  @type	 boolean
+			*  @default  false
+			*/
 			"all": false,
 
 			/**
-			 * Class name to add to selected TR nodes
-			 *  @property selectedClass
-			 *  @type	 String
-			 *  @default  ""
-			 */
+			* Class name to add to selected TR nodes
+			*  @property selectedClass
+			*  @type	 String
+			*  @default  ""
+			*/
 			"selectedClass": ""
 		},
 
 		/**
-		 * Store of the user input customisation object
-		 *  @property custom
-		 *  @type	 object
-		 *  @default  {}
-		 */
+		* Store of the user input customisation object
+		*  @property custom
+		*  @type	 object
+		*  @default  {}
+		*/
 		"custom": {},
 
 		/**
-		 * SWF movie path
-		 *  @property swfPath
-		 *  @type	 string
-		 *  @default  ""
-		 */
+		* SWF movie path
+		*  @property swfPath
+		*  @type	 string
+		*  @default  ""
+		*/
 		"swfPath": "",
 
 		/**
-		 * Default button set
-		 *  @property buttonSet
-		 *  @type	 array
-		 *  @default  []
-		 */
+		* Default button set
+		*  @property buttonSet
+		*  @type	 array
+		*  @default  []
+		*/
 		"buttonSet": [],
 
 		/**
-		 * When there is more than one TableTools instance for a DataTable, there must be a 
-		 * master which controls events (row selection etc)
-		 *  @property master
-		 *  @type	 boolean
-		 *  @default  false
-		 */
+		* When there is more than one TableTools instance for a DataTable, there must be a
+		* master which controls events (row selection etc)
+		*  @property master
+		*  @type	 boolean
+		*  @default  false
+		*/
 		"master": false,
 
 		/**
-		 * Tag names that are used for creating collections and buttons
-		 *  @namesapce
-		 */
+		* Tag names that are used for creating collections and buttons
+		*  @namesapce
+		*/
 		"tags": {}
 	};
 
 
 	/**
-	 * @namespace Common and useful DOM elements for the class instance
-	 */
+	* @namespace Common and useful DOM elements for the class instance
+	*/
 	this.dom = {
 		/**
-		 * DIV element that is create and all TableTools buttons (and their children) put into
-		 *  @property container
-		 *  @type	 node
-		 *  @default  null
-		 */
+		* DIV element that is create and all TableTools buttons (and their children) put into
+		*  @property container
+		*  @type	 node
+		*  @default  null
+		*/
 		"container": null,
 
 		/**
-		 * The table node to which TableTools will be applied
-		 *  @property table
-		 *  @type	 node
-		 *  @default  null
-		 */
+		* The table node to which TableTools will be applied
+		*  @property table
+		*  @type	 node
+		*  @default  null
+		*/
 		"table": null,
 
 		/**
-		 * @namespace Nodes used for the print display
-		 */
+		* @namespace Nodes used for the print display
+		*/
 		"print": {
 			/**
-			 * Nodes which have been removed from the display by setting them to display none
-			 *  @property hidden
-			 *  @type	 array
-			 *  @default  []
-			 */
+			* Nodes which have been removed from the display by setting them to display none
+			*  @property hidden
+			*  @type	 array
+			*  @default  []
+			*/
 			"hidden": [],
 
 			/**
-			 * The information display saying telling the user about the print display
-			 *  @property message
-			 *  @type	 node
-			 *  @default  null
-			 */
+			* The information display saying telling the user about the print display
+			*  @property message
+			*  @type	 node
+			*  @default  null
+			*/
 			"message": null
-	  },
+		},
 
 		/**
-		 * @namespace Nodes used for a collection display. This contains the currently used collection
-		 */
+		* @namespace Nodes used for a collection display. This contains the currently used collection
+		*/
 		"collection": {
 			/**
-			 * The div wrapper containing the buttons in the collection (i.e. the menu)
-			 *  @property collection
-			 *  @type	 node
-			 *  @default  null
-			 */
+			* The div wrapper containing the buttons in the collection (i.e. the menu)
+			*  @property collection
+			*  @type	 node
+			*  @default  null
+			*/
 			"collection": null,
 
 			/**
-			 * Background display to provide focus and capture events
-			 *  @property background
-			 *  @type	 node
-			 *  @default  null
-			 */
+			* Background display to provide focus and capture events
+			*  @property background
+			*  @type	 node
+			*  @default  null
+			*/
 			"background": null
 		}
 	};
 
 	/**
-	 * @namespace Name space for the classes that this TableTools instance will use
-	 * @extends TableTools.classes
-	 */
+	* @namespace Name space for the classes that this TableTools instance will use
+	* @extends TableTools.classes
+	*/
 	this.classes = $.extend( true, {}, TableTools.classes );
 	if ( this.s.dt.bJUI )
 	{
@@ -719,14 +721,14 @@ TableTools = function( oDT, oOpts )
 
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Public class methods
-	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	* Public class methods
+	* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 	/**
-	 * Retreieve the settings object from an instance
-	 *  @method fnSettings
-	 *  @returns {object} TableTools settings object
-	 */
+	* Retreieve the settings object from an instance
+	*  @method fnSettings
+	*  @returns {object} TableTools settings object
+	*/
 	this.fnSettings = function () {
 		return this.s;
 	};
@@ -738,8 +740,6 @@ TableTools = function( oDT, oOpts )
 		oOpts = {};
 	}
 
-
-	TableTools._aInstances.push( this );
 	this._fnConstruct( oOpts );
 
 	return this;
@@ -749,17 +749,17 @@ TableTools = function( oDT, oOpts )
 
 TableTools.prototype = {
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Public methods
-	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	* Public methods
+	* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 	/**
-	 * Retreieve the settings object from an instance
-	 *  @returns {array} List of TR nodes which are currently selected
-	 *  @param {boolean} [filtered=false] Get only selected rows which are  
-	 *    available given the filtering applied to the table. By default
-	 *    this is false -  i.e. all rows, regardless of filtering are 
-	      selected.
-	 */
+	* Retreieve the settings object from an instance
+	*  @returns {array} List of TR nodes which are currently selected
+	*  @param {boolean} [filtered=false] Get only selected rows which are
+	*    available given the filtering applied to the table. By default
+	*    this is false -  i.e. all rows, regardless of filtering are
+				selected.
+	*/
 	"fnGetSelected": function ( filtered )
 	{
 		var
@@ -796,10 +796,10 @@ TableTools.prototype = {
 
 
 	/**
-	 * Get the data source objects/arrays from DataTables for the selected rows (same as
-	 * fnGetSelected followed by fnGetData on each row from the table)
-	 *  @returns {array} Data from the TR nodes which are currently selected
-	 */
+	* Get the data source objects/arrays from DataTables for the selected rows (same as
+	* fnGetSelected followed by fnGetData on each row from the table)
+	*  @returns {array} Data from the TR nodes which are currently selected
+	*/
 	"fnGetSelectedData": function ()
 	{
 		var out = [];
@@ -819,53 +819,10 @@ TableTools.prototype = {
 
 
 	/**
-	 * Get the indexes of the selected rows
-	 *  @returns {array} List of row indexes
-	 *  @param {boolean} [filtered=false] Get only selected rows which are  
-	 *    available given the filtering applied to the table. By default
-	 *    this is false -  i.e. all rows, regardless of filtering are 
-	      selected.
-	 */
-	"fnGetSelectedIndexes": function ( filtered )
-	{
-		var
-			out = [],
-			data = this.s.dt.aoData,
-			displayed = this.s.dt.aiDisplay,
-			i, iLen;
-
-		if ( filtered )
-		{
-			// Only consider filtered rows
-			for ( i=0, iLen=displayed.length ; i<iLen ; i++ )
-			{
-				if ( data[ displayed[i] ]._DTTT_selected )
-				{
-					out.push( displayed[i] );
-				}
-			}
-		}
-		else
-		{
-			// Use all rows
-			for ( i=0, iLen=data.length ; i<iLen ; i++ )
-			{
-				if ( data[i]._DTTT_selected )
-				{
-					out.push( i );
-				}
-			}
-		}
-
-		return out;
-	},
-
-
-	/**
-	 * Check to see if a current row is selected or not
-	 *  @param {Node} n TR node to check if it is currently selected or not
-	 *  @returns {Boolean} true if select, false otherwise
-	 */
+	* Check to see if a current row is selected or not
+	*  @param {Node} n TR node to check if it is currently selected or not
+	*  @returns {Boolean} true if select, false otherwise
+	*/
 	"fnIsSelected": function ( n )
 	{
 		var pos = this.s.dt.oInstance.fnGetPosition( n );
@@ -874,37 +831,41 @@ TableTools.prototype = {
 
 
 	/**
-	 * Select all rows in the table
-	 *  @param {boolean} [filtered=false] Select only rows which are available 
-	 *    given the filtering applied to the table. By default this is false - 
-	 *    i.e. all rows, regardless of filtering are selected.
-	 */
+	* Select all rows in the table
+	*  @param {boolean} [filtered=false] Select only rows which are available
+	*    given the filtering applied to the table. By default this is false -
+	*    i.e. all rows, regardless of filtering are selected.
+	*/
 	"fnSelectAll": function ( filtered )
 	{
-		this._fnRowSelect( filtered ?
-			this.s.dt.aiDisplay :
-			this.s.dt.aoData
+		var s = this._fnGetMasterSettings();
+
+		this._fnRowSelect( (filtered === true) ?
+			s.dt.aiDisplay :
+			s.dt.aoData
 		);
 	},
 
 
 	/**
-	 * Deselect all rows in the table
-	 *  @param {boolean} [filtered=false] Deselect only rows which are available 
-	 *    given the filtering applied to the table. By default this is false - 
-	 *    i.e. all rows, regardless of filtering are deselected.
-	 */
+	* Deselect all rows in the table
+	*  @param {boolean} [filtered=false] Deselect only rows which are available
+	*    given the filtering applied to the table. By default this is false -
+	*    i.e. all rows, regardless of filtering are deselected.
+	*/
 	"fnSelectNone": function ( filtered )
 	{
-		this._fnRowDeselect( this.fnGetSelectedIndexes(filtered) );
+		var s = this._fnGetMasterSettings();
+
+		this._fnRowDeselect( this.fnGetSelected(filtered) );
 	},
 
 
 	/**
-	 * Select row(s)
-	 *  @param {node|object|array} n The row(s) to select. Can be a single DOM
-	 *    TR node, an array of TR nodes or a jQuery object.
-	 */
+	* Select row(s)
+	*  @param {node|object|array} n The row(s) to select. Can be a single DOM
+	*    TR node, an array of TR nodes or a jQuery object.
+	*/
 	"fnSelect": function ( n )
 	{
 		if ( this.s.select.type == "single" )
@@ -912,7 +873,7 @@ TableTools.prototype = {
 			this.fnSelectNone();
 			this._fnRowSelect( n );
 		}
-		else
+		else if ( this.s.select.type == "multi" )
 		{
 			this._fnRowSelect( n );
 		}
@@ -920,10 +881,10 @@ TableTools.prototype = {
 
 
 	/**
-	 * Deselect row(s)
-	 *  @param {node|object|array} n The row(s) to deselect. Can be a single DOM
-	 *    TR node, an array of TR nodes or a jQuery object.
-	 */
+	* Deselect row(s)
+	*  @param {node|object|array} n The row(s) to deselect. Can be a single DOM
+	*    TR node, an array of TR nodes or a jQuery object.
+	*/
 	"fnDeselect": function ( n )
 	{
 		this._fnRowDeselect( n );
@@ -931,11 +892,11 @@ TableTools.prototype = {
 
 
 	/**
-	 * Get the title of the document - useful for file names. The title is retrieved from either
-	 * the configuration object's 'title' parameter, or the HTML document title
-	 *  @param   {Object} oConfig Button configuration object
-	 *  @returns {String} Button title
-	 */
+	* Get the title of the document - useful for file names. The title is retrieved from either
+	* the configuration object's 'title' parameter, or the HTML document title
+	*  @param   {Object} oConfig Button configuration object
+	*  @returns {String} Button title
+	*/
 	"fnGetTitle": function( oConfig )
 	{
 		var sTitle = "";
@@ -950,8 +911,8 @@ TableTools.prototype = {
 		}
 
 		/* Strip characters which the OS will object to - checking for UTF8 support in the scripting
-		 * engine
-		 */
+		* engine
+		*/
 		if ( "\u00A1".toString().length < 4 ) {
 			return sTitle.replace(/[^a-zA-Z0-9_\u00A1-\uFFFF\.,\-_ !\(\)]/g, "");
 		} else {
@@ -961,12 +922,12 @@ TableTools.prototype = {
 
 
 	/**
-	 * Calculate a unity array with the column width by proportion for a set of columns to be
-	 * included for a button. This is particularly useful for PDF creation, where we can use the
-	 * column widths calculated by the browser to size the columns in the PDF.
-	 *  @param   {Object} oConfig Button configuration object
-	 *  @returns {Array} Unity array of column ratios
-	 */
+	* Calculate a unity array with the column width by proportion for a set of columns to be
+	* included for a button. This is particularly useful for PDF creation, where we can use the
+	* column widths calculated by the browser to size the columns in the PDF.
+	*  @param   {Object} oConfig Button configuration object
+	*  @returns {Array} Unity array of column ratios
+	*/
 	"fnCalcColRatios": function ( oConfig )
 	{
 		var
@@ -995,10 +956,10 @@ TableTools.prototype = {
 
 
 	/**
-	 * Get the information contained in a table as a string
-	 *  @param   {Object} oConfig Button configuration object
-	 *  @returns {String} Table data as a string
-	 */
+	* Get the information contained in a table as a string
+	*  @param   {Object} oConfig Button configuration object
+	*  @returns {String} Table data as a string
+	*/
 	"fnGetTableData": function ( oConfig )
 	{
 		/* In future this could be used to get data from a plain HTML source as well as DataTables */
@@ -1010,10 +971,10 @@ TableTools.prototype = {
 
 
 	/**
-	 * Pass text to a flash button instance, which will be used on the button's click handler
-	 *  @param   {Object} clip Flash button object
-	 *  @param   {String} text Text to set
-	 */
+	* Pass text to a flash button instance, which will be used on the button's click handler
+	*  @param   {Object} clip Flash button object
+	*  @param   {String} text Text to set
+	*/
 	"fnSetText": function ( clip, text )
 	{
 		this._fnFlashSetText( clip, text );
@@ -1021,10 +982,10 @@ TableTools.prototype = {
 
 
 	/**
-	 * Resize the flash elements of the buttons attached to this TableTools instance - this is
-	 * useful for when initialising TableTools when it is hidden (display:none) since sizes can't
-	 * be calculated at that time.
-	 */
+	* Resize the flash elements of the buttons attached to this TableTools instance - this is
+	* useful for when initialising TableTools when it is hidden (display:none) since sizes can't
+	* be calculated at that time.
+	*/
 	"fnResizeButtons": function ()
 	{
 		for ( var cli in ZeroClipboard_TableTools.clients )
@@ -1033,7 +994,7 @@ TableTools.prototype = {
 			{
 				var client = ZeroClipboard_TableTools.clients[cli];
 				if ( typeof client.domElement != 'undefined' &&
-					 client.domElement.parentNode )
+					client.domElement.parentNode )
 				{
 					client.positionElement();
 				}
@@ -1043,8 +1004,8 @@ TableTools.prototype = {
 
 
 	/**
-	 * Check to see if any of the ZeroClipboard client's attached need to be resized
-	 */
+	* Check to see if any of the ZeroClipboard client's attached need to be resized
+	*/
 	"fnResizeRequired": function ()
 	{
 		for ( var cli in ZeroClipboard_TableTools.clients )
@@ -1053,8 +1014,8 @@ TableTools.prototype = {
 			{
 				var client = ZeroClipboard_TableTools.clients[cli];
 				if ( typeof client.domElement != 'undefined' &&
-					 client.domElement.parentNode == this.dom.container &&
-					 client.sized === false )
+					client.domElement.parentNode == this.dom.container &&
+					client.sized === false )
 				{
 					return true;
 				}
@@ -1065,16 +1026,16 @@ TableTools.prototype = {
 
 
 	/**
-	 * Programmatically enable or disable the print view
-	 *  @param {boolean} [bView=true] Show the print view if true or not given. If false, then
-	 *    terminate the print view and return to normal.
-	 *  @param {object} [oConfig={}] Configuration for the print view
-	 *  @param {boolean} [oConfig.bShowAll=false] Show all rows in the table if true
-	 *  @param {string} [oConfig.sInfo] Information message, displayed as an overlay to the
-	 *    user to let them know what the print view is.
-	 *  @param {string} [oConfig.sMessage] HTML string to show at the top of the document - will
-	 *    be included in the printed document.
-	 */
+	* Programmatically enable or disable the print view
+	*  @param {boolean} [bView=true] Show the print view if true or not given. If false, then
+	*    terminate the print view and return to normal.
+	*  @param {object} [oConfig={}] Configuration for the print view
+	*  @param {boolean} [oConfig.bShowAll=false] Show all rows in the table if true
+	*  @param {string} [oConfig.sInfo] Information message, displayed as an overlay to the
+	*    user to let them know what the print view is.
+	*  @param {string} [oConfig.sMessage] HTML string to show at the top of the document - will
+	*    be included in the printed document.
+	*/
 	"fnPrint": function ( bView, oConfig )
 	{
 		if ( oConfig === undefined )
@@ -1094,10 +1055,10 @@ TableTools.prototype = {
 
 
 	/**
-	 * Show a message to the end user which is nicely styled
-	 *  @param {string} message The HTML string to show to the user
-	 *  @param {int} time The duration the message is to be shown on screen for (mS)
-	 */
+	* Show a message to the end user which is nicely styled
+	*  @param {string} message The HTML string to show to the user
+	*  @param {int} time The duration the message is to be shown on screen for (mS)
+	*/
 	"fnInfo": function ( message, time ) {
 		var info = $('<div/>')
 			.addClass( this.classes.print.info )
@@ -1114,9 +1075,9 @@ TableTools.prototype = {
 
 
 	/**
-	 * Get the container element of the instance for attaching to the DOM
-	 *   @returns {node} DOM node
-	 */
+	* Get the container element of the instance for attaching to the DOM
+	*   @returns {node} DOM node
+	*/
 	"fnContainer": function () {
 		return this.dom.container;
 	},
@@ -1124,16 +1085,16 @@ TableTools.prototype = {
 
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Private methods (they are of course public in JS, but recommended as private)
-	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	* Private methods (they are of course public in JS, but recommended as private)
+	* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 	/**
-	 * Constructor logic
-	 *  @method  _fnConstruct
-	 *  @param   {Object} oOpts Same as TableTools constructor
-	 *  @returns void
-	 *  @private 
-	 */
+	* Constructor logic
+	*  @method  _fnConstruct
+	*  @param   {Object} oOpts Same as TableTools constructor
+	*  @returns void
+	*  @private
+	*/
 	"_fnConstruct": function ( oOpts )
 	{
 		var that = this;
@@ -1159,24 +1120,18 @@ TableTools.prototype = {
 			"fn": function () {
 				$(that.s.dt.nTBody).off( 'click.DTTT_Select', 'tr' );
 				$(that.dom.container).empty();
-
-				// Remove the instance
-				var idx = $.inArray( that, TableTools._aInstances );
-				if ( idx !== -1 ) {
-					TableTools._aInstances.splice( idx, 1 );
-				}
 			}
 		} );
 	},
 
 
 	/**
-	 * Take the user defined settings and the default settings and combine them.
-	 *  @method  _fnCustomiseSettings
-	 *  @param   {Object} oOpts Same as TableTools constructor
-	 *  @returns void
-	 *  @private 
-	 */
+	* Take the user defined settings and the default settings and combine them.
+	*  @method  _fnCustomiseSettings
+	*  @param   {Object} oOpts Same as TableTools constructor
+	*  @returns void
+	*  @private
+	*/
 	"_fnCustomiseSettings": function ( oOpts )
 	{
 		/* Is this the master control instance or not? */
@@ -1219,14 +1174,14 @@ TableTools.prototype = {
 
 
 	/**
-	 * Take the user input arrays and expand them to be fully defined, and then add them to a given
-	 * DOM element
-	 *  @method  _fnButtonDefinations
-	 *  @param {array} buttonSet Set of user defined buttons
-	 *  @param {node} wrapper Node to add the created buttons to
-	 *  @returns void
-	 *  @private 
-	 */
+	* Take the user input arrays and expand them to be fully defined, and then add them to a given
+	* DOM element
+	*  @method  _fnButtonDefinations
+	*  @param {array} buttonSet Set of user defined buttons
+	*  @param {node} wrapper Node to add the created buttons to
+	*  @returns void
+	*  @private
+	*/
 	"_fnButtonDefinations": function ( buttonSet, wrapper )
 	{
 		var buttonDef;
@@ -1253,35 +1208,27 @@ TableTools.prototype = {
 				buttonDef = $.extend( o, buttonSet[i], true );
 			}
 
-			var button = this._fnCreateButton(
+			wrapper.appendChild( this._fnCreateButton(
 				buttonDef,
 				$(wrapper).hasClass(this.classes.collection.container)
-			);
-
-			if ( button ) {
-				wrapper.appendChild( button );
-			}
+			) );
 		}
 	},
 
 
 	/**
-	 * Create and configure a TableTools button
-	 *  @method  _fnCreateButton
-	 *  @param   {Object} oConfig Button configuration object
-	 *  @returns {Node} Button element
-	 *  @private 
-	 */
+	* Create and configure a TableTools button
+	*  @method  _fnCreateButton
+	*  @param   {Object} oConfig Button configuration object
+	*  @returns {Node} Button element
+	*  @private
+	*/
 	"_fnCreateButton": function ( oConfig, bCollectionButton )
 	{
-	  var nButton = this._fnButtonBase( oConfig, bCollectionButton );
+		var nButton = this._fnButtonBase( oConfig, bCollectionButton );
 
 		if ( oConfig.sAction.match(/flash/) )
 		{
-			if ( ! this._fnHasFlash() ) {
-				return false;
-			}
-
 			this._fnFlashConfig( nButton, oConfig );
 		}
 		else if ( oConfig.sAction == "text" )
@@ -1298,44 +1245,17 @@ TableTools.prototype = {
 			this._fnCollectionConfig( nButton, oConfig );
 		}
 
-		if ( this.s.dt.iTabIndex !== -1 ) {
-			$(nButton)
-				.attr( 'tabindex', this.s.dt.iTabIndex )
-				.attr( 'aria-controls', this.s.dt.sTableId )
-				.on( 'keyup.DTTT', function (e) {
-					// Trigger the click event on return key when focused.
-					// Note that for Flash buttons this has no effect since we
-					// can't programmatically trigger the Flash export
-					if ( e.keyCode === 13 ) {
-						e.stopPropagation();
-
-						$(this).trigger( 'click' );
-					}
-				} )
-				.on( 'mousedown.DTTT', function (e) {
-					// On mousedown we want to stop the focus occurring on the
-					// button, focus is used only for the keyboard navigation.
-					// But using preventDefault for the flash buttons stops the
-					// flash action. However, it is not the button that gets
-					// focused but the flash element for flash buttons, so this
-					// works
-					if ( ! oConfig.sAction.match(/flash/) ) {
-						e.preventDefault();
-					}
-				} );
-		}
-
 		return nButton;
 	},
 
 
 	/**
-	 * Create the DOM needed for the button and apply some base properties. All buttons start here
-	 *  @method  _fnButtonBase
-	 *  @param   {o} oConfig Button configuration object
-	 *  @returns {Node} DIV element for the button
-	 *  @private
-	 */
+	* Create the DOM needed for the button and apply some base properties. All buttons start here
+	*  @method  _fnButtonBase
+	*  @param   {o} oConfig Button configuration object
+	*  @returns {Node} DIV element for the button
+	*  @private
+	*/
 	"_fnButtonBase": function ( o, bCollectionButton )
 	{
 		var sTag, sLiner, sClass;
@@ -1354,9 +1274,9 @@ TableTools.prototype = {
 		}
 
 		var
-		  nButton = document.createElement( sTag ),
-		  nSpan = document.createElement( sLiner ),
-		  masterS = this._fnGetMasterSettings();
+			nButton = document.createElement( sTag ),
+			nSpan = document.createElement( sLiner ),
+			masterS = this._fnGetMasterSettings();
 
 		nButton.className = sClass+" "+o.sButtonClass;
 		nButton.setAttribute('id', "ToolTables_"+this.s.dt.sInstance+"_"+masterS.buttonCounter );
@@ -1370,13 +1290,13 @@ TableTools.prototype = {
 
 
 	/**
-	 * Get the settings object for the master instance. When more than one TableTools instance is
-	 * assigned to a DataTable, only one of them can be the 'master' (for the select rows). As such,
-	 * we will typically want to interact with that master for global properties.
-	 *  @method  _fnGetMasterSettings
-	 *  @returns {Object} TableTools settings object
-	 *  @private 
-	 */
+	* Get the settings object for the master instance. When more than one TableTools instance is
+	* assigned to a DataTable, only one of them can be the 'master' (for the select rows). As such,
+	* we will typically want to interact with that master for global properties.
+	*  @method  _fnGetMasterSettings
+	*  @returns {Object} TableTools settings object
+	*  @private
+	*/
 	"_fnGetMasterSettings": function ()
 	{
 		if ( this.s.master )
@@ -1400,16 +1320,16 @@ TableTools.prototype = {
 
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Button collection functions
-	 */
+	* Button collection functions
+	*/
 
 	/**
-	 * Create a collection button, when activated will present a drop down list of other buttons
-	 *  @param   {Node} nButton Button to use for the collection activation
-	 *  @param   {Object} oConfig Button configuration object
-	 *  @returns void
-	 *  @private
-	 */
+	* Create a collection button, when activated will present a drop down list of other buttons
+	*  @param   {Node} nButton Button to use for the collection activation
+	*  @param   {Object} oConfig Button configuration object
+	*  @returns void
+	*  @private
+	*/
 	"_fnCollectionConfig": function ( nButton, oConfig )
 	{
 		var nHidden = document.createElement( this.s.tags.collection.container );
@@ -1423,12 +1343,12 @@ TableTools.prototype = {
 
 
 	/**
-	 * Show a button collection
-	 *  @param   {Node} nButton Button to use for the collection
-	 *  @param   {Object} oConfig Button configuration object
-	 *  @returns void
-	 *  @private
-	 */
+	* Show a button collection
+	*  @param   {Node} nButton Button to use for the collection
+	*  @param   {Object} oConfig Button configuration object
+	*  @returns void
+	*  @private
+	*/
 	"_fnCollectionShow": function ( nButton, oConfig )
 	{
 		var
@@ -1476,8 +1396,8 @@ TableTools.prototype = {
 		this.dom.collection.background = nBackground;
 
 		/* This results in a very small delay for the end user but it allows the animation to be
-		 * much smoother. If you don't want the animation, then the setTimeout can be removed
-		 */
+		* much smoother. If you don't want the animation, then the setTimeout can be removed
+		*/
 		setTimeout( function () {
 			$(nHidden).animate({"opacity": 1}, 500);
 			$(nBackground).animate({"opacity": 0.25}, 500);
@@ -1494,12 +1414,12 @@ TableTools.prototype = {
 
 
 	/**
-	 * Hide a button collection
-	 *  @param   {Node} nButton Button to use for the collection
-	 *  @param   {Object} oConfig Button configuration object
-	 *  @returns void
-	 *  @private
-	 */
+	* Hide a button collection
+	*  @param   {Node} nButton Button to use for the collection
+	*  @param   {Object} oConfig Button configuration object
+	*  @returns void
+	*  @private
+	*/
 	"_fnCollectionHide": function ( nButton, oConfig )
 	{
 		if ( oConfig !== null && oConfig.sExtends == 'collection' )
@@ -1525,15 +1445,15 @@ TableTools.prototype = {
 
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Row selection functions
-	 */
+	* Row selection functions
+	*/
 
 	/**
-	 * Add event handlers to a table to allow for row selection
-	 *  @method  _fnRowSelectConfig
-	 *  @returns void
-	 *  @private 
-	 */
+	* Add event handlers to a table to allow for row selection
+	*  @method  _fnRowSelectConfig
+	*  @returns void
+	*  @private
+	*/
 	"_fnRowSelectConfig": function ()
 	{
 		if ( this.s.master )
@@ -1567,22 +1487,18 @@ TableTools.prototype = {
 			}
 
 			// Row selection
-			$(dt.nTBody).on( 'click.DTTT_Select', this.s.custom.sRowSelector, function(e) {
-				var row = this.nodeName.toLowerCase() === 'tr' ?
-					this :
-					$(this).parents('tr')[0];
-
+			$(dt.nTBody).on( 'click.DTTT_Select', 'tr', function(e) {
 				var select = that.s.select;
-				var pos = that.s.dt.oInstance.fnGetPosition( row );
+				var pos = that.s.dt.oInstance.fnGetPosition( this );
 
 				/* Sub-table must be ignored (odd that the selector won't do this with >) */
-				if ( row.parentNode != dt.nTBody ) {
+				if ( this.parentNode != dt.nTBody ) {
 					return;
 				}
 
 				/* Check that we are actually working with a DataTables controlled row */
-				if ( dt.oInstance.fnGetData(row) === null ) {
-				    return;
+				if ( dt.oInstance.fnGetData(this) === null ) {
+						return;
 				}
 
 				// Shift click, ctrl click and simple click handling to make
@@ -1590,11 +1506,11 @@ TableTools.prototype = {
 				if ( select.type == 'os' ) {
 					if ( e.ctrlKey || e.metaKey ) {
 						// Add or remove from the selection
-						if ( that.fnIsSelected( row ) ) {
-							that._fnRowDeselect( row, e );
+						if ( that.fnIsSelected( this ) ) {
+							that._fnRowDeselect( this, e );
 						}
 						else {
-							that._fnRowSelect( row, e );
+							that._fnRowSelect( this, e );
 						}
 					}
 					else if ( e.shiftKey ) {
@@ -1621,7 +1537,7 @@ TableTools.prototype = {
 							rowIdxs.splice( 0, idx1 );
 						}
 
-						if ( ! that.fnIsSelected( row ) ) {
+						if ( ! that.fnIsSelected( this ) ) {
 							// Select range
 							that._fnRowSelect( rowIdxs, e );
 						}
@@ -1634,24 +1550,24 @@ TableTools.prototype = {
 					else {
 						// No cmd or shift click. Deselect current if selected,
 						// or select this row only
-						if ( that.fnIsSelected( row ) && that.fnGetSelected().length === 1 ) {
-							that._fnRowDeselect( row, e );
+						if ( that.fnIsSelected( this ) && that.fnGetSelected().length === 1 ) {
+							that._fnRowDeselect( this, e );
 						}
 						else {
 							that.fnSelectNone();
-							that._fnRowSelect( row, e );
+							that._fnRowSelect( this, e );
 						}
 					}
 				}
-				else if ( that.fnIsSelected( row ) ) {
-					that._fnRowDeselect( row, e );
+				else if ( that.fnIsSelected( this ) ) {
+					that._fnRowDeselect( this, e );
 				}
 				else if ( select.type == "single" ) {
 					that.fnSelectNone();
-					that._fnRowSelect( row, e );
+					that._fnRowSelect( this, e );
 				}
 				else if ( select.type == "multi" ) {
-					that._fnRowSelect( row, e );
+					that._fnRowSelect( this, e );
 				}
 
 				select.lastRow = pos;
@@ -1669,10 +1585,10 @@ TableTools.prototype = {
 	},
 
 	/**
-	 * Select rows
-	 *  @param   {*} src Rows to select - see _fnSelectData for a description of valid inputs
-	 *  @private 
-	 */
+	* Select rows
+	*  @param   {*} src Rows to select - see _fnSelectData for a description of valid inputs
+	*  @private
+	*/
 	"_fnRowSelect": function ( src, e )
 	{
 		var
@@ -1718,10 +1634,10 @@ TableTools.prototype = {
 	},
 
 	/**
-	 * Deselect rows
-	 *  @param   {*} src Rows to deselect - see _fnSelectData for a description of valid inputs
-	 *  @private 
-	 */
+	* Deselect rows
+	*  @param   {*} src Rows to deselect - see _fnSelectData for a description of valid inputs
+	*  @private
+	*/
 	"_fnRowDeselect": function ( src, e )
 	{
 		var
@@ -1767,12 +1683,12 @@ TableTools.prototype = {
 	},
 
 	/**
-	 * Take a data source for row selection and convert it into aoData points for the DT
-	 *   @param {*} src Can be a single DOM TR node, an array of TR nodes (including a
-	 *     a jQuery object), a single aoData point from DataTables, an array of aoData
-	 *     points or an array of aoData indexes
-	 *   @returns {array} An array of aoData points
-	 */
+	* Take a data source for row selection and convert it into aoData points for the DT
+	*   @param {*} src Can be a single DOM TR node, an array of TR nodes (including a
+	*     a jQuery object), a single aoData point from DataTables, an array of aoData
+	*     points or an array of aoData indexes
+	*   @returns {array} An array of aoData points
+	*/
 	"_fnSelectData": function ( src )
 	{
 		var out = [], pos, i, iLen;
@@ -1816,17 +1732,17 @@ TableTools.prototype = {
 
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Text button functions
-	 */
+	* Text button functions
+	*/
 
 	/**
-	 * Configure a text based button for interaction events
-	 *  @method  _fnTextConfig
-	 *  @param   {Node} nButton Button element which is being considered
-	 *  @param   {Object} oConfig Button configuration object
-	 *  @returns void
-	 *  @private 
-	 */
+	* Configure a text based button for interaction events
+	*  @method  _fnTextConfig
+	*  @param   {Node} nButton Button element which is being considered
+	*  @param   {Object} oConfig Button configuration object
+	*  @returns void
+	*  @private
+	*/
 	"_fnTextConfig": function ( nButton, oConfig )
 	{
 		var that = this;
@@ -1881,45 +1797,17 @@ TableTools.prototype = {
 
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Flash button functions
-	 */
-	
-	/**
-	 * Check if the Flash plug-in is available
-	 *  @method  _fnHasFlash
-	 *  @returns {boolean} `true` if Flash available, `false` otherwise
-	 *  @private 
-	 */
-	"_fnHasFlash": function ()
-	{
-		try {
-			var fo = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
-			if (fo) {
-				return true;
-			}
-		}
-		catch (e) {
-			if (
-				navigator.mimeTypes &&
-				navigator.mimeTypes['application/x-shockwave-flash'] !== undefined &&
-				navigator.mimeTypes['application/x-shockwave-flash'].enabledPlugin
-			) {
-				return true;
-			}
-		}
-
-		return false;
-	},
-
+	* Flash button functions
+	*/
 
 	/**
-	 * Configure a flash based button for interaction events
-	 *  @method  _fnFlashConfig
-	 *  @param   {Node} nButton Button element which is being considered
-	 *  @param   {o} oConfig Button configuration object
-	 *  @returns void
-	 *  @private 
-	 */
+	* Configure a flash based button for interaction events
+	*  @method  _fnFlashConfig
+	*  @param   {Node} nButton Button element which is being considered
+	*  @param   {o} oConfig Button configuration object
+	*  @returns void
+	*  @private
+	*/
 	"_fnFlashConfig": function ( nButton, oConfig )
 	{
 		var that = this;
@@ -1983,15 +1871,15 @@ TableTools.prototype = {
 
 
 	/**
-	 * Wait until the id is in the DOM before we "glue" the swf. Note that this function will call
-	 * itself (using setTimeout) until it completes successfully
-	 *  @method  _fnFlashGlue
-	 *  @param   {Object} clip Zero clipboard object
-	 *  @param   {Node} node node to glue swf to
-	 *  @param   {String} text title of the flash movie
-	 *  @returns void
-	 *  @private 
-	 */
+	* Wait until the id is in the DOM before we "glue" the swf. Note that this function will call
+	* itself (using setTimeout) until it completes successfully
+	*  @method  _fnFlashGlue
+	*  @param   {Object} clip Zero clipboard object
+	*  @param   {Node} node node to glue swf to
+	*  @param   {String} text title of the flash movie
+	*  @returns void
+	*  @private
+	*/
 	"_fnFlashGlue": function ( flash, node, text )
 	{
 		var that = this;
@@ -2011,19 +1899,19 @@ TableTools.prototype = {
 
 
 	/**
-	 * Set the text for the flash clip to deal with
-	 * 
-	 * This function is required for large information sets. There is a limit on the 
-	 * amount of data that can be transferred between Javascript and Flash in a single call, so
-	 * we use this method to build up the text in Flash by sending over chunks. It is estimated
-	 * that the data limit is around 64k, although it is undocumented, and appears to be different
-	 * between different flash versions. We chunk at 8KiB.
-	 *  @method  _fnFlashSetText
-	 *  @param   {Object} clip the ZeroClipboard object
-	 *  @param   {String} sData the data to be set
-	 *  @returns void
-	 *  @private 
-	 */
+	* Set the text for the flash clip to deal with
+	*
+	* This function is required for large information sets. There is a limit on the
+	* amount of data that can be transferred between Javascript and Flash in a single call, so
+	* we use this method to build up the text in Flash by sending over chunks. It is estimated
+	* that the data limit is around 64k, although it is undocumented, and appears to be different
+	* between different flash versions. We chunk at 8KiB.
+	*  @method  _fnFlashSetText
+	*  @param   {Object} clip the ZeroClipboard object
+	*  @param   {String} sData the data to be set
+	*  @returns void
+	*  @private
+	*/
 	"_fnFlashSetText": function ( clip, sData )
 	{
 		var asData = this._fnChunkData( sData, 8192 );
@@ -2038,40 +1926,29 @@ TableTools.prototype = {
 
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Data retrieval functions
-	 */
+	* Data retrieval functions
+	*/
 
 	/**
-	 * Convert the mixed columns variable into a boolean array the same size as the columns, which
-	 * indicates which columns we want to include
-	 *  @method  _fnColumnTargets
-	 *  @param   {String|Array} mColumns The columns to be included in data retrieval. If a string
-	 *			 then it can take the value of "visible" or "hidden" (to include all visible or
-	 *			 hidden columns respectively). Or an array of column indexes
-	 *  @returns {Array} A boolean array the length of the columns of the table, which each value
-	 *			 indicating if the column is to be included or not
-	 *  @private 
-	 */
+	* Convert the mixed columns variable into a boolean array the same size as the columns, which
+	* indicates which columns we want to include
+	*  @method  _fnColumnTargets
+	*  @param   {String|Array} mColumns The columns to be included in data retrieval. If a string
+	*			 then it can take the value of "visible" or "hidden" (to include all visible or
+	*			 hidden columns respectively). Or an array of column indexes
+	*  @returns {Array} A boolean array the length of the columns of the table, which each value
+	*			 indicating if the column is to be included or not
+	*  @private
+	*/
 	"_fnColumnTargets": function ( mColumns )
 	{
 		var aColumns = [];
 		var dt = this.s.dt;
 		var i, iLen;
-		var columns = dt.aoColumns;
-		var columnCount = columns.length;
 
-		if ( typeof mColumns == "function" )
+		if ( typeof mColumns == "object" )
 		{
-			var a = mColumns.call( this, dt );
-
-			for ( i=0, iLen=columnCount ; i<iLen ; i++ )
-			{
-				aColumns.push( $.inArray( i, a ) !== -1 ? true : false );
-			}
-		}
-		else if ( typeof mColumns == "object" )
-		{
-			for ( i=0, iLen=columnCount ; i<iLen ; i++ )
+			for ( i=0, iLen=dt.aoColumns.length ; i<iLen ; i++ )
 			{
 				aColumns.push( false );
 			}
@@ -2083,28 +1960,28 @@ TableTools.prototype = {
 		}
 		else if ( mColumns == "visible" )
 		{
-			for ( i=0, iLen=columnCount ; i<iLen ; i++ )
+			for ( i=0, iLen=dt.aoColumns.length ; i<iLen ; i++ )
 			{
-				aColumns.push( columns[i].bVisible ? true : false );
+				aColumns.push( dt.aoColumns[i].bVisible ? true : false );
 			}
 		}
 		else if ( mColumns == "hidden" )
 		{
-			for ( i=0, iLen=columnCount ; i<iLen ; i++ )
+			for ( i=0, iLen=dt.aoColumns.length ; i<iLen ; i++ )
 			{
-				aColumns.push( columns[i].bVisible ? false : true );
+				aColumns.push( dt.aoColumns[i].bVisible ? false : true );
 			}
 		}
 		else if ( mColumns == "sortable" )
 		{
-			for ( i=0, iLen=columnCount ; i<iLen ; i++ )
+			for ( i=0, iLen=dt.aoColumns.length ; i<iLen ; i++ )
 			{
-				aColumns.push( columns[i].bSortable ? true : false );
+				aColumns.push( dt.aoColumns[i].bSortable ? true : false );
 			}
 		}
 		else /* all */
 		{
-			for ( i=0, iLen=columnCount ; i<iLen ; i++ )
+			for ( i=0, iLen=dt.aoColumns.length ; i<iLen ; i++ )
 			{
 				aColumns.push( true );
 			}
@@ -2115,11 +1992,11 @@ TableTools.prototype = {
 
 
 	/**
-	 * New line character(s) depend on the platforms
-	 *  @method  method
-	 *  @param   {Object} oConfig Button configuration object - only interested in oConfig.sNewLine
-	 *  @returns {String} Newline character
-	 */
+	* New line character(s) depend on the platforms
+	*  @method  method
+	*  @param   {Object} oConfig Button configuration object - only interested in oConfig.sNewLine
+	*  @returns {String} Newline character
+	*/
 	"_fnNewline": function ( oConfig )
 	{
 		if ( oConfig.sNewLine == "auto" )
@@ -2134,19 +2011,19 @@ TableTools.prototype = {
 
 
 	/**
-	 * Get data from DataTables' internals and format it for output
-	 *  @method  _fnGetDataTablesData
-	 *  @param   {Object} oConfig Button configuration object
-	 *  @param   {String} oConfig.sFieldBoundary Field boundary for the data cells in the string
-	 *  @param   {String} oConfig.sFieldSeperator Field separator for the data cells
-	 *  @param   {String} oConfig.sNewline New line options
-	 *  @param   {Mixed} oConfig.mColumns Which columns should be included in the output
-	 *  @param   {Boolean} oConfig.bHeader Include the header
-	 *  @param   {Boolean} oConfig.bFooter Include the footer
-	 *  @param   {Boolean} oConfig.bSelectedOnly Include only the selected rows in the output
-	 *  @returns {String} Concatenated string of data
-	 *  @private 
-	 */
+	* Get data from DataTables' internals and format it for output
+	*  @method  _fnGetDataTablesData
+	*  @param   {Object} oConfig Button configuration object
+	*  @param   {String} oConfig.sFieldBoundary Field boundary for the data cells in the string
+	*  @param   {String} oConfig.sFieldSeperator Field separator for the data cells
+	*  @param   {String} oConfig.sNewline New line options
+	*  @param   {Mixed} oConfig.mColumns Which columns should be included in the output
+	*  @param   {Boolean} oConfig.bHeader Include the header
+	*  @param   {Boolean} oConfig.bFooter Include the footer
+	*  @param   {Boolean} oConfig.bSelectedOnly Include only the selected rows in the output
+	*  @returns {String} Concatenated string of data
+	*  @private
+	*/
 	"_fnGetDataTablesData": function ( oConfig )
 	{
 		var i, iLen, j, jLen;
@@ -2157,8 +2034,8 @@ TableTools.prototype = {
 		var bSelectedOnly = (typeof oConfig.bSelectedOnly != 'undefined') ? oConfig.bSelectedOnly : false;
 
 		/*
-		 * Header
-		 */
+		* Header
+		*/
 		if ( oConfig.bHeader )
 		{
 			aRow = [];
@@ -2177,36 +2054,21 @@ TableTools.prototype = {
 			aData.push( aRow.join(oConfig.sFieldSeperator) );
 		}
 
-		bSelectedOnly = true;
-
 		/*
-		 * Body
-		 */
-		var aDataIndex;
-		var aSelected = this.fnGetSelectedIndexes();
+		* Body
+		*/
+		var aSelected = this.fnGetSelected();
 		bSelectedOnly = this.s.select.type !== "none" && bSelectedOnly && aSelected.length !== 0;
 
-		if ( bSelectedOnly ) {
-			// Use the selected indexes
-			aDataIndex = aSelected;
-		}
-		else if ( DataTable.Api ) {
-			// 1.10+ style
-			aDataIndex = new DataTable.Api( dt )
-				.rows( oConfig.oSelectorOpts )
-				.indexes()
-				.flatten()
-				.toArray();
-		}
-		else {
-			// 1.9- style
-			aDataIndex = dt.oInstance
-				.$('tr', oConfig.oSelectorOpts)
-				.map( function (id, row) {
-					return dt.oInstance.fnGetPosition( row );
-				} )
-				.get();
-		}
+		var aDataIndex = dt.oInstance
+			.$('tr', oConfig.oSelectorOpts)
+			.map( function (id, row) {
+				// If "selected only", then ensure that the row is in the selected list
+				return bSelectedOnly && $.inArray( row, aSelected ) === -1 ?
+					null :
+					dt.oInstance.fnGetPosition( row );
+			} )
+			.get();
 
 		for ( j=0, jLen=aDataIndex.length ; j<jLen ; j++ )
 		{
@@ -2229,8 +2091,8 @@ TableTools.prototype = {
 						/* Strip newlines, replace img tags with alt attr. and finally strip html... */
 						sLoopData = mTypeData.replace(/\n/g," ");
 						sLoopData =
-						    sLoopData.replace(/<img.*?\s+alt\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s>]+)).*?>/gi,
-						        '$1$2$3');
+								sLoopData.replace(/<img.*?\s+alt\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s>]+)).*?>/gi,
+										'$1$2$3');
 						sLoopData = sLoopData.replace( /<.*?>/g, "" );
 					}
 					else
@@ -2263,8 +2125,8 @@ TableTools.prototype = {
 		}
 
 		/*
-		 * Footer
-		 */
+		* Footer
+		*/
 		if ( oConfig.bFooter && dt.nTFoot !== null )
 		{
 			aRow = [];
@@ -2289,15 +2151,15 @@ TableTools.prototype = {
 
 
 	/**
-	 * Wrap data up with a boundary string
-	 *  @method  _fnBoundData
-	 *  @param   {String} sData data to bound
-	 *  @param   {String} sBoundary bounding char(s)
-	 *  @param   {RegExp} regex search for the bounding chars - constructed outside for efficiency
-	 *			 in the loop
-	 *  @returns {String} bound data
-	 *  @private 
-	 */
+	* Wrap data up with a boundary string
+	*  @method  _fnBoundData
+	*  @param   {String} sData data to bound
+	*  @param   {String} sBoundary bounding char(s)
+	*  @param   {RegExp} regex search for the bounding chars - constructed outside for efficiency
+	*			 in the loop
+	*  @returns {String} bound data
+	*  @private
+	*/
 	"_fnBoundData": function ( sData, sBoundary, regex )
 	{
 		if ( sBoundary === "" )
@@ -2312,13 +2174,13 @@ TableTools.prototype = {
 
 
 	/**
-	 * Break a string up into an array of smaller strings
-	 *  @method  _fnChunkData
-	 *  @param   {String} sData data to be broken up
-	 *  @param   {Int} iSize chunk size
-	 *  @returns {Array} String array of broken up text
-	 *  @private 
-	 */
+	* Break a string up into an array of smaller strings
+	*  @method  _fnChunkData
+	*  @param   {String} sData data to be broken up
+	*  @param   {Int} iSize chunk size
+	*  @returns {Array} String array of broken up text
+	*  @private
+	*/
 	"_fnChunkData": function ( sData, iSize )
 	{
 		var asReturn = [];
@@ -2341,12 +2203,12 @@ TableTools.prototype = {
 
 
 	/**
-	 * Decode HTML entities
-	 *  @method  _fnHtmlDecode
-	 *  @param   {String} sData encoded string
-	 *  @returns {String} decoded string
-	 *  @private 
-	 */
+	* Decode HTML entities
+	*  @method  _fnHtmlDecode
+	*  @param   {String} sData encoded string
+	*  @returns {String} decoded string
+	*  @private
+	*/
 	"_fnHtmlDecode": function ( sData )
 	{
 		if ( sData.indexOf('&') === -1 )
@@ -2356,7 +2218,7 @@ TableTools.prototype = {
 
 		var n = document.createElement('div');
 
-		return sData.replace( /&([^\s]*?);/g, function( match, match2 ) {
+		return sData.replace( /&([^\s]*);/g, function( match, match2 ) {
 			if ( match.substr(1, 1) === '#' )
 			{
 				return String.fromCharCode( Number(match2.substr(1)) );
@@ -2372,21 +2234,21 @@ TableTools.prototype = {
 
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Printing functions
-	 */
+	* Printing functions
+	*/
 
 	/**
-	 * Show print display
-	 *  @method  _fnPrintStart
-	 *  @param   {Event} e Event object
-	 *  @param   {Object} oConfig Button configuration object
-	 *  @returns void
-	 *  @private 
-	 */
+	* Show print display
+	*  @method  _fnPrintStart
+	*  @param   {Event} e Event object
+	*  @param   {Object} oConfig Button configuration object
+	*  @returns void
+	*  @private
+	*/
 	"_fnPrintStart": function ( oConfig )
 	{
-	  var that = this;
-	  var oSetDT = this.s.dt;
+		var that = this;
+		var oSetDT = this.s.dt;
 
 		/* Parse through the DOM hiding everything that isn't needed for the table */
 		this._fnPrintHideNodes( oSetDT.nTable );
@@ -2449,7 +2311,7 @@ TableTools.prototype = {
 			$('<div/>')
 				.addClass( this.classes.print.message )
 				.html( oConfig.sMessage )
-				.prependTo( 'body' );
+				.prepend( 'body' );
 		}
 
 		/* Cache the scrolling and the jump to the top of the page */
@@ -2457,8 +2319,8 @@ TableTools.prototype = {
 		window.scrollTo( 0, 0 );
 
 		/* Bind a key event listener to the document for the escape key -
-		 * it is removed in the callback
-		 */
+		* it is removed in the callback
+		*/
 		$(document).bind( "keydown.DTTT", function(e) {
 			/* Only interested in the escape key */
 			if ( e.keyCode == 27 )
@@ -2471,12 +2333,12 @@ TableTools.prototype = {
 
 
 	/**
-	 * Printing is finished, resume normal display
-	 *  @method  _fnPrintEnd
-	 *  @param   {Event} e Event object
-	 *  @returns void
-	 *  @private 
-	 */
+	* Printing is finished, resume normal display
+	*  @method  _fnPrintEnd
+	*  @param   {Event} e Event object
+	*  @returns void
+	*  @private
+	*/
 	"_fnPrintEnd": function ( e )
 	{
 		var that = this;
@@ -2499,7 +2361,11 @@ TableTools.prototype = {
 		window.scrollTo( 0, oSetPrint.saveScroll );
 
 		/* Drop the print message */
-		$('div.'+this.classes.print.message).remove();
+		if ( oDomPrint.message !== null )
+		{
+			document.body.removeChild( oDomPrint.message );
+			oDomPrint.message = null;
+		}
 
 		/* Styling class */
 		$(document.body).removeClass( 'DTTT_Print' );
@@ -2517,10 +2383,10 @@ TableTools.prototype = {
 
 
 	/**
-	 * Take account of scrolling in DataTables by showing the full table
-	 *  @returns void
-	 *  @private 
-	 */
+	* Take account of scrolling in DataTables by showing the full table
+	*  @returns void
+	*  @private
+	*/
 	"_fnPrintScrollStart": function ()
 	{
 		var
@@ -2531,8 +2397,8 @@ TableTools.prototype = {
 			nTheadSize, nTfootSize;
 
 		/* Copy the header in the thead in the body table, this way we show one single table when
-		 * in print view. Note that this section of code is more or less verbatim from DT 1.7.0
-		 */
+		* in print view. Note that this section of code is more or less verbatim from DT 1.7.0
+		*/
 		nTheadSize = oSetDT.nTable.getElementsByTagName('thead');
 		if ( nTheadSize.length > 0 )
 		{
@@ -2574,11 +2440,11 @@ TableTools.prototype = {
 
 
 	/**
-	 * Take account of scrolling in DataTables by showing the full table. Note that the redraw of
-	 * the DataTable that we do will actually deal with the majority of the hard work here
-	 *  @returns void
-	 *  @private 
-	 */
+	* Take account of scrolling in DataTables by showing the full table. Note that the redraw of
+	* the DataTable that we do will actually deal with the majority of the hard work here
+	*  @returns void
+	*  @private
+	*/
 	"_fnPrintScrollEnd": function ()
 	{
 		var
@@ -2600,14 +2466,14 @@ TableTools.prototype = {
 
 
 	/**
-	 * Resume the display of all TableTools hidden nodes
-	 *  @method  _fnPrintShowNodes
-	 *  @returns void
-	 *  @private 
-	 */
+	* Resume the display of all TableTools hidden nodes
+	*  @method  _fnPrintShowNodes
+	*  @returns void
+	*  @private
+	*/
 	"_fnPrintShowNodes": function ( )
 	{
-	  var anHidden = this.dom.print.hidden;
+		var anHidden = this.dom.print.hidden;
 
 		for ( var i=0, iLen=anHidden.length ; i<iLen ; i++ )
 		{
@@ -2618,13 +2484,13 @@ TableTools.prototype = {
 
 
 	/**
-	 * Hide nodes which are not needed in order to display the table. Note that this function is
-	 * recursive
-	 *  @method  _fnPrintHideNodes
-	 *  @param   {Node} nNode Element which should be showing in a 'print' display
-	 *  @returns void
-	 *  @private 
-	 */
+	* Hide nodes which are not needed in order to display the table. Note that this function is
+	* recursive
+	*  @method  _fnPrintHideNodes
+	*  @param   {Node} nNode Element which should be showing in a 'print' display
+	*  @returns void
+	*  @private
+	*/
 	"_fnPrintHideNodes": function ( nNode )
 	{
 		var anHidden = this.dom.print.hidden;
@@ -2659,40 +2525,40 @@ TableTools.prototype = {
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Static variables
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+* Static variables
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /**
- * Store of all instances that have been created of TableTools, so one can look up other (when
- * there is need of a master)
- *  @property _aInstances
- *  @type	 Array
- *  @default  []
- *  @private
- */
+* Store of all instances that have been created of TableTools, so one can look up other (when
+* there is need of a master)
+*  @property _aInstances
+*  @type	 Array
+*  @default  []
+*  @private
+*/
 TableTools._aInstances = [];
 
 
 /**
- * Store of all listeners and their callback functions
- *  @property _aListeners
- *  @type	 Array
- *  @default  []
- */
+* Store of all listeners and their callback functions
+*  @property _aListeners
+*  @type	 Array
+*  @default  []
+*/
 TableTools._aListeners = [];
 
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Static methods
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+* Static methods
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /**
- * Get an array of all the master instances
- *  @method  fnGetMasters
- *  @returns {Array} List of master TableTools instances
- *  @static
- */
+* Get an array of all the master instances
+*  @method  fnGetMasters
+*  @returns {Array} List of master TableTools instances
+*  @static
+*/
 TableTools.fnGetMasters = function ()
 {
 	var a = [];
@@ -2707,11 +2573,11 @@ TableTools.fnGetMasters = function ()
 };
 
 /**
- * Get the master instance for a table node (or id if a string is given)
- *  @method  fnGetInstance
- *  @returns {Object} ID of table OR table node, for which we want the TableTools instance
- *  @static
- */
+* Get the master instance for a table node (or id if a string is given)
+*  @method  fnGetInstance
+*  @returns {Object} ID of table OR table node, for which we want the TableTools instance
+*  @static
+*/
 TableTools.fnGetInstance = function ( node )
 {
 	if ( typeof node != 'object' )
@@ -2731,15 +2597,15 @@ TableTools.fnGetInstance = function ( node )
 
 
 /**
- * Add a listener for a specific event
- *  @method  _fnEventListen
- *  @param   {Object} that Scope of the listening function (i.e. 'this' in the caller)
- *  @param   {String} type Event type
- *  @param   {Function} fn Function
- *  @returns void
- *  @private
- *  @static
- */
+* Add a listener for a specific event
+*  @method  _fnEventListen
+*  @param   {Object} that Scope of the listening function (i.e. 'this' in the caller)
+*  @param   {String} type Event type
+*  @param   {Function} fn Function
+*  @returns void
+*  @private
+*  @static
+*/
 TableTools._fnEventListen = function ( that, type, fn )
 {
 	TableTools._aListeners.push( {
@@ -2751,17 +2617,17 @@ TableTools._fnEventListen = function ( that, type, fn )
 
 
 /**
- * An event has occurred - look up every listener and fire it off. We check that the event we are
- * going to fire is attached to the same table (using the table node as reference) before firing
- *  @method  _fnEventDispatch
- *  @param   {Object} that Scope of the listening function (i.e. 'this' in the caller)
- *  @param   {String} type Event type
- *  @param   {Node} node Element that the event occurred on (may be null)
- *  @param   {boolean} [selected] Indicate if the node was selected (true) or deselected (false)
- *  @returns void
- *  @private
- *  @static
- */
+* An event has occurred - look up every listener and fire it off. We check that the event we are
+* going to fire is attached to the same table (using the table node as reference) before firing
+*  @method  _fnEventDispatch
+*  @param   {Object} that Scope of the listening function (i.e. 'this' in the caller)
+*  @param   {String} type Event type
+*  @param   {Node} node Element that the event occurred on (may be null)
+*  @param   {boolean} [selected] Indicate if the node was selected (true) or deselected (false)
+*  @returns void
+*  @private
+*  @static
+*/
 TableTools._fnEventDispatch = function ( that, type, node, selected )
 {
 	var listeners = TableTools._aListeners;
@@ -2780,8 +2646,8 @@ TableTools._fnEventDispatch = function ( that, type, node, selected )
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Constants
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+* Constants
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 
 
@@ -2821,8 +2687,8 @@ TableTools.buttonBase = {
 
 
 /**
- * @namespace Default button configurations
- */
+* @namespace Default button configurations
+*/
 TableTools.BUTTONS = {
 	"csv": $.extend( {}, TableTools.buttonBase, {
 		"sAction": "flash_save",
@@ -2854,12 +2720,12 @@ TableTools.BUTTONS = {
 			this.fnSetText( flash, this.fnGetTableData(oConfig) );
 		},
 		"fnComplete": function(nButton, oConfig, flash, text) {
-			var lines = text.split('\n').length;
-            if (oConfig.bHeader) lines--;
-            if (this.s.dt.nTFoot !== null && oConfig.bFooter) lines--;
-			var plural = (lines==1) ? "" : "s";
+			var
+				lines = text.split('\n').length,
+				len = this.s.dt.nTFoot === null ? lines-1 : lines-2,
+				plural = (len==1) ? "" : "s";
 			this.fnInfo( '<h6>Table copied</h6>'+
-				'<p>Copied '+lines+' row'+plural+' to the clipboard.</p>',
+				'<p>Copied '+len+' row'+plural+' to the clipboard.</p>',
 				1500
 			);
 		}
@@ -2889,7 +2755,7 @@ TableTools.BUTTONS = {
 
 	"print": $.extend( {}, TableTools.buttonBase, {
 		"sInfo": "<h6>Print view</h6><p>Please use your browser's print function to "+
-		  "print this table. Press escape when finished.</p>",
+			"print this table. Press escape when finished.</p>",
 		"sMessage": null,
 		"bShowAll": true,
 		"sToolTip": "View print view",
@@ -3003,22 +2869,22 @@ TableTools.BUTTONS = {
 	} )
 };
 /*
- *  on* callback parameters:
- *     1. node - button element
- *     2. object - configuration object for this button
- *     3. object - ZeroClipboard reference (flash button only)
- *     4. string - Returned string from Flash (flash button only - and only on 'complete')
- */
+*  on* callback parameters:
+*     1. node - button element
+*     2. object - configuration object for this button
+*     3. object - ZeroClipboard reference (flash button only)
+*     4. string - Returned string from Flash (flash button only - and only on 'complete')
+*/
 
 // Alias to match the other plug-ins styling
 TableTools.buttons = TableTools.BUTTONS;
 
 
 /**
- * @namespace Classes used by TableTools - allows the styles to be override easily.
- *   Note that when TableTools initialises it will take a copy of the classes object
- *   and will use its internal copy for the remainder of its run time.
- */
+* @namespace Classes used by TableTools - allows the styles to be override easily.
+*   Note that when TableTools initialises it will take a copy of the classes object
+*   and will use its internal copy for the remainder of its run time.
+*/
 TableTools.classes = {
 	"container": "DTTT_container",
 	"buttons": {
@@ -3046,9 +2912,9 @@ TableTools.classes = {
 
 
 /**
- * @namespace ThemeRoller classes - built in for compatibility with DataTables' 
- *   bJQueryUI option.
- */
+* @namespace ThemeRoller classes - built in for compatibility with DataTables'
+*   bJQueryUI option.
+*/
 TableTools.classes_themeroller = {
 	"container": "DTTT_container ui-buttonset ui-buttonset-multi",
 	"buttons": {
@@ -3061,12 +2927,11 @@ TableTools.classes_themeroller = {
 
 
 /**
- * @namespace TableTools default settings for initialisation
- */
+* @namespace TableTools default settings for initialisation
+*/
 TableTools.DEFAULTS = {
 	"sSwfPath":        "../swf/copy_csv_xls_pdf.swf",
 	"sRowSelect":      "none",
-	"sRowSelector":    "tr",
 	"sSelectedClass":  null,
 	"fnPreRowSelect":  null,
 	"fnRowSelected":   null,
@@ -3075,7 +2940,7 @@ TableTools.DEFAULTS = {
 	"oTags": {
 		"container": "div",
 		"button": "a", // We really want to use buttons here, but Firefox and IE ignore the
-		                 // click on the Flash element in the button (but not mouse[in|out]).
+										// click on the Flash element in the button (but not mouse[in|out]).
 		"liner": "span",
 		"collection": {
 			"container": "div",
@@ -3090,26 +2955,26 @@ TableTools.defaults = TableTools.DEFAULTS;
 
 
 /**
- * Name of this class
- *  @constant CLASS
- *  @type	 String
- *  @default  TableTools
- */
+* Name of this class
+*  @constant CLASS
+*  @type	 String
+*  @default  TableTools
+*/
 TableTools.prototype.CLASS = "TableTools";
 
 
 /**
- * TableTools version
- *  @constant  VERSION
- *  @type	  String
- *  @default   See code
- */
-TableTools.version = "2.2.3";
+* TableTools version
+*  @constant  VERSION
+*  @type	  String
+*  @default   See code
+*/
+TableTools.version = "2.2.0-dev";
 
 
 
 // DataTables 1.10 API
-// 
+//
 // This will be extended in a big way in in TableTools 3 to provide API methods
 // such as rows().select() and rows.selected() etc, but for the moment the
 // tabletools() method simply returns the instance.
@@ -3130,24 +2995,25 @@ if ( $.fn.dataTable.Api ) {
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Initialisation
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+* Initialisation
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /*
- * Register a new feature with DataTables
- */
+* Register a new feature with DataTables
+*/
 if ( typeof $.fn.dataTable == "function" &&
-	 typeof $.fn.dataTableExt.fnVersionCheck == "function" &&
-	 $.fn.dataTableExt.fnVersionCheck('1.9.0') )
+	typeof $.fn.dataTableExt.fnVersionCheck == "function" &&
+	$.fn.dataTableExt.fnVersionCheck('1.9.0') )
 {
 	$.fn.dataTableExt.aoFeatures.push( {
 		"fnInit": function( oDTSettings ) {
 			var init = oDTSettings.oInit;
-			var opts = init ?
-				init.tableTools || init.oTableTools || {} :
-				{};
+			var opts = init.tableTools || init.oTableTools || {};
 
-			return new TableTools( oDTSettings.oInstance, opts ).dom.container;
+			var oTT = new TableTools( oDTSettings.oInstance, opts );
+			TableTools._aInstances.push( oTT );
+
+			return oTT.dom.container;
 		},
 		"cFeature": "T",
 		"sFeature": "TableTools"
@@ -3163,11 +3029,11 @@ $.fn.DataTable.TableTools = TableTools;
 })(jQuery, window, document);
 
 /*
- * Register a new feature with DataTables
- */
+* Register a new feature with DataTables
+*/
 if ( typeof $.fn.dataTable == "function" &&
-	 typeof $.fn.dataTableExt.fnVersionCheck == "function" &&
-	 $.fn.dataTableExt.fnVersionCheck('1.9.0') )
+	typeof $.fn.dataTableExt.fnVersionCheck == "function" &&
+	$.fn.dataTableExt.fnVersionCheck('1.9.0') )
 {
 	$.fn.dataTableExt.aoFeatures.push( {
 		"fnInit": function( oDTSettings ) {
@@ -3199,11 +3065,7 @@ return TableTools;
 
 // Define as an AMD module if possible
 if ( typeof define === 'function' && define.amd ) {
-	define( ['jquery', 'datatables'], factory );
-}
-else if ( typeof exports === 'object' ) {
-    // Node/CommonJS
-    factory( require('jquery'), require('datatables') );
+	define( 'datatables-tabletools', ['jquery', 'datatables'], factory );
 }
 else if ( jQuery && !jQuery.fn.dataTable.TableTools ) {
 	// Otherwise simply initialise as normal, stopping multiple evaluation
@@ -3212,4 +3074,3 @@ else if ( jQuery && !jQuery.fn.dataTable.TableTools ) {
 
 
 })(window, document);
-

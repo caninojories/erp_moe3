@@ -4,6 +4,7 @@
   var node_module = app_require( 'services/module.config' );
 
   exports.userSignUp = function( req, res, next ) {
+    console.log('userSignUP');
     node_module.createSendToken( node_module, req.user, res );
   };
 

@@ -15,7 +15,6 @@
      ** but this is easier to maintain.
      ***/
     'app.core',
-    'app.widgets',
 
     /***
      ** Feature areas
@@ -29,15 +28,17 @@
     'app.quotationRegistration',
     'app.quotationList',
     'app.invoiceRegistration',
+    'app.invoiceList',
+
 
     /*
      * Restangular Service
     **/
-    'app.services',
+
+
 
     /***
      ** Restangular Service
      ***/
-    'app.strap',
   ]);
 })();

@@ -26,8 +26,10 @@
         return response;
       });
     }
+    console.log(DTOptionsBuilder);
+    $scope.dtOptions = DTOptionsBuilder.fromSource( 'http://localhost:3001/salesRepresentativeApi/getSalesRepresentativeList' )
 
-    $scope.dtOptions = DTOptionsBuilder.fromSource( 'http://localhost:3000/salesRepresentativeApi/getSalesRepresentativeList' )
+    //console.log($scope.dtOptions);
       .withTableTools('/js/vendor/table-tools/swf/copy_csv_xls_pdf.swf')
       .withTableToolsButtons([
         'copy',

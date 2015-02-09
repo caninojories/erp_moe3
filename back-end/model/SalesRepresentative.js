@@ -2,6 +2,7 @@
   'use strict';
 
   var mongoose = require( 'mongoose' );
+  var Promise   = require('bluebird');
 
   var SalesRepresentativeSchema = new mongoose.Schema({
     firstName: String,

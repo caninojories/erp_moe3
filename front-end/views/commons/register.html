@@ -1,5 +1,5 @@
-<div class='modal' tabindex='-1' role='dialog' ng-controller='Strap as vm'>
-  <form ng-submit='vm.signup( signupForm.$valid, vm.email, vm.username, vm.password, vm.confirmPassword )' class='modal-dialog' name='signupForm' novalidate='novalidate'>
+<div class='modal' tabindex='-1' role='dialog' ng-controller='Register as vm'>
+  <form ng-submit='vm.register( signupForm.$valid, vm.email, vm.username, vm.password, vm.confirmPassword )' class='modal-dialog' name='signupForm' novalidate='novalidate'>
     <div class='modal-content'>
       <div class='modal-header'>
         <button type='button' class='close' ng-click='$hide()'>&times;</button>
@@ -8,7 +8,7 @@
       <div class='modal-body'>
         <div class='form-group'  ng-class="{ 'has-error' : signupForm.email.$invalid &amp;&amp; !signupForm.email.$pristine}">
           <label class='control-label'>Email</label>
-          <input type='email' name='email' ng-model='vm.email' class='form-control' required ng-blur='vm.blurred(signupForm)'>
+          <input type='email' name='email' ng-model='vm.email' class='form-control' required ng-blur='vm.checkEmailInBlurred(signupForm)'>
           <div class='help-block' ng-show='signupForm.email.$dirty && signupForm.email.$error.required'>
             An email address is required
           </div>

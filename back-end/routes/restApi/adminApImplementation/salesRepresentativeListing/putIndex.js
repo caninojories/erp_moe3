@@ -1,24 +1,27 @@
 (function() {
   'use strict';
 
-  var node_module = app_require( 'services/module.config' ),
-      url         = require( 'url' );
+  var io = app_require( 'services/module.config' );
 
-  exports.put = function( req, res, next ) {
-    var query = url.parse( req.url, true).query;
-    node_module.mongoDB.db( node_module, 'erp_moe3' )
-      .then(function() {
-        node_module.SalesRep
-          .findById(query.id, function( err, document ) {
-            document.firstName  = query.firstName;
-            document.lastName   = query.lastName;
-            document.postalCode = query.postalCode;
-            document.salesOfficeAddress1    = query.salesOfficeAdd1;
-            document.salesOfficeAddress2    = query.salesOfficeAdd2;
-            document.salesOfficeAddress3    = query.salesOfficeAdd3;
-            document.salesOfficePhoneNumber = query.salesOfficePhoneNumber;
-            document.save();
-          }).then( res.json(200) );
-      });
+  exports.put = function(req, res, next) {
+    var query   = io.url.parse( req.url, true).query,
+        options = {
+          find  : query.id,
+          io    : io,
+          name  : 'SalesRep',
+          query : query,
+          res   : res,
+          details: {
+            firstName           : 'firstName',
+            lastName            : 'lastName',
+            postalCode          : 'postalCode',
+            salesOfficeAddress1 : 'salesOfficeAddress1',
+            salesOfficeAddress2 : 'salesOfficeAddress2',
+            salesOfficeAddress3 : 'salesOfficeAddress3'
+          }
+        };
+
+    io.mongoDB(io, io.config.dbName)
+      .then(io.update.putById(options));
   };
 }());

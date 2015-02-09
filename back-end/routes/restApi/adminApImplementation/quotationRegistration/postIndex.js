@@ -1,35 +1,33 @@
 (function() {
   'use strict';
 
-  var node_module = app_require( 'services/module.config' );
-  var moment      = require( 'moment' );
+  var io = app_require( 'services/module.config' );
 
   exports.post = function( req, res, next ) {
-    var date = moment( req.body.date ).format('LL');
-    console.log( date );
-    node_module.mongoDB.db( node_module, 'erp_moe3' )
-      .then(function() {
-        var quotation = node_module.Quotation({
-          date: req.body.date || '',
-          quotationNumber: req.body.quotationNumber || '',
-          postalCode: req.body.postalCode || '',
-          salesRepFirstName: req.body.salesRepFirstName || '',
-          salesRepLastName : req.body.salesRepLastName || '',
-          salesOfficeAddress1: req.body.salesOfficeAddress1 || '',
-          salesOfficeAddress2: req.body.salesOfficeAddress2 || '',
-          salesOfficeAddress3: req.body.salesOfficeAddress3 || '',
-          salesOfficePhoneNumber: req.body.salesOfficePhoneNumber || '',
-          customerFirstName: req.body.customerFirstName || '',
-          customerLastName: req.body.customerLastName || '',
-          subject: req.body.subject || '',
-          item: req.body.quotationObj
-        });
-      return quotation;
-    }).then(function( quotation, handleError ) {
-      quotation.save(function( err ) {
-        if( err ) next( err );
-        res.status( 200 ).send( quotation );
-      });
-    });
+    var date      = io.moment( req.body.date ).format('LL'),
+        quotation = req.body,
+        options   = {
+          io      : io,
+          name    : 'Quotation',
+          res     : res,
+          details : {
+            date                  : quotation.date || '',
+            quotationNumber       : quotation.quotationNumber || '',
+            postalCode            : quotation.postalCode || '',
+            salesRepFirstName     : quotation.salesRepFirstName || '',
+            salesRepLastName      : quotation.salesRepLastName || '',
+            salesOfficeAddress1   : quotation.salesOfficeAddress1 || '',
+            salesOfficeAddress2   : quotation.salesOfficeAddress2 || '',
+            salesOfficeAddress3   : quotation.salesOfficeAddress3 || '',
+            salesOfficePhoneNumber: quotation.salesOfficePhoneNumber || '',
+            customerFirstName     : quotation.customerFirstName || '',
+            customerLastName      : quotation.customerLastName || '',
+            subject               : quotation.subject || '',
+            item: quotation.quotationObj
+          }
+        };
+
+    io.mongoDB( io, io.config.dbName )
+      .then(io.save(options));
   };
 }());

@@ -5,7 +5,6 @@
 
   exports.putOne = function( req,res, next ) {
     var query = node_module.url.parse( req.url, true ).query;
-    console.log( query.id );
     node_module.mongoDB.db( node_module, 'erp_moe3' )
     .then(function() {
       node_module.Customer

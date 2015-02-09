@@ -1,27 +1,27 @@
 (function() {
   'use strict';
 
-  var node_module = app_require('services/module.config');
+  var io = app_require('services/module.config');
 
   exports.getList = function( req, res, next ) {
-    node_module.mongoDB.db( node_module, 'erp_moe3' )
-      .then(function() {
-        node_module.Customer
-          .find()
-          .sort({firstName: 1})
-          .exec( documents );
-          function documents( handleError , documentList ) {
-            if( handleError ) next( handleError );
-            res.status(200).send( documentList );
-          }
-      });
+    var options = {
+      io  : io,
+      name: 'Customer',
+      res : res,
+      sort: {
+        firstName: 1
+      }
+    };
+
+    io.mongoDB(io, io.config.dbName )
+      .then(io.get.findList(options));
   };
 
   exports.getOne = function( req, res, next ) {
-    var query = node_module.url.parse( req.url, true ).query;
-    node_module.mongoDB.db( node_module, 'erp_moe3' )
+    var query = io.url.parse( req.url, true ).query;
+    io.mongoDB( io, io.config.dbName )
     .then(function() {
-      node_module.Customer
+      io.Customer
         .findById( query.id,  callBack );
         function callBack( err, document) {
           if (err) next(err);

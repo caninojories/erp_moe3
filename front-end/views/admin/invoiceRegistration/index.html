@@ -141,25 +141,25 @@
             <div class="col-sm-3">
               <div class="form-group">
                 <label>Quantity</label>
-                <input type="number" name="quantity" class="form-control input-sm" ng-model="vm.values['quantity_' + $index]">
+                <input type="number" name="quantity" class="form-control input-sm" ng-model="invoice.quantity">
               </div>
             </div>
             <div class="col-sm-3">
               <div class="form-group">
                 <label>Price</label>
-                <input type="number" name="unitPrice" class="form-control input-sm" ng-model="vm.values['unitPrice_' + $index]">
+                <input type="number" name="unitPrice" class="form-control input-sm" ng-model="invoice.unitPrice">
               </div>
             </div>
             <div class="col-sm-3">
               <div class="form-group">
                 <label>Amount</label>
-                <input type="number" name="amount" class="form-control input-sm" ng-model="vm.values['amount_' + $index]">
+                <input type="number" name="amount" class="form-control input-sm" ng-model="invoice.amount">
               </div>
             </div>
             <div class="col-sm-3">
               <div class="form-group">
                 <label>Status</label>
-                <input type="text" name="amount" class="form-control input-sm" ng-model="vm.values['status_' + $index]">
+                <input type="text" name="status" class="form-control input-sm" ng-model="invoice.status">
               </div>
             </div>
           </div>
@@ -168,7 +168,7 @@
               <form name="deliveryDateForm" class="form-group" role="form">
                 <div class="form-group" ng-class="{'has-error': deliveryDateForm.date.$invalid}">
                   <label>Delivery Date</label>
-                  <input type="text" class="form-control input-sm" ng-model="vm.deliveryDateForm" name="deliveryDateForm"
+                  <input type="text" class="form-control input-sm" ng-model="invoice.deliveryDate" name="deliveryDateForm"
                   bs-datepicker data-date-format="MMMM-dd-yyyy">
                 </div>
               </form>
@@ -177,7 +177,7 @@
               <form name="dateOfPaymentForm" class="form-group" role="form">
                 <div class="form-group" ng-class="{'has-error': dateOfPaymentForm.date.$invalid}">
                   <label>Date of Payment</label>
-                  <input type="text" class="form-control input-sm" ng-model="vm.dateOfPaymentForm" name="dateOfPaymentForm"
+                  <input type="text" class="form-control input-sm" ng-model="invoice.dateOfPayment" name="dateOfPaymentForm"
                   bs-datepicker data-date-format="MMMM-dd-yyyy">
                 </div>
               </form>
@@ -185,7 +185,7 @@
             <div class="col-sm-4">
               <div class="form-group">
                 <label>Delivery Method</label>
-                <input type="text" name="amount" class="form-control input-sm" ng-model="vm.values['deliveryMethod_' + $index]">
+                <input type="text" name="deliveryMethod" class="form-control input-sm" ng-model="invoice.deliveryMethod">
               </div>
             </div>
           </div>
@@ -193,19 +193,19 @@
             <div class="col-sm-4">
               <div class="form-group">
                 <label>Note for invoice</label>
-                <textarea name='noteForinvoice' class="form-control" rows="5" ng-model="vm.values['noteForinvoice_' + $index]"></textarea>
+                <textarea name='noteForinvoice' class="form-control" rows="5" ng-model="invoice.noteForInvoice"></textarea>
               </div>
             </div>
             <div class='col-sm-4'>
               <div class="form-group">
-                <label>Sales Representative Comment</label>
-                <textarea name='comment' class="form-control" rows="5" placeholder='' ng-model="vm.values['comment_' + $index]"></textarea>
+                <label>Accountant Comment</label>
+                <textarea name='accountantComment' class="form-control" rows="5" placeholder='' ng-model="invoice.accountantComment"></textarea>
               </div>
             </div>
             <div class='col-sm-4'>
               <div class="form-group">
-                <label>Sales Representative Note</label>
-                <textarea name='note' class="form-control" rows="5" placeholder='' ng-model="vm.values['note_' + $index]"></textarea>
+                <label>Accountant Note</label>
+                <textarea name='accountantNote' class="form-control" rows="5" placeholder='' ng-model="invoice.accountantNote"></textarea>
               </div>
             </div>
             </div
@@ -215,6 +215,6 @@
     </div>
   </div>
   <div class="pull-right save">
-    <button type="button" class="btn btn-md btn-primary" ng-click="vm.saveinvoice()">Save</button>
+    <button type="button" class="btn btn-md btn-primary" ng-click="vm.saveInvoice()">Save</button>
   </div>
 </div>

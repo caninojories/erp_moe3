@@ -19,6 +19,7 @@
   "trailing":  true,
   "undef":     true,
   "unused":    false,
+  "validthis": true,
   "predef"   : [
     "app_require",
     "angular",

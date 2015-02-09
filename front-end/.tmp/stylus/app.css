@@ -78,24 +78,18 @@
 }
 .invoiceRegistration .am-collapse {
   -webkit-animation-duration: 0.3s !important;
-  -moz-animation-duration: 0.3s !important;
-  -o-animation-duration: 0.3s !important;
   -ms-animation-duration: 0.3s !important;
   animation-duration: 0.3s !important;
   -webkit-animation-timing-function: ease !important;
-  -moz-animation-timing-function: ease !important;
-  -o-animation-timing-function: ease !important;
   -ms-animation-timing-function: ease !important;
   animation-timing-function: ease !important;
   -webkit-animation-fill-mode: backwards !important;
-  -moz-animation-fill-mode: backwards !important;
-  -o-animation-fill-mode: backwards !important;
   -ms-animation-fill-mode: backwards !important;
   animation-fill-mode: backwards !important;
-  overflow: hidden !important;
+  overflow: hidden;
 }
-.invoiceRegistration .am-collapse {
-  overflow: visible;
+.invoiceRegistration .in {
+  overflow: visible !important;
 }
 .invoiceRegistration .panel-title > a {
   font-family: josefinslab-bold;
@@ -114,7 +108,6 @@ a.editable-click {
   height: 2px;
   border-top: 0;
   background: #357ebd;
-  -webkit-border-radius: 5px;
   border-radius: 5px;
 }
 button.DTTT_button,
@@ -129,24 +122,14 @@ a.DTTT_button {
   font-size: 14px;
   font-weight: 400;
   color: #fff !important;
-  -webkit-border-radius: 2px;
   border-radius: 2px;
-  -webkit-box-shadow: 1px 1px 3px #ccc;
   box-shadow: 1px 1px 3px #ccc;
   background: #fff;
-  background: -webkit-linear-gradient(top, #d9534f 0%, #d9534f 89%, #d9534f 100%);
-  background: -moz-linear-gradient(top, #d9534f 0%, #d9534f 89%, #d9534f 100%);
-  background: -o-linear-gradient(top, #d9534f 0%, #d9534f 89%, #d9534f 100%);
-  background: -ms-linear-gradient(top, #d9534f 0%, #d9534f 89%, #d9534f 100%);
   background: linear-gradient(to bottom, #d9534f 0%, #d9534f 89%, #d9534f 100%);
 }
 button.DTTT_button:hover,
 div.DTTT_button:hover,
 a.DTTT_button:hover {
-  background: -webkit-linear-gradient(top, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
-  background: -moz-linear-gradient(top, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
-  background: -o-linear-gradient(top, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
-  background: -ms-linear-gradient(top, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
   background: linear-gradient(to bottom, #d43f3a 0%, #d43f3a 89%, #d43f3a 100%);
 }
 .dataTables_paginate .disabled {
@@ -170,22 +153,14 @@ a.DTTT_button:hover {
   margin-left: 5px;
   color: #555;
   background-color: #fff;
-sfss
   background-image: none;
   border: 1px solid #ccc;
-  -webkit-border-radius: 4px;
   border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-  -webkit-transition: 0.5s ease-in-out all;
-  -moz-transition: 0.5s ease-in-out all;
-  -o-transition: 0.5s ease-in-out all;
-  -ms-transition: 0.5s ease-in-out all;
   transition: 0.5s ease-in-out all;
 }
 .dataTables_filter label input[type=search]:focus {
   border-color: #66afe9;
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.075) inset, 0 0 8px rgba(102,175,233,0.6);
   box-shadow: 0 1px 1px rgba(0,0,0,0.075) inset, 0 0 8px rgba(102,175,233,0.6);
   outline: 0 none;
 }
@@ -223,10 +198,6 @@ sfss
   position: absolute;
   left: 0;
   right: 0;
-  -webkit-transition: all 0.7s ease-in-out;
-  -moz-transition: all 0.7s ease-in-out;
-  -o-transition: all 0.7s ease-in-out;
-  -ms-transition: all 0.7s ease-in-out;
   transition: all 0.7s ease-in-out;
 }
 [ui-view].ng-enter {
@@ -237,15 +208,14 @@ sfss
 [ui-view].ng-enter-active {
   opacity: 1;
   -ms-filter: none;
-  filter: none;
+  -webkit-filter: none;
+          filter: none;
 }
 [ui-view].ng-leave {
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
@@ -256,8 +226,6 @@ sfss
 }
 .open > .login {
   -webkit-animation: 2s my_animation;
-  -moz-animation: 2s my_animation;
-  -o-animation: 2s my_animation;
   -ms-animation: 2s my_animation;
   animation: 2s my_animation;
 }
@@ -324,68 +292,21 @@ sfss
     background-color: #335190;
   }
 }
-@-moz-keyframes my_animation {
-  0% {
-    opacity: 0;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    -webkit-transform: translateX(0) rotateX(90deg);
-    -moz-transform: translateX(0) rotateX(90deg);
-    -o-transform: translateX(0) rotateX(90deg);
-    -ms-transform: translateX(0) rotateX(90deg);
-    transform: translateX(0) rotateX(90deg);
-  }
-  100% {
-    opacity: 1;
-    -ms-filter: none;
-    filter: none;
-    -webkit-transform: translateX(0) rotateX(0deg);
-    -moz-transform: translateX(0) rotateX(0deg);
-    -o-transform: translateX(0) rotateX(0deg);
-    -ms-transform: translateX(0) rotateX(0deg);
-    transform: translateX(0) rotateX(0deg);
-  }
-}
 @-webkit-keyframes my_animation {
   0% {
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     -webkit-transform: translateX(0) rotateX(90deg);
-    -moz-transform: translateX(0) rotateX(90deg);
-    -o-transform: translateX(0) rotateX(90deg);
     -ms-transform: translateX(0) rotateX(90deg);
     transform: translateX(0) rotateX(90deg);
   }
   100% {
     opacity: 1;
     -ms-filter: none;
-    filter: none;
+    -webkit-filter: none;
+            filter: none;
     -webkit-transform: translateX(0) rotateX(0deg);
-    -moz-transform: translateX(0) rotateX(0deg);
-    -o-transform: translateX(0) rotateX(0deg);
-    -ms-transform: translateX(0) rotateX(0deg);
-    transform: translateX(0) rotateX(0deg);
-  }
-}
-@-o-keyframes my_animation {
-  0% {
-    opacity: 0;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    -webkit-transform: translateX(0) rotateX(90deg);
-    -moz-transform: translateX(0) rotateX(90deg);
-    -o-transform: translateX(0) rotateX(90deg);
-    -ms-transform: translateX(0) rotateX(90deg);
-    transform: translateX(0) rotateX(90deg);
-  }
-  100% {
-    opacity: 1;
-    -ms-filter: none;
-    filter: none;
-    -webkit-transform: translateX(0) rotateX(0deg);
-    -moz-transform: translateX(0) rotateX(0deg);
-    -o-transform: translateX(0) rotateX(0deg);
     -ms-transform: translateX(0) rotateX(0deg);
     transform: translateX(0) rotateX(0deg);
   }
@@ -396,18 +317,15 @@ sfss
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     -webkit-transform: translateX(0) rotateX(90deg);
-    -moz-transform: translateX(0) rotateX(90deg);
-    -o-transform: translateX(0) rotateX(90deg);
     -ms-transform: translateX(0) rotateX(90deg);
     transform: translateX(0) rotateX(90deg);
   }
   100% {
     opacity: 1;
     -ms-filter: none;
-    filter: none;
+    -webkit-filter: none;
+            filter: none;
     -webkit-transform: translateX(0) rotateX(0deg);
-    -moz-transform: translateX(0) rotateX(0deg);
-    -o-transform: translateX(0) rotateX(0deg);
     -ms-transform: translateX(0) rotateX(0deg);
     transform: translateX(0) rotateX(0deg);
   }

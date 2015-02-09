@@ -8,6 +8,9 @@
   .factory( 'customerServiceApi', function( Restangular ) {
     return Restangular.all( 'customerApi');
   })
+  .factory( 'invoiceServiceApi', function( Restangular ) {
+    return Restangular.all( 'invoiceApi' );
+  })
   .factory( 'quotationServiceApi', function( Restangular ) {
     return Restangular.all( 'quotationApi' );
   })
