@@ -1,24 +1,23 @@
 (function() {
   'use strict';
 
-  var io = app_require('services/module.config');
-
   exports.getList = function(req, res, next) {
     var options = {
-      io  : io,
+      io  : global.io,
       name: 'Invoice',
       res : res
     };
 
-    io.mongoDB(io, io.config.dbName)
-      .then(io.get.findList(options));
+    global.io.mongoDB(global.io, global.io.config.dbName)
+      .then(global.io.get.findList(options));
   };
 
   exports.getOne = function(req, res, next) {
-    var query = io.url.parse( req.url, true ).query;
-    io.mongoDB(io, io.config.dbName)
+    var query = global.io.url.parse( req.url, true ).query;
+    
+    global.io.mongoDB(global.io, global.io.config.dbName)
     .then(function() {
-      io.Invoice
+      global.io.Invoice
       .findById( query.id,  callBack );
       function callBack( err, document) {
         if (err) next(err);

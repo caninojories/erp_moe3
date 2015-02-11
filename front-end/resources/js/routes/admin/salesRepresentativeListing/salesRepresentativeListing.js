@@ -5,16 +5,19 @@
   .module( 'app.salesRepresentativeListing' )
   .controller( 'SalesRepresentativeListing', SalesRepresentativeListing );
 
-  SalesRepresentativeListing.$inject = [ '$q', '$compile', '$filter', '$rootScope', '$scope', '$state', '$timeout', 'Restangular',
-    'DTOptionsBuilder', 'DTColumnBuilder', 'reload', 'salesRepresentativeListingDataService' ];
+  SalesRepresentativeListing.$inject = [ '$q', '$compile', '$filter', '$rootScope', '$scope', '$state', '$timeout', '$window', 'Restangular',
+    'DTInstances', 'DTOptionsBuilder', 'DTColumnBuilder', 'reload', 'salesRepresentativeListingDataService' ];
 
-  function SalesRepresentativeListing( $q, $compile, $filter, $rootScope, $scope, $state, $timeout, Restangular,
-    DTOptionsBuilder, DTColumnBuilder, reload, salesRepresentativeListingDataService ) {
+  function SalesRepresentativeListing( $q, $compile, $filter, $rootScope, $scope, $state, $timeout, $window, Restangular,
+    DTInstances, DTOptionsBuilder, DTColumnBuilder, reload, salesRepresentativeListingDataService ) {
+      var vm = this;
 
     $scope.delete = function(id) {
       $q.all( [deleteCallBack(id)] )
       .then(function( response ) {
-        $scope.dtOptions.reloadData();
+        $timeout(function() {
+          vm.dtInstance.reloadData();
+        }, 200);
         return response;
       });
     };
@@ -26,10 +29,9 @@
         return response;
       });
     }
-    console.log(DTOptionsBuilder);
-    $scope.dtOptions = DTOptionsBuilder.fromSource( 'http://localhost:3001/salesRepresentativeApi/getSalesRepresentativeList' )
 
-    //console.log($scope.dtOptions);
+    $scope.dtOptions = DTOptionsBuilder.fromSource($window.location.origin + '/salesRepresentativeApi/getSalesRepresentativeList')
+
       .withTableTools('/js/vendor/table-tools/swf/copy_csv_xls_pdf.swf')
       .withTableToolsButtons([
         'copy',
@@ -63,6 +65,11 @@
     DTColumnBuilder.newColumn('salesOfficeAddress3').withTitle('Sales Office Address 3').withOption('defaultContent', '').notSortable(),
     DTColumnBuilder.newColumn('salesOfficePhoneNumber').withTitle('Sales Office Phone Number').notSortable(),
     ];
+
+      return DTInstances.getLast().then(function (dtInstance) {
+        vm.dtInstance = dtInstance;
+      });
+
 
     function getSalesRepresentativeList() {
       $q.all( [getSalesRepresentativeListCallBack()] )

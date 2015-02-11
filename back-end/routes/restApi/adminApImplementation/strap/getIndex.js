@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var io = app_require( 'services/module.config' ),
+  var io = appRequire( 'services/module.config' ),
       url         = require('url');
 
   exports.isEmailTaken = function( req, res, next ) {

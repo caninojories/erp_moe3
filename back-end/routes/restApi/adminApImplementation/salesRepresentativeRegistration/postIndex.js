@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var io = app_require( 'services/module.config' );
+  var io = appRequire( 'services/module.config' );
 
   exports.saveSalesRepresentative = function( req, res, next ) {
     var salesRep = req.body,
@@ -20,7 +20,7 @@
           }
         };
 
-    io.connectDB(io.config.db)
+    io.mongoDB(io, io.config.dbName)
       .then(io.save(options));
   };
 }());

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var node_module = app_require( 'services/module.config' );
+  var node_module = appRequire( 'services/module.config' );
 
 
   /***
@@ -18,7 +18,7 @@
         variableEnd: '$>',
       }
     });
-    app.set( 'port', process.env.PORT || 3001 );
+    app.set( 'port', process.env.PORT || 3000 );
     app.set( 'view engine', 'html' );
     app.use( node_module.compression() );
     app.use( node_module.favicon( node_module.faviconPath ));

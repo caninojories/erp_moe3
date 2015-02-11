@@ -11,9 +11,10 @@
       var vm = this;
 
       /*Functions*/
-      vm.isAuthenticated      = $auth.isAuthenticated;
-      vm.loginUser  = loginUser;
-      vm.login      = login;
+      vm.authenticate     = authenticate;
+      vm.isAuthenticated  = $auth.isAuthenticated;
+      vm.loginUser        = loginUser;
+      vm.login            = login;
 
       function login(isLoginFormValid) {
         if (!isLoginFormValid) {return;}
@@ -34,6 +35,16 @@
 
       function loginUser() {
         strapModal.show('am-fade-and-scale', 'center', 'commons/login.html');
+      }
+
+      function authenticate(provider) {
+        $auth.authenticate(provider)
+        .then(function(response) {
+          //$rootScope.username = response.data.user.displayName || response.data.user.username;
+          vm.isAuthenticated = $auth.isAuthenticated;
+        }, function(err) {
+          if (err) {throw err;}
+        });
       }
     }
 }());

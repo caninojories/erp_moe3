@@ -21,7 +21,7 @@
   "unused":    false,
   "validthis": true,
   "predef"   : [
-    "app_require",
+    "appRequire",
     "angular",
     "compatible-vendor-prefixes",
     "moment",

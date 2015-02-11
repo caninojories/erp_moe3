@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var node_module = app_require( 'services/module.config' );
+  var node_module = appRequire( 'services/module.config' );
 
   exports.userSignUp = function( req, res, next ) {
     console.log('userSignUP');

@@ -5,9 +5,9 @@
     .module( 'app.customerList' )
     .controller( 'EditCustomerList', EditCustomerList );
 
-    EditCustomerList.$inject = [ '$q', '$state', '$timeout', 'Restangular', '$alertModal', 'customerDataService' ];
+    EditCustomerList.$inject = [ '$q', '$state', '$timeout', 'Restangular', 'strapAlert', 'customerDataService' ];
 
-    function EditCustomerList( $q, $state, $timeout, Restangular, $alertModal, customerDataService ) {
+    function EditCustomerList( $q, $state, $timeout, Restangular, strapAlert, customerDataService ) {
       var vm = this;
 
       vm.customerObj = null;
@@ -51,11 +51,11 @@
         if( !form.$valid ) return;
         return $q.all( [updateCustomerCallBack()] )
         .then(function( response ) {
-          $alertModal.show( 'Success!!', vm.firstName + ' ' + vm.lastName + ' has been updated' );
+          strapAlert.show( 'Success!!', vm.firstName + ' ' + vm.lastName + ' has been updated' );
           vm.originForm = angular.copy( form );
           vm.originForm.$setPristine();
           $timeout(function() {
-            $alertModal.hide();
+            strapAlert.hide();
           }, 2000);
           return response;
         });

@@ -5,16 +5,18 @@
     .module( 'app.customerList' )
     .controller( 'CustomerList', CustomerList );
 
-    CustomerList.$inject = [ '$q', '$compile', '$scope', 'Restangular', 'DTOptionsBuilder',
+    CustomerList.$inject = [ '$q', '$compile', '$scope', '$timeout', '$window', 'Restangular', 'DTInstances', 'DTOptionsBuilder',
       'DTColumnBuilder', 'customerDataService'];
 
-    function CustomerList( $q, $compile, $scope, Restangular, DTOptionsBuilder, DTColumnBuilder, customerDataService ) {
+    function CustomerList( $q, $compile, $scope, $timeout, $window, Restangular, DTInstances, DTOptionsBuilder, DTColumnBuilder, customerDataService ) {
       var vm = this;
 
       $scope.delete = function(id) {
         $q.all( [deleteCallBack(id)] )
         .then(function( response ) {
-          $scope.dtOptions.reloadData();
+          $timeout(function() {
+            vm.dtInstance.reloadData();
+          }, 200);
           return response;
         });
       };
@@ -27,7 +29,7 @@
           });
       }
 
-      $scope.dtOptions = DTOptionsBuilder.fromSource( 'http://localhost:3001/customerApi/customerList' )
+      $scope.dtOptions = DTOptionsBuilder.fromSource( $window.location.origin + '/customerApi/customerList' )
         .withTableTools('/js/vendor/table-tools/swf/copy_csv_xls_pdf.swf')
         .withTableToolsButtons([
           'copy',
@@ -65,5 +67,9 @@
           DTColumnBuilder.newColumn('email').withTitle('Email').notSortable(),
           DTColumnBuilder.newColumn('paymentTerms').withTitle('Payment Terms').notSortable(),
           ];
+
+      return DTInstances.getLast().then(function (dtInstance) {
+        vm.dtInstance = dtInstance;
+      });
     }
 }());

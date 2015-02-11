@@ -21,19 +21,21 @@
         version: '0.0.0'
     };
 
-    function loginConfig( $authProvider, cfpLoadingBarProvider ) {
+    loginConfig.$inject = ['$authProvider', 'cfpLoadingBarProvider'];
+    /* @ngInject */
+    function loginConfig($authProvider, cfpLoadingBarProvider ) {
       cfpLoadingBarProvider.latencyThreshold = 100;
-      $authProvider.loginUrl = 'http://localhost:3001/userApi/userLogIn';
-      $authProvider.signupUrl = 'http://localhost:3001/userApi/userSignUp';
+      $authProvider.loginUrl = window.location.origin + '/userApi/userLogIn';
+      $authProvider.signupUrl = window.location.origin + '/userApi/userSignUp';
 
       $authProvider.google({
         clientId: '514855305579-vmrkir3l76c0v2t6b5mtnphh38uf9irp.apps.googleusercontent.com',
-        url: 'http://localhost:3001/userApi/logInUserGoogle'
+        url: window.location.origin + '/userApi/logInUserGoogle'
       });
 
       $authProvider.facebook({
         clientId: '789445017793242',
-        url: 'http://localhost:3001/userApi/logInUserFacebook'
+        url: window.location.origin + '/userApi/logInUserFacebook'
       });
     }
 

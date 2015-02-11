@@ -17,10 +17,7 @@
 
       function addInvoice() {
         vm.invoiceList.push({
-          item: {
-            name: vm.itemTitle || 'item',
-            show: true
-          },
+          name: vm.itemTitle || 'item',
           quantity: vm.quantity,
           unitPrice: vm.unitPrice,
           amount: vm.amount,
@@ -30,7 +27,8 @@
           deliveryMethod: vm.deliveryMethod,
           noteForInvoice: vm.noteForInvoice,
           accountantComment: vm.accountantComment,
-          accountantNote: vm.accountantNote
+          accountantNote: vm.accountantNote,
+          show: true
         });
 
         vm.itemTitle = '';

@@ -5,17 +5,19 @@
     .module( 'app.invoiceList' )
     .controller( 'InvoiceList', InvoiceList );
 
-    InvoiceList.$inject = [ '$compile', '$q', '$scope', '$window', 'DTOptionsBuilder',
+    InvoiceList.$inject = [ '$compile', '$q', '$scope', '$timeout', '$window', 'DTInstances', 'DTOptionsBuilder',
     'DTColumnBuilder', 'invoiceListDataService' ];
 
-    function InvoiceList( $compile, $q, $scope, $window, DTOptionsBuilder,
+    function InvoiceList( $compile, $q, $scope, $timeout, $window, DTInstances, DTOptionsBuilder,
     DTColumnBuilder, invoiceListDataService  ) {
       var vm = this;
 
       $scope.delete = function(id) {
         $q.all( [deleteCallBack(id)] )
         .then(function( response ) {
-          $scope.dtOptions.reloadData();
+          $timeout(function() {
+            vm.dtInstance.reloadData();
+          }, 200);
           return response;
         });
       };
@@ -74,10 +76,14 @@
         .renderWith(function(data, type, full, meta) {
           var objArray = [];
           data.item.forEach(function( obj ) {
-            objArray.push( '<a href="#" class=quotationItem>' + obj.item.name + '</a>');
+            objArray.push( '<a href="#" class=quotationItem>' + obj.name + '</a>');
           });
           return objArray.join('</br>');
         }),
         ];
+
+      return DTInstances.getLast().then(function (dtInstance) {
+        vm.dtInstance = dtInstance;
+      });
     }
 }());

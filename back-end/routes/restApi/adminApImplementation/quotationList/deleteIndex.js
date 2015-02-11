@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var node_module = app_require( 'services/module.config' );
+  var node_module = appRequire( 'services/module.config' );
 
   exports.deleteOne = function( req, res, next ) {
     var query = node_module.url.parse( req.url, true ).query;

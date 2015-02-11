@@ -1,19 +1,18 @@
 (function(){
   'use strict';
 
-  var node_module = app_require( 'services/module.config' );
+  var io = appRequire( 'services/module.config' );
 
-  exports.deleteOne = function( req, res, next ) {
-    var query = node_module.url.parse( req.url, true ).query;
-    node_module.mongoDB.db( node_module, 'erp_moe3' )
-    .then(function() {
-      node_module.Invoice
-      .findByIdAndRemove( query.id, callBack );
+  exports.deleteOne = function(req, res, next) {
+    var query   = io.url.parse( req.url, true ).query,
+        options = {
+          find: query.id,
+          io  : io,
+          name: 'Invoice',
+          res : res
+        };
 
-      function callBack( err, document) {
-        if (err) next(err);
-        res.json( 200, document );
-      }
-    });
+    io.mongoDB(io, io.config.dbName)
+      .then(io.delete.findByIdAndRemove(options));
   };
 }());

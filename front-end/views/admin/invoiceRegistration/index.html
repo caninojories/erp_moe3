@@ -121,14 +121,14 @@
         <div class="panel-heading">
           <h4 class="panel-title">
             <a bs-collapse-toggle>
-              <span ng-show="invoice.item.show" class="title">{{ invoice.item.name }}</span>
+              <span ng-show="invoice.show" class="title">{{ invoice.name }}</span>
               <a href="#" class="pull-right itemSave" ng-click="vm.deleteItem(invoice)">
                 <button class="btn btn-xs btn-success"><i class="ion-android-checkmark-circle"></i></button>
               </a>
               <a href="#" class="pull-right delete" ng-click="vm.deleteItem(invoice)">
                 <button class="btn btn-xs btn-danger"><i class="ion-backspace"></i></button>
               </a>
-              <a href="#" editable-text="invoice.item.name" class="pull-right" ng-click="vm.xEditable(invoice)"
+              <a href="#" editable-text="invoice.name" class="pull-right" ng-click="vm.xEditable(invoice)"
               onaftersave="vm.afterSave(invoice)"  oncancel="vm.cancel(invoice)">
               <button class="btn btn-xs btn-warning"><i class="ion-compose"></i></button>
             </a>

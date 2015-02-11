@@ -1,8 +1,8 @@
 (function() {
   'use strict';
 
-  module.exports = function( node_module, params, res ) {
-    node_module.request( node_module.config.GOOGLE_ACESS_TOKEN_URL, {
+  module.exports = function( io, params, res ) {
+    io.request( io.config.GOOGLE_ACESS_TOKEN_URL, {
       form: params,
       json: true,
       method: 'POST'
@@ -12,30 +12,30 @@
       var headers = {
         Authorization: 'Bearer ' + accessToken
       };
-      return node_module.request({
-        url: node_module.config.GOOGLE_API_URL,
+      return io.request({
+        url: io.config.GOOGLE_API_URL,
         headers: headers,
         json: true,
         method: 'GET'
       });
     }).then(function( profile, handleError ) {
-      node_module.mongoDB.db( node_module, 'erp_moe3' );
+      io.mongoDB(io, io.config.dbName);
       return profile;
     }).then(function( googleData ) {
-      node_module.User.findOne({
+      io.User.findOne({
         googleId: googleData.sub
       }, findUser );
 
       function findUser( err, foundUser ) {
         if( foundUser ) {
-          node_module.createSendToken( node_module, foundUser, res );
+          io.createSendToken( io, foundUser, res );
         } else {
-          var newUser = node_module.User({
+          var newUser = io.User({
             googleId: googleData.sub,
             displayName: googleData.name
           });
           newUser.save(function( err ) {
-            node_module.createSendToken( node_module, newUser, res );
+            io.createSendToken( io, newUser, res );
           });
         }
       }

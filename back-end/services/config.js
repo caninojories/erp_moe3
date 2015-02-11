@@ -10,6 +10,19 @@
     GOOGLE_API_URL: 'https://www.googleapis.com/plus/v1/people/me/openIdConnect',
     EMAIL_SECRET   : 'something',
 
-    dbName: 'mongodb://localhost:27017/erp_moe3'
+    dbName: 'mongodb://localhost:27017/erp_moe3',
+    invoice: {
+      name              : 'name',
+      quantity          : 'quantity',
+      unitPrice         : 'unitPrice',
+      amount            : 'amount',
+      status            : 'status',
+      deliveryDate      : 'deliveryDate',
+      dateOfPayment     : 'dateOfPayment',
+      deliveryMethod    : 'deliveryMethod',
+      noteForInvoice    : 'noteForInvoice',
+      accountantComment : 'accountantComment',
+      accountantNote    : 'accountantNote'
+    }
   };
 }());

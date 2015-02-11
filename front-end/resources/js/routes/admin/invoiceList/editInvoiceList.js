@@ -20,21 +20,19 @@
       return $q.all( [getOneInvoiceCallBack()] )
       .then(function( response ) {
         vm.invoiceObj = Restangular.stripRestangular(response[0]);
-        console.log( vm.invoiceObj );
-        vm.selectedDate       = vm.invoiceObj.date;
-        vm.invoiceNumber      = vm.invoiceObj.invoiceNumber;
-        vm.postalCode         = vm.invoiceObj.postalCode;
-        vm.customerFirstName  = vm.invoiceObj.customerFirstName;
-        vm.customerLastName   = vm.invoiceObj.customerLastName;
-        vm.subject            = vm.invoiceObj.subject;
-        vm.salesRepFirstName  = vm.invoiceObj.salesRepFirstName;
-        vm.salesRepLastName   = vm.invoiceObj.salesRepLastName;
-        vm.salesOfficeAddress1     = vm.invoiceObj.salesOfficeAddress1;
-        vm.salesOfficeAddress2     = vm.invoiceObj.salesOfficeAddress2;
-        vm.salesOfficeAddress3     = vm.invoiceObj.salesOfficeAddress3;
-        vm.salesOfficePhoneNumber  = vm.invoiceObj.salesOfficePhoneNumber;
-        vm.invoiceList             = vm.invoiceObj.item;
-        console.log( vm.invoiceList );
+        vm.selectedDate             = vm.invoiceObj.date;
+        vm.invoiceNumber            = vm.invoiceObj.invoiceNumber;
+        vm.postalCode               = vm.invoiceObj.postalCode;
+        vm.customerFirstName        = vm.invoiceObj.customerFirstName;
+        vm.customerLastName         = vm.invoiceObj.customerLastName;
+        vm.subject                  = vm.invoiceObj.subject;
+        vm.salesRepFirstName        = vm.invoiceObj.salesRepFirstName;
+        vm.salesRepLastName         = vm.invoiceObj.salesRepLastName;
+        vm.salesOfficeAddress1      = vm.invoiceObj.salesOfficeAddress1;
+        vm.salesOfficeAddress2      = vm.invoiceObj.salesOfficeAddress2;
+        vm.salesOfficeAddress3      = vm.invoiceObj.salesOfficeAddress3;
+        vm.salesOfficePhoneNumber   = vm.invoiceObj.salesOfficePhoneNumber;
+        vm.invoiceList              = vm.invoiceObj.item;
         return response;
       });
     }
@@ -55,8 +53,6 @@
     }
 
     function updateOneInvoiceCallBack() {
-      var tempItemList = [];
-      tempItemList.push(vm.invoiceList);
       return invoiceListDataService
         .httpPUT( 'editInvoiceList', {
           id: $state.params.id,
@@ -72,7 +68,7 @@
           salesOfficeAddress2: vm.salesOfficeAddress2,
           salesOfficeAddress3: vm.salesOfficeAddress3,
           salesOfficePhoneNumber: vm.salesOfficePhoneNumber,
-          item: tempItemList
+          item: vm.invoiceList
         })
         .then(function( response ) {
           return response;
@@ -109,12 +105,9 @@
 
     function addInvoice() {
       vm.invoiceList.push({
-        item: {
-          name: vm.itemTitle || 'item',
-          show: true
-        },
+        name: vm.itemTitle || 'item',
         quantity: vm.quantity,
-        unitPrice: vm.unitPrice,
+        unitPrice: vm.unitPrice ,
         amount: vm.amount,
         status: vm.status,
         deliveryDate: vm.deliveryDate,
@@ -122,11 +115,11 @@
         deliveryMethod: vm.deliveryMethod,
         noteForInvoice: vm.noteForInvoice,
         accountantComment: vm.accountantComment,
-        accountantNote: vm.accountantNote
+        accountantNote: vm.accountantNote,
+        show: true
       });
 
       vm.itemTitle = '';
-      //vm.showSave  = true;
     }
   }
 }());

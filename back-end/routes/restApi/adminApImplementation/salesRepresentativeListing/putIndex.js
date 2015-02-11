@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var io = app_require( 'services/module.config' );
+  var io = appRequire( 'services/module.config' );
 
   exports.put = function(req, res, next) {
     var query   = io.url.parse( req.url, true).query,
