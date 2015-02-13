@@ -1,12 +1,10 @@
 (function() {
   'use strict';
 
-  var io = appRequire( 'services/module.config' );
-
   exports.saveSalesRepresentative = function( req, res, next ) {
     var salesRep = req.body,
         options = {
-          io      : io,
+          io      : global.io,
           name    : 'SalesRep',
           res     : res,
           details : {
@@ -20,7 +18,7 @@
           }
         };
 
-    io.mongoDB(io, io.config.dbName)
-      .then(io.save(options));
+    global.io.mongoDB(global.io, global.io.config.dbName)
+      .then(global.io.save(options));
   };
 }());

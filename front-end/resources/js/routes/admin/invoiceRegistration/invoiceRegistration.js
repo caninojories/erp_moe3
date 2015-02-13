@@ -5,13 +5,16 @@
     .module('app.invoiceRegistration')
     .controller('InvoiceRegistration', InvoiceRegistration);
 
-    InvoiceRegistration.$inject = [ '$q', '$rootScope', '$timeout', 'exception', 'invoiceRegistrationDataService' ];
+    InvoiceRegistration.$inject = [ '$q', '$rootScope', '$scope', '$timeout', 'exception', 'invoiceRegistrationDataService', 'viewContentLoaded' ];
 
-    function InvoiceRegistration( $q, $rootScope, $timeout, exception, invoiceRegistrationDataService ) {
+    function InvoiceRegistration( $q, $rootScope, $scope, $timeout, exception, invoiceRegistrationDataService, viewContentLoaded ) {
       var vm = this;
 
+      vm.afterSave      = afterSave;
       vm.addInvoice     = addInvoice;
+      vm.deleteItem     = deleteItem;
       vm.saveInvoice    = saveInvoice;
+      vm.xEditable      = xEditable;
 
       vm.invoiceList = [];
 
@@ -32,6 +35,15 @@
         });
 
         vm.itemTitle = '';
+      }
+
+      function afterSave(invoice) {
+        invoice.show = true;
+      }
+
+      function deleteItem(invoice) {
+        var position = vm.invoiceList.indexOf(invoice);
+        vm.invoiceList.splice(position, 1);
       }
 
       function saveInvoice() {
@@ -61,6 +73,11 @@
           .then(function( response ) {
             return response;
           });
+      }
+
+      function xEditable(invoice) {
+        console.log(invoice);
+        invoice.show = false;
       }
     }
 })();

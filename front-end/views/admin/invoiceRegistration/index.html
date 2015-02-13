@@ -9,34 +9,52 @@
     <hr class="colorgraph">
     <div class='col-sm-6'>
       <div class="row">
-        <div class="col-md-6">
-          <label>Issued Date</label>
-          <form name="datepickerForm" class="form-group" role="form">
-            <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
-              <input type="text" class="form-control input-sm" ng-model="vm.selectedDate" name="date"
-              bs-datepicker data-date-format="MMMM-dd-yyyy">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label class="col-sm-6 control-label text-right">Invoice #</label>
+            <div class="col-sm-6">
+              <input type="text" name="invoiceNumber" class="form-control input-sm" ng-model="vm.invoiceNumber">
             </div>
-          </form>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label>Invoice Number</label>
-            <input type="text" name="invoiceNumber" class="form-control input-sm" ng-model="vm.invoiceNumber">
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label>Postal Code</label>
-            <input type="text" name="postalCode" class="form-control input-sm" ng-model="vm.postalCode">
+        <div class="col-sm-12">
+          <label class="col-sm-6 control-label text-right">Invoice Date</label>
+          <div class="col-sm-6">
+            <form name="datepickerForm" class="form-group" role="form">
+              <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
+                <input type="text" class="form-control input-sm" ng-model="vm.selectedDate" name="date"
+                bs-datepicker data-date-format="MMMM-dd-yyyy">
+              </div>
+            </form>
           </div>
         </div>
       </div>
-
       <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label class="col-sm-6 control-label text-right">Terms</label>
+            <div class="col-sm-6">
+              <input type="text" name="postalCode" class="form-control input-sm" ng-model="vm.postalCode">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <label class="col-sm-6 control-label text-right">Due Date</label>
+          <div class="col-sm-6">
+            <form name="datepickerForm" class="form-group" role="form">
+              <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
+                <input type="text" class="form-control input-sm" ng-model="vm.selectedDate" name="date"
+                bs-datepicker data-date-format="MMMM-dd-yyyy">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row">
         <label class="col-sm-12 gothic">CUSTOMER</label>
         <div class="col-xs-12 col-sm-6 col-md-6">
           <div class="form-group">
@@ -56,7 +74,7 @@
             <input type="text" name="subject" class="form-control input-sm" ng-model="vm.subject">
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div class='col-sm-6'>
@@ -137,7 +155,7 @@
       </div>
       <div class="panel-collapse" bs-collapse-target>
         <div class="panel-body">
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-sm-3">
               <div class="form-group">
                 <label>Quantity</label>
@@ -162,8 +180,8 @@
                 <input type="text" name="status" class="form-control input-sm" ng-model="invoice.status">
               </div>
             </div>
-          </div>
-          <div class="row">
+          </div> -->
+          <!-- <div class="row">
             <div class="col-sm-4">
               <form name="deliveryDateForm" class="form-group" role="form">
                 <div class="form-group" ng-class="{'has-error': deliveryDateForm.date.$invalid}">
@@ -188,24 +206,24 @@
                 <input type="text" name="deliveryMethod" class="form-control input-sm" ng-model="invoice.deliveryMethod">
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12">
               <div class="form-group">
-                <label>Note for invoice</label>
+                <label>Description</label>
                 <textarea name='noteForinvoice' class="form-control" rows="5" ng-model="invoice.noteForInvoice"></textarea>
               </div>
             </div>
-            <div class='col-sm-4'>
+            <div class='col-sm-12'>
               <div class="form-group">
-                <label>Accountant Comment</label>
-                <textarea name='accountantComment' class="form-control" rows="5" placeholder='' ng-model="invoice.accountantComment"></textarea>
+                <label>Amount</label>
+                <input type="number" name="amount" class="form-control input-sm" ng-model="invoice.amount">
               </div>
             </div>
             <div class='col-sm-4'>
               <div class="form-group">
-                <label>Accountant Note</label>
-                <textarea name='accountantNote' class="form-control" rows="5" placeholder='' ng-model="invoice.accountantNote"></textarea>
+                <label>Total</label>
+                <input type="number" name="amount" class="form-control input-sm" readonly ng-model="invoice.amount">
               </div>
             </div>
             </div

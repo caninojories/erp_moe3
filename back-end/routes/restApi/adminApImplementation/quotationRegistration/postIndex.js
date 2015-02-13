@@ -1,13 +1,11 @@
 (function() {
   'use strict';
 
-  var io = appRequire( 'services/module.config' );
-
   exports.post = function( req, res, next ) {
-    var date      = io.moment( req.body.date ).format('LL'),
+    var date      = global.io.moment( req.body.date ).format('LL'),
         quotation = req.body,
         options   = {
-          io      : io,
+          io      : global.io,
           name    : 'Quotation',
           res     : res,
           details : {
@@ -27,7 +25,7 @@
           }
         };
 
-    io.mongoDB( io, io.config.dbName )
-      .then(io.save(options));
+    global.io.mongoDB( global.io, global.io.config.dbName )
+      .then(global.io.save(options));
   };
 }());

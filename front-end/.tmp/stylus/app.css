@@ -330,3 +330,19 @@ a.DTTT_button:hover {
     transform: translateX(0) rotateX(0deg);
   }
 }
+
+input, textarea{
+  border: 1px solid #FFF;
+}
+
+.container input:hover, .container textarea:hover,
+.table-striped > tbody > tr:nth-child(2n+1) > td input:hover,
+.container input:focus, .container textarea:focus,
+.table-striped > tbody > tr:nth-child(2n+1) > td input:focus{
+  border: 1px solid #CCC;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td input{
+    background-color: #F9F9F9;
+    border: 1px solid #F9F9F9;
+}

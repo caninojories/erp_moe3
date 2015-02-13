@@ -14,6 +14,22 @@
   };
 
   Layout.prototype.carousel = function() {
+    $(document).ready(function(){
+  $("#invoice_number").focus();
+  $("#imgInp").change(function(){
+    readURL(this);
+  });
+});
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#company_logo').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
     $('.carousel').carousel({
       interval: 3000,
       pause: 'hover',

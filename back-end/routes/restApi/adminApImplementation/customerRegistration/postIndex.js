@@ -1,12 +1,10 @@
 (function() {
   'use strict';
 
-  var io = appRequire( 'services/module.config' );
-
   exports.post = function( req, res, next ) {
     var customer  = req.body,
         options   = {
-          io      : io,
+          io      : global.io,
           name    : 'Customer',
           res     : res,
           details : {
@@ -25,7 +23,7 @@
           }
         };
 
-    io.mongoDB( io, io.config.dbName )
-      .then(io.save(options));
+    global.io.mongoDB(global.io, global.io.config.dbName)
+      .then(global.io.save(options));
   };
 }());
