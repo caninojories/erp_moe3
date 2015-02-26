@@ -2,12 +2,12 @@
   'use strict';
 
   angular
-    .module( 'app.customerList' )
-    .controller( 'EditCustomerList', EditCustomerList );
+    .module('app.customerList')
+    .controller('EditCustomerList', EditCustomerList);
 
-    EditCustomerList.$inject = [ '$q', '$state', '$timeout', 'Restangular', 'strapAlert', 'customerDataService' ];
+    EditCustomerList.$inject = ['$q', '$state', '$timeout', 'Restangular', 'strapAlert', 'customerDataService'];
 
-    function EditCustomerList( $q, $state, $timeout, Restangular, strapAlert, customerDataService ) {
+    function EditCustomerList($q, $state, $timeout, Restangular, strapAlert, customerDataService) {
       var vm = this;
 
       vm.customerObj = null;
@@ -21,8 +21,8 @@
 
       function getOneCustomer() {
         return $q.all([getOneCustomerCallBack()])
-          .then(function( response ) {
-            vm.customerObj = Restangular.stripRestangular( response[0] );
+          .then(function(response) {
+            vm.customerObj = Restangular.stripRestangular(response[0]);
             vm.firstName      = vm.customerObj.firstName;
             vm.lastName       = vm.customerObj.lastName;
             vm.department     = vm.customerObj.department;
@@ -41,18 +41,18 @@
 
       function getOneCustomerCallBack() {
         return customerDataService
-          .httpGET( 'editCustomerList', {id: $state.params.id} )
-          .then(function( response ) {
+          .httpGET('editCustomerList', {id: $state.params.id})
+          .then(function(response) {
             return response;
           });
       }
 
-      function updateCustomer( form ) {
-        if( !form.$valid ) return;
-        return $q.all( [updateCustomerCallBack()] )
-        .then(function( response ) {
-          strapAlert.show( 'Success!!', vm.firstName + ' ' + vm.lastName + ' has been updated' );
-          vm.originForm = angular.copy( form );
+      function updateCustomer(form) {
+        if (!form.$valid) {return;}
+        return $q.all([updateCustomerCallBack()])
+        .then(function(response) {
+          strapAlert.show('Success!!', vm.firstName + ' ' + vm.lastName + ' has been updated');
+          vm.originForm = angular.copy(form);
           vm.originForm.$setPristine();
           $timeout(function() {
             strapAlert.hide();
@@ -63,7 +63,7 @@
 
       function updateCustomerCallBack() {
         customerDataService
-          .httpPUT( 'editCustomerList', {
+          .httpPUT('editCustomerList', {
             id:$state.params.id,
             firstName: vm.firstName,
             lastName: vm.lastName,
@@ -78,7 +78,7 @@
             email: vm.email,
             paymentTerms: vm.paymentTerms
           })
-          .then(function( response ) {
+          .then(function(response) {
             return response;
           });
       }

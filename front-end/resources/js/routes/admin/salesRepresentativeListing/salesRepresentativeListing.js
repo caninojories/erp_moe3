@@ -2,19 +2,20 @@
   'use strict';
 
   angular
-  .module( 'app.salesRepresentativeListing' )
-  .controller( 'SalesRepresentativeListing', SalesRepresentativeListing );
+  .module('app.salesRepresentativeListing')
+  .controller('SalesRepresentativeListing', SalesRepresentativeListing);
 
-  SalesRepresentativeListing.$inject = [ '$q', '$compile', '$filter', '$rootScope', '$scope', '$state', '$timeout', '$window', 'Restangular',
-    'DTInstances', 'DTOptionsBuilder', 'DTColumnBuilder', 'reload', 'salesRepresentativeListingDataService' ];
+  SalesRepresentativeListing.$inject = ['$q', '$compile', '$filter', '$rootScope', '$scope',
+  '$state', '$timeout', '$window', 'Restangular', 'DTInstances', 'DTOptionsBuilder', 'DTColumnBuilder',
+  'reload', 'salesRepresentativeListingDataService'];
 
-  function SalesRepresentativeListing( $q, $compile, $filter, $rootScope, $scope, $state, $timeout, $window, Restangular,
-    DTInstances, DTOptionsBuilder, DTColumnBuilder, reload, salesRepresentativeListingDataService ) {
+  function SalesRepresentativeListing($q, $compile, $filter, $rootScope, $scope, $state, $timeout, $window, Restangular,
+    DTInstances, DTOptionsBuilder, DTColumnBuilder, reload, salesRepresentativeListingDataService) {
       var vm = this;
 
     $scope.delete = function(id) {
-      $q.all( [deleteCallBack(id)] )
-      .then(function( response ) {
+      $q.all([deleteCallBack(id)])
+      .then(function(response) {
         $timeout(function() {
           vm.dtInstance.reloadData();
         }, 200);
@@ -22,15 +23,16 @@
       });
     };
 
-    function deleteCallBack( id ) {
+    function deleteCallBack(id) {
       salesRepresentativeListingDataService
-      .httpDelete( 'salesRepresentativeList', {id: id} )
-      .then(function( response ) {
+      .httpDelete('salesRepresentativeList', {id: id})
+      .then(function(response) {
         return response;
       });
     }
 
-    $scope.dtOptions = DTOptionsBuilder.fromSource($window.location.origin + '/salesRepresentativeApi/getSalesRepresentativeList')
+    $scope.dtOptions = DTOptionsBuilder.fromSource($window.location.origin +
+    '/salesRepresentativeApi/getSalesRepresentativeList')
 
       .withTableTools('/js/vendor/table-tools/swf/copy_csv_xls_pdf.swf')
       .withTableToolsButtons([
@@ -57,31 +59,46 @@
           '   <i class="ion-backspace"></i>' +
           '</button>';
       }),
-    DTColumnBuilder.newColumn('firstName').withTitle('First name').notSortable(),
-    DTColumnBuilder.newColumn('lastName').withTitle('Last name').notSortable(),
-    DTColumnBuilder.newColumn('postalCode').withTitle('Postal Code').notSortable(),
-    DTColumnBuilder.newColumn('salesOfficeAddress1').withTitle('Sales Office Address 1').notSortable(),
-    DTColumnBuilder.newColumn('salesOfficeAddress2').withTitle('Sales Office Address 2').withOption('defaultContent', '').notSortable(),
-    DTColumnBuilder.newColumn('salesOfficeAddress3').withTitle('Sales Office Address 3').withOption('defaultContent', '').notSortable(),
-    DTColumnBuilder.newColumn('salesOfficePhoneNumber').withTitle('Sales Office Phone Number').notSortable(),
+    DTColumnBuilder.newColumn('firstName')
+      .withTitle('First name')
+      .notSortable(),
+    DTColumnBuilder.newColumn('lastName')
+      .withTitle('Last name')
+      .notSortable(),
+    DTColumnBuilder.newColumn('postalCode')
+      .withTitle('Postal Code')
+      .notSortable(),
+    DTColumnBuilder.newColumn('salesOfficeAddress1')
+      .withTitle('Sales Office Address 1')
+      .notSortable(),
+    DTColumnBuilder.newColumn('salesOfficeAddress2')
+      .withTitle('Sales Office Address 2')
+      .withOption('defaultContent', '')
+      .notSortable(),
+    DTColumnBuilder.newColumn('salesOfficeAddress3')
+      .withTitle('Sales Office Address 3')
+      .withOption('defaultContent', '')
+      .notSortable(),
+    DTColumnBuilder.newColumn('salesOfficePhoneNumber')
+      .withTitle('Sales Office Phone Number')
+      .notSortable(),
     ];
 
       return DTInstances.getLast().then(function (dtInstance) {
         vm.dtInstance = dtInstance;
       });
 
-
     function getSalesRepresentativeList() {
-      $q.all( [getSalesRepresentativeListCallBack()] )
-        .then(function( response ) {
+      $q.all([getSalesRepresentativeListCallBack()])
+        .then(function(response) {
           return response;
         });
     }
 
     function getSalesRepresentativeListCallBack() {
       return salesRepresentativeListingDataService
-        .getSalesRepresentative( 'getSalesRepresentativeList', {} )
-        .then(function( response ) {
+        .getSalesRepresentative('getSalesRepresentativeList', {})
+        .then(function(response) {
           return response;
         });
     }

@@ -5,7 +5,7 @@
     .module('app.customerList')
     .run(appRun);
 
-    function appRun( routehelper ) {
+    function appRun(routehelper) {
       routehelper.configureRoutes(getRoutes());
     }
 
@@ -18,7 +18,7 @@
           controller: 'CustomerList as vm',
           title: 'Customer List',
           resolve: {
-            reload: function( $rootScope ) {
+            reload: function($rootScope) {
               $rootScope.showContent = false;
               return;
             }

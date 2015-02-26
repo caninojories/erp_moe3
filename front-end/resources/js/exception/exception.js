@@ -12,8 +12,8 @@
     };
     return service;
 
-    function catcher(message, data ) {
-      return logger.error( message, data );
+    function catcher(message, data) {
+      return logger.error(message, data);
     }
   }
 })();

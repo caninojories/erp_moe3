@@ -1,8 +1,8 @@
 (function() {
   'use strict';
 
-  exports.post = function( req, res, next ) {
-    var date      = global.io.moment( req.body.date ).format('LL'),
+  exports.post = function(req, res, next) {
+    var date      = global.io.moment(req.body.date).format('LL'),
         quotation = req.body,
         options   = {
           io      : global.io,
@@ -25,7 +25,7 @@
           }
         };
 
-    global.io.mongoDB( global.io, global.io.config.dbName )
+    global.io.mongoDB(global.io, global.io.config.dbName)
       .then(global.io.save(options));
   };
 }());

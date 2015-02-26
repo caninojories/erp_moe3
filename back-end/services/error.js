@@ -2,7 +2,7 @@
   'use strict';
 
   module.exports = function(error, value) {
-    if(error){
+    if (error) {
       console.log(error);
       return;
     } else {

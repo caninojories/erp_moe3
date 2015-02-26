@@ -5,7 +5,7 @@
     .module('app.salesRepresentativeListing')
     .run(appRun);
 
-    function appRun( routehelper ) {
+    function appRun(routehelper) {
       routehelper.configureRoutes(getRoutes());
     }
 
@@ -18,7 +18,7 @@
           controller: 'SalesRepresentativeListing as vm',
           title: 'SalesRepresentativeListing',
           resolve: {
-            reload: function( $rootScope ) {
+            reload: function($rootScope) {
               $rootScope.showContent = false;
               return;
             }

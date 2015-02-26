@@ -17,21 +17,23 @@
         }
     </style>
 
-    {# bower #}
-    <link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="/js/vendor/table-tools/css/dataTables.tableTools.css"/>
-    <link rel="stylesheet" href="/js/vendor/datatables-responsive/css/dataTables.responsive.css"/>
-    <link rel="stylesheet" href="/bower/toastr/toastr.min.css"/>
-    <link rel="stylesheet" href="/bower/angular-motion/dist/angular-motion.css"/>
-    <link rel="stylesheet" href="/bower/ionicons/css/ionicons.css"/>
-    <link rel="stylesheet" href="/bower/angular-loading-bar/src/loading-bar.css"/>
-    <link rel="stylesheet" href="/bower/angular-xeditable/dist/css/xeditable.css"/>
+    <!-- build:css /css/vendor.css-->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/bower/toastr/toastr.css" />
+    <link rel="stylesheet" href="/bower/angular-motion/dist/angular-motion.css" />
+    <link rel="stylesheet" href="/bower/ionicons/css/ionicons.css" />
+    <link rel="stylesheet" href="/bower/angular-loading-bar/build/loading-bar.css" />
+    <link rel="stylesheet" href="/bower/angular-xeditable/dist/css/xeditable.css" />
+    <link rel="stylesheet" href="/bower/datatables/media/css/jquery.dataTables.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
 
-    {# END bower #}
-
-    {# LINKS #}
-    <link rel="stylesheet" href="/.tmp/stylus/app.css"/>
-    {# LINKS END #}
+    <!-- build:css /css/app.css-->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/.tmp/stylus/app.css">
+    <!-- endinject -->
+    <!-- endbuild -->
   </head>
   <body>
 
@@ -42,121 +44,115 @@
       </section>
     <!-- </div> -->
 
-    <script type="text/javascript" src="/bower/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="/bower/datatables/media/js/jquery.datatables.js"></script>
-    <script type="text/javascript" src="/js/vendor/table-tools/src/dataTables.tableTools.js"></script>
-    <script type="text/javascript" src="/js/vendor/datatables-responsive/js/dataTables.responsive.js"></script>
-    <script type="text/javascript" src="/bower/angular/angular.js"></script>
-    <script type="text/javascript" src="/bower/angular-animate/angular-animate.min.js"></script>
-    <script type="text/javascript" src="/bower/bootstrap/dist/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/bower/angular-ui-router/release/angular-ui-router.js"></script>
-    <script type="text/javascript" src="/bower/lodash/dist/lodash.compat.js"></script>
-    <script type="text/javascript" src="/bower/restangular/dist/restangular.js"></script>
-    <script type="text/javascript" src="/bower/toastr/toastr.min.js"></script>
-    <script type="text/javascript" src="/bower/angular-strap/dist/angular-strap.js"></script>
-    <script type="text/javascript" src="/bower/angular-strap/dist/angular-strap.tpl.js"></script>
-    <script type="text/javascript" src="/bower/angular-flash/dist/angular-flash.js"></script>
-    <script type="text/javascript" src="/bower/satellizer/satellizer.js"></script>
-    <script type="text/javascript" src="/bower/angular-loading-bar/src/loading-bar.js"></script>
-    <script type="text/javascript" src="/bower/angular-datatables/dist/angular-datatables.js"></script>
-    <script type="text/javascript" src="/bower/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.js"></script>
-    <script type="text/javascript" src="/bower/angular-xeditable/dist/js/xeditable.js"></script>
-    <script type="text/javascript" src="/bower/moment/min/moment.min.js"></script>
-    <script type="text/javascript" src="/js/custom/layout.js"></script>
+    <!-- build:js /js/vendor.js-->
+    <!-- bower:js -->
+    <script src="/bower/jquery/dist/jquery.js"></script>
+    <script src="/bower/angular/angular.js"></script>
+    <script src="/bower/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/bower/lodash/dist/lodash.compat.js"></script>
+    <script src="/bower/restangular/dist/restangular.js"></script>
+    <script src="/bower/toastr/toastr.js"></script>
+    <script src="/bower/angular-animate/angular-animate.js"></script>
+    <script src="/bower/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower/angular-strap/dist/angular-strap.js"></script>
+    <script src="/bower/angular-strap/dist/angular-strap.tpl.js"></script>
+    <script src="/bower/angular-flash/dist/angular-flash.js"></script>
+    <script src="/bower/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/bower/satellizer/satellizer.js"></script>
+    <script src="/bower/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="/bower/angular-xeditable/dist/js/xeditable.js"></script>
+    <script src="/bower/moment/moment.js"></script>
+    <script src="/bower/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="/bower/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.min.js"></script>
+    <script src="/bower/angular-datatables/dist/angular-datatables.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild-->
 
-    <script type="text/javascript" src="/js/app.js"></script>
 
-    <script type="text/javascript" src="/js/routes/client/sample/sample.module.js"></script>
-    <script type="text/javascript" src="/js/routes/client/sample/sample.js"></script>
-    <script type="text/javascript" src="/js/routes/client/sample/config.route.js"></script>
+    <!-- build:js /js/app.js-->
+    <!-- inject:js -->
+    <script src="/js/vendor/table-tools/src/dataTables.tableTools.js"></script>
+    <script src="/js/custom/layout.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/core/core.module.js"></script>
+    <script src="/js/commons/commons.module.js"></script>
+    <script src="/js/exception/exception.module.js"></script>
+    <script src="/js/layout/layout.module.js"></script>
+    <script src="/js/logger/logger.module.js"></script>
+    <script src="/js/register/register.module.js"></script>
+    <script src="/js/router/router.module.js"></script>
+    <script src="/js/services/services.module.js"></script>
+    <script src="/js/signin/signin.module.js"></script>
+    <script src="/js/widgets/widgets.module.js"></script>
+    <script src="/js/routes/admin/customerList/customerList.module.js"></script>
+    <script src="/js/routes/admin/customerRegistration/customerRegistration.module.js"></script>
+    <script src="/js/routes/admin/invoiceList/invoiceList.module.js"></script>
+    <script src="/js/routes/admin/invoiceRegistration/invoiceRegistration.module.js"></script>
+    <script src="/js/routes/admin/others/others.module.js"></script>
+    <script src="/js/routes/admin/primary/primary.module.js"></script>
+    <script src="/js/routes/admin/quotationList/quotationList.module.js"></script>
+    <script src="/js/routes/admin/quotationRegistration/quotationRegistration.module.js"></script>
+    <script src="/js/routes/admin/salesRepresentativeListing/salesRepresentativeListing.module.js"></script>
+    <script src="/js/routes/admin/salesRepresentativeRegistration/salesRepresentativeRegistration.module.js"></script>
+    <script src="/js/routes/client/sample/sample.module.js"></script>
+    <script src="/js/services/restangular.js"></script>
+    <script src="/js/core/config.js"></script>
+    <script src="/js/core/constants.js"></script>
+    <script src="/js/commons/commons.js"></script>
+    <script src="/js/commons/dataservice.js"></script>
+    <script src="/js/commons/viewContentLoaded.js"></script>
+    <script src="/js/exception/exception-handler.provider.js"></script>
+    <script src="/js/exception/exception.js"></script>
+    <script src="/js/layout/shell.js"></script>
+    <script src="/js/logger/logger.js"></script>
+    <script src="/js/register/register.js"></script>
+    <script src="/js/router/routerhelper.js"></script>
+    <script src="/js/services/authInterceptor.js"></script>
+    <script src="/js/services/authToken.js"></script>
+    <script src="/js/services/formReset.js"></script>
+    <script src="/js/services/strapAlert.js"></script>
+    <script src="/js/services/strapModal.js"></script>
+    <script src="/js/signin/signin.js"></script>
+    <script src="/js/widgets/confirmPassword.js"></script>
+    <script src="/js/widgets/number.js"></script>
+    <script src="/js/routes/admin/customerList/config.route.js"></script>
+    <script src="/js/routes/admin/customerList/customerList.js"></script>
+    <script src="/js/routes/admin/customerList/dataservice.js"></script>
+    <script src="/js/routes/admin/customerList/editCustomerList.js"></script>
+    <script src="/js/routes/admin/customerRegistration/config.route.js"></script>
+    <script src="/js/routes/admin/customerRegistration/customerRegistration.js"></script>
+    <script src="/js/routes/admin/customerRegistration/dataservice.js"></script>
+    <script src="/js/routes/admin/invoiceList/config.route.js"></script>
+    <script src="/js/routes/admin/invoiceList/dataservice.js"></script>
+    <script src="/js/routes/admin/invoiceList/editInvoiceList.js"></script>
+    <script src="/js/routes/admin/invoiceList/invoiceList.js"></script>
+    <script src="/js/routes/admin/invoiceRegistration/config.route.js"></script>
+    <script src="/js/routes/admin/invoiceRegistration/dataservice.js"></script>
+    <script src="/js/routes/admin/invoiceRegistration/invoiceRegistration.js"></script>
+    <script src="/js/routes/admin/others/invoiceAddress.js"></script>
+    <script src="/js/routes/admin/others/others.js"></script>
+    <script src="/js/routes/admin/primary/config.route.js"></script>
+    <script src="/js/routes/admin/primary/primary.js"></script>
+    <script src="/js/routes/admin/quotationList/config.route.js"></script>
+    <script src="/js/routes/admin/quotationList/dataservice.js"></script>
+    <script src="/js/routes/admin/quotationList/editQuotationList.js"></script>
+    <script src="/js/routes/admin/quotationList/quotationList.js"></script>
+    <script src="/js/routes/admin/quotationRegistration/config.route.js"></script>
+    <script src="/js/routes/admin/quotationRegistration/dataservice.js"></script>
+    <script src="/js/routes/admin/quotationRegistration/quotationRegistration.js"></script>
+    <script src="/js/routes/admin/salesRepresentativeListing/config.route.js"></script>
+    <script src="/js/routes/admin/salesRepresentativeListing/dataservice.js"></script>
+    <script src="/js/routes/admin/salesRepresentativeListing/editSalesRepresentativeListing.js"></script>
+    <script src="/js/routes/admin/salesRepresentativeListing/salesRepresentativeListing.js"></script>
+    <script src="/js/routes/admin/salesRepresentativeRegistration/config.route.js"></script>
+    <script src="/js/routes/admin/salesRepresentativeRegistration/dataservice.js"></script>
+    <script src="/js/routes/admin/salesRepresentativeRegistration/salesRepresentativeRegistration.js"></script>
+    <script src="/js/routes/client/sample/config.route.js"></script>
+    <script src="/js/routes/client/sample/sample.js"></script>
+    <!-- endinject -->
 
-    <script type="text/javascript" src="/js/routes/admin/primary/primary.module.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/primary/primary.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/primary/config.route.js"></script>
-
-    <script type="text/javascript" src="/js/routes/admin/salesRepresentativeRegistration/salesRepresentativeRegistration.module.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/salesRepresentativeRegistration/salesRepresentativeRegistration.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/salesRepresentativeRegistration/config.route.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/salesRepresentativeRegistration/dataservice.js"></script>
-
-    <script type="text/javascript" src="/js/routes/admin/salesRepresentativeListing/salesRepresentativeListing.module.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/salesRepresentativeListing/salesRepresentativeListing.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/salesRepresentativeListing/editSalesRepresentativeListing.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/salesRepresentativeListing/config.route.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/salesRepresentativeListing/dataservice.js"></script>
-
-    <script type="text/javascript" src="/js/routes/admin/customerRegistration/customerRegistration.module.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/customerRegistration/customerRegistration.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/customerRegistration/config.route.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/customerRegistration/dataservice.js"></script>
-
-    <script type="text/javascript" src="/js/routes/admin/customerList/customerList.module.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/customerList/customerList.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/customerList/editCustomerList.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/customerList/config.route.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/customerList/dataservice.js"></script>
-
-    <script type="text/javascript" src="/js/routes/admin/quotationRegistration/quotationRegistration.module.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/quotationRegistration/quotationRegistration.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/quotationRegistration/config.route.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/quotationRegistration/dataservice.js"></script>
-
-    <script type="text/javascript" src="/js/routes/admin/quotationList/quotationList.module.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/quotationList/quotationList.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/quotationList/editQuotationList.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/quotationList/config.route.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/quotationList/dataservice.js"></script>
-
-    <script type="text/javascript" src="/js/routes/admin/invoiceRegistration/invoiceRegistration.module.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/invoiceRegistration/invoiceRegistration.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/invoiceRegistration/config.route.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/invoiceRegistration/dataservice.js"></script>
-
-    <script type="text/javascript" src="/js/routes/admin/invoiceList/invoiceList.module.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/invoiceList/invoiceList.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/invoiceList/editInvoiceList.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/invoiceList/config.route.js"></script>
-    <script type="text/javascript" src="/js/routes/admin/invoiceList/dataservice.js"></script>
-
-    <script type="text/javascript" src="/js/exception/exception.module.js"></script>
-    <script type="text/javascript" src="/js/exception/exception.js"></script>
-    <script type="text/javascript" src="/js/exception/exception-handler.provider.js"></script>
-
-    <script type="text/javascript" src="/js/logger/logger.module.js"></script>
-    <script type="text/javascript" src="/js/logger/logger.js"></script>
-
-    <script type="text/javascript" src="/js/router/router.module.js"></script>
-    <script type="text/javascript" src="/js/router/routerhelper.js"></script>
-
-    <script type="text/javascript" src="/js/core/core.module.js"></script>
-    <script type="text/javascript" src="/js/core/constants.js"></script>
-    <script type="text/javascript" src="/js/core/config.js"></script>
-
-    <script type="text/javascript" src="/js/widgets/widgets.module.js"></script>
-    <script type="text/javascript" src="/js/widgets/confirmPassword.js"></script>
-    <script type="text/javascript" src="/js/widgets/number.js"></script>
-
-    <script type="text/javascript" src="/js/layout/layout.module.js"></script>
-    <script type="text/javascript" src="/js/layout/shell.js"></script>
-
-    <script type="text/javascript" src="/js/commons/commons.module.js"></script>
-    <script type="text/javascript" src="/js/commons/commons.js"></script>
-    <script type="text/javascript" src="/js/commons/dataservice.js"></script>
-    <script type="text/javascript" src="/js/commons/viewContentLoaded.js"></script>
-
-    <script type="text/javascript" src="/js/register/register.module.js"></script>
-    <script type="text/javascript" src="/js/register/register.js"></script>
-
-    <script type="text/javascript" src="/js/signin/signin.module.js"></script>
-    <script type="text/javascript" src="/js/signin/signin.js"></script>
-
-    <script type="text/javascript" src="/js/services/services.module.js"></script>
-    <script type="text/javascript" src="/js/services/restangular.js"></script>
-    <script type="text/javascript" src="/js/services/authToken.js"></script>
-    <script type="text/javascript" src="/js/services/authInterceptor.js"></script>
-    <script type="text/javascript" src="/js/services/formReset.js"></script>
-    <script type="text/javascript" src="/js/services/strapAlert.js"></script>
-    <script type="text/javascript" src="/js/services/strapModal.js"></script>
-
+    <!-- inject:templates:js -->
+    <!-- endinject -->
+    <!-- endbuild -->
   </body>
 </html>

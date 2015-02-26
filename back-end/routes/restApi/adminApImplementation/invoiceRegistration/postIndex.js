@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  exports.post = function( req, res, next ) {
+  exports.post = function(req, res, next) {
     var invoice = req.body,
         options = {
           io      : global.io,
@@ -24,7 +24,7 @@
           }
         };
 
-    global.io.mongoDB( global.io, global.io.config.dbName )
+    global.io.mongoDB(global.io, global.io.config.dbName)
       .then(global.io.save(options));
   };
 }());

@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module( 'app.invoiceList' )
-    .run( appRun );
+    .module('app.invoiceList')
+    .run(appRun);
 
-    function appRun( routehelper ) {
-      routehelper.configureRoutes( getRoutes() );
+    function appRun(routehelper) {
+      routehelper.configureRoutes(getRoutes());
     }
 
     function getRoutes() {

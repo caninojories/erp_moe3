@@ -2,27 +2,27 @@
   'use strict';
 
   angular
-    .module( 'app.invoiceRegistration')
-    .factory( 'invoiceRegistrationDataService', invoiceRegistrationDataService );
+    .module('app.invoiceRegistration')
+    .factory('invoiceRegistrationDataService', invoiceRegistrationDataService);
 
-    invoiceRegistrationDataService.$inject = [ 'invoiceServiceApi' ];
+    invoiceRegistrationDataService.$inject = ['invoiceServiceApi'];
 
-    function invoiceRegistrationDataService( invoiceServiceApi ) {
+    function invoiceRegistrationDataService(invoiceServiceApi) {
       var service = {
         httpPOST: httpPOST
       };
 
       return service;
 
-      function httpPOST( api, param ) {
-        return invoiceServiceApi.all( api )
-          .post( param )
-          .then( httpPOSTCallBack )
-          .catch(function( message ) {
+      function httpPOST(api, param) {
+        return invoiceServiceApi.all(api)
+          .post(param)
+          .then(httpPOSTCallBack)
+          .catch(function(message) {
 
           });
 
-        function httpPOSTCallBack( response, status, header, config ) {
+        function httpPOSTCallBack(response, status, header, config) {
           return response;
         }
       }

@@ -2,12 +2,12 @@
   'use strict';
 
   angular
-  .module( 'app.invoiceList' )
-  .controller( 'EditInvoiceList', EditInvoiceList );
+  .module('app.invoiceList')
+  .controller('EditInvoiceList', EditInvoiceList);
 
-  EditInvoiceList.$inject = [ '$q', '$state', 'Restangular', 'invoiceListDataService' ];
+  EditInvoiceList.$inject = ['$q', '$state', 'Restangular', 'invoiceListDataService'];
 
-  function EditInvoiceList( $q, $state, Restangular, invoiceListDataService ) {
+  function EditInvoiceList($q, $state, Restangular, invoiceListDataService) {
     var vm = this;
 
     vm.addInvoice       = addInvoice;
@@ -17,8 +17,8 @@
     getOneInvoice();
 
     function getOneInvoice() {
-      return $q.all( [getOneInvoiceCallBack()] )
-      .then(function( response ) {
+      return $q.all([getOneInvoiceCallBack()])
+      .then(function(response) {
         vm.invoiceObj = Restangular.stripRestangular(response[0]);
         vm.selectedDate             = vm.invoiceObj.date;
         vm.invoiceNumber            = vm.invoiceObj.invoiceNumber;
@@ -39,22 +39,22 @@
 
     function getOneInvoiceCallBack() {
       return invoiceListDataService
-        .httpGET( 'editInvoiceList', {id: $state.params.id} )
-        .then(function( response ) {
+        .httpGET('editInvoiceList', {id: $state.params.id})
+        .then(function(response) {
           return response;
         });
     }
 
     function updateOneInvoice() {
-      return $q.all( [updateOneInvoiceCallBack()] )
-        .then(function( response ) {
+      return $q.all([updateOneInvoiceCallBack()])
+        .then(function(response) {
           return response;
         });
     }
 
     function updateOneInvoiceCallBack() {
       return invoiceListDataService
-        .httpPUT( 'editInvoiceList', {
+        .httpPUT('editInvoiceList', {
           id: $state.params.id,
           date: vm.selectedDate,
           invoiceNumber: vm.invoiceNumber,
@@ -70,35 +70,35 @@
           salesOfficePhoneNumber: vm.salesOfficePhoneNumber,
           item: vm.invoiceList
         })
-        .then(function( response ) {
+        .then(function(response) {
           return response;
         });
     }
-    // function updateInvoice( key, value, index ){
-    //   return $q.all( [updateInvoiceCallBack( key, value, index )] )
-    //   .then(function( response ) {
+    // function updateInvoice(key, value, index) {
+    //   return $q.all([updateInvoiceCallBack(key, value, index)])
+    //   .then(function(response) {
     //     return response;
     //   });
     // }
     //
-    // function updateInvoiceItem( key  ){
+    // function updateInvoiceItem(key ) {
     //   var data = [];
-    //   data.push( vm.quotationObj.item );
-    //   return $q.all( [updateInvoiceCallBack( key, data )] )
-    //   .then(function( response ) {
+    //   data.push(vm.quotationObj.item);
+    //   return $q.all([updateInvoiceCallBack(key, data)])
+    //   .then(function(response) {
     //     return response;
     //   });
     // }
     //
-    // function updateInvoiceCallBack( key, value  ) {
+    // function updateInvoiceCallBack(key, value ) {
     //   var tempValue = angular.copy(value);
     //   return invoiceListDataService
-    //   .httpPUT( 'editQuotationList', {
+    //   .httpPUT('editQuotationList', {
     //     id:$state.params.id,
     //     key: key,
     //     value: value
     //   })
-    //   .then(function( response ) {
+    //   .then(function(response) {
     //     return response;
     //   });
     // }

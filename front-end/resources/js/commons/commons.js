@@ -5,8 +5,7 @@
     .module('app.commons')
     .controller('Commons', Commons);
 
-
     function Commons() {
-      //delete this commonsjs
+      var vm = this;
     }
 })();

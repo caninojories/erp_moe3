@@ -5,22 +5,24 @@
     .module('app.salesRepresentativeRegistration')
     .controller('SalesRepresentativeRegistration', SalesRepresentativeRegistration);
 
-    SalesRepresentativeRegistration.$inject = ['$q', '$timeout', 'strapAlert', 'formReset', 'salesRepresentativeRegistrationDataService'];
+    SalesRepresentativeRegistration.$inject = ['$q', '$timeout', 'strapAlert', 'formReset',
+    'salesRepresentativeRegistrationDataService'];
 
-    function SalesRepresentativeRegistration( $q, $timeout, strapAlert, formReset, salesRepresentativeRegistrationDataService ) {
+    function SalesRepresentativeRegistration($q, $timeout, strapAlert, formReset,
+    salesRepresentativeRegistrationDataService) {
       var vm = this;
 
       vm.registerSalesRepresentative = registerSalesRepresentative;
 
-      function registerSalesRepresentative( form, firstName, lastName, postalCode, salesOfficeAdd1, salesOfficeAdd2,
+      function registerSalesRepresentative(form, firstName, lastName, postalCode, salesOfficeAdd1, salesOfficeAdd2,
         salesOfficeAdd3, salesOfficePhoneNumber) {
-        if( !form.$valid ) return;
+        if (!form.$valid) {return;}
         return $q.all([registerSalesRepresentativeCallBack()])
-          .then(function( response ) {
-            console.log( response );
-            if(response[0] === 'success') {
+          .then(function(response) {
+            console.log(response);
+            if (response[0] === 'success') {
               strapAlert.show('Success!', firstName + ' ' + lastName + ' has been registered');
-              formReset.setResetForm( vm );
+              formReset.setResetForm(vm);
               vm.originForm = angular.copy(form);
               vm.originForm.$setPristine();
               $timeout(function() {
@@ -33,7 +35,7 @@
 
       function registerSalesRepresentativeCallBack() {
         return salesRepresentativeRegistrationDataService
-          .saveSalesRepresentative( 'saveSalesRepresentative', {
+          .saveSalesRepresentative('saveSalesRepresentative', {
             firstName: vm.firstName,
             lastName: vm.lastName,
             postalCode: vm.postalCode,
@@ -42,7 +44,7 @@
             salesOfficeAdd3: vm.salesOfficeAdd3,
             salesOfficePhoneNumber:
             vm.salesOfficePhoneNumber})
-          .then(function( response ) {
+          .then(function(response) {
             return response;
           });
       }

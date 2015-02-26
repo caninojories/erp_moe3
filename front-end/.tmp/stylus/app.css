@@ -78,13 +78,13 @@
 }
 .invoiceRegistration .am-collapse {
   -webkit-animation-duration: 0.3s !important;
-  -ms-animation-duration: 0.3s !important;
+  -o-animation-duration: 0.3s !important;
   animation-duration: 0.3s !important;
   -webkit-animation-timing-function: ease !important;
-  -ms-animation-timing-function: ease !important;
+  -o-animation-timing-function: ease !important;
   animation-timing-function: ease !important;
   -webkit-animation-fill-mode: backwards !important;
-  -ms-animation-fill-mode: backwards !important;
+  -o-animation-fill-mode: backwards !important;
   animation-fill-mode: backwards !important;
   overflow: hidden;
 }
@@ -216,7 +216,6 @@ a.DTTT_button:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   -webkit-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
 [ui-view].ng-leave-active {
@@ -226,7 +225,7 @@ a.DTTT_button:hover {
 }
 .open > .login {
   -webkit-animation: 2s my_animation;
-  -ms-animation: 2s my_animation;
+  -o-animation: 2s my_animation;
   animation: 2s my_animation;
 }
 .google-plus {
@@ -298,7 +297,6 @@ a.DTTT_button:hover {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     -webkit-transform: translateX(0) rotateX(90deg);
-    -ms-transform: translateX(0) rotateX(90deg);
     transform: translateX(0) rotateX(90deg);
   }
   100% {
@@ -307,7 +305,22 @@ a.DTTT_button:hover {
     -webkit-filter: none;
             filter: none;
     -webkit-transform: translateX(0) rotateX(0deg);
-    -ms-transform: translateX(0) rotateX(0deg);
+    transform: translateX(0) rotateX(0deg);
+  }
+}
+@-o-keyframes my_animation {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -webkit-transform: translateX(0) rotateX(90deg);
+    transform: translateX(0) rotateX(90deg);
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+    -webkit-transform: translateX(0) rotateX(0deg);
     transform: translateX(0) rotateX(0deg);
   }
 }
@@ -317,7 +330,6 @@ a.DTTT_button:hover {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     -webkit-transform: translateX(0) rotateX(90deg);
-    -ms-transform: translateX(0) rotateX(90deg);
     transform: translateX(0) rotateX(90deg);
   }
   100% {
@@ -326,23 +338,6 @@ a.DTTT_button:hover {
     -webkit-filter: none;
             filter: none;
     -webkit-transform: translateX(0) rotateX(0deg);
-    -ms-transform: translateX(0) rotateX(0deg);
     transform: translateX(0) rotateX(0deg);
   }
-}
-
-input, textarea{
-  border: 1px solid #FFF;
-}
-
-.container input:hover, .container textarea:hover,
-.table-striped > tbody > tr:nth-child(2n+1) > td input:hover,
-.container input:focus, .container textarea:focus,
-.table-striped > tbody > tr:nth-child(2n+1) > td input:focus{
-  border: 1px solid #CCC;
-}
-
-.table-striped > tbody > tr:nth-child(2n+1) > td input{
-    background-color: #F9F9F9;
-    border: 1px solid #F9F9F9;
 }

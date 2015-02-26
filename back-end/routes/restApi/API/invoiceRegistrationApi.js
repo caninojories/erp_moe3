@@ -1,13 +1,13 @@
 (function() {
   'use strict';
 
-  var express = require( 'express' ),
+  var express = require('express'),
       app     = express(),
 
-      POST_InvoiceRegistration = require( '../adminApImplementation/invoiceRegistration/postIndex' );
+      POST_InvoiceRegistration = require('../adminApImplementation/invoiceRegistration/postIndex');
 
-  app.route( '/invoiceRegistration' )
-    .post( POST_InvoiceRegistration.post );
+  app.route('/invoiceRegistration')
+    .post(POST_InvoiceRegistration.post);
 
   module.exports = app;
 }());

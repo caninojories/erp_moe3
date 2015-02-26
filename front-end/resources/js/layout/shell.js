@@ -7,7 +7,7 @@
 
     Shell.$inject = ['$timeout', 'config', 'logger'];
 
-    function Shell( $timeout, config, logger ) {
+    function Shell($timeout, config, logger) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -19,8 +19,7 @@
         activate();
 
         function activate() {
-            if(logger.showToasts !== false)
-            logger.success( vm.title + ' loaded!' );
+            if (logger.showToasts !== false) {logger.success(vm.title + ' loaded!');}
             hideSplash();
         }
 

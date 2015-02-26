@@ -2,19 +2,19 @@
   'use strict';
 
   angular
-    .module( 'app.quotationList' )
-    .controller( 'QuotationList', QuotationList );
+    .module('app.quotationList')
+    .controller('QuotationList', QuotationList);
 
-    QuotationList.$inject = [ '$compile', '$q', '$scope', '$timeout', '$window', 'DTInstances', 'DTOptionsBuilder',
-      'DTColumnBuilder', 'quotationListDataService' ];
+    QuotationList.$inject = ['$compile', '$q', '$scope', '$timeout', '$window', 'DTInstances',
+    'DTOptionsBuilder', 'DTColumnBuilder', 'quotationListDataService'];
 
-    function QuotationList( $compile, $q, $scope, $timeout, $window, DTInstances, DTOptionsBuilder,
-      DTColumnBuilder, quotationListDataService ) {
+    function QuotationList($compile, $q, $scope, $timeout, $window, DTInstances,
+    DTOptionsBuilder, DTColumnBuilder, quotationListDataService) {
       var vm = this;
 
       $scope.delete = function(id) {
-        $q.all( [deleteCallBack(id)] )
-        .then(function( response ) {
+        $q.all([deleteCallBack(id)])
+        .then(function(response) {
           $timeout(function() {
             vm.dtInstance.reloadData();
           }, 200);
@@ -22,15 +22,15 @@
         });
       };
 
-      function deleteCallBack( id ) {
+      function deleteCallBack(id) {
         return quotationListDataService
-        .httpDELETE( 'quotationList', {id: id} )
-        .then(function( response ) {
+        .httpDELETE('quotationList', {id: id})
+        .then(function(response) {
           return response;
         });
       }
 
-      $scope.dtOptions = DTOptionsBuilder.fromSource( $window.location.origin + '/quotationApi/quotationList' )
+      $scope.dtOptions = DTOptionsBuilder.fromSource($window.location.origin + '/quotationApi/quotationList')
       .withTableTools('/js/vendor/table-tools/swf/copy_csv_xls_pdf.swf')
       .withTableToolsButtons([
         'copy',
@@ -57,8 +57,8 @@
           '</button>';
         }),
         DTColumnBuilder.newColumn(null).withTitle('Date').notSortable()
-          .renderWith(function( data ,type, full, meta) {
-            var date = moment( data.date ).format('LL');
+          .renderWith(function(data, type, full, meta) {
+            var date = moment(data.date).format('LL');
             return date;
           }),
         DTColumnBuilder.newColumn('quotationNumber').withTitle('Number').notSortable(),
@@ -75,8 +75,8 @@
         DTColumnBuilder.newColumn(null).withTitle('Item').notSortable()
           .renderWith(function(data, type, full, meta) {
             var objArray = [];
-            data.item.forEach(function( obj ) {
-              objArray.push( '<a href="#" class=quotationItem>' + obj.item.name + '</a>');
+            data.item.forEach(function(obj) {
+              objArray.push('<a href="#" class=quotationItem>' + obj.item.name + '</a>');
             });
             return objArray.join('</br>');
           }),

@@ -61,6 +61,12 @@
             <li><a href="#">Sales Ranking by Custome/Sales Representative</a></li>
           </ul>
         </li>
+        <li class="dropdown" ng-controller="Others as vm">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Others<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#" ng-click="vm.addInvoiceAddress()">Invoice Address</a></li>
+          </ul>
+        </li>
       </ul>
       <ul class='nav navbar-nav navbar-right' ng-controller='Register as vm'>
         <li ng-hide='vm.isAuthenticated()'>

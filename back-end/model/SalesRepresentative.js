@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var mongoose = require( 'mongoose' );
+  var mongoose = require('mongoose');
   var Promise   = require('bluebird');
 
   var SalesRepresentativeSchema = new mongoose.Schema({
@@ -14,6 +14,6 @@
     salesOfficePhoneNumber: String
   });
 
-  module.exports = mongoose.model( 'SalesRepresentative', SalesRepresentativeSchema );
+  module.exports = mongoose.model('SalesRepresentative', SalesRepresentativeSchema);
 
 }());

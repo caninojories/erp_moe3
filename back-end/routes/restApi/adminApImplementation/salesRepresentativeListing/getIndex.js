@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  var io = appRequire( 'services/module.config' );
+  var io = appRequire('services/module.config');
 
-  exports.getSalesRepresentativeList = function ( req, res, next ) {
+  exports.getSalesRepresentativeList = function (req, res, next) {
     var options = {
       io  : global.io,
       name: 'SalesRep',
@@ -16,7 +16,7 @@
       .then(global.io.get.findList(options));
   };
 
-  exports.getOne = function( req, res, next ) {
+  exports.getOne = function(req, res, next) {
     var query   = io.url.parse(req.url, true).query,
         options = {
           find: query.id,

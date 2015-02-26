@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var mongoose  = require( 'mongoose' );
+  var mongoose  = require('mongoose');
 
   var CustomerSchema = new mongoose.Schema({
     firstName: String,
@@ -18,5 +18,5 @@
     paymentTerms: String,
   });
 
-  module.exports = mongoose.model( 'Customer', CustomerSchema );
+  module.exports = mongoose.model('Customer', CustomerSchema);
 }());

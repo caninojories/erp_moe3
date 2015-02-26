@@ -2,10 +2,10 @@
   'use strict';
 
   angular
-    .module( 'app.quotationList' )
-    .run( appRun );
+    .module('app.quotationList')
+    .run(appRun);
 
-    function appRun( routehelper ) {
+    function appRun(routehelper) {
       routehelper.configureRoutes(getRoutes());
     }
 
@@ -18,7 +18,7 @@
           controller: 'QuotationList as vm',
           title: 'Quotation List',
           resolve: {
-            reload: function( $rootScope ) {
+            reload: function($rootScope) {
               $rootScope.showContent = false;
               return;
             }

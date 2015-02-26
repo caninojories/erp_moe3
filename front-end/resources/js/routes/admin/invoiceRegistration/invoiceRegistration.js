@@ -5,9 +5,11 @@
     .module('app.invoiceRegistration')
     .controller('InvoiceRegistration', InvoiceRegistration);
 
-    InvoiceRegistration.$inject = [ '$q', '$rootScope', '$scope', '$timeout', 'exception', 'invoiceRegistrationDataService', 'viewContentLoaded' ];
+    InvoiceRegistration.$inject = ['$q', '$rootScope', '$scope', '$timeout', 'exception',
+    'invoiceRegistrationDataService', 'viewContentLoaded'];
 
-    function InvoiceRegistration( $q, $rootScope, $scope, $timeout, exception, invoiceRegistrationDataService, viewContentLoaded ) {
+    function InvoiceRegistration($q, $rootScope, $scope, $timeout, exception,
+    invoiceRegistrationDataService, viewContentLoaded) {
       var vm = this;
 
       vm.afterSave      = afterSave;
@@ -47,15 +49,15 @@
       }
 
       function saveInvoice() {
-        return $q.all( [saveInvoiceCallBack()] )
-          .then(function( response ) {
+        return $q.all([saveInvoiceCallBack()])
+          .then(function(response) {
             return response;
           });
       }
 
       function saveInvoiceCallBack() {
         return invoiceRegistrationDataService
-          .httpPOST( 'invoiceRegistration', {
+          .httpPOST('invoiceRegistration', {
             date: vm.selectedDate,
             invoiceNumber: vm.invoiceNumber,
             postalCode: vm.postalCode,
@@ -70,7 +72,7 @@
             salesOfficePhoneNumber: vm.salesOfficePhoneNumber,
             item: vm.invoiceList
           })
-          .then(function( response ) {
+          .then(function(response) {
             return response;
           });
       }

@@ -7,26 +7,26 @@
 
     customerRegistrationDataService.$inject = ['exception', 'customerServiceApi'];
 
-    function customerRegistrationDataService( exception, customerServiceApi ) {
+    function customerRegistrationDataService(exception, customerServiceApi) {
       var service = {
         httpPOST: httpPOST,
       };
 
       return service;
 
-      function httpPOST( api, param ) {
-        return customerServiceApi.all( api )
-          .post( param )
-          .then( httpPOSTCallBack )
-          .catch(function( message ) {
+      function httpPOST(api, param) {
+        return customerServiceApi.all(api)
+          .post(param)
+          .then(httpPOSTCallBack)
+          .catch(function(message) {
             /***
             ** Call the exception factory to show the error in the client for Development
             ** then wait for 5 seconds then redirect
             ***/
-            exception.catcher( 'Error in the saving the Customer Data', message );
+            exception.catcher('Error in the saving the Customer Data', message);
           });
 
-          function httpPOSTCallBack( response, status, header, config ) {
+          function httpPOSTCallBack(response, status, header, config) {
             return response;
           }
       }

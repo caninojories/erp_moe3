@@ -1,4 +1,5 @@
-+ function( $ ) { "use strict";
+(function() {
+  'use strict';
 
   var Layout = function (SidebarWidth) {
     this.jcaSideBarWidth = SidebarWidth;
@@ -6,7 +7,7 @@
   };
 
   Layout.prototype.init = function () {
-    console.log( 'Layout.js is running ');
+    console.log('Layout.js is running ');
     this.carousel();
     this.fullPage();
 
@@ -14,9 +15,9 @@
   };
 
   Layout.prototype.carousel = function() {
-    $(document).ready(function(){
-  $("#invoice_number").focus();
-  $("#imgInp").change(function(){
+    $(document).ready(function() {
+  $('#invoice_number').focus();
+  $('#imgInp').change(function() {
     readURL(this);
   });
 });
@@ -70,20 +71,19 @@ function readURL(input) {
         slideSelector: '.slide',
 
         //events
-        onLeave: function(index, nextIndex, direction){},
-        afterLoad: function(anchorLink, index){},
-        afterRender: function(){},
-        afterResize: function(){},
-        afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
-        onSlideLeave: function(anchorLink, index, slideIndex, direction){}
+        onLeave: function(index, nextIndex, direction) {},
+        afterLoad: function(anchorLink, index) {},
+        afterRender: function() {},
+        afterResize: function() {},
+        afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {},
+        onSlideLeave: function(anchorLink, index, slideIndex, direction) {}
       });
 
       $('.selectSection').on('click', function() {
-        console.log( 'select Section' );
+        console.log('select Section');
         $.fn.fullpage.moveSectionDown();
       });
 
   };
   window.jcaLayout = new Layout();
-
-}( jQuery );
+}());

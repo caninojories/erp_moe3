@@ -7,10 +7,10 @@
 
   Sample.$inject = ['logger'];
 
-  function Sample( logger ) {
+  function Sample(logger) {
     var vm = this;
 
-    logger.success( 'Sample View Activated' );
+    logger.success('Sample View Activated');
 
   }
 })();

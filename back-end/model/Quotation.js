@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var mongoose = require( 'mongoose' );
+  var mongoose = require('mongoose');
 
   var QuotationSchema = new mongoose.Schema({
     date: Date,
@@ -19,5 +19,5 @@
     item: Array
   });
 
-  module.exports = mongoose.model( 'Quotation', QuotationSchema );
+  module.exports = mongoose.model('Quotation', QuotationSchema);
 }());

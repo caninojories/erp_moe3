@@ -31,7 +31,6 @@
           });
       }
 
-
       function checkEmailInBlurredCallBack() {
         return commonsDataService
           .checkEmail('isEmailTaken', {email: vm.email})

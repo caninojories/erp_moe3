@@ -30,12 +30,9 @@
     'app.invoiceRegistration',
     'app.invoiceList',
 
-
     /*
      * Restangular Service
     **/
-
-
 
     /***
      ** Restangular Service

@@ -13,8 +13,9 @@
          * Commons module
         **/
         'app.commons',
-        'app.services',
+        'app.others',
         'app.register',
+        'app.services',
         'app.signin',
         'app.widgets',
 

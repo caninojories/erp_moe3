@@ -2,12 +2,12 @@
   'use strict';
 
   angular
-    .module( 'app.quotationList' )
-    .controller( 'EditQuotationList', EditQuotationList );
+    .module('app.quotationList')
+    .controller('EditQuotationList', EditQuotationList);
 
-    EditQuotationList.$inject = [ '$q', '$state', 'Restangular', 'quotationListDataService' ];
+    EditQuotationList.$inject = ['$q', '$state', 'Restangular', 'quotationListDataService'];
 
-    function EditQuotationList( $q, $state, Restangular, quotationListDataService ) {
+    function EditQuotationList($q, $state, Restangular, quotationListDataService) {
       var vm = this;
 
       vm.showSave = false;
@@ -19,8 +19,8 @@
       getOneQuotation();
 
       function getOneQuotation() {
-        return $q.all( [getOneQuotationCallBack()] )
-          .then(function( response ) {
+        return $q.all([getOneQuotationCallBack()])
+          .then(function(response) {
             vm.quotationObj = Restangular.stripRestangular(response[0]);
             vm.selectedDate              = vm.quotationObj.date;
             vm.quotationNumber           = vm.quotationObj.quotationNumber;
@@ -41,37 +41,37 @@
 
       function getOneQuotationCallBack() {
         return quotationListDataService
-          .httpGET( 'editQuotationList', {id: $state.params.id} )
-          .then(function( response ) {
+          .httpGET('editQuotationList', {id: $state.params.id})
+          .then(function(response) {
             return response;
           });
       }
 
-      function updateQuotation( key, value, index ){
-        return $q.all( [updateQuotationCallBack( key, value, index )] )
-          .then(function( response ) {
+      function updateQuotation(key, value, index) {
+        return $q.all([updateQuotationCallBack(key, value, index)])
+          .then(function(response) {
             return response;
           });
       }
 
-      function updateQuotationItem( key  ){
+      function updateQuotationItem(key) {
         var data = [];
-        data.push( vm.quotationObj.item );
-        return $q.all( [updateQuotationCallBack( key, data )] )
-        .then(function( response ) {
+        data.push(vm.quotationObj.item);
+        return $q.all([updateQuotationCallBack(key, data)])
+        .then(function(response) {
           return response;
         });
       }
 
-      function updateQuotationCallBack( key, value  ) {
+      function updateQuotationCallBack(key, value) {
         var tempValue = angular.copy(value);
         return quotationListDataService
-          .httpPUT( 'editQuotationList', {
+          .httpPUT('editQuotationList', {
             id:$state.params.id,
             key: key,
             value: value
           })
-          .then(function( response ) {
+          .then(function(response) {
             return response;
           });
       }

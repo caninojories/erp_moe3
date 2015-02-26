@@ -1,4 +1,4 @@
-(function(){
+(function() {
   'use strict';
 
   angular
@@ -9,7 +9,7 @@
     routehelper.configureRoutes(getRoutes());
   }
 
-  function getRoutes(){
+  function getRoutes() {
     return [{
       state: 'customerRegistration',
       config: {

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  exports.saveSalesRepresentative = function( req, res, next ) {
+  exports.saveSalesRepresentative = function(req, res, next) {
     var salesRep = req.body,
         options = {
           io      : global.io,

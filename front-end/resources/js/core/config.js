@@ -23,7 +23,7 @@
 
     loginConfig.$inject = ['$authProvider', 'cfpLoadingBarProvider'];
     /* @ngInject */
-    function loginConfig($authProvider, cfpLoadingBarProvider ) {
+    function loginConfig($authProvider, cfpLoadingBarProvider) {
       cfpLoadingBarProvider.latencyThreshold = 100;
       $authProvider.loginUrl = window.location.origin + '/userApi/userLogIn';
       $authProvider.signupUrl = window.location.origin + '/userApi/userSignUp';
@@ -39,11 +39,14 @@
       });
     }
 
-    function configure ( $locationProvider, $logProvider, $urlRouterProvider, $stateProvider,
-      routehelperConfigProvider, exceptionHandlerProvider, $httpProvider, $authProvider ) {
+    configure.$inject = ['$httpProvider', '$locationProvider', '$logProvider', '$urlRouterProvider', '$stateProvider',
+      'routehelperConfigProvider', 'exceptionHandlerProvider', '$authProvider'];
+    /* @ngInject */
+    function configure ($httpProvider, $locationProvider, $logProvider, $urlRouterProvider, $stateProvider,
+      routehelperConfigProvider, exceptionHandlerProvider, $authProvider) {
 
         $locationProvider.html5Mode(true);
-        if ($logProvider.debugEnabled)  $logProvider.debugEnabled(true);
+        if ($logProvider.debugEnabled) {$logProvider.debugEnabled(true);}
 
         routehelperConfigProvider.config.$stateProvider = $stateProvider;
         routehelperConfigProvider.config.$urlRouterProvider = $urlRouterProvider;
@@ -53,16 +56,16 @@
         exceptionHandlerProvider.configure(config.appErrorPrefix);
     }
 
-    function google( $window ) {
+    function google($window) {
       var params = $window.location.search.substring(1);
-      if( params && $window.opener && $window.opener.location.origin === $window.location.origin ) {
+      if (params && $window.opener && $window.opener.location.origin === $window.location.origin) {
         var pair = params.split('=');
         var code = decodeURIComponent(pair[1]);
-        $window.opener.postMessage( code, $window.location.origin );
+        $window.opener.postMessage(code, $window.location.origin);
       }
     }
 
-    function xEditable( editableOptions ) {
+    function xEditable(editableOptions) {
       editableOptions.theme = 'bs3';
     }
 })();

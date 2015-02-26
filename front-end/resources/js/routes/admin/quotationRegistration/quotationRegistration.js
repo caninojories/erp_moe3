@@ -1,15 +1,15 @@
-(function(){
+(function() {
   'use strict';
 
   angular
   .module('app.quotationRegistration')
   .controller('QuotationRegistration', QuotationRegistration);
 
-  QuotationRegistration.$inject = [ '$q', '$scope', '$rootScope', '$timeout',
-    'exception', 'quotationRegistrationDataService' ];
+  QuotationRegistration.$inject = ['$q', '$scope', '$rootScope', '$timeout',
+    'exception', 'quotationRegistrationDataService'];
 
-  function QuotationRegistration( $q, $scope, $rootScope, $timeout,
-    exception, quotationRegistrationDataService ) {
+  function QuotationRegistration($q, $scope, $rootScope, $timeout,
+    exception, quotationRegistrationDataService) {
     var vm  = this;
     /***
      ** String Literals
@@ -51,17 +51,17 @@
       vm.itemTitle = '';
     }
 
-    function afterSave( quotation ) {
+    function afterSave(quotation) {
       quotation.item.show = true;
     }
 
-    function cancel( quotation ) {
+    function cancel(quotation) {
       quotation.item.show = true;
     }
 
-    function deleteItem( quotation ) {
+    function deleteItem(quotation) {
       var position = vm.quotationRegistrationList.indexOf(quotation);
-      vm.quotationRegistrationList.splice( position, 1 );
+      vm.quotationRegistrationList.splice(position, 1);
     }
 
     function openDate($event) {
@@ -75,8 +75,8 @@
     }
 
     function saveQuotation() {
-      vm.tempQuotationList = angular.copy( vm.quotationRegistrationList );
-      for(var i = 0; i < vm.quotationRegistrationList.length; i++) {
+      vm.tempQuotationList = angular.copy(vm.quotationRegistrationList);
+      for (var i = 0; i < vm.quotationRegistrationList.length; i++) {
         try {
           vm.tempQuotationList[i].item.name = vm.quotationRegistrationList[i].item.name;
           vm.tempQuotationList[i].quantity  = vm.values['quantity_' + i.toString()];
@@ -90,24 +90,24 @@
           vm.tempQuotationList[i].noteForQuotation = vm.values['noteForQuotation_' + i.toString()];
           vm.tempQuotationList[i].comment          = vm.values['comment_' + i.toString()];
           vm.tempQuotationList[i].note             = vm.values['note_' + i.toString()];
-        }catch( error ){
-          console.log( '**Use for error Messgaes**');
-          console.log( 'Exception Module: cannot be seen until the debug is false' );
-          exception.catcher( 'Exception Module: try catch solution: ' + error );
+        }catch (error) {
+          console.log('**Use for error Messgaes**');
+          console.log('Exception Module: cannot be seen until the debug is false');
+          exception.catcher('Exception Module: try catch solution: ' + error);
         }
       }
 
-      return $q.all( [saveQuotationCallBack()] )
-        .then(function( response ) {
-          console.log( response );
+      return $q.all([saveQuotationCallBack()])
+        .then(function(response) {
+          console.log(response);
           return response;
         });
     }
 
     function saveQuotationCallBack() {
-      console.log( vm.selectedDate );
+      console.log(vm.selectedDate);
       return quotationRegistrationDataService
-        .httpPOST( 'quotationRegistration', {
+        .httpPOST('quotationRegistration', {
           date: vm.selectedDate,
           quotationNumber: vm.quotationNumber,
           postalCode: vm.postalCode,
@@ -122,12 +122,12 @@
           subject: vm.subject,
           quotationObj: vm.tempQuotationList
         })
-        .then(function( response ) {
+        .then(function(response) {
           return response;
         });
     }
 
-    function xEditable( quotation ) {
+    function xEditable(quotation) {
       quotation.item.show = false;
     }
   }

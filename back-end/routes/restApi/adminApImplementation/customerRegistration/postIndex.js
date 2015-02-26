@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  exports.post = function( req, res, next ) {
+  exports.post = function(req, res, next) {
     var customer  = req.body,
         options   = {
           io      : global.io,

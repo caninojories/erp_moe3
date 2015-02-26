@@ -10,8 +10,8 @@
           var data,
               isArray = false,
               itemLength = 1;
-          if(obj === 'item') {
-            if(typeof options.query[obj] === 'object') {
+          if (obj === 'item') {
+            if (typeof options.query[obj] === 'object') {
               isArray = true;
               itemLength = options.query[obj].length;
             } else {

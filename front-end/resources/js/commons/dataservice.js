@@ -5,9 +5,9 @@
     .module('app.commons')
     .factory('commonsDataService', commonsDataService);
 
-    commonsDataService.$inject = [ 'exception', 'userServiceApi' ];
+    commonsDataService.$inject = ['exception', 'userServiceApi'];
 
-    function commonsDataService( exception, userServiceApi ) {
+    function commonsDataService(exception, userServiceApi) {
       var service = {
         httpPOST  : httpPOST,
         checkEmail: checkEmail,
@@ -18,87 +18,87 @@
 
       return service;
 
-      function httpPOST( api, param, apiService ) {
-        return apiService.all( api )
-          .post( param )
-          .then( httpPOSTCallBack )
-          .catch(function( message ) {
+      function httpPOST(api, param, apiService) {
+        return apiService.all(api)
+          .post(param)
+          .then(httpPOSTCallBack)
+          .catch(function(message) {
             /***
             ** Call the exception factory to show the error in the client for Development
             ** then wait for 5 seconds then redirect
             ***/
-            exception.catcher( 'Error in the saving the Customer Data', message );
+            exception.catcher('Error in the saving the Customer Data', message);
           });
 
-          function httpPOSTCallBack( response, status, header, config ) {
+          function httpPOSTCallBack(response, status, header, config) {
             return response;
           }
       }
 
-      function checkEmail( api, param ) {
-        return userServiceApi.one( api )
-          .get( param )
-          .then( checkEmailCallBack )
-          .catch(function( message ) {
+      function checkEmail(api, param) {
+        return userServiceApi.one(api)
+          .get(param)
+          .then(checkEmailCallBack)
+          .catch(function(message) {
             /***
             ** Call the exception factory to show the error in the client for Development
             ** then wait for 5 seconds then redirect
             ***/
-            exception.catcher( 'Error in checking email name on all the list of User Data', message );
+            exception.catcher('Error in checking email name on all the list of User Data', message);
           });
 
-          function checkEmailCallBack( response, status, header, config ) {
+          function checkEmailCallBack(response, status, header, config) {
             return response;
           }
       }
 
-      function signup( api, param ) {
-        return userServiceApi.all( api )
-          .post( param )
-          .then( signupCallBack )
-          .catch(function( message ) {
+      function signup(api, param) {
+        return userServiceApi.all(api)
+          .post(param)
+          .then(signupCallBack)
+          .catch(function(message) {
             /***
             ** Call the exception factory to show the error in the client for Development
             ** then wait for 5 seconds then redirect
             ***/
-            exception.catcher( 'Error in the saving the User upon Sign-up', message );
+            exception.catcher('Error in the saving the User upon Sign-up', message);
           });
 
-        function signupCallBack( response, status, header, config ) {
+        function signupCallBack(response, status, header, config) {
           return response;
         }
       }
 
-      function login( api, param ) {
-        return userServiceApi.all( api )
-          .post( param )
-          .then( loginCallBack )
-          .catch(function( message ) {
+      function login(api, param) {
+        return userServiceApi.all(api)
+          .post(param)
+          .then(loginCallBack)
+          .catch(function(message) {
             /***
             ** Call the exception factory to show the error in the client for Development
             ** then wait for 5 seconds then redirect
             ***/
-            exception.catcher( 'Error in login in the user', message );
+            exception.catcher('Error in login in the user', message);
           });
 
-        function loginCallBack( response, status, header, config ) {
+        function loginCallBack(response, status, header, config) {
           return response;
         }
       }
 
-      function googleAuth( api, param ) {
-        return userServiceApi.all( api )
-          .post( param )
-          .then( googleAuthCallBack )
-          .catch(function( message ) {
+      function googleAuth(api, param) {
+        return userServiceApi.all(api)
+          .post(param)
+          .then(googleAuthCallBack)
+          .catch(function(message) {
             /***
             ** Call the exception factory to show the error in the client for Development
             ** then wait for 5 seconds then redirect
             ***/
-            exception.catcher( 'Error in login in the user using Google', message );
+            exception.catcher('Error in login in the user using Google', message);
           });
 
-        function googleAuthCallBack( response, status, header, config ) {
+        function googleAuthCallBack(response, status, header, config) {
           return response;
         }
       }

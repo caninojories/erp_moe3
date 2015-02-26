@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var mongoose = require( 'mongoose' );
+  var mongoose = require('mongoose');
 
   var InvoiceSchema = new mongoose.Schema({
     date                  : Date,
@@ -31,17 +31,17 @@
     }]
   });
 
-  InvoiceSchema.pre( 'save', function( next ) {
+  InvoiceSchema.pre('save', function(next) {
     var invoice = this;
-    invoice.item.forEach(function( data ) {
+    invoice.item.forEach(function(data) {
       try {
         delete data.show;
-      } catch(e) {
+      } catch (e) {
 
       }
     });
     next();
   });
 
-  module.exports = mongoose.model( 'Invoice', InvoiceSchema );
+  module.exports = mongoose.model('Invoice', InvoiceSchema);
 }());
