@@ -5,7 +5,7 @@
     return require(__dirname + '/' + name);
   };
 
-  global.global.io = appRequire('services/module.config');
+  global.io = appRequire('services/module.config');
 
     var catchAll  = require('./routes');
 
@@ -13,23 +13,23 @@
     require('./configuration/mongodb'); //mongodb integration
 
     /* Express Server */
-    var app = global.global.io.express();
+    var app = io.express();
 
     /* Configuration Files */
     require('./configuration/express')(app);
-    require('./configuration/passport')(global.global.io.passport);
+    require('./configuration/passport')(io.passport);
 
     /* Routes */
-    global.io.useApp(app);
-    global.io.useApi(app);
+    io.useApp(app);
+    io.useApi(app);
     app.use('*', catchAll);
 
-    /* global.io.cluster Configuration */
-    if (global.io.cluster.isMaster) {global.io.clusterService(global.io);}
+    /* io.cluster Configuration */
+    if (io.cluster.isMaster) {io.clusterService(io);}
     else {
       app.listen(global.io.port, function() {
-      console.log(global.io.chalk.red.reset.underline('listening to port ') +
-        global.io.chalk.cyan.bold((global.io.port)));
+      console.log(io.chalk.red.reset.underline('listening to port ') +
+        io.chalk.cyan.bold((io.port)));
       });
     }
 }());

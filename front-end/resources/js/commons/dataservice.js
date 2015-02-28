@@ -5,18 +5,46 @@
     .module('app.commons')
     .factory('commonsDataService', commonsDataService);
 
-    commonsDataService.$inject = ['exception', 'userServiceApi'];
+    commonsDataService.$inject = ['Restangular', 'exception', 'userServiceApi'];
 
-    function commonsDataService(exception, userServiceApi) {
+    function commonsDataService(Restangular, exception, userServiceApi) {
       var service = {
-        httpPOST  : httpPOST,
-        checkEmail: checkEmail,
-        signup    : signup,
-        login     : login,
-        googleAuth: googleAuth
+        httpPOST            : httpPOST,
+        httpGETRouteParams  : httpGETRouteParams,
+        httpGETQueryParams  : httpGETQueryParams,
+        checkEmail          : checkEmail,
+        signup              : signup,
+        login               : login,
+        googleAuth          : googleAuth
       };
 
       return service;
+
+      function httpGETQueryParams(api, queryParam, apiService) {
+        return apiService.one(api)
+          .get(queryParam)
+          .then(httpGETQueryParamsCallback)
+          .catch(function(message) {
+
+          });
+
+          function httpGETQueryParamsCallback(response, status, header, config) {
+            return Restangular.stripRestangular(response);
+          }
+      }
+
+      function httpGETRouteParams(api, routeParam, apiService) {
+        return apiService.one(api, routeParam)
+          .get()
+          .then(httpGETRouteParamsCallback)
+          .catch(function(message) {
+            
+          });
+
+          function httpGETRouteParamsCallback(response, status, header, config) {
+            return Restangular.stripRestangular(response);
+          }
+      }
 
       function httpPOST(api, param, apiService) {
         return apiService.all(api)
@@ -31,7 +59,7 @@
           });
 
           function httpPOSTCallBack(response, status, header, config) {
-            return response;
+            return Restangular.stripRestangular(response);
           }
       }
 
@@ -65,7 +93,7 @@
           });
 
         function signupCallBack(response, status, header, config) {
-          return response;
+          return Restangular.stripRestangular(response);
         }
       }
 
@@ -82,7 +110,7 @@
           });
 
         function loginCallBack(response, status, header, config) {
-          return response;
+          return Restangular.stripRestangular(response);
         }
       }
 
@@ -99,7 +127,7 @@
           });
 
         function googleAuthCallBack(response, status, header, config) {
-          return response;
+          return Restangular.stripRestangular(response);
         }
       }
     }

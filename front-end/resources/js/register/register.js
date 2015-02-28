@@ -32,6 +32,8 @@
       }
 
       function checkEmailInBlurredCallBack() {
+        console.log(vm.email);
+        
         return commonsDataService
           .checkEmail('isEmailTaken', {email: vm.email})
           .then(function(response) {

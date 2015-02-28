@@ -21,7 +21,12 @@
           $rootScope.$on('$viewContentLoaded', function() {
             jcaLayout.carousel();
           });
-        }
+        },
+        typeaheadScript : function carouselScript() {
+          $rootScope.$on('$viewContentLoaded', function() {
+            jcaLayout.typeahead();
+          });
+        },
       };
     }
 })();

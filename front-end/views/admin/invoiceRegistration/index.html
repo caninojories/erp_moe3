@@ -45,9 +45,9 @@
         <div class="col-sm-12">
           <label class="col-sm-6 control-label text-right">Due Date</label>
           <div class="col-sm-6">
-            <form name="datepickerForm" class="form-group" role="form">
+            <form name="datepickerForm" role="form">
               <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
-                <input type="text" class="form-control input-sm" ng-model="vm.selectedDate" name="date"
+                <input type="text" class="form-control input-sm" ng-model="vm.dueDate" name="date"
                 bs-datepicker data-date-format="MMMM-dd-yyyy">
               </div>
             </form>
@@ -79,39 +79,25 @@
 
     <div class='col-sm-6'>
       <div class="row">
-        <label class="col-sm-12 gothic">SALES REPRESENTATIVE</label>
-        <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="col-xs-12">
           <div class="form-group">
-            <label>First Name</label>
-            <input type="text" name="salesRepresentative" class="form-control input-sm" ng-model="vm.salesRepFirstName">
+            <label>From</label>
+            <!-- <input type="text" name="salesRepresentative" class="form-control input-sm" ng-model="vm.salesRepFirstName"> -->
+            <div id="from" class="lookup">
+              <input type="text" class="typeahead form-control" placeholder="Company Name" type-ahead-from ng-model="vm.fromName">
+              <a ng-click="vm.fromLookup()"><span class="glyphicon glyphicon-eye-open"></span></a>
+            </div>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="col-xs-12">
           <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" name="salesRepresentative" class="form-control input-sm" ng-model="vm.salesRepLastName">
+            <label>To</label>
+            <div id="to" class="lookup">
+              <input type="text" class="typeahead form-control" placeholder="Company Name" type-ahead-to ng-model="vm.toName">
+              <a ng-click="vm.toLookup()"><span class="glyphicon glyphicon-eye-open"></span></a>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="form-group">
-        <label>Sales Office Address 1</label>
-        <textarea name="salesOfficeAddress1" class="form-control input-sm" ng-model="vm.salesOfficeAddress1" rows="3"></textarea>
-      </div>
-
-      <div class="form-group">
-        <label>Sales Office Address 2</label>
-        <textarea name="salesOfficeAddress2" class="form-control input-sm" ng-model="vm.salesOfficeAddress2" rows="3"></textarea>
-      </div>
-
-      <div class="form-group">
-        <label>Sales Office Address 3</label>
-        <textarea name="salesOfficeAddress3" class="form-control input-sm" ng-model="vm.salesOfficeAddress3" rows="3"></textarea>
-      </div>
-
-      <div class="form-group">
-        <label>Sales Office Phone Number</label>
-        <input type="number" name="salesOfficePhoneNumber" class="form-control input-sm" ng-model="vm.salesOfficePhoneNumber">
       </div>
     </div>
   </div>
@@ -123,12 +109,18 @@
 
     <div class="row addItem">
       <div class="col-sm-5 pull-right">
-        <div class="input-group">
+        <!-- <div class="input-group">
           <input type="text" class="form-control input-lg" ng-model="vm.itemTitle">
           <span class="input-group-btn">
-            <button class="btn btn-default btn-lg gothic" type="button" ng-click="vm.addInvoice()">Add Item</button>
+            <button class="btn btn-default btn-lg" type="button" ng-click="vm.addInvoice()">Add Item</button>
           </span>
-        </div>
+        </div> -->
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Item to add" ng-model="vm.itemTitle">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="vm.addInvoice()">Add Item</button>
+          </span>
+        </div><!-- /input-group -->
       </div>
     </div>
   </div>

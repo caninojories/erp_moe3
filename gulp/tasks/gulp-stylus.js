@@ -9,6 +9,9 @@
       return gulp.src(config.stylus)
       .pipe(stylus({use: [nib()]}) )
       .on('error', handleErrors)
+      .pipe(prefixer({browsers:['last 2 versions', '> 5%']}))
+      .on('error', handleErrors )
+      .pipe(gulp.dest('front-end/.tmp/stylus' ))
       .pipe(csslint({
         'gradients': false,
         'important': false,
@@ -18,10 +21,7 @@
         'display-property-grouping': false,
         'adjoining-classes': false
       }))
-      .pipe(csslint.reporter())
-      .pipe(prefixer({browsers:['last 2 versions', '> 5%']}))
-      .on('error', handleErrors )
-      .pipe(gulp.dest('front-end/.tmp/stylus' ));
+      .pipe(csslint.reporter());
     });
   };
 }());

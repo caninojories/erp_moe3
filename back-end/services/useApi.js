@@ -2,17 +2,49 @@
   'use strict';
 
   module.exports = function(app) {
-    // global.io
-    app.use('/salesRepresentativeApi', global.io.salesRepresentativeRegistrationApi);
-    app.use('/salesRepresentativeApi', global.io.salesRepresentativeListingApi);
-    app.use('/customerApi', global.io.customerRegistrationApi);
-    app.use('/customerApi', global.io.customerListApi);
-    app.use('/quotationApi', global.io.quotationRegistrationApi);
-    app.use('/quotationApi', global.io.quotationListApi);
-    app.use('/invoiceApi', global.io.invoiceRegistrationApi);
-    app.use('/invoiceApi', global.io.invoiceListApi);
-    app.use('/userApi', global.io.emailTakenApi);
-    app.use('/userApi', global.io.userSignUpApi);
-    return app;
+    return useApi([{
+      name: '/salesRepresentativeApi',
+      url: global.io.useApiConfig().salesRepresentativeRegistrationApi
+    }, {
+      name: '/salesRepresentativeApi',
+      url: global.io.useApiConfig().salesRepresentativeListingApi
+    }, {
+      name: '/customerApi',
+      url: global.io.useApiConfig().customerRegistrationApi
+    }, {
+      name: '/customerApi',
+      url: global.io.useApiConfig().customerListApi
+    }, {
+      name: '/quotationApi',
+      url: global.io.useApiConfig().quotationRegistrationApi
+    }, {
+      name: '/quotationApi',
+      url: global.io.useApiConfig().quotationListApi
+    }, {
+      name: '/invoiceApi',
+      url: global.io.useApiConfig().invoice
+    }, {
+      name: '/invoiceApi',
+      url: global.io.useApiConfig().invoiceRegistrationApi
+    }, {
+      name: '/invoiceApi',
+      url: global.io.useApiConfig().invoiceListApi
+    }, {
+      name: '/userApi',
+      url: global.io.useApiConfig().emailTakenApi
+    }, {
+      name: '/userApi',
+      url: global.io.useApiConfig().userSignUpApi
+    }]);
+
+    function useApi(param) {
+      for (var key in param) {
+       if (param.hasOwnProperty(key)) {
+          var obj = param[key];
+          app.use(obj.name, obj.url);
+        }
+      }
+    }
   };
+
 }());

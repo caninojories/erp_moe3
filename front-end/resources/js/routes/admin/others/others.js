@@ -10,10 +10,15 @@
     function Others(strapModal) {
       var vm = this;
 
-      vm.addInvoiceAddress = addInvoiceAddress;
+      vm.addInvoiceFromAddress  = addInvoiceFromAddress;
+      vm.addInvoiceToAddress    = addInvoiceToAddress;
 
-      function addInvoiceAddress() {
-        strapModal.show('am-fade-and-scale', 'center', 'commons/addInvoiceAddress.html');
+      function addInvoiceFromAddress() {
+        strapModal.show('am-fade-and-scale', 'center', 'commons/addInvoiceFromAddress.html');
+      }
+
+      function addInvoiceToAddress() {
+        strapModal.show('am-fade-and-scale', 'center', 'commons/addInvoiceToAddress.html');
       }
     }
 }());

@@ -10,6 +10,7 @@
     console.log('Layout.js is running ');
     this.carousel();
     this.fullPage();
+    this.typeahead();
 
     return this;
   };
@@ -36,6 +37,10 @@ function readURL(input) {
       pause: 'hover',
       wrap: true
     });
+  };
+
+  Layout.prototype.typeahead = function() {
+
   };
 
   Layout.prototype.fullPage = function() {

@@ -1,0 +1,27 @@
+.header {
+  .navbar-brand {
+    padding-right: 0
+    margin-right: 30px;
+  }
+  li > a {
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 0;
+  }
+}
+.navbar {
+  border-radius: 0;
+}
+
+/* override */
+.navbar-nav.navbar-left:first-child > li:first-child a {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+@media (min-width: 768px) {
+  .navbar-collapse .navbar-nav.navbar-left:first-child > li:first-child a {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+  }
+}

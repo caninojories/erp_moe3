@@ -23,7 +23,9 @@
   "predef"   : [
     "appRequire",
     "angular",
+    "Bloodhound",
     "compatible-vendor-prefixes",
+    "io",
     "moment",
     "toastr",
     "jcaLayout"
