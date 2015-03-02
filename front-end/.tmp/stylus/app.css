@@ -124,6 +124,9 @@
   margin: 0;
   color: #e74c3c;
 }
+.viewOneInvoice p {
+  margin: 0;
+}
 .editable-click,
 a.editable-click {
   border-bottom: none;

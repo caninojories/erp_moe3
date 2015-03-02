@@ -3,19 +3,20 @@
 
   module.exports = function(app) {
     useApp([
-      global.io.useAppConfig().primary,
-      global.io.useAppConfig().salesRepresentativeRegistration,
-      global.io.useAppConfig().salesRepresentativeListing,
-      global.io.useAppConfig().editSalesRepresentativeListing,
-      global.io.useAppConfig().customerRegistration,
-      global.io.useAppConfig().customerList,
-      global.io.useAppConfig().editCustomerList,
-      global.io.useAppConfig().quotationRegistration,
-      global.io.useAppConfig().quotationList,
-      global.io.useAppConfig().editQuotationList,
-      global.io.useAppConfig().invoiceRegistration,
-      global.io.useAppConfig().invoiceList,
-      global.io.useAppConfig().editInvoiceList,
+      io.useAppConfig().primary,
+      io.useAppConfig().salesRepresentativeRegistration,
+      io.useAppConfig().salesRepresentativeListing,
+      io.useAppConfig().editSalesRepresentativeListing,
+      io.useAppConfig().customerRegistration,
+      io.useAppConfig().customerList,
+      io.useAppConfig().editCustomerList,
+      io.useAppConfig().quotationRegistration,
+      io.useAppConfig().quotationList,
+      io.useAppConfig().editQuotationList,
+      io.useAppConfig().invoice,
+      io.useAppConfig().invoiceRegistration,
+      io.useAppConfig().invoiceList,
+      io.useAppConfig().editInvoiceList,
     ]);
 
     function useApp(param) {

@@ -6,48 +6,33 @@
     .controller('InvoiceRegistration', InvoiceRegistration);
 
     InvoiceRegistration.$inject = ['$q', '$rootScope', '$scope', '$timeout', 'exception', 'commonsDataService',
-    'invoiceServiceApi', 'invoiceRegistrationDataService', 'viewContentLoaded', 'strapModal'];
+    'invoiceServiceApi', 'invoiceRegistrationDataService', 'strapModal'];
 
     function InvoiceRegistration($q, $rootScope, $scope, $timeout, exception, commonsDataService,
-    invoiceServiceApi, invoiceRegistrationDataService, viewContentLoaded, strapModal) {
+    invoiceServiceApi, invoiceRegistrationDataService, strapModal) {
       var vm = this;
 
       /* Functions */
-      vm.afterSave    = afterSave;
-      vm.addInvoice   = addInvoice;
+      vm.afterSave          = afterSave;
+      vm.addInvoice         = addInvoice;
       vm.calculateSubnTotal = calculateSubnTotal;
-      vm.deleteItem   = deleteItem;
-      vm.saveInvoice  = saveInvoice;
-      vm.fromLookup   = fromLookup;
-      vm.toLookup     = toLookup;
-      vm.xEditable    = xEditable;
+      vm.cancel             = cancel;
+      vm.deleteItem         = deleteItem;
+      vm.saveInvoice        = saveInvoice;
+      vm.fromLookup         = fromLookup;
+      vm.toLookup           = toLookup;
+      vm.xEditable          = xEditable;
 
       /* Variable Initialization */
-      vm.subTotal = null;
-      vm.total    = null;
-
-      vm.invoiceList = [];
-
-      vm.options = [
-        { label: 'Yen', value: 1 },
-        { label: 'Dollar', value: 2 }
-      ];
-
-      vm.correctlySelected = vm.options[1];
+      vm.subTotal     = null;
+      vm.total        = null;
+      vm.invoiceList  = [];
 
       function addInvoice() {
         vm.invoiceList.push({
           name: vm.itemTitle || 'item',
-          quantity: vm.quantity,
-          unitPrice: vm.unitPrice,
+          description: vm.description,
           amount: vm.amount,
-          status: vm.status,
-          deliveryDate: vm.deliveryDate,
-          dateOfPayment: vm.dateOfPayment,
-          deliveryMethod: vm.deliveryMethod,
-          noteForInvoice: vm.noteForInvoice,
-          accountantComment: vm.accountantComment,
-          accountantNote: vm.accountantNote,
           show: true
         });
 
@@ -58,14 +43,24 @@
         invoice.show = true;
       }
 
+      $scope.$on('select2', function() {
+        $scope.$apply(calculateSubnTotal());
+      });
+
       function calculateSubnTotal() {
+        vm.subTotal = $rootScope.currency;
+        vm.total    = $rootScope.currency;
         var sum = 0;
         for (var obj in vm.invoiceList) {
             sum += vm.invoiceList[obj].amount;
         }
 
-        vm.subTotal = sum;
-        vm.total    = sum;
+        vm.subTotal += sum;
+        vm.total    += sum;
+      }
+
+      function cancel(invoice) {
+        invoice.show = true;
       }
 
       function deleteItem(invoice) {
@@ -83,19 +78,16 @@
       function saveInvoiceCallBack() {
         return invoiceRegistrationDataService
           .httpPOST('invoiceRegistration', {
-            date: vm.selectedDate,
-            invoiceNumber: vm.invoiceNumber,
-            postalCode: vm.postalCode,
-            customerFirstName: vm.customerFirstName,
-            customerLastName: vm.customerLastName,
-            subject: vm.subject,
-            salesRepFirstName: vm.salesRepFirstName,
-            salesRepLastName: vm.salesRepLastName,
-            salesOfficeAddress1: vm.salesOfficeAddress1,
-            salesOfficeAddress2: vm.salesOfficeAddress2,
-            salesOfficeAddress3: vm.salesOfficeAddress3,
-            salesOfficePhoneNumber: vm.salesOfficePhoneNumber,
-            item: vm.invoiceList
+            number  : vm.number,
+            date    : vm.date,
+            terms   : vm.terms,
+            dueDate : vm.dueDate,
+            from    : $rootScope.companyNameFrom,
+            to      : $rootScope.companyNameTo,
+            item    : vm.invoiceList,
+            currency: $rootScope.currency,
+            subTotal: vm.subTotal,
+            total   : vm.total
           })
           .then(function(response) {
             return response;

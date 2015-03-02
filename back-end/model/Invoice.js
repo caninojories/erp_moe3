@@ -4,31 +4,20 @@
   var mongoose = require('mongoose');
 
   var InvoiceSchema = new mongoose.Schema({
-    date                  : Date,
-    invoiceNumber         : Number,
-    postalCode            : Number,
-    customerFirstName     : String,
-    customerLastName      : String,
-    subject               : String,
-    salesRepFirstName     : String,
-    salesRepLastName      : String,
-    salesOfficeAddress1   : String,
-    salesOfficeAddress2   : String,
-    salesOfficeAddress3   : String,
-    salesOfficePhoneNumber: Number,
+    number  : Number,
+    date    : Date,
+    terms   : String,
+    dueDate : Date,
+    from    : String,
+    to      : String,
     item: [{
-      name              : String,
-      quantity          : Number,
-      unitPrice         : Number,
-      amount            : Number,
-      status            : String,
-      deliveryDate      : Date,
-      dateOfPayment     : Date,
-      deliveryMethod    : String,
-      noteForInvoice    : String,
-      accountantComment : String,
-      accountantNote    : String
-    }]
+      name        : String,
+      description : String,
+      amount      : Number
+    }],
+    subTotal: String,
+    total   : String,
+    currency: String,
   });
 
   InvoiceSchema.pre('save', function(next) {

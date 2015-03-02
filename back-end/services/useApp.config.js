@@ -14,6 +14,7 @@
       quotationRegistration           : require(adminRoutes + 'quotationRegistration'),
       quotationList                   : require(adminRoutes + 'quotationList'),
       editQuotationList               : require(adminRoutes + 'quotationList/edit'),
+      invoice                         : require(adminRoutes + 'invoice/viewOne'),
       invoiceRegistration             : require(adminRoutes + 'invoiceRegistration'),
       invoiceList                     : require(adminRoutes + 'invoiceList'),
       editInvoiceList                 : require(adminRoutes + 'invoiceList/edit')

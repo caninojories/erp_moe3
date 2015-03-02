@@ -16,12 +16,13 @@
           url: '/invoiceRegistration',
           templateUrl: '/admin/invoiceRegistration/index.html',
           controller: 'InvoiceRegistration as vm',
-          title: 'InvoiceRegistration',
-          resolve: {
-            select2: function(viewContentLoaded) {
-              viewContentLoaded.select2();
-            }
-          }
+          title: 'InvoiceRegistration'
+        }
+      }, {
+        state: 'viewOneInvoice',
+        config: {
+          url: '/invoice/view/:id',
+          templateUrl: '/admin/invoice/viewOne.html'
         }
       }];
     }

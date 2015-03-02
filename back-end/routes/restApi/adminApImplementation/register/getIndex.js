@@ -11,7 +11,7 @@
         };
         console.log(query);
 
-    global.io.mongoDB(io.config.dbName)
-      .then(global.io.get.findOne(options));
+    io.mongoDB(io.config.dbName)
+      .then(io.get.findOne(options));
   };
 }());

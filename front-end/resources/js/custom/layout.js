@@ -24,7 +24,7 @@
   };
 
   Layout.prototype.select2 = function() {
-    $('.select').select2({dropdownCssClass: 'dropdown-inverse'});
+    // $('.select').select2({dropdownCssClass: 'dropdown-inverse'});
   };
 
   Layout.prototype.fullPage = function() {
