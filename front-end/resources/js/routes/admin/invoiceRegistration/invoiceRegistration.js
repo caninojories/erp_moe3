@@ -15,13 +15,25 @@
       /* Functions */
       vm.afterSave    = afterSave;
       vm.addInvoice   = addInvoice;
+      vm.calculateSubnTotal = calculateSubnTotal;
       vm.deleteItem   = deleteItem;
       vm.saveInvoice  = saveInvoice;
       vm.fromLookup   = fromLookup;
       vm.toLookup     = toLookup;
       vm.xEditable    = xEditable;
 
+      /* Variable Initialization */
+      vm.subTotal = null;
+      vm.total    = null;
+
       vm.invoiceList = [];
+
+      vm.options = [
+        { label: 'Yen', value: 1 },
+        { label: 'Dollar', value: 2 }
+      ];
+
+      vm.correctlySelected = vm.options[1];
 
       function addInvoice() {
         vm.invoiceList.push({
@@ -44,6 +56,16 @@
 
       function afterSave(invoice) {
         invoice.show = true;
+      }
+
+      function calculateSubnTotal() {
+        var sum = 0;
+        for (var obj in vm.invoiceList) {
+            sum += vm.invoiceList[obj].amount;
+        }
+
+        vm.subTotal = sum;
+        vm.total    = sum;
       }
 
       function deleteItem(invoice) {

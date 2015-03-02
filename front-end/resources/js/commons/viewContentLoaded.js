@@ -22,9 +22,9 @@
             jcaLayout.carousel();
           });
         },
-        typeaheadScript : function carouselScript() {
+        select2 : function carouselScript() {
           $rootScope.$on('$viewContentLoaded', function() {
-            jcaLayout.typeahead();
+            jcaLayout.select2();
           });
         },
       };

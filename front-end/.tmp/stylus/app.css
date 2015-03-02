@@ -84,6 +84,12 @@
 .invoiceRegistration .save {
   margin-bottom: 10px;
 }
+.invoiceRegistration .save .form-group {
+  margin-bottom: 10px;
+}
+.invoiceRegistration .save .form-group input {
+  color: #e74c3c;
+}
 .invoiceRegistration .delete {
   margin-left: 3px;
   margin-right: 3px;

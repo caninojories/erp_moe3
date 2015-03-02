@@ -10,28 +10,12 @@
     console.log('Layout.js is running ');
     this.carousel();
     this.fullPage();
-    this.typeahead();
+    this.select2();
 
     return this;
   };
 
   Layout.prototype.carousel = function() {
-    $(document).ready(function() {
-  $('#invoice_number').focus();
-  $('#imgInp').change(function() {
-    readURL(this);
-  });
-});
-
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          $('#company_logo').attr('src', e.target.result);
-        };
-        reader.readAsDataURL(input.files[0]);
-    }
-}
     $('.carousel').carousel({
       interval: 3000,
       pause: 'hover',
@@ -39,8 +23,8 @@ function readURL(input) {
     });
   };
 
-  Layout.prototype.typeahead = function() {
-
+  Layout.prototype.select2 = function() {
+    $('.select').select2({dropdownCssClass: 'dropdown-inverse'});
   };
 
   Layout.prototype.fullPage = function() {

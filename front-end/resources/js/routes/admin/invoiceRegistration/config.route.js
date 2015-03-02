@@ -16,7 +16,12 @@
           url: '/invoiceRegistration',
           templateUrl: '/admin/invoiceRegistration/index.html',
           controller: 'InvoiceRegistration as vm',
-          title: 'InvoiceRegistration'
+          title: 'InvoiceRegistration',
+          resolve: {
+            select2: function(viewContentLoaded) {
+              viewContentLoaded.select2();
+            }
+          }
         }
       }];
     }

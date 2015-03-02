@@ -43,8 +43,12 @@
         }).on('typeahead:autocompleted', function (e, datum) {
           $rootScope.companyNameTo = datum.name;
         }).on('keydown', function(event) {
-          if(event.keyCode === 8){
-            var str = element.val();
+          var str = element.val();
+          if (event.keyCode === 8){
+            str = element.val();
+            $rootScope.companyNameTo = str.slice(0, str.length-1);
+          } else if (event.keyCode === 70) {
+            str = element.val();
             $rootScope.companyNameTo = str.slice(0, str.length-1);
           }
         });
