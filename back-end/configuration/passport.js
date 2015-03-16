@@ -11,7 +11,7 @@
 		passport.use('local-login', new io.LocalStrategy({
 			usernameField: 'email'
 		}, function(email, password, done) {
-			io.mongoDB(io, io.config.dbName)
+			io.mongoDB(io.config.dbName)
 			.then(function(connection) {
 				io.User.findOne({
 					email: email

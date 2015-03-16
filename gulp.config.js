@@ -45,7 +45,7 @@
       bower: {
         json: require('./bower.json'),
         directory: '.bowerrc'.directory,
-        exclude: [''],
+        exclude: ['front-end/bower/bootstrap/dist/js/bootstrap.js'],
         ignorePath: '../bower',
         fileTypes: {
           html: {

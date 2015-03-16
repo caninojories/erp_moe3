@@ -16,18 +16,28 @@
       .findOne(options.find)
       .exec()
       .then(function(result) {
-        console.log(result);
         if(!result) {return options.res.json({data:'not found'});}
         options.res.json(result);
       });
   };
 
-  exports.findOneById = function(options) {
-    return options.io[options.name]
-      .findById(options.find)
+  exports.findById = function(options) {
+    return io[options.name]
+      .findById(io.ObjectId(options.find))
       .exec()
       .then(function(result) {
-        options.res.json(result);
+        /* invoice FindById */
+        if(options.merge) {
+          result[options.merge.findFrom](function(err, from) {
+            var fromObj = from.toJSON();
+            result[options.merge.findTo](function(err, to) {
+              var toObj = to;
+              options.res.json({data:result, from: fromObj, to: toObj});
+            });
+          });
+        } else {
+          options.res.json(result);
+        }
       });
   };
 }());

@@ -4,8 +4,8 @@
   var express = require('express'),
   router      = express.Router();
 
-  router.get('/admin/invoiceList/edit/index.html', function(req, res) {
-    res.render('admin/invoiceList/edit/index.html');
+  router.get('/admin/invoice/editOne.html', function(req, res) {
+    res.render('admin/invoice/editOne.html');
   });
 
   module.exports = router;

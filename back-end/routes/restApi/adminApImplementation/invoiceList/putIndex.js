@@ -28,7 +28,7 @@
           }
         };
 
-    io.mongoDB(io, io.config.dbName)
+    io.mongoDB(io.config.dbName)
       .then(io.update.putById(options));
   };
 }());

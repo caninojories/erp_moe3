@@ -24,12 +24,6 @@
       name: '/invoiceApi',
       url: global.io.useApiConfig().invoice
     }, {
-      name: '/invoiceApi',
-      url: global.io.useApiConfig().invoiceRegistrationApi
-    }, {
-      name: '/invoiceApi',
-      url: global.io.useApiConfig().invoiceListApi
-    }, {
       name: '/userApi',
       url: global.io.useApiConfig().emailTakenApi
     }, {

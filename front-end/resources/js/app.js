@@ -27,8 +27,7 @@
     'app.customerList',
     'app.quotationRegistration',
     'app.quotationList',
-    'app.invoiceRegistration',
-    'app.invoiceList',
+    'app.invoice',
 
     /*
      * Restangular Service

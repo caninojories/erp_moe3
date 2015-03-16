@@ -16,8 +16,19 @@
       return directive;
 
       function link(scope, element, attrs) {
-        element.select2({dropdownCssClass: 'dropdown-inverse'});
         currencySymbol(element.val());
+        scope.$on('currency', function(event, data) {
+          switch(data.toString()) {
+            case '$ ':
+              element.select2('val', 'Dollar');
+              break;
+            case '¥ ':
+              element.select2('val', 'Dollar');
+              console.log('yen');
+              break;
+          }
+        });
+        element.select2({dropdownCssClass: 'dropdown-inverse'});
         element.on('change', function(e) {
           currencySymbol(e.val);
           scope.$broadcast('select2');

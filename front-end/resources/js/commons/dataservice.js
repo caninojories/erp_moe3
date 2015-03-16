@@ -9,13 +9,15 @@
 
     function commonsDataService(Restangular, exception, userServiceApi) {
       var service = {
-        httpPOST            : httpPOST,
-        httpGETRouteParams  : httpGETRouteParams,
-        httpGETQueryParams  : httpGETQueryParams,
-        checkEmail          : checkEmail,
-        signup              : signup,
-        login               : login,
-        googleAuth          : googleAuth
+        httpPOSTQueryParams   : httpPOSTQueryParams,
+        httpGETRouteParams    : httpGETRouteParams,
+        httpGETQueryParams    : httpGETQueryParams,
+        httpPUTRouteParams    : httpPUTRouteParams,
+        httpDELETERouteParams : httpDELETERouteParams,
+        checkEmail            : checkEmail,
+        signup                : signup,
+        login                 : login,
+        googleAuth            : googleAuth
       };
 
       return service;
@@ -38,7 +40,7 @@
           .get()
           .then(httpGETRouteParamsCallback)
           .catch(function(message) {
-            
+
           });
 
           function httpGETRouteParamsCallback(response, status, header, config) {
@@ -46,19 +48,59 @@
           }
       }
 
-      function httpPOST(api, param, apiService) {
+
+      function httpPOSTQueryParams(api, param, apiService) {
         return apiService.all(api)
           .post(param)
-          .then(httpPOSTCallBack)
+          .then(httpPOSTQueryParamsCallback)
           .catch(function(message) {
             /***
             ** Call the exception factory to show the error in the client for Development
             ** then wait for 5 seconds then redirect
             ***/
-            exception.catcher('Error in the saving the Customer Data', message);
+            exception.catcher('Error in the saving the Invoice Data', message);
           });
 
-          function httpPOSTCallBack(response, status, header, config) {
+          function httpPOSTQueryParamsCallback(response, status, header, config) {
+            return Restangular.stripRestangular(response);
+          }
+      }
+
+      function httpPOSTRouteParams(api, param, apiService) {
+        return apiService.all(api, param)
+          .post()
+          .then(httpPOSTRouteParamsCallback)
+          .catch(function(message) {
+
+          });
+
+          function httpPOSTRouteParamsCallback(response, status, header, config) {
+            return Restangular.stripRestangular(response);
+          }
+      }
+
+      function httpPUTRouteParams(api, routeUrl, param, apiService) {
+        return apiService.one(api, routeUrl)
+          .put(param)
+          .then(httpPUTRouteParamsCallback)
+          .catch(function(message) {
+
+          });
+
+          function httpPUTRouteParamsCallback(response, status, header, config) {
+            return Restangular.stripRestangular(response);
+          }
+      }
+
+      function httpDELETERouteParams(api, routeParam, apiService) {
+        return apiService.one(api, routeParam)
+          .remove()
+          .then(httpDELETERouteParamsCallback)
+          .catch(function(message) {
+
+          });
+
+          function httpDELETERouteParamsCallback(response, status, header, config) {
             return Restangular.stripRestangular(response);
           }
       }

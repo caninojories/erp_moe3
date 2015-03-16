@@ -9,7 +9,8 @@
     next();
   });
 
-  router.get('*',  function(req, res) {
+  router.get('/', io.authorize, io.xPoweredBy, function(req, res, next) {
+    console.log(req.isAuthenticated);
     res.render('index.html');
   });
 

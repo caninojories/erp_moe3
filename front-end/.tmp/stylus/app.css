@@ -474,3 +474,42 @@ span.twitter-typeahead {
     border-top-left-radius: 0px;
   }
 }
+.editOne alert-invoice-update {
+  position: fixed;
+  z-index: 999;
+  top: 35%;
+  left: 35%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+.registration alert-invoice-registration {
+  position: fixed;
+  top: 35%;
+  left: 35%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+.viewList alert-invoice-pdf-download,
+.viewList alert-invoice-update-status {
+  position: fixed;
+  z-index: 999;
+  top: 35%;
+  left: 45%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+.viewList thead > tr > th:first-child {
+  width: 240px;
+}
+.viewList .select2-container {
+  min-width: 120px;
+  max-width: 120px;
+  margin-left: 4px;
+}
+.viewList .top-margin {
+  position: relative;
+  top: 8px;
+}
+.select2DropDown {
+  min-width: 130px !important;
+}

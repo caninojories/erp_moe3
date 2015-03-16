@@ -1,24 +1,67 @@
 <div class="viewOneInvoice">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <div class="col-sm-6">
-          <h5>Mcube.Plus Heart Inc.</h5>
-          <p>Dearcity Akasaka Nishikan 306</p>
-          <p>Tokyo, 107-0052</p>
-          <p>Japan</p>
-          <p>Phone: 09155839276</p>
-          <p>Email: canino_jories@hotmail.com</p>
-        </div>
-        <div class="col-sm-2">
-          col-sm-2
-        </div>
-        <div class="col-sm-4">
-          <div class="pull-right">
-            col-sm-4
+  <div class="container" width="800px" >
+    <table class="table">
+      <tr>
+        <td>
+          <div class="infos">
+            <h5 ng-bind="vm.from.name"></h5>
+            <p ng-bind="vm.from.address"></p>
+            <p>{{vm.from.state}}, {{vm.from.zipcode}}</p>
+            <p ng-bind="vm.from.country"></p>
+            <p>Phone: {{vm.from.phone}}</p>
+            <p>Email: {{vm.from.email}}</p>
           </div>
-        </div>
-      </div>
-    </div>
+        </td>
+        <td align="right">
+          <div>
+            <h5>INVOICE</h5>
+            <p>Invoice #: {{vm.obj.number}}</p>
+            <p>Invoice Date: {{vm.obj.date | date:format:'fullDate'}}</p>
+            <p>Terms: {{vm.obj.terms}}</p>
+            <p>Due Date: {{vm.obj.dueDate | date:format:'fullDate'}}</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="infos">
+            <h5>Bill To:</h5>
+            <h5 ng-bind="vm.to.name"></h5>
+            <p ng-bind="vm.to.address"></p>
+            <p>{{vm.to.state}} {{vm.to.zipcode}}</p>
+            <p>{{vm.to.country}}</p>
+            <p>Phone: {{vm.to.phone}}</p>
+            <p>Email: {{vm.to.email}}</p>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <table class="table table-striped" align="center" >
+      <tr>
+        <th></th>
+        <th>Item</th>
+        <th>Description</th>
+        <th style="text-align:right;">Amount</th>
+      </tr>
+      <tr ng-repeat="item in vm.obj.item">
+        <td></td>
+        <td ng-bind="item.name"></td>
+        <td ng-bind="item.description"></td>
+        <td style="text-align:right;" ng-bind="item.amount"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td style="text-align:right;">SUBTOTAL</td>
+        <td style="text-align:right;" ng-bind="vm.obj.subTotal"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td style="text-align:right;">TOTAL</td>
+        <td style="text-align:right;" ng-bind="vm.obj.total"></td>
+      </tr>
+    </table>
   </div>
 </div>

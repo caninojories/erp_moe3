@@ -17,15 +17,15 @@
     vm.show  = show;
     vm.hide  = hide;
 
-    function show(title, content, container, type) {
-      vm.alerObj = vm.alert(title, content, container, type);
+    function show(title, content, type, container) {
+      vm.alerObj = vm.alert(title, content, type, container );
     }
 
     function hide() {
       vm.alerObj.hide();
     }
 
-    function alert(title, content, container, type) {
+    function alert(title, content, type, container) {
       var strapAlert = $alert({
         title: title,
         content: content,

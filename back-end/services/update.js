@@ -2,57 +2,78 @@
   'use strict';
 
   exports.putById = function(options) {
-    return options.io[options.name]
+    return io[options.name]
       .findById(options.find)
       .exec()
+      .then(details)
       .then(function(result) {
+        result.save(function(err, result) {
+          if (err) {return;}
+          options.res.json(result);
+        });
+      });
+
+      function details(result) {
         for (var obj in options.details) {
-          var data,
-              isArray = false,
-              itemLength = 1;
-          if (obj === 'item') {
-            if (typeof options.query[obj] === 'object') {
-              isArray = true;
-              itemLength = options.query[obj].length;
-            } else {
-              /*Object Literal Response from the client*/
-              data = JSON.parse(options.query[obj]);
-              isArray = true;
-            }
-          } else {
+          if( options.details.hasOwnProperty(obj)) {
             result[obj] = options.query[obj];
-          }
-          if (isArray) {
-            for (var i = 0; i < itemLength; i++) {
-              if (options.query[obj] instanceof Array) {
-                var counter = 0;
-                /*Item data is more than one*/
-                data = JSON.parse(options.query[obj][i]);
-                for (var items in options.io.config.invoice) {
-                  if ((result[obj].length - 1) >= i) {
-                    result[obj][i][items] = data[items];
-                  } else {
-                    if (counter === 0) {
-                      var create = result[obj].create(data);
-                      result[obj].push(create);
-                      counter = counter + 1;
-                    }
-                  }
-                }
-              } else {
-                for (var item in options.io.config.invoice) {
-                  result[obj][i][item] = data[item];
-                }
-              }
-            }
           }
         }
         return result;
-      })
+      }
+  };
+
+  exports.putByIdParent = function(options) {
+    return io[options.name]
+      .findById(options.find)
+      .exec()
+      .then(details)
       .then(function(result) {
-        result.save(function() {
-          options.res.json('success');
+        result.save(function(err, result) {
+          return result;
         });
       });
+
+    function details(result) {
+      for(var obj in options.details) {
+        if(options.query[obj].indexOf('[') !== 0) {
+          result[obj] = options.query[obj];
+        }
+      }
+      return result;
+    }
+  };
+
+  exports.putByIdChildren = function(options) {
+    return io[options.name]
+      .findById(options.find)
+      .exec()
+      .then(itemDetails)
+      .then(function(result) {
+        result.save(function(err, result) {
+          options.res.json(result);
+        });
+      });
+
+    function itemDetails(result) {
+      for(var obj in options.details) {
+        if(options.query[obj].indexOf('[') === 0) {
+          var itemList = JSON.parse(options.query[obj]);
+          for(var i = 0; i < itemList.length; i++) {
+            if(itemList[i]._id) {
+              if(result[obj][i]._id.toString() === itemList[i]._id) {
+                for(var item in options.itemDetails) {
+                  result[obj][i][item] = itemList[i][item];
+                }
+              }
+            } else {
+              var create = result[obj].create(itemList[i]);
+              result[obj].push(create);
+            }
+          }
+          return result;
+        }
+      }
+    }
   };
 }());

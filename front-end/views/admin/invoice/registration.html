@@ -1,0 +1,163 @@
+{% include 'commons/header.html' %}
+
+<div class="invoiceRegistration registration">
+  <div class="container">
+    <alert-invoice-registration></alert-invoice-registration>
+  </div>
+  <div class='col-sm-12'>
+    <h2 class="header">Invoice <small>Registration.</small></h2>
+  </div>
+  <div class='container'>
+    <hr class="colorgraph">
+    <div class='col-sm-6'>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label class="col-sm-6 control-label text-right">Invoice #</label>
+            <div class="col-sm-6">
+              <input type="text" name="invoiceNumber" class="form-control input-sm" ng-model="vm.number">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <label class="col-sm-6 control-label text-right">Invoice Date</label>
+          <div class="col-sm-6">
+            <form name="datepickerForm" class="form-group" role="form">
+              <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
+                <input type="text" class="form-control input-sm" ng-model="vm.date" name="date"
+                bs-datepicker data-date-format="MMMM-dd-yyyy">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label class="col-sm-6 control-label text-right">Terms</label>
+            <div class="col-sm-6">
+              <input type="text" name="postalCode" class="form-control input-sm" ng-model="vm.terms">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <label class="col-sm-6 control-label text-right">Due Date</label>
+          <div class="col-sm-6">
+            <form name="datepickerForm" role="form">
+              <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
+                <input type="text" class="form-control input-sm" ng-model="vm.dueDate" name="date"
+                bs-datepicker data-date-format="MMMM-dd-yyyy">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='col-sm-6'>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label>From</label>
+            <div id="from" class="lookup">
+              <input type="text" class="typeahead form-control" placeholder="Company Name" type-ahead-from ng-model="vm.fromName">
+              <a ng-click="vm.fromLookup()"><span class="glyphicon glyphicon-eye-open"></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label>To</label>
+            <div id="to" class="lookup">
+              <input type="text" class="typeahead form-control" placeholder="Company Name" type-ahead-to ng-model="vm.toName">
+              <a ng-click="vm.toLookup()"><span class="glyphicon glyphicon-eye-open"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='container-fluid'>
+    <div class='col-sm-12'>
+      <hr class="colorgraph">
+    </div>
+
+    <div class="row addItem">
+      <div class="col-sm-5 pull-right">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Item to add" ng-model="vm.itemTitle">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="vm.addInvoice()">Add Item</button>
+          </span>
+        </div><!-- /input-group -->
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="panel-group" ng-model="panels.activePanel" bs-collapse>
+      <div class="panel panel-default" ng-repeat="invoice in vm.invoiceList">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a bs-collapse-toggle>
+              <span ng-show="invoice.show" class="title">{{ invoice.name }}</span>
+              <a href="#" class="pull-right itemSave" ng-click="vm.deleteItem(invoice)">
+                <button class="btn btn-xs btn-success"><i class="ion-android-checkmark-circle"></i></button>
+              </a>
+              <a href="#" class="pull-right delete" ng-click="vm.deleteItem(invoice)">
+                <button class="btn btn-xs btn-danger"><i class="ion-backspace"></i></button>
+              </a>
+              <a href="#" editable-text="invoice.name" class="pull-right" ng-click="vm.xEditable(invoice)"
+              onaftersave="vm.afterSave(invoice)"  oncancel="vm.cancel(invoice)">
+              <button class="btn btn-xs btn-warning"><i class="ion-compose"></i></button>
+            </a>
+          </a>
+        </h4>
+      </div>
+      <div class="panel-collapse" bs-collapse-target>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>Description</label>
+                <textarea name='noteForinvoice' class="form-control" rows="5" ng-model="invoice.description"></textarea>
+              </div>
+            </div>
+            <div class='col-sm-12'>
+              <div class="form-group">
+                <label>Amount</label>
+                <input type="number" name="amount" class="form-control input-sm" ng-model="invoice.amount" ng-change="vm.calculateSubnTotal()">
+              </div>
+            </div>
+          </div>
+        </div><!-- end of panel body -->
+      </div><!-- end of panel -->
+    </div>
+  </div>
+  <div class="pull-right save">
+    <form class="form-horizontal" ng-show="vm.invoiceList[0].amount">
+      <select data-toggle="select" class="form-control select select-primary select-sm mrs mbm" select2-flat-ui>
+        <option value="Yen">Yen (&yen;)</option>
+        <option value="Dollar">Dollar ($)</option>
+      </select>
+      <div class="form-group">
+        <label class="col-sm-4 control-label">SUBTOTAL</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" disabled ng-model="vm.subTotal">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-4 control-label">TOTAL</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" disabled ng-model="vm.total">
+        </div>
+      </div>
+    </form>
+    <button type="button" class="btn btn-md btn-primary pull-right" ng-click="vm.saveInvoice()">Save</button>
+  </div>
+</div>

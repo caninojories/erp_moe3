@@ -7,7 +7,7 @@
 
       req.login(user, function(err) {
        if (err) {return next(err);}
-        global.io.createSendToken(global.io, user, res);
+        io.createSendToken(io, user, res);
       });
     })(req, res, next);
   };

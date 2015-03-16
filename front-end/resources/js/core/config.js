@@ -27,6 +27,7 @@
       cfpLoadingBarProvider.latencyThreshold = 100;
       $authProvider.loginUrl = window.location.origin + '/userApi/userLogIn';
       $authProvider.signupUrl = window.location.origin + '/userApi/userSignUp';
+      $authProvider.tokenPrefix = 'erp_moe3';
 
       $authProvider.google({
         clientId: '514855305579-vmrkir3l76c0v2t6b5mtnphh38uf9irp.apps.googleusercontent.com',
@@ -40,20 +41,27 @@
     }
 
     configure.$inject = ['$httpProvider', '$locationProvider', '$logProvider', '$urlRouterProvider', '$stateProvider',
-      'routehelperConfigProvider', 'exceptionHandlerProvider', '$authProvider'];
+    'RestangularProvider', 'routehelperConfigProvider', 'exceptionHandlerProvider', '$authProvider'];
     /* @ngInject */
     function configure ($httpProvider, $locationProvider, $logProvider, $urlRouterProvider, $stateProvider,
-      routehelperConfigProvider, exceptionHandlerProvider, $authProvider) {
+      RestangularProvider, routehelperConfigProvider, exceptionHandlerProvider, $authProvider) {
 
-        $locationProvider.html5Mode(true);
-        if ($logProvider.debugEnabled) {$logProvider.debugEnabled(true);}
+      // RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
+      //   console.log(data);
+      // });
+      RestangularProvider.setRestangularFields({
+        id: '_id'
+      });
 
-        routehelperConfigProvider.config.$stateProvider = $stateProvider;
-        routehelperConfigProvider.config.$urlRouterProvider = $urlRouterProvider;
-        routehelperConfigProvider.config.docTitle = 'NG-Modular: ';
+      $locationProvider.html5Mode(true);
+      if ($logProvider.debugEnabled) {$logProvider.debugEnabled(true);}
 
-        $httpProvider.interceptors.push('authInterceptor');
-        exceptionHandlerProvider.configure(config.appErrorPrefix);
+      routehelperConfigProvider.config.$stateProvider = $stateProvider;
+      routehelperConfigProvider.config.$urlRouterProvider = $urlRouterProvider;
+      routehelperConfigProvider.config.docTitle = 'NG-Modular: ';
+
+      $httpProvider.interceptors.push('authInterceptor');
+      exceptionHandlerProvider.configure(config.appErrorPrefix);
     }
 
     function google($window) {

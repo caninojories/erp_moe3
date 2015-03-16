@@ -13,7 +13,13 @@
         get     : require(adminImplementation + 'getIndex'),
         getList : require(adminImplementation + 'getIndex'),
         post    : require(adminImplementation + 'postIndex')
-      }
+      },
+      get       : require(adminImplementation + 'getIndex'),
+      getList   : require(adminImplementation + 'getIndex'),
+      post      : require(adminImplementation + 'postIndex'),
+      update    : require(adminImplementation + 'putIndex'),
+      delete    : require(adminImplementation + 'deleteIndex'),
+      pdf       : require(adminImplementation + 'getIndex')
     };
 
     return config;

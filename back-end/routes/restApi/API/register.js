@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var app = global.io.express(),
+  var app = io.express(),
 
       GETEMAILINFO       = require('../adminApImplementation/register/getIndex.js'),
       POSTREGISTERUSER   = require('../adminApImplementation/register/postIndex.js');

@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('app.invoiceRegistration')
-    .controller('InvoiceRegistration', InvoiceRegistration);
+    .module('app.invoice')
+    .controller('Registration', Registration);
 
-    InvoiceRegistration.$inject = ['$q', '$rootScope', '$scope', '$timeout', 'exception', 'commonsDataService',
-    'invoiceServiceApi', 'invoiceRegistrationDataService', 'strapModal'];
+    Registration.$inject = ['$q', '$rootScope', '$scope', '$timeout', '$window', 'exception', 'strapAlert',
+    'strapModal', 'commonsDataService', 'invoiceServiceApi'];
 
-    function InvoiceRegistration($q, $rootScope, $scope, $timeout, exception, commonsDataService,
-    invoiceServiceApi, invoiceRegistrationDataService, strapModal) {
+    function Registration($q, $rootScope, $scope, $timeout, $window, exception, strapAlert,
+    strapModal, commonsDataService, invoiceServiceApi) {
       var vm = this;
 
       /* Functions */
@@ -44,19 +44,22 @@
       }
 
       $scope.$on('select2', function() {
+        /* use to update model after listening changes in the dropdown currency menu */
         $scope.$apply(calculateSubnTotal());
       });
 
       function calculateSubnTotal() {
-        vm.subTotal = $rootScope.currency;
-        vm.total    = $rootScope.currency;
+        vm.subTotal = $rootScope.currency || 0;
+        vm.total    = $rootScope.currency || 0;
         var sum = 0;
         for (var obj in vm.invoiceList) {
-            sum += vm.invoiceList[obj].amount;
+          sum += vm.invoiceList[obj].amount;
         }
 
         vm.subTotal += sum;
         vm.total    += sum;
+        console.log(vm.subTotal);
+
       }
 
       function cancel(invoice) {
@@ -71,13 +74,18 @@
       function saveInvoice() {
         return $q.all([saveInvoiceCallBack()])
           .then(function(response) {
-            return response;
+            console.log(response);
+            strapAlert.show('Success!', 'Invoice #' + vm.number + ' is successfully saved ', 'success', 'alert-invoice-registration');
+            $timeout(function() {
+              strapAlert.hide();
+              $window.location.reload();
+            }, 3000);
           });
       }
 
       function saveInvoiceCallBack() {
-        return invoiceRegistrationDataService
-          .httpPOST('invoiceRegistration', {
+        return commonsDataService
+          .httpPOSTQueryParams('registration', {
             number  : vm.number,
             date    : vm.date,
             terms   : vm.terms,
@@ -88,7 +96,7 @@
             currency: $rootScope.currency,
             subTotal: vm.subTotal,
             total   : vm.total
-          })
+          }, invoiceServiceApi)
           .then(function(response) {
             return response;
           });

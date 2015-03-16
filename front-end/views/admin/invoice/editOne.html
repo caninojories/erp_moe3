@@ -1,7 +1,9 @@
-
 {% include 'commons/header.html' %}
 
-<div class="invoiceRegistration">
+<div class="invoiceRegistration editOne">
+  <div class="container">
+    <alert-invoice-update></alert-invoice-update>
+  </div>
   <div class='col-sm-12'>
     <h2 class="header">Invoice <small>Registration.</small></h2>
   </div>
@@ -62,7 +64,7 @@
           <div class="form-group">
             <label>From</label>
             <div id="from" class="lookup">
-              <input type="text" class="typeahead form-control" placeholder="Company Name" type-ahead-from ng-model="vm.fromName">
+              <input type="text" class="typeahead form-control" placeholder="Company Name" type-ahead-from ng-model="companyNameFrom">
               <a ng-click="vm.fromLookup()"><span class="glyphicon glyphicon-eye-open"></span></a>
             </div>
           </div>
@@ -71,7 +73,7 @@
           <div class="form-group">
             <label>To</label>
             <div id="to" class="lookup">
-              <input type="text" class="typeahead form-control" placeholder="Company Name" type-ahead-to ng-model="vm.toName">
+              <input type="text" class="typeahead form-control" placeholder="Company Name" type-ahead-to ng-model="companyNameTo">
               <a ng-click="vm.toLookup()"><span class="glyphicon glyphicon-eye-open"></span></a>
             </div>
           </div>
@@ -99,11 +101,11 @@
 
   <div class="container-fluid">
     <div class="panel-group" ng-model="panels.activePanel" bs-collapse>
-      <div class="panel panel-default" ng-repeat="invoice in vm.invoiceList">
+      <div class="panel panel-default" ng-repeat="invoice in vm.itemList">
         <div class="panel-heading">
           <h4 class="panel-title">
             <a bs-collapse-toggle>
-              <span ng-show="invoice.show" class="title">{{ invoice.name }}</span>
+              <span ng-show="!invoice.show" class="title">{{ invoice.name }}</span>
               <a href="#" class="pull-right itemSave" ng-click="vm.deleteItem(invoice)">
                 <button class="btn btn-xs btn-success"><i class="ion-android-checkmark-circle"></i></button>
               </a>
@@ -113,10 +115,10 @@
               <a href="#" editable-text="invoice.name" class="pull-right" ng-click="vm.xEditable(invoice)"
               onaftersave="vm.afterSave(invoice)"  oncancel="vm.cancel(invoice)">
               <button class="btn btn-xs btn-warning"><i class="ion-compose"></i></button>
+              </a>
             </a>
-          </a>
-        </h4>
-      </div>
+          </h4>
+        </div>
       <div class="panel-collapse" bs-collapse-target>
         <div class="panel-body">
           <div class="row">
@@ -138,7 +140,7 @@
     </div>
   </div>
   <div class="pull-right save">
-    <form class="form-horizontal" ng-show="vm.invoiceList[0].amount">
+    <form class="form-horizontal" ng-show="vm.itemList[0].amount">
       <select data-toggle="select" class="form-control select select-primary select-sm mrs mbm" select2-flat-ui>
         <option value="Yen">Yen (&yen;)</option>
         <option value="Dollar">Dollar ($)</option>
@@ -156,6 +158,6 @@
         </div>
       </div>
     </form>
-    <button type="button" class="btn btn-md btn-primary pull-right" ng-click="vm.saveInvoice()">Save</button>
+    <button type="button" class="btn btn-md btn-primary pull-right" ng-click="vm.invoiceUpdateOne()">Update</button>
   </div>
 </div>

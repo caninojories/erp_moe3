@@ -9,7 +9,7 @@
   GET_OneInvoice      = require('../adminApImplementation/invoiceList/getIndex.js'),
   PUT_OneInvoice      = require('../adminApImplementation/invoiceList/putIndex.js');
 
-  app.route('/invoiceList')
+  app.route('/invoiceList')/* /view/list */
   .get(GET_InoviceList.getList)
   .delete(DELETE_InvoiceList.deleteOne);
 

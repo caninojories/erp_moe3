@@ -11,6 +11,7 @@
 
   module.exports = {
       rootPath            : rootPath,
+      authorize           : require('./authorize'),
       clusterService      : require('./cluster'),
       config              : require('./config'),
       createSendToken     : require('./createSendToken'),
@@ -44,6 +45,8 @@
       connectDB      : Promise.promisify(mongoose.connect, mongoose),
       express        : require('express'),
       favicon        : require('serve-favicon'),
+      fs             : require('fs'),
+      fse            : require('fs-extra'),
       jwt            : require('jwt-simple'),
       LocalStrategy  : require('passport-local').Strategy,
       logger         : require('morgan'),
@@ -56,11 +59,13 @@
       numCPUs        : require('os').cpus().length,
       nunjucks       : require('nunjucks'),
       nunjucksEnv    : new nunjucks.Environment(new nunjucks.FileSystemLoader(path.join(rootPath, 'views'))),
+      ObjectId       : require('mongodb').ObjectID,
       passport       : require('passport'),
+      path           : path,
       Promise        : require('bluebird'),
       qs             : require('querystring'),
       request        : require('request-promise'),
-      underscore     : require('underscore'),
+      _              : require('underscore'),
       url            : require('url'),
 
       port              : process.env.PORT || 3000,

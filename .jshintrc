@@ -27,6 +27,7 @@
     "compatible-vendor-prefixes",
     "io",
     "moment",
+    "root"
     "toastr",
     "jcaLayout"
   ]
