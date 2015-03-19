@@ -9,6 +9,7 @@
     return io.path.normalize(__dirname + '../../' + name);
   };
 
+
   global.io = appRequire('services/module.config');
 
     var catchAll  = require('./routes');
@@ -18,6 +19,8 @@
 
     /** Express Server **/
     var app = io.express();
+
+    global.app = app;
 
     /** Configuration Files **/
     require('./configuration/express')(app);

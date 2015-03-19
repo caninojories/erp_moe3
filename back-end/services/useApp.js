@@ -13,10 +13,11 @@
       io.useAppConfig().quotationRegistration,
       io.useAppConfig().quotationList,
       io.useAppConfig().editQuotationList,
+      io.useAppConfig().invoice.editOne,
+      io.useAppConfig().invoice.forecast,
       io.useAppConfig().invoice.registration,
       io.useAppConfig().invoice.viewOne,
-      io.useAppConfig().invoice.viewList,
-      io.useAppConfig().invoice.editOne,
+      io.useAppConfig().invoice.viewList
     ]);
 
     function useApp(param) {

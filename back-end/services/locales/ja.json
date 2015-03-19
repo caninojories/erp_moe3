@@ -1,0 +1,33 @@
+{
+	"invoice": {
+		"registration": {
+			"form": {
+				"invoice": "請求書",
+				"invoiceDate": "請求日",
+				"terms": "業務期間",
+				"dueDate": "支払期限 "
+			},
+			"heading": {
+				"Registration": "登録",
+				"Invoice": "請求書"
+			},
+			"item": {
+				"description": "備考",
+				"amount": "数量"
+			},
+			"personInCharge": {
+				"name": "ご担当者",
+				"firstName": "名",
+				"lastName": "姓"
+			},
+			"addItem": "商品項目追加",
+			"companyName": "企業名",
+			"from": "請求書発行企業",
+			"save": "保存",
+			"subTotal": "小計",
+			"tax": "消費税",
+			"to": "請求書宛先企業",
+			"total": "合計"
+		}
+	}
+}

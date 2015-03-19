@@ -48,16 +48,18 @@
           name    : 'Invoice',
           res     : res,
           details : {
-            number  : invoice.number,
-            date    : invoice.date,
-            terms   : invoice.terms,
-            dueDate : invoice.dueDate,
-            from    : invoice.from,
-            to      : invoice.to,
-            item    : invoice.item,
-            currency: invoice.currency.trim(),
-            subTotal: invoice.subTotal,
-            total   : invoice.total
+            number        : invoice.number,
+            date          : invoice.date,
+            terms         : invoice.terms,
+            dueDate       : invoice.dueDate,
+            from          : invoice.from,
+            to            : invoice.to,
+            personInCharge: invoice.personInCharge,
+            item          : invoice.item,
+            currency      : invoice.currency.trim(),
+            subTotal      : invoice.subTotal,
+            tax           : invoice.tax,
+            total         : invoice.total
           }
         };
 

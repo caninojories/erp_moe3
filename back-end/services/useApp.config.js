@@ -15,10 +15,11 @@
       quotationList                   : require(adminRoutes + 'quotationList'),
       editQuotationList               : require(adminRoutes + 'quotationList/edit'),
       invoice                         : {
+        editOne     : require(adminRoutes + 'invoice/editOne'),
+        forecast    : require(adminRoutes + 'invoice/forecast'),
         registration: require(adminRoutes + 'invoice/registration'),
         viewOne     : require(adminRoutes + 'invoice/viewOne'),
         viewList    : require(adminRoutes + 'invoice/viewList'),
-        editOne     : require(adminRoutes + 'invoice/editOne')
       }
     };
     return useApp;

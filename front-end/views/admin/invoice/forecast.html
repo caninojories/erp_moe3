@@ -1,0 +1,46 @@
+  {% include 'commons/header.html' %}
+  
+  <div class="container forecast">
+    <div class="form-group pull-left">
+      <label class="radio" for="radio100">
+        <input name="optionsRadios2" type="radio" data-toggle="radio" value="0" id="radio100"
+        radio-invoice-forecast required>
+        Month(MM)
+      </label>
+      <label class="radio" for="radio101">
+        <input name="optionsRadios2" type="radio" data-toggle="radio" value="1" id="radio101"
+        radio-invoice-forecast required checked>
+        (DD/MM/YYY)
+      </label>
+    </div>
+    <form name="datepickerForm" class="form-inline pull-right" role="form" ng-submit="vm.forecastSearch()" ng-show="vm.month">
+      <div class="form-group">
+        <label class="control-label"><i class="fa fa-calendar"></i><i class="fa fa-arrows-h"></i><i class="fa fa-calendar"></i>Date range</label><br>
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="vm.fromDate" data-max-date="{{vm.untilDate}}" data-min-view=1 placeholder="From" data-date-format="MMMM" bs-datepicker>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="vm.untilDate" data-min-date="{{vm.fromDate}}" data-min-view=1 placeholder="Until" data-date-format="MMMM" bs-datepicker ng-change="vm.untilDateChange()">
+        </div>
+        <div class="form-group">
+          <input type='submit' class='btn btn-primary' value='Search'>
+        </div>
+      </div>
+    </form>
+    <form name="datepickerForm" class="form-inline pull-right" role="form" ng-submit="vm.forecastSearch()" ng-show="!vm.month">
+      <div class="form-group">
+        <label class="control-label"><i class="fa fa-calendar"></i><i class="fa fa-arrows-h"></i><i class="fa fa-calendar"></i>Date range</label><br>
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="vm.fromDate" data-max-date="{{vm.untilDate}}" data-min-view=0 placeholder="From" data-date-format="MMMM-dd-yyyy" bs-datepicker>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="vm.untilDate" data-min-date="{{vm.fromDate}}" data-min-view=0 placeholder="Until" data-date-format="MMMM-dd-yyyy" bs-datepicker>
+        </div>
+        <div class="form-group">
+          <input type='submit' class='btn btn-primary' value='Search'>
+        </div>
+      </div>
+    </form>
+  </div>
+  {{dateView}}
+  <highchart id="chart1" config="vm.chartConfig"></highchart>

@@ -1,0 +1,33 @@
+{
+	"invoice": {
+		"registration": {
+			"form": {
+				"invoice"			: "Invoice",
+				"invoiceDate"	: "Invoice Date",
+				"terms"				: "Terms",
+				"dueDate"			: "Due Date"
+			},
+			"heading": {
+				"Invoice"			: "Invoice",
+				"Registration": "Registration"
+			},
+			"item": {
+				"description"	: "Description",
+				"amount"			:	"Amount"
+			},
+			"personInCharge": {
+				"name"			: "Person in-Charge",
+				"firstName"	: "First Name",
+				"lastName"	: "Last Name"
+			},
+			"addItem"			: "Add Item",
+			"companyName"	: "Company Name",
+			"from"				: "From",
+			"save"				: "Save",
+			"subTotal"		: "Sub Total",
+			"tax"					: "Tax",
+			"to"					: "To",
+			"total"				: "Total"
+		}
+	}
+}

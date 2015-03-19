@@ -42,6 +42,9 @@
     <!-- <div ui-view=''></div> -->
     <!-- <div data-ng-controller="Shell as vm" ng-cloak> -->
       <section id="content" class="ui-view-container" >
+        <div class="col-sm-12">
+          <alert-info class='text-center'></alert-info>
+        </div>
         <div ui-view></div>
       </section>
     <!-- </div> -->
@@ -69,6 +72,9 @@
     <script src="/bower/typeahead.js/dist/typeahead.bundle.js"></script>
     <script src="/bower/videojs/dist/video-js/video.js"></script>
     <script src="/bower/flat-ui/dist/js/flat-ui.js"></script>
+    <script src="/bower/highcharts-ng/dist/highcharts-ng.js"></script>
+    <script src="http://code.highcharts.com/highcharts.src.js"></script>
+    
     <!-- endbower -->
     <!-- endbuild-->
 
@@ -117,7 +123,9 @@
     <script src="/js/services/strapModal.js"></script>
     <script src="/js/signin/signin.js"></script>
     <script src="/js/widgets/confirmPassword.js"></script>
+    <script src="/js/widgets/forecastUntilDate.js"></script>
     <script src="/js/widgets/number.js"></script>
+    <script src="/js/widgets/radioFlatUInvoiceForecast.js"></script>
     <script src="/js/widgets/selectFlatUI.js"></script>
     <script src="/js/widgets/selectFlatUInvoiceViewList.js"></script>
     <script src="/js/widgets/typeAheadFrom.js"></script>
@@ -131,6 +139,7 @@
     <script src="/js/routes/admin/customerRegistration/dataservice.js"></script>
     <script src="/js/routes/admin/invoice/config.route.js"></script>
     <script src="/js/routes/admin/invoice/editOne.js"></script>
+    <script src="/js/routes/admin/invoice/forecast.js"></script>
     <script src="/js/routes/admin/invoice/registration.js"></script>
     <script src="/js/routes/admin/invoice/viewList.js"></script>
     <script src="/js/routes/admin/invoice/viewOne.js"></script>

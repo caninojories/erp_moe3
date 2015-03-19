@@ -10,12 +10,17 @@
     dueDate : Date,
     from    : String,
     to      : String,
+    personInCharge: {
+      firstName: String,
+      lastName: String
+    },
     item: [{
       name        : String,
       description : String,
       amount      : Number
     }],
     subTotal: String,
+    tax     : String,
     total   : String,
     currency: String,
     status: {

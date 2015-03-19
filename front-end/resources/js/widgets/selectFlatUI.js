@@ -28,7 +28,7 @@
               break;
           }
         });
-        element.select2({dropdownCssClass: 'dropdown-inverse'});
+        element.select2({dropdownCssClass: 'select2DropDownInvoiceRegistration'});
         element.on('change', function(e) {
           currencySymbol(e.val);
           scope.$broadcast('select2');

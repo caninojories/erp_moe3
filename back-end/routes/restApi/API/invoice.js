@@ -34,5 +34,8 @@
   app.route('/download/pdf')
     .get(io.INVOICE().get.pdf);
 
+  app.route('/forecast')
+    .get(io.INVOICE().get.forecast);
+
   module.exports = app;
 }());

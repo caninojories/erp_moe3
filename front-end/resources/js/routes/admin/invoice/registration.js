@@ -18,15 +18,19 @@
       vm.calculateSubnTotal = calculateSubnTotal;
       vm.cancel             = cancel;
       vm.deleteItem         = deleteItem;
-      vm.saveInvoice        = saveInvoice;
       vm.fromLookup         = fromLookup;
+      vm.saveInvoice        = saveInvoice;
+      vm.taxChange          = taxChange;
       vm.toLookup           = toLookup;
       vm.xEditable          = xEditable;
 
       /* Variable Initialization */
-      vm.subTotal     = null;
-      vm.total        = null;
-      vm.invoiceList  = [];
+      vm.invoiceList      = [];
+      vm.personInCharege  = {};
+      vm.subTotal         = 0;
+      vm.tax              = '0';
+      vm.tempSubTotal     = 0;
+      vm.total            = 0;
 
       function addInvoice() {
         vm.invoiceList.push({
@@ -49,17 +53,23 @@
       });
 
       function calculateSubnTotal() {
-        vm.subTotal = $rootScope.currency || 0;
-        vm.total    = $rootScope.currency || 0;
-        var sum = 0;
+        vm.subTotal     = $rootScope.currency || 0;
+        vm.total        = $rootScope.currency || 0;
+        var sum         = 0;
+        vm.tempSubTotal = 0;
         for (var obj in vm.invoiceList) {
           sum += vm.invoiceList[obj].amount;
         }
 
-        vm.subTotal += sum;
-        vm.total    += sum;
-        console.log(vm.subTotal);
+        if (vm.tax.length !== 0 && vm.tax !== '0') {
+          vm.tempSubTotal += (sum * (vm.tax/100));
+          vm.tempSubTotal  += sum;
+        } else {
+          vm.tempSubTotal = sum;
+        }
 
+        vm.subTotal     += sum;
+        vm.total        += vm.tempSubTotal;
       }
 
       function cancel(invoice) {
@@ -74,7 +84,6 @@
       function saveInvoice() {
         return $q.all([saveInvoiceCallBack()])
           .then(function(response) {
-            console.log(response);
             strapAlert.show('Success!', 'Invoice #' + vm.number + ' is successfully saved ', 'success', 'alert-invoice-registration');
             $timeout(function() {
               strapAlert.hide();
@@ -84,18 +93,24 @@
       }
 
       function saveInvoiceCallBack() {
+        vm.personInCharge = {
+          firstName: vm.firstName,
+          lastName: vm.lastName
+        };
         return commonsDataService
           .httpPOSTQueryParams('registration', {
-            number  : vm.number,
-            date    : vm.date,
-            terms   : vm.terms,
-            dueDate : vm.dueDate,
-            from    : $rootScope.companyNameFrom,
-            to      : $rootScope.companyNameTo,
-            item    : vm.invoiceList,
-            currency: $rootScope.currency,
-            subTotal: vm.subTotal,
-            total   : vm.total
+            number        : vm.number,
+            date          : vm.date,
+            terms         : vm.terms,
+            dueDate       : vm.dueDate,
+            from          : $rootScope.companyNameFrom,
+            to            : $rootScope.companyNameTo,
+            personInCharge: vm.personInCharge,
+            item          : vm.invoiceList,
+            currency      : $rootScope.currency,
+            subTotal      : vm.subTotal,
+            tax           : vm.tax,
+            total         : vm.total
           }, invoiceServiceApi)
           .then(function(response) {
             return response;
@@ -129,6 +144,10 @@
           .then(function(response) {
             return response;
           });
+      }
+
+      function taxChange() {
+        calculateSubnTotal();
       }
 
       function toLookup() {

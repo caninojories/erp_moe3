@@ -7,126 +7,6 @@
 .quotationRegistration .delete {
   margin-left: 3px;
 }
-@font-face {
-  font-family: 'gothic';
-  src: url("/fonts/gothic/webfonts/leaguegothic-regular-webfont.eot");
-  src: url("/fonts/gothic/webfonts/leaguegothic-regular-webfont.eot?#iefix") format('embedded-opentype'), url("/fonts/gothic/webfonts/leaguegothic-regular-webfont.woff") format('woff'), url("/fonts/gothic/webfonts/leaguegothic-regular-webfont.ttf") format('truetype'), url("/fonts/gothic/webfonts/leaguegothic-regular-webfont.svg#gothic") format('svg');
-}
-@font-face {
-  font-family: 'josefinslab-light';
-  src: url("/fonts/josefinfull/josefinslab-light-webfont.eot");
-  src: url("/fonts/josefinfull/josefinslab-light-webfont.eot?#iefix") format('embedded-opentype'), url("/fonts/josefinfull/josefinslab-light-webfont.woff") format('woff'), url("/fonts/josefinfull/josefinslab-light-webfont.ttf") format('truetype'), url("/fonts/josefinfull/josefinslab-light-webfont.svg#josefinslab-Light") format('svg');
-}
-@font-face {
-  font-family: 'josefinslab-bold';
-  src: url("/fonts/josefinfull/josefinslab-bold-webfont.eot");
-  src: url("/fonts/josefinfull/josefinslab-bold-webfont.eot?#iefix") format('embedded-opentype'), url("/fonts/josefinfull/josefinslab-bold-webfont.woff") format('woff'), url("/fonts/josefinfull/josefinslab-bold-webfont.ttf") format('truetype'), url("/fonts/josefinfull/josefinslab-bold-webfont.svg#josefinslab-bold") format('svg');
-}
-@font-face {
-  font-family: 'josefinslab-regular';
-  src: url("/fonts/josefinfull/josefinslab-regular-webfont.eot");
-  src: url("/fonts/josefinfull/josefinslab-regular-webfont.eot?#iefix") format('embedded-opentype'), url("/fonts/josefinfull/josefinslab-regular-webfont.woff") format('woff'), url("/fonts/josefinfull/josefinslab-regular-webfont.ttf") format('truetype'), url("/fonts/josefinfull/josefinslab-regular-webfont.svg#josefinslab-regular") format('svg');
-}
-@font-face {
-  font-family: 'SFCartoonistHandSCRegular';
-  src: url("/fonts/cartoonist/SF_Cartoonist_Hand-webfont.eot");
-  src: url("/fonts/cartoonist/SF_Cartoonist_Hand-webfont.eot?#iefix") format('embedded-opentype'), url("/fonts/cartoonist/SF_Cartoonist_Hand-webfont.woff") format('woff'), url("/fonts/cartoonist/SF_Cartoonist_Hand-webfont.ttf") format('truetype'), url("/fonts/cartoonist/SF_Cartoonist_Hand-webfont.svg#SFCartoonistHandSCRegular") format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-.invoiceRegistration .form-group {
-  position: relative;
-}
-.invoiceRegistration .form-group .lookup {
-  padding: 0;
-}
-.invoiceRegistration .form-group .lookup .glyphicon {
-  position: absolute;
-  right: 0;
-  padding: 50px 12px;
-}
-.invoiceRegistration .form-group .lookup .glyphicon-eye-open:hover:before {
-  cursor: pointer;
-}
-.invoiceRegistration label {
-  font-size: 16px;
-  color: #5f5c5c;
-}
-.invoiceRegistration label.gothic {
-  font-size: 22px;
-  color: #428bca;
-}
-.invoiceRegistration .header {
-  font-size: 3em;
-  color: #428bca;
-}
-.invoiceRegistration button.gothic {
-  font-weight: 900;
-  color: #428bca;
-}
-.invoiceRegistration input {
-  font-size: 16px;
-  font-weight: 900;
-  color: #333;
-}
-.invoiceRegistration textarea {
-  font-size: 16px;
-  font-weight: 900;
-  color: #333;
-}
-.invoiceRegistration .addItem {
-  margin-bottom: 10px;
-}
-.invoiceRegistration .addItem .btn {
-  color: #16a085;
-  font-weight: 800;
-}
-.invoiceRegistration .save {
-  margin-bottom: 10px;
-}
-.invoiceRegistration .save .form-group {
-  margin-bottom: 10px;
-}
-.invoiceRegistration .save .form-group input {
-  color: #e74c3c;
-}
-.invoiceRegistration .delete {
-  margin-left: 3px;
-  margin-right: 3px;
-}
-.invoiceRegistration .am-collapse {
-  -webkit-animation-duration: 0.3s !important;
-  -o-animation-duration: 0.3s !important;
-  animation-duration: 0.3s !important;
-  -webkit-animation-timing-function: ease !important;
-  -o-animation-timing-function: ease !important;
-  animation-timing-function: ease !important;
-  -webkit-animation-fill-mode: backwards !important;
-  -o-animation-fill-mode: backwards !important;
-  animation-fill-mode: backwards !important;
-  overflow: hidden;
-}
-.invoiceRegistration .in {
-  overflow: visible !important;
-}
-.invoiceRegistration .panel-title > a {
-  color: #428bca;
-  text-decoration: none;
-}
-.invoiceRegistration .panel-title > a:hover {
-  text-decoration: none;
-  cursor: pointer;
-}
-.viewInvoiceAddress label {
-  color: #2c3e50;
-}
-.viewInvoiceAddress pre {
-  margin: 0;
-  color: #e74c3c;
-}
-.viewOneInvoice p {
-  margin: 0;
-}
 .editable-click,
 a.editable-click {
   border-bottom: none;
@@ -164,6 +44,14 @@ a.editable-click {
 }
 .datepicker.dropdown-menu button:hover {
   background: #1abc9c;
+}
+alert-info {
+  position: fixed;
+  z-index: 999;
+  top: 35%;
+  width: 100%;
+  margin-top: -50px;
+  margin-left: -15px;
 }
 button.DTTT_button,
 div.DTTT_button,
@@ -463,6 +351,7 @@ span.twitter-typeahead {
 }
 .navbar {
   border-radius: 0;
+  margin-bottom: 0;
 }
 .navbar-nav.navbar-left:first-child > li:first-child a {
   border-bottom-left-radius: 0;
@@ -474,6 +363,19 @@ span.twitter-typeahead {
     border-top-left-radius: 0px;
   }
 }
+.footer {
+  margin-top: 50px;
+  background-color: #34495e;
+}
+.footer img {
+  margin-top: 10px;
+}
+.footer .copyright {
+  margin-top: 5px;
+  font-weight: 100;
+  font-size: 12px;
+  color: #fff;
+}
 .editOne alert-invoice-update {
   position: fixed;
   z-index: 999;
@@ -482,12 +384,105 @@ span.twitter-typeahead {
   margin-top: -50px;
   margin-left: -100px;
 }
+.viewInvoiceAddress label {
+  font-size: 16px;
+  color: #e74c3c;
+}
+.registration {
+  background-color: #ecf0f1;
+}
 .registration alert-invoice-registration {
   position: fixed;
-  top: 35%;
-  left: 35%;
+  top: 45%;
+  width: 100%;
+  z-index: 999;
   margin-top: -50px;
-  margin-left: -100px;
+  margin-left: -15px;
+}
+.registration .am-collapse {
+  -webkit-animation-duration: 0.5s !important;
+  -o-animation-duration: 0.5s !important;
+  animation-duration: 0.5s !important;
+  -webkit-animation-timing-function: ease !important;
+  -o-animation-timing-function: ease !important;
+  animation-timing-function: ease !important;
+  -webkit-animation-fill-mode: backwards !important;
+  -o-animation-fill-mode: backwards !important;
+  animation-fill-mode: backwards !important;
+  overflow: hidden;
+}
+.registration .body {
+  margin-top: 40px;
+  background-color: #ecf0f1;
+}
+.registration .form-group {
+  position: relative;
+}
+.registration .form-group .lookup {
+  padding: 0;
+}
+.registration .form-group .lookup .glyphicon {
+  position: absolute;
+  right: 0;
+  padding: 50px 12px;
+}
+.registration .form-group .lookup .glyphicon-eye-open:hover:before {
+  cursor: pointer;
+}
+.registration .header-image {
+  background-image: url("/images/ensure-success.jpg");
+  height: 300px;
+  margin-top: 50px;
+}
+.registration .header-image .product-header h1 {
+  color: #00a4db;
+  font-weight: 100;
+}
+.registration .header-image .product-header p {
+  color: #fff;
+  font-weight: 100;
+  font-size: 20px;
+}
+.registration label {
+  font-weight: 300;
+  color: #34495e;
+}
+.registration .panel-group {
+  margin-top: 40px;
+}
+.registration .panel-group .panel-title > a {
+  color: #428bca;
+  text-decoration: none;
+}
+.registration .panel-group .panel-title > a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.registration .panel-group .panel-title a:not(:first-child) {
+  position: relative;
+  top: -4px;
+  margin-right: 5px;
+}
+.registration .personInCharge label {
+  padding-left: 0;
+}
+.registration .save button {
+  width: 100%;
+  margin-top: 5px;
+}
+.registration .save .form-group {
+  margin-top: 5px;
+}
+.registration .save .warning {
+  color: #c0392b;
+}
+.registration .select2-container {
+  min-width: 120px;
+  max-width: 120px;
+  margin-left: 4px;
+}
+.select2DropDownInvoiceRegistration {
+  min-width: 130px !important;
 }
 .viewList alert-invoice-pdf-download,
 .viewList alert-invoice-update-status {

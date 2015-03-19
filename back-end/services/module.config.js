@@ -21,6 +21,7 @@
       facebookAuth        : require('./facebookAuth'),
       get                 : require('./get'),
       googleAuth          : require('./googleAuth'),
+      i18n                : require('./i18n'),
       modelConfig         : require('./model.config')(),
       mongoDB             : require('../configuration/mongodb'),
       Customer            : require('../model/Customer'),
@@ -38,6 +39,7 @@
       User                : require('../model/User'),
       xPoweredBy          : require('./xPoweredBy'),
 
+      async          : require('async'),
       bodyParser     : require('body-parser'),
       chalk          : require('chalk'),
       cluster        : require('cluster'),

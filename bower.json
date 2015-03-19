@@ -25,7 +25,8 @@
     "datatables": "~1.10.4",
     "angular-datatables": "~0.4.0",
     "typeahead.js": "~0.10.5",
-    "flat-ui": "~2.2.2"
+    "flat-ui": "~2.2.2",
+    "highcharts-ng": "~0.0.8"
   },
   "overrides": {
     "angular-datatables": {

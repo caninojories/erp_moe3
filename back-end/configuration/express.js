@@ -17,6 +17,7 @@
     });
     app.set('port', process.env.PORT || 3000);
     app.set('view engine', 'html');
+    app.use(node_module.i18n);
     app.use(node_module.compression());
     app.use(node_module.favicon(node_module.faviconPath));
     app.use(node_module.logger('dev'));

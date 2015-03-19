@@ -53,6 +53,8 @@
         id: '_id'
       });
 
+      RestangularProvider.setDefaultHeaders({'Accept-Language': 'iw'});
+
       $locationProvider.html5Mode(true);
       if ($logProvider.debugEnabled) {$logProvider.debugEnabled(true);}
 

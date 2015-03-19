@@ -41,6 +41,14 @@
           controller: 'EditOne as vm',
           title: 'Edit One Invoice'
         }
+      }, {
+        state: 'forecast',
+        config: {
+          url: '/invoice/forecast',
+          templateUrl: '/admin/invoice/forecast.html',
+          controller: 'Forecast as vm',
+          title: 'Forecast Invoice'
+        }
       }];
     }
 })();
