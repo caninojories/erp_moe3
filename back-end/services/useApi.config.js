@@ -5,7 +5,7 @@
     var routesApi = global.io.rootPath + 'back-end/routes/restApi/API/';
 
     var useApi = {
-      salesRepresentativeRegistrationApi  : require(routesApi + 'salesRepresentativeRegistrationApi'),
+      //salesRepresentativeRegistrationApi  : require(routesApi + 'salesRepresentativeRegistrationApi'),
       salesRepresentativeListingApi       : require(routesApi + 'salesRepresentativeListingApi'),
       customerRegistrationApi             : require(routesApi + 'customerRegistrationApi'),
       customerListApi                     : require(routesApi + 'customerListApi'),
