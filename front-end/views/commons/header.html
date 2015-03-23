@@ -13,19 +13,19 @@
       <ul class="nav navbar-nav navbar-left">
         <li class="dropdown" ng-class="{active : '<$ title $>' ==  'salesRepresentativeRegistration' || '<$ title $>' == 'customerRegistration'
           || '<$ title $>' == 'quotationRegistration' || '<$ title $>' == 'invoiceRegistration'}">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">New Registrations <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><$ __('invoice.header.registrations.name') $><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li ui-sref-active="active">
               <a ui-sref='salesRepresentativeRegistration'>Sales Representative Registration</a>
             </li>
-            <li ui-sref-active="active">
+            <!-- <li ui-sref-active="active">
               <a ui-sref='customerRegistration'>Customer Registration</a>
             </li>
             <li ui-sref-active="active">
               <a ui-sref='quotationRegistration'>Quotation Registration</a>
-            </li>
+            </li> -->
             <li ui-sref-active="active">
-              <a ui-sref='registration'>Invoice Registration</a>
+              <a ui-sref='registration'><$ __('invoice.header.registrations.invoice') $></a>
             </li>
           </ul>
         </li>
@@ -33,7 +33,7 @@
           '<$ title $>' == 'customerList'}">
           <!-- ng-class="{active : '<$ title $>' ==  'salesRepresentativeListing' ||
           '<$ title $>' == 'customerList'}" -->
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">View/Edit<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><$ __('invoice.header.view.name') $><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li ng-class="{active : '<$ title $>' ==  'salesRepresentativeListing'}">
               <a ui-sref='salesRepresentativeListing' target="_self">Sales Representative Listing</a>
@@ -50,12 +50,12 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Analysis<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><$ __('invoice.header.analysis.name') $><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Sales Forecast</a></li>
-            <li><a href="#">Actual Sales Analysis</a></li>
+            <li><a href="#"><$ __('invoice.header.analysis.salesForecast') $></a></li>
+            <!-- <li><a href="#">Actual Sales Analysis</a></li>
             <li><a href="#">Unpaid Invoice Listing</a></li>
-            <li><a href="#">Sales Ranking by Custome/Sales Representative</a></li>
+            <li><a href="#">Sales Ranking by Custome/Sales Representative</a></li> -->
           </ul>
         </li>
         <li class="dropdown" ng-controller="Others as vm">
@@ -96,6 +96,26 @@
               <a href="#" ng-click="vm.authenticate('google')">
                 <span class='ion-social-googleplus'></span>
                 Sign in with Google
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown language" ng-controller="Language as vm">
+          <a href='#' class="dropdown-toggle" data-toggle="dropdown">
+            <span class="ion-earth"></span>
+            <span class="caret"></span>
+          </a>
+          <ul class="language dropdown-menu" role="menu">
+            <li class='text-center'>
+              <a href="" ng-click="vm.language('en')">
+                <span class='ion-android-happy'></span>
+                English
+              </a>
+            </li>
+            <li class='text-center'>
+              <a href="" ng-click="vm.language('ja')">
+                <span class='ion-android-happy'></span>
+                Japanese
               </a>
             </li>
           </ul>

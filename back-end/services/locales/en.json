@@ -2,32 +2,45 @@
 	"invoice": {
 		"registration": {
 			"form": {
-				"invoice"			: "Invoice",
-				"invoiceDate"	: "Invoice Date",
-				"terms"				: "Terms",
-				"dueDate"			: "Due Date"
+				"invoice": "Invoice",
+				"invoiceDate": "Invoice Date",
+				"terms": "Terms",
+				"dueDate": "Due Date"
 			},
 			"heading": {
-				"Invoice"			: "Invoice",
+				"Invoice": "Invoice",
 				"Registration": "Registration"
 			},
 			"item": {
-				"description"	: "Description",
-				"amount"			:	"Amount"
+				"description": "Description",
+				"amount": "Amount"
 			},
 			"personInCharge": {
-				"name"			: "Person in-Charge",
-				"firstName"	: "First Name",
-				"lastName"	: "Last Name"
+				"name": "Person in-Charge",
+				"firstName": "First Name",
+				"lastName": "Last Name"
 			},
-			"addItem"			: "Add Item",
-			"companyName"	: "Company Name",
-			"from"				: "From",
-			"save"				: "Save",
-			"subTotal"		: "Sub Total",
-			"tax"					: "Tax",
-			"to"					: "To",
-			"total"				: "Total"
+			"addItem": "Add Item",
+			"companyName": "Company Name",
+			"from": "From",
+			"save": "Save",
+			"subTotal": "Sub Total",
+			"tax": "Tax",
+			"to": "To",
+			"total": "Total"
+		},
+		"header": {
+			"registrations": {
+				"name": "Registrations",
+				"invoice": "Invoice"
+			},
+			"view": {
+				"name": "View"
+			},
+			"analysis": {
+				"name": "Analysis",
+				"salesForecast": "Sales Forecast"
+			}
 		}
 	}
 }

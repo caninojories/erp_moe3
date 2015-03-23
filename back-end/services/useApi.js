@@ -15,6 +15,9 @@
       name: '/customerApi',
       url: global.io.useApiConfig().customerListApi
     }, {
+      name: '/settingsApi',
+      url: global.io.useApiConfig().settings
+    }, {
       name: '/quotationApi',
       url: global.io.useApiConfig().quotationRegistrationApi
     }, {

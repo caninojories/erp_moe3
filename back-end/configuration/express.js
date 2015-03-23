@@ -40,7 +40,7 @@
     app.use('/commons', node_module.express.static(node_module.html_common));
     app.use('/.tmp', node_module.express.static(node_module.css_compile));
 
-    app.use(function (req, res, next) {
+    app.use(function(req, res, next) {
       var afterResponse = function() {
         node_module.mongoose.connection.close(function (db) {
           io.mongoose.disconnectAsync(function() {
@@ -60,7 +60,7 @@
     app.use(function(req, res, next) {
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
-      res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+      res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization, Language');
       next();
     });
   };

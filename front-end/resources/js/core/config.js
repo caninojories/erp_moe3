@@ -63,6 +63,7 @@
       routehelperConfigProvider.config.docTitle = 'NG-Modular: ';
 
       $httpProvider.interceptors.push('authInterceptor');
+      $httpProvider.interceptors.push('languageInterceptor');
       exceptionHandlerProvider.configure(config.appErrorPrefix);
     }
 

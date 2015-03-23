@@ -57,12 +57,12 @@
       $scope.dtOptions = DTOptionsBuilder.fromSource($window.location.origin + '/invoiceApi/view/list')
       .withTableTools('/js/vendor/table-tools/swf/copy_csv_xls_pdf.swf')
       .withTableToolsButtons([
-        'copy',
-        'print', {
-          'sExtends': 'collection',
-          'sButtonText': 'Save',
-          'aButtons': ['csv', 'pdf'],
-        }
+        // 'copy',
+        // 'print', {
+        //   'sExtends': 'collection',
+        //   'sButtonText': 'Save',
+        //   'aButtons': ['csv', 'pdf'],
+        // }
         ])
         .withOption('createdRow', function(row, data, dataIndex) {
           // Recompiling so we can bind Angular directive to the DT

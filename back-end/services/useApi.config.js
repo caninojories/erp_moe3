@@ -12,12 +12,11 @@
       quotationRegistrationApi            : require(routesApi + 'quotationRegistrationApi'),
       quotationListApi                    : require(routesApi + 'quotationListApi'),
       invoice                             : require(routesApi + 'invoice'),
-      // invoiceRegistrationApi              : require(routesApi + 'invoiceRegistrationApi'),
-      //invoiceListApi                      : require(routesApi + 'invoiceListApi'),
       emailTakenApi                       : require(routesApi + 'register'),
       userSignUpApi                       : require(routesApi + 'login'),
       registerApi                         : require(routesApi + 'register'),
-      login                               : require(routesApi + 'login')
+      login                               : require(routesApi + 'login'),
+      settings                            : require(routesApi + 'settings')
     };
     return useApi;
   };

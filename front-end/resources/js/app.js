@@ -28,6 +28,7 @@
     'app.quotationRegistration',
     'app.quotationList',
     'app.invoice',
+    'app.settings'
 
     /*
      * Restangular Service

@@ -22,6 +22,7 @@
       get                 : require('./get'),
       googleAuth          : require('./googleAuth'),
       i18n                : require('./i18n'),
+      languageLocale      : require('./language.locale'),
       modelConfig         : require('./model.config')(),
       mongoDB             : require('../configuration/mongodb'),
       Customer            : require('../model/Customer'),
@@ -83,6 +84,7 @@
       html_common       : path.join(rootPath, 'front-end/views/commons'),
 
       /* AdminImplementation Routes */
-      INVOICE           : require(rootPath + 'back-end/configuration/require/routes/adminApImplementation/invoice')
+      INVOICE           : require(rootPath + 'back-end/configuration/require/routes/adminApImplementation/invoice'),
+      SETTINGS          : require(rootPath + 'back-end/configuration/require/routes/adminApImplementation/settings')
   };
 }());

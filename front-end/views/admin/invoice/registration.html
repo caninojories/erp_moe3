@@ -1,198 +1,200 @@
 {% include 'commons/header.html' %}
 
-<div class="invoiceRegistration registration">
-  <div class="header-image">
-    <div class="container display-table">
-      <div class="display-table-inner">
+<div class="invoice">
+  <div class="registration">
+    <div class="header-image">
+      <div class="container display-table">
+        <div class="display-table-inner">
+          <div class="row">
+            <div class="col-xs-12 product-header">
+              <h1><$ __('invoice.registration.heading.Invoice') $></h1>
+              <p><$ __('invoice.registration.heading.Registration') $></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <alert-invoice-registration class="text-center"></alert-invoice-registration>
+    </div>
+    <div class='container-fluid body'>
+      <div class='col-sm-4'>
         <div class="row">
-          <div class="col-xs-12 product-header">
-            <h1><$ __('invoice.registration.heading.Invoice') $> </h1>
-            <p><$ __('invoice.registration.heading.Registration') $></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid">
-    <alert-invoice-registration class="text-center"></alert-invoice-registration>
-  </div>
-  <div class='container-fluid body'>
-    <div class='col-sm-4'>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label class="col-sm-5 control-label text-right"><$ __('invoice.registration.form.invoice') $> #</label>
-            <div class="col-sm-7">
-              <input type="text" name="invoiceNumber" class="form-control input-sm" ng-model="vm.number">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <label class="col-sm-5 control-label text-right"><$ __('invoice.registration.form.invoiceDate') $></label>
-          <div class="col-sm-7">
-            <form name="datepickerForm" class="form-group" role="form">
-              <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
-                <input type="text" class="form-control input-sm" ng-model="vm.date" name="date"
-                bs-datepicker data-date-format="MMMM-dd-yyyy">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label class="col-sm-5 control-label text-right"><$ __('invoice.registration.form.terms') $></label>
-            <div class="col-sm-7">
-              <input type="text" name="postalCode" class="form-control input-sm text-left" ng-model="vm.terms">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <label class="col-sm-5 control-label text-right"><$ __('invoice.registration.form.dueDate') $></label>
-          <div class="col-sm-7">
-            <form name="datepickerForm" role="form">
-              <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
-                <input type="text" class="form-control input-sm" ng-model="vm.dueDate" name="date"
-                bs-datepicker data-date-format="MMMM-dd-yyyy">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="form-group">
-            <label><$ __('invoice.registration.from') $></label>
-            <div id="from" class="lookup">
-              <input type="text" class="typeahead form-control" placeholder="<$ __('invoice.registration.companyName') $>" type-ahead-from ng-model="vm.fromName">
-              <a ng-click="vm.fromLookup()"><span class="glyphicon glyphicon-eye-open"></span></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12">
-          <div class="form-group">
-            <label><$ __('invoice.registration.to') $></label>
-            <div id="to" class="lookup">
-              <input type="text" class="typeahead form-control" placeholder="<$ __('invoice.registration.companyName') $>" type-ahead-to ng-model="vm.toName">
-              <a ng-click="vm.toLookup()"><span class="glyphicon glyphicon-eye-open"></span></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12">
-          <div class="form-group personInCharge">
-            <label class="col-sm-12"><$ __('invoice.registration.personInCharge.name') $></label>
-            <div class=col-sm-6>
-              <input type="text" class="form-control" placeholder="<$ __('invoice.registration.personInCharge.firstName') $>" ng-model="vm.firstName">
-            </div>
-            <div class=col-sm-6>
-              <input type="text" class="form-control" placeholder="<$ __('invoice.registration.personInCharge.lastName') $>" ng-model="vm.lastName">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class='col-sm-8'>
-      <div class="row addItem pull-right">
-        <div class="col-sm-12">
-          <form class="form-inline">
+          <div class="col-sm-12">
             <div class="form-group">
-              <label class="sr-only">Item to Add</label>
-              <div class="input-group">
-                <!-- <div class="input-group-addon">$</div> -->
-                <input type="text" class="form-control input-sm" placeholder="" ng-model="vm.itemTitle">
-                <!-- <div class="input-group-addon">.00</div> -->
+              <label class="col-sm-5 control-label text-right"><$ __('invoice.registration.form.invoice') $> #</label>
+              <div class="col-sm-7">
+                <input type="text" name="invoiceNumber" class="form-control input-sm" ng-model="vm.number">
               </div>
             </div>
-            <button type="button" class="btn btn-inverse btn-sm" ng-click="vm.addInvoice()"><$ __('invoice.registration.addItem') $></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <label class="col-sm-5 control-label text-right"><$ __('invoice.registration.form.invoiceDate') $></label>
+            <div class="col-sm-7">
+              <form name="datepickerForm" class="form-group" role="form">
+                <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
+                  <input type="text" class="form-control input-sm" ng-model="vm.date" name="date"
+                  bs-datepicker data-date-format="MMMM-dd-yyyy">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label class="col-sm-5 control-label text-right"><$ __('invoice.registration.form.terms') $></label>
+              <div class="col-sm-7">
+                <input type="text" name="postalCode" class="form-control input-sm text-left" ng-model="vm.terms">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <label class="col-sm-5 control-label text-right"><$ __('invoice.registration.form.dueDate') $></label>
+            <div class="col-sm-7">
+              <form name="datepickerForm" role="form">
+                <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
+                  <input type="text" class="form-control input-sm" ng-model="vm.dueDate" name="date"
+                  bs-datepicker data-date-format="MMMM-dd-yyyy">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label><$ __('invoice.registration.from') $></label>
+              <div id="from" class="lookup">
+                <input type="text" class="typeahead form-control" placeholder="<$ __('invoice.registration.companyName') $>" type-ahead-from ng-model="vm.fromName">
+                <a ng-click="vm.fromLookup()"><span class="glyphicon glyphicon-eye-open"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label><$ __('invoice.registration.to') $></label>
+              <div id="to" class="lookup">
+                <input type="text" class="typeahead form-control" placeholder="<$ __('invoice.registration.companyName') $>" type-ahead-to ng-model="vm.toName">
+                <a ng-click="vm.toLookup()"><span class="glyphicon glyphicon-eye-open"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="form-group personInCharge">
+              <label class="col-sm-12"><$ __('invoice.registration.personInCharge.name') $></label>
+              <div class=col-sm-6>
+                <input type="text" class="form-control" placeholder="<$ __('invoice.registration.personInCharge.firstName') $>" ng-model="vm.firstName">
+              </div>
+              <div class=col-sm-6>
+                <input type="text" class="form-control" placeholder="<$ __('invoice.registration.personInCharge.lastName') $>" ng-model="vm.lastName">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-sm-8'>
+        <div class="row addItem pull-right">
+          <div class="col-sm-12">
+            <form class="form-inline">
+              <div class="form-group">
+                <label class="sr-only">Item to Add</label>
+                <div class="input-group">
+                  <!-- <div class="input-group-addon">$</div> -->
+                  <input type="text" class="form-control input-sm" placeholder="" ng-model="vm.itemTitle">
+                  <!-- <div class="input-group-addon">.00</div> -->
+                </div>
+              </div>
+              <button type="button" class="btn btn-inverse btn-sm" ng-click="vm.addInvoice()"><$ __('invoice.registration.addItem') $></button>
+            </form>
+          </div>
+        </div>
+
+        <div class="panel-group" ng-model="panels.activePanel" bs-collapse>
+          <div class="panel panel-default" ng-repeat="invoice in vm.invoiceList">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a bs-collapse-toggle>
+                  <span ng-show="invoice.show" class="title">{{ invoice.name }}</span>
+                  <a href="#" class="pull-right itemSave" ng-click="vm.deleteItem(invoice)">
+                    <button class="btn btn-xs btn-success"><i class="ion-android-checkmark-circle"></i></button>
+                  </a>
+                  <a href="#" class="pull-right delete" ng-click="vm.deleteItem(invoice)">
+                    <button class="btn btn-xs btn-danger"><i class="ion-backspace"></i></button>
+                  </a>
+                  <a href="#" editable-text="invoice.name" class="pull-right" ng-click="vm.xEditable(invoice)"
+                    onaftersave="vm.afterSave(invoice)"  oncancel="vm.cancel(invoice)">
+                    <button class="btn btn-xs btn-warning"><i class="ion-compose"></i></button>
+                  </a>
+                </a>
+              </h4>
+            </div>
+            <div class="panel-collapse" bs-collapse-target>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label><$ __('invoice.registration.item.description') $></label>
+                      <textarea name='noteForinvoice' class="form-control" rows="5" ng-model="invoice.description"></textarea>
+                    </div>
+                  </div>
+                  <div class='col-sm-12'>
+                    <div class="form-group">
+                      <label><$ __('invoice.registration.item.amount') $></label>
+                      <input type="number" name="amount" class="form-control input-sm" ng-model="invoice.amount" ng-change="vm.calculateSubnTotal()">
+                    </div>
+                  </div>
+                </div>
+              </div><!-- end of panel body -->
+            </div><!-- end of panel -->
+          </div>
+        </div>
+        <div class="pull-right save">
+          <form class="form-horizontal" ng-show="vm.invoiceList[0].amount">
+            <div class="form-group">
+              <label class="col-sm-4 control-label"></label>
+              <div class="col-sm-8 pull-right">
+                <select data-toggle="select" class="form-control select select-primary select-sm mrs mbm" select2-flat-ui>
+                  <option value="Yen">Yen (&yen;)</option>
+                  <option value="Dollar">Dollar ($)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label"><$ __('invoice.registration.subTotal') $></label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control warning" disabled ng-model="vm.subTotal">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label"><$ __('invoice.registration.tax') $>(%)</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" ng-model="vm.tax" ng-change="vm.taxChange()">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label"><$ __('invoice.registration.total') $></label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control warning" disabled ng-model="vm.total">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label"></label>
+              <div class="col-sm-8">
+                <button type="button" class="btn btn-sm btn-primary pull-right" ng-click="vm.saveInvoice()" ng-show="vm.invoiceList[0].amount">
+                  <$ __('invoice.registration.save') $>
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
-
-      <div class="panel-group" ng-model="panels.activePanel" bs-collapse>
-        <div class="panel panel-default" ng-repeat="invoice in vm.invoiceList">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a bs-collapse-toggle>
-                <span ng-show="invoice.show" class="title">{{ invoice.name }}</span>
-                <a href="#" class="pull-right itemSave" ng-click="vm.deleteItem(invoice)">
-                  <button class="btn btn-xs btn-success"><i class="ion-android-checkmark-circle"></i></button>
-                </a>
-                <a href="#" class="pull-right delete" ng-click="vm.deleteItem(invoice)">
-                  <button class="btn btn-xs btn-danger"><i class="ion-backspace"></i></button>
-                </a>
-                <a href="#" editable-text="invoice.name" class="pull-right" ng-click="vm.xEditable(invoice)"
-                  onaftersave="vm.afterSave(invoice)"  oncancel="vm.cancel(invoice)">
-                  <button class="btn btn-xs btn-warning"><i class="ion-compose"></i></button>
-                </a>
-              </a>
-            </h4>
-          </div>
-          <div class="panel-collapse" bs-collapse-target>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label><$ __('invoice.registration.item.description') $></label>
-                    <textarea name='noteForinvoice' class="form-control" rows="5" ng-model="invoice.description"></textarea>
-                  </div>
-                </div>
-                <div class='col-sm-12'>
-                  <div class="form-group">
-                    <label><$ __('invoice.registration.item.amount') $></label>
-                    <input type="number" name="amount" class="form-control input-sm" ng-model="invoice.amount" ng-change="vm.calculateSubnTotal()">
-                  </div>
-                </div>
-              </div>
-            </div><!-- end of panel body -->
-          </div><!-- end of panel -->
-        </div>
-      </div>
-      <div class="pull-right save">
-        <form class="form-horizontal" ng-show="vm.invoiceList[0].amount">
-          <div class="form-group">
-            <label class="col-sm-4 control-label"></label>
-            <div class="col-sm-8 pull-right">
-              <select data-toggle="select" class="form-control select select-primary select-sm mrs mbm" select2-flat-ui>
-                <option value="Yen">Yen (&yen;)</option>
-                <option value="Dollar">Dollar ($)</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-4 control-label"><$ __('invoice.registration.subTotal') $></label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control warning" disabled ng-model="vm.subTotal">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-4 control-label"><$ __('invoice.registration.tax') $>(%)</label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" ng-model="vm.tax" ng-change="vm.taxChange()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-4 control-label"><$ __('invoice.registration.total') $></label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control warning" disabled ng-model="vm.total">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-4 control-label"></label>
-            <div class="col-sm-8">
-              <button type="button" class="btn btn-sm btn-primary pull-right" ng-click="vm.saveInvoice()" ng-show="vm.invoiceList[0].amount">
-                <$ __('invoice.registration.save') $>
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
     </div>
   </div>
-
+</div>
   {% include 'commons/footer.html' %}

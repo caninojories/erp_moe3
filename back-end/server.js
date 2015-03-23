@@ -20,7 +20,7 @@
     /** Express Server **/
     var app = io.express();
 
-    global.app = app;
+    global.languageLocale = null;
 
     /** Configuration Files **/
     require('./configuration/express')(app);

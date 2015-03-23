@@ -73,14 +73,13 @@
     <script src="/bower/videojs/dist/video-js/video.js"></script>
     <script src="/bower/flat-ui/dist/js/flat-ui.js"></script>
     <script src="/bower/highcharts-ng/dist/highcharts-ng.js"></script>
-    <script src="http://code.highcharts.com/highcharts.src.js"></script>
-    
     <!-- endbower -->
     <!-- endbuild-->
 
 
     <!-- build:js /js/app.js-->
     <!-- inject:js -->
+    <script src="/js/vendor/highcharts.src.js"></script>
     <script src="/js/vendor/table-tools/src/dataTables.tableTools.js"></script>
     <script src="/js/custom/layout.js"></script>
     <script src="/js/app.js"></script>
@@ -92,6 +91,7 @@
     <script src="/js/register/register.module.js"></script>
     <script src="/js/router/router.module.js"></script>
     <script src="/js/services/services.module.js"></script>
+    <script src="/js/setttings/settings.module.js"></script>
     <script src="/js/signin/signin.module.js"></script>
     <script src="/js/widgets/widgets.module.js"></script>
     <script src="/js/routes/admin/customerList/customerList.module.js"></script>
@@ -119,8 +119,11 @@
     <script src="/js/services/authInterceptor.js"></script>
     <script src="/js/services/authToken.js"></script>
     <script src="/js/services/formReset.js"></script>
+    <script src="/js/services/languageInterceptor.js"></script>
+    <script src="/js/services/languageToken.js"></script>
     <script src="/js/services/strapAlert.js"></script>
     <script src="/js/services/strapModal.js"></script>
+    <script src="/js/setttings/language.js"></script>
     <script src="/js/signin/signin.js"></script>
     <script src="/js/widgets/confirmPassword.js"></script>
     <script src="/js/widgets/forecastUntilDate.js"></script>
@@ -140,7 +143,9 @@
     <script src="/js/routes/admin/invoice/config.route.js"></script>
     <script src="/js/routes/admin/invoice/editOne.js"></script>
     <script src="/js/routes/admin/invoice/forecast.js"></script>
+    <script src="/js/routes/admin/invoice/fromAddress.js"></script>
     <script src="/js/routes/admin/invoice/registration.js"></script>
+    <script src="/js/routes/admin/invoice/toAddress.js"></script>
     <script src="/js/routes/admin/invoice/viewList.js"></script>
     <script src="/js/routes/admin/invoice/viewOne.js"></script>
     <script src="/js/routes/admin/others/invoiceAddress.js"></script>

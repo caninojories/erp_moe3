@@ -4,6 +4,7 @@
     margin-right: 30px;
   }
   li > a {
+    font-weight: 100;
     padding-left: 8px;
     padding-right: 8px;
     border-radius: 0;
@@ -24,5 +25,17 @@
   .navbar-collapse .navbar-nav.navbar-left:first-child > li:first-child a {
     border-bottom-left-radius: 0px;
     border-top-left-radius: 0px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-collapse .navbar-nav.navbar-right:last-child > .dropdown:last-child > a {
+    border-radius: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-collapse .navbar-nav.navbar-right:last-child {
+    margin-right: 0;
   }
 }

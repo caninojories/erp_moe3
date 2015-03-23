@@ -16,6 +16,7 @@
     vm.afterSave          = afterSave;
     vm.calculateSubnTotal = calculateSubnTotal;
     vm.cancel             = cancel;
+    vm.deleteItem         = deleteItem;
     vm.invoiceUpdateOne   = invoiceUpdateOne;
     vm.itemList           = [];
     vm.fromLookup         = fromLookup;
@@ -59,6 +60,13 @@
 
     function cancel(invoice) {
       invoice.show = !invoice.show;
+
+    }
+
+    function deleteItem(invoice) {
+      var position = vm.itemList.indexOf(invoice);
+      vm.itemList.splice(position, 1);
+      calculateSubnTotal();
     }
 
     function invoiceGetOne() {

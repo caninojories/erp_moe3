@@ -28,6 +28,19 @@
 			"tax": "消費税",
 			"to": "請求書宛先企業",
 			"total": "合計"
+		},
+		"header": {
+			"registrations": {
+				"name": "登録",
+				"invoice": "請求書"
+			},
+			"view": {
+				"name": "View"
+			},
+			"analysis": {
+				"name": "Analysis",
+				"salesForecast": "Sales Forecast"
+			}
 		}
 	}
 }
