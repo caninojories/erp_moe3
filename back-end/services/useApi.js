@@ -4,34 +4,34 @@
   module.exports = function(app) {
     return useApi([{
       name: '/salesRepresentativeApi',
-      url: global.io.useApiConfig().salesRepresentativeRegistrationApi
+      url: io.useApiConfig().salesRepresentativeRegistrationApi
     }, {
       name: '/salesRepresentativeApi',
-      url: global.io.useApiConfig().salesRepresentativeListingApi
+      url: io.useApiConfig().salesRepresentativeListingApi
     }, {
       name: '/customerApi',
-      url: global.io.useApiConfig().customerRegistrationApi
+      url: io.useApiConfig().customerRegistrationApi
     }, {
       name: '/customerApi',
-      url: global.io.useApiConfig().customerListApi
+      url: io.useApiConfig().customerListApi
     }, {
       name: '/settingsApi',
-      url: global.io.useApiConfig().settings
+      url: io.useApiConfig().settings
     }, {
       name: '/quotationApi',
-      url: global.io.useApiConfig().quotationRegistrationApi
+      url: io.useApiConfig().quotationRegistrationApi
     }, {
       name: '/quotationApi',
       url: global.io.useApiConfig().quotationListApi
     }, {
       name: '/invoiceApi',
-      url: global.io.useApiConfig().invoice
+      url: io.useApiConfig().invoice
     }, {
       name: '/userApi',
-      url: global.io.useApiConfig().emailTakenApi
+      url: io.useApiConfig().emailTakenApi
     }, {
       name: '/userApi',
-      url: global.io.useApiConfig().userSignUpApi
+      url: io.useApiConfig().userSignUpApi
     }]);
 
     function useApi(param) {
