@@ -20,8 +20,8 @@
           datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
           queryTokenizer: Bloodhound.tokenizers.whitespace,
           limit: 10,
-          prefetch: {
-            url: window.location.origin + '/invoiceApi/invoiceFromAddress',
+          remote: {
+            url: window.location.origin + '/invoiceApi/invoiceFromAddress?fromName=%QUERY',
             filter: function(list) {
               return $.map(list, function(from) {
                 return {name: from.name};

@@ -2,9 +2,16 @@
   'use strict';
 
   exports.from = function(req, res, next) {
+    var query = io.url.parse(req.url, true).query,
+        re    = new RegExp(query.fromName, 'i');
     var options = {
+      find: {
+        name: {
+          $regex: re
+        }
+      },
       name: 'InvoiceFromAddress',
-      res: res
+      res : res
     };
 
     io.mongoDB(io.config.dbName)
