@@ -6,7 +6,6 @@
   };
 
   global.root = function(name) {
-    console.log(io.path.normalize(__dirname + '../../' + name));
     return io.path.normalize(__dirname + '../../' + name);
   };
 
@@ -21,15 +20,13 @@
     /** Express Server **/
     var app = io.express();
 
-    global.languageLocale = null;
-
     /** Configuration Files **/
     require('./configuration/express')(app);
     require('./configuration/passport')(io.passport);
 
     /** Routes **/
-    io.useApp(app);
-    io.useApi(app);
+    global.io.useApp(app);
+    global.io.useApi(app);
     app.use(afterResponse);
     app.use('*', catchAll);
 
