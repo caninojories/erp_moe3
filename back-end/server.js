@@ -25,8 +25,8 @@
     require('./configuration/passport')(io.passport);
 
     /** Routes **/
-    global.io.useApp(app);
-    global.io.useApi(app);
+    io.useApp(app);
+    io.useApi(app);
     app.use(afterResponse);
     app.use('*', catchAll);
 

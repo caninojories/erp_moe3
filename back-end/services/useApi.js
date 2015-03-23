@@ -4,9 +4,6 @@
   module.exports = function(app) {
     return useApi([{
       name: '/salesRepresentativeApi',
-      url: io.useApiConfig().salesRepresentativeRegistrationApi
-    }, {
-      name: '/salesRepresentativeApi',
       url: io.useApiConfig().salesRepresentativeListingApi
     }, {
       name: '/customerApi',

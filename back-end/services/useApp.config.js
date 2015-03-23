@@ -5,7 +5,7 @@
     var adminRoutes = global.io.rootPath + 'back-end/routes/admin/';
     var useApp = {
       primary                         : require(adminRoutes + 'primary'),
-      salesRepresentativeRegistration : require(adminRoutes + 'salesRepresentativeRegistration'),
+      //salesRepresentativeRegistration : require(adminRoutes + 'salesRepresentativeRegistration'),
       salesRepresentativeListing      : require(adminRoutes + 'salesRepresentativeListing'),
       editSalesRepresentativeListing  : require(adminRoutes + 'salesRepresentativeListing/edit'),
       customerRegistration            : require(adminRoutes + 'customerRegistration'),
