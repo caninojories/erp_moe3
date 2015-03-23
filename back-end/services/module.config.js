@@ -7,7 +7,7 @@
       Promise     = require('bluebird'),
       rootPath    = path.normalize(__dirname + '/../../'),
       routesAdmin = rootPath + 'back-end/routes/admin/',
-      routesApi   = rootPath + 'back-end/routes/restApi/API/';
+      routesApi   = rootPath + 'back-end/routes/restApi/api/';
 
   module.exports = {
       rootPath            : rootPath,

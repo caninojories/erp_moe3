@@ -2,7 +2,7 @@
   'use strict';
 
   module.exports = function() {
-    var routesApi = global.io.rootPath + 'back-end/routes/restApi/API/';
+    var routesApi = global.io.rootPath + 'back-end/routes/restApi/api/';
 
     var useApi = {
       salesRepresentativeRegistrationApi  : require(routesApi + 'salesRepresentativeRegistrationApi'),
