@@ -13,12 +13,12 @@
       vm.language = language;
 
       function language(lang) {
+        languageToken.setToken(lang);
         commonsDataService
           .httpGETRouteParams('',
             lang, settingServiceApi)
           .then(function(response) {
             if (response.language !== undefined) {
-              languageToken.setToken(lang);
               $timeout(function() {
                 $window.location.reload();
               }, 200);
