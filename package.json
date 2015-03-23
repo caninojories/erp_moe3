@@ -73,7 +73,7 @@
   },
   "scripts": {
     "start": "nodemon backend/server.js",
-    "postinstall": "node node_modules/bower/bin/bower install"
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
