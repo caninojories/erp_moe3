@@ -2,7 +2,11 @@
   'use strict';
 
   module.exports = function(app) {
+    console.log(io.useApiConfig());
     return useApi([{
+      name: '/salesRepresentativeApi',
+      url: io.useApiConfig().salesRepresentativeRegistrationApi
+    }, {
       name: '/salesRepresentativeApi',
       url: io.useApiConfig().salesRepresentativeListingApi
     }, {
