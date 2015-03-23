@@ -6,6 +6,7 @@
   };
 
   global.root = function(name) {
+    console.log(io.path.normalize(__dirname + '../../' + name));
     return io.path.normalize(__dirname + '../../' + name);
   };
 
