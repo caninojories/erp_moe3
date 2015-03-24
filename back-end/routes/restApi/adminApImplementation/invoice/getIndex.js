@@ -124,10 +124,11 @@
                   if (err) return ;
                   // console.error(err);
                   //console.log("success!");
+                  res.json({data: 'Page Rendered'});
+                  //ph.exit();
                 });
                 //console.log('Page Rendered');
-                res.json({data: 'Page Rendered'});
-                ph.exit();
+
               });
             }
           });
