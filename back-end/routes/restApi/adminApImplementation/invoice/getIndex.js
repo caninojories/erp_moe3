@@ -112,6 +112,9 @@
     var phantom = require('phantom');
     phantom.create(function(ph){
       ph.createPage(function(page) {
+        page.onConsoleMessage(function (msg) {
+          console.log("Phantom Console: " + msg);
+        });
         page.open('http://' + req.headers.host + '/invoice/view/' + query.id, function(status) {
           page.setPaperSize({format: 'letter'}, function(format) {
             if(status === 'success') {
