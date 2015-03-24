@@ -1,9 +1,10 @@
 (function() {
   'use strict';
 
-  exports.from = function(req, res, next) {
+  exports.typeAheadfromList = function(req, res, next) {
     var query = io.url.parse(req.url, true).query,
         re    = new RegExp(query.fromName, 'i');
+
     var options = {
       find: {
         name: {
@@ -18,19 +19,16 @@
       .then(io.get.findList(options));
   };
 
-  exports.oneFrom = function(req, res, next) {
-    var options = {
-      find: {name: req.params.companyName},
-      name: 'InvoiceFromAddress',
-      res : res
-    };
+  exports.typeAheadToList = function(req, res, next) {
+    var query = io.url.parse(req.url, true).query,
+        re    = new RegExp(query.toName, 'i');
 
-    io.mongoDB(io.config.dbName)
-      .then(io.get.findOne(options));
-  };
-
-  exports.to = function(req, res, next) {
     var options = {
+      find: {
+        name: {
+          $regex: re
+        }
+      },
       name: 'InvoiceToAddress',
       res: res
     };
@@ -39,15 +37,27 @@
       .then(io.get.findList(options));
   };
 
+  exports.oneFrom = function(req, res, next) {
+    var options = {
+      find: req.params.id,
+      name: 'InvoiceFromAddress',
+      res : res
+    };
+
+    io.mongoDB(io.config.dbName)
+      .then(io.get.findById(options));
+  };
+
+
   exports.oneTo = function(req, res, next) {
     var options = {
-      find: {name: req.params.companyName},
+      find: req.params.id,
       name: 'InvoiceToAddress',
       res : res
     };
 
     io.mongoDB(io.config.dbName)
-      .then(io.get.findOne(options));
+      .then(io.get.findById(options));
   };
 
   exports.one = function(req, res, next) {

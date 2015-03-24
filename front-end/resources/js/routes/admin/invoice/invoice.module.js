@@ -1,5 +1,5 @@
 (function() {
   'use strict';
 
-  angular.module('app.invoice', ["highcharts-ng"]);
+  angular.module('app.invoice', ['highcharts-ng', 'datatables.bootstrap']);
 })();

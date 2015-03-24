@@ -138,8 +138,8 @@
       function fromLookupCallback() {
         return commonsDataService
           .httpGETRouteParams(
-            'invoiceFromAddress/view',
-            $rootScope.companyNameFrom,
+            'fromAddress/view',
+            $rootScope.companyIdFrom,
             invoiceServiceApi)
           .then(function(response) {
             return response;
@@ -171,8 +171,8 @@
       function tolookupCallback() {
         return commonsDataService
           .httpGETRouteParams(
-            'invoiceToAddress/view',
-            $rootScope.companyNameTo,
+            'toAddress/view',
+            $rootScope.companyIdTo,
             invoiceServiceApi)
           .then(function(response) {
             return response;

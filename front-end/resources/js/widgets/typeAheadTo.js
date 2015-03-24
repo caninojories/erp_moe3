@@ -20,11 +20,14 @@
           datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
           queryTokenizer: Bloodhound.tokenizers.whitespace,
           limit: 10,
-          prefetch: {
-            url: window.location.origin + '/invoiceApi/invoiceToAddress',
+          remote: {
+            url: window.location.origin + '/invoiceApi/toAddress/typeAhead?toName=%QUERY',
             filter: function(list) {
               return $.map(list, function(to) {
-                return {name: to.name};
+                return {
+                  id  : to._id,
+                  name: to.name
+                };
               });
             }
           }
@@ -38,8 +41,9 @@
           source: invoiceTo.ttAdapter()
         });
 
-        element.on('typeahead:selected', function(event, datum) {
-          $rootScope.companyNameTo = datum.name;
+        element.on('typeahead:selected', function(event, data) {
+          $rootScope.companyNameTo  = data.name;
+          $rootScope.companyIdTo    = data.id;
         }).on('typeahead:autocompleted', function (e, datum) {
           $rootScope.companyNameTo = datum.name;
         }).on('keydown', function(event) {

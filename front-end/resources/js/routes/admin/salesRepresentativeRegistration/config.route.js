@@ -4,7 +4,11 @@
   angular
     .module('app.salesRepresentativeRegistration')
     .run(appRun);
-
+    
+    appRun.$inject = ['routehelper'];
+    /*ngInject*/
+    appRun.$inject = ['routehelper'];
+    /*ngInject*/
     function appRun(routehelper) {
       routehelper.configureRoutes(getRoutes());
     }

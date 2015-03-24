@@ -2,22 +2,28 @@
   'use strict';
 
   angular.module('app.services', [])
-  .factory('salesRepresentativeServiceApi', function (Restangular) {
+  /*ngInject*/
+  .factory('salesRepresentativeServiceApi', ['Restangular', function (Restangular) {
     return Restangular.all('salesRepresentativeApi');
-  })
-  .factory('customerServiceApi', function(Restangular) {
+  }])
+  /*ngInject*/
+  .factory('customerServiceApi', ['Restangular', function(Restangular) {
     return Restangular.all('customerApi');
-  })
-  .factory('invoiceServiceApi', function(Restangular) {
+  }])
+  /*ngInject*/
+  .factory('invoiceServiceApi', ['Restangular', function(Restangular) {
     return Restangular.all('invoiceApi');
-  })
-  .factory('settingServiceApi', function(Restangular) {
+  }])
+  /*ngInject*/
+  .factory('settingServiceApi', ['Restangular', function(Restangular) {
     return Restangular.all('settingsApi');
-  })
-  .factory('quotationServiceApi', function(Restangular) {
+  }])
+  /*ngInject*/
+  .factory('quotationServiceApi', ['Restangular', function(Restangular) {
     return Restangular.all('quotationApi');
-  })
-  .factory('userServiceApi', function(Restangular) {
+  }])
+  /*ngInject*/
+  .factory('userServiceApi', ['Restangular', function(Restangular) {
     return Restangular.all('userApi');
-  });
+  }]);
 }());

@@ -3,16 +3,26 @@
 
   var app = io.express();
 
-  app.route('/invoiceFromAddress')
-    .get(io.INVOICE().fromAddress.getList.from)
+  app.route('/fromAddress')
     .post(io.INVOICE().fromAddress.post.from);
 
-  app.route('/invoiceFromAddress/view/:companyName')
+  app.route('/toAddress')
+    .post(io.INVOICE().toAddress.post.to);
+
+  app.route('/fromAddress/typeAhead')
+    .get(io.INVOICE().fromAddress.getList.typeAheadfromList);
+
+  app.route('/fromAddress/view/:id')
     .get(io.INVOICE().fromAddress.get.oneFrom);
 
-  app.route('/invoiceToAddress')
-    .get(io.INVOICE().toAddress.getList.to)
-    .post(io.INVOICE().toAddress.post.to);
+  app.route('/toAddress/typeAhead')
+    .get(io.INVOICE().toAddress.getList.typeAheadToList);
+
+  app.route('/toAddress/view/:id')
+    .get(io.INVOICE().toAddress.get.oneTo);
+
+  // app.route('/fromAddress/view/list')
+  //   .get(io.INVOICE().fromAddress.getList.fromList);
 
   app.route('/invoiceToAddress/view/:companyName')
     .get(io.INVOICE().toAddress.get.oneTo);

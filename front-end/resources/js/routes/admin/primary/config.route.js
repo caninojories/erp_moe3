@@ -5,6 +5,8 @@
     .module('app.primary')
     .run(appRun);
 
+    appRun.$inject = ['routehelper'];
+    /*ngInject*/
     function appRun(routehelper) {
       routehelper.configureRoutes(getRoutes());
     }

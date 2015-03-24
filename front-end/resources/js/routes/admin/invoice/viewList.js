@@ -55,6 +55,14 @@
       }
 
       $scope.dtOptions = DTOptionsBuilder.fromSource($window.location.origin + '/invoiceApi/view/list')
+      .withBootstrap()
+      .withBootstrapOptions({
+        pagination: {
+          classes: {
+            ul: 'pagination-plain'
+          }
+         }
+       })
       .withTableTools('/js/vendor/table-tools/swf/copy_csv_xls_pdf.swf')
       .withTableToolsButtons([
         // 'copy',

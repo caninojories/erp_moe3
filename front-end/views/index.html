@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-ng-app='ngAPI'>
+<html data-ng-app='ngAPI' ng-strict-di>
   <head>
     <meta charset='utf-8' />
     <meta http-equiv='X-UA-Compatible', content='IE=edge' />
@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/bower/angular-loading-bar/build/loading-bar.css" />
     <link rel="stylesheet" href="/bower/angular-xeditable/dist/css/xeditable.css" />
     <link rel="stylesheet" href="/bower/datatables/media/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="/bower/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css" />
     <link rel="stylesheet" href="/bower/videojs/dist/video-js/video-js.css" />
     <link rel="stylesheet" href="/bower/flat-ui/dist/css/flat-ui.css" />
     <!-- endbower -->
@@ -68,6 +69,7 @@
     <script src="/bower/moment/moment.js"></script>
     <script src="/bower/datatables/media/js/jquery.dataTables.js"></script>
     <script src="/bower/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.min.js"></script>
+    <script src="/bower/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js"></script>
     <script src="/bower/angular-datatables/dist/angular-datatables.min.js"></script>
     <script src="/bower/typeahead.js/dist/typeahead.bundle.js"></script>
     <script src="/bower/videojs/dist/video-js/video.js"></script>
@@ -144,6 +146,8 @@
     <script src="/js/routes/admin/invoice/editOne.js"></script>
     <script src="/js/routes/admin/invoice/forecast.js"></script>
     <script src="/js/routes/admin/invoice/fromAddress.js"></script>
+    <script src="/js/routes/admin/invoice/fromAddressEditOne.js"></script>
+    <script src="/js/routes/admin/invoice/fromAddressViewList.js"></script>
     <script src="/js/routes/admin/invoice/registration.js"></script>
     <script src="/js/routes/admin/invoice/toAddress.js"></script>
     <script src="/js/routes/admin/invoice/viewList.js"></script>

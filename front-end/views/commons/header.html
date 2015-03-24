@@ -27,6 +27,12 @@
             <li ui-sref-active="active">
               <a ui-sref='registration'><$ __('invoice.header.registrations.invoice') $></a>
             </li>
+            <li ui-sref-active="active" ng-controller="FromAddress as vm">
+              <a href="#" ng-click="vm.fromAddressModal()">Invoice Address - From</a>
+            </li>
+            <li ui-sref-active="active" ng-controller="ToAddress as vm">
+              <a href="#" ng-click="vm.toAddressModal()">Invoice Address - To</a>
+            </li>
           </ul>
         </li>
         <li class="dropdown" ng-class="{active : '<$ title $>' ==  'salesRepresentativeListing' ||
@@ -58,14 +64,14 @@
             <li><a href="#">Sales Ranking by Custome/Sales Representative</a></li> -->
           </ul>
         </li>
-        <li class="dropdown" ng-controller="Others as vm">
+        <!-- <li class="dropdown" ng-controller="Others as vm">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Others<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#" ng-click="vm.addInvoiceFromAddress()">Invoice From Address</a></li>
             <li><a href="#" ng-click="vm.addInvoiceToAddress()">Invoice To Address</a></li>
             <li><a href="#" ng-click="">Wire Instructions</a></li>
           </ul>
-        </li>
+        </li> -->
       </ul>
       <ul class='nav navbar-nav navbar-right' ng-controller='Register as vm'>
         <li ng-hide='vm.isAuthenticated()'>

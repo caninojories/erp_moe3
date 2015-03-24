@@ -35,6 +35,8 @@
     "angular-datatables": {
       "main": [
         "dist/plugins/tabletools/angular-datatables.tabletools.min.js",
+        "dist/plugins/bootstrap/angular-datatables.bootstrap.min.js",
+        "dist/plugins/bootstrap/datatables.bootstrap.min.css",
         "dist/angular-datatables.min.js"
       ]
     }

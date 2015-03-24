@@ -5,6 +5,8 @@
     .module('app.invoice')
     .run(appRun);
 
+    appRun.$inject = ['routehelper'];
+    /*ngInject*/
     function appRun(routehelper) {
       routehelper.configureRoutes(getRoutes());
     }
@@ -48,6 +50,22 @@
           templateUrl: '/admin/invoice/forecast.html',
           controller: 'Forecast as vm',
           title: 'Forecast Invoice'
+        }
+      }, {
+        state: 'fromAddressViewList',
+        config: {
+          url: '/invoice/fromAddress/list',
+          templateUrl: '/admin/invoice/fromAddressViewList.html',
+          controller: 'FromAddressViewList as vm',
+          title: 'FromAddress View List Invoice'
+        }
+      }, {
+        state: 'fromAddressEditOne',
+        config: {
+          url: '/invoice/fromAddress/edit/:id',
+          templateUrl: '/admin/invoice/editOne.html',
+          controller: 'FromAddressEditOne as vm',
+          title: 'FromAdress Edit One'
         }
       }];
     }

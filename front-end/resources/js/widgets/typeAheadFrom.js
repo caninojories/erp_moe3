@@ -21,10 +21,13 @@
           queryTokenizer: Bloodhound.tokenizers.whitespace,
           limit: 10,
           remote: {
-            url: window.location.origin + '/invoiceApi/invoiceFromAddress?fromName=%QUERY',
+            url: window.location.origin + '/invoiceApi/fromAddress/typeAhead?fromName=%QUERY',
             filter: function(list) {
               return $.map(list, function(from) {
-                return {name: from.name};
+                return {
+                  id  : from._id,
+                  name: from.name
+                };
               });
             }
           }
@@ -38,8 +41,9 @@
           source: invoiceFrom.ttAdapter()
         });
 
-        element.on('typeahead:selected', function(event, datum) {
-          $rootScope.companyNameFrom = datum.name;
+        element.on('typeahead:selected', function(event, data) {
+          $rootScope.companyNameFrom = data.name;
+          $rootScope.companyIdFrom   = data.id;
         }).on('typeahead:autocompleted', function (e, datum) {
           $rootScope.companyNameFrom = datum.name;
         }).on('keydown', function(event) {

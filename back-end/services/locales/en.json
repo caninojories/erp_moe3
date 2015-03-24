@@ -41,6 +41,10 @@
 				"name": "Analysis",
 				"salesForecast": "Sales Forecast"
 			}
+		},
+		"address": {
+			"name": "Invoice Address",
+			"from": "From"
 		}
 	}
 }

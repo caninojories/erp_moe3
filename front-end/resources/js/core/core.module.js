@@ -35,7 +35,6 @@
         'mgcrea.ngStrap',
         'satellizer',
         'angular-loading-bar',
-        'datatables',
         'xeditable'
     ]);
 })();

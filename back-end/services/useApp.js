@@ -15,6 +15,7 @@
       io.useAppConfig().editQuotationList,
       io.useAppConfig().invoice.editOne,
       io.useAppConfig().invoice.forecast,
+      io.useAppConfig().invoice.fromAddressViewList,
       io.useAppConfig().invoice.registration,
       io.useAppConfig().invoice.viewOne,
       io.useAppConfig().invoice.viewList

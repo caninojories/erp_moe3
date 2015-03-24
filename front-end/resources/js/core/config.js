@@ -7,9 +7,10 @@
       .config(configure)
       .config(toastrConfig)
       .config(loginConfig)
-      .run(google)
-      .run(xEditable);
+      .run(google);
 
+    toastrConfig.$inject = ['toastr'];
+    /*ngInject*/
     function toastrConfig(toastr) {
       toastr.options.timeOut = 4000;
       toastr.options.positionClass = 'toast-top-right';
@@ -22,7 +23,7 @@
     };
 
     loginConfig.$inject = ['$authProvider', 'cfpLoadingBarProvider'];
-    /* @ngInject */
+    /*@ngInject*/
     function loginConfig($authProvider, cfpLoadingBarProvider) {
       cfpLoadingBarProvider.latencyThreshold = 100;
       $authProvider.loginUrl = window.location.origin + '/userApi/userLogIn';
@@ -42,18 +43,9 @@
 
     configure.$inject = ['$httpProvider', '$locationProvider', '$logProvider', '$urlRouterProvider', '$stateProvider',
     'RestangularProvider', 'routehelperConfigProvider', 'exceptionHandlerProvider', '$authProvider'];
-    /* @ngInject */
+    /*@ngInject*/
     function configure ($httpProvider, $locationProvider, $logProvider, $urlRouterProvider, $stateProvider,
       RestangularProvider, routehelperConfigProvider, exceptionHandlerProvider, $authProvider) {
-
-      // RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
-      //   console.log(data);
-      // });
-      RestangularProvider.setRestangularFields({
-        id: '_id'
-      });
-
-      RestangularProvider.setDefaultHeaders({'Accept-Language': 'iw'});
 
       $locationProvider.html5Mode(true);
       if ($logProvider.debugEnabled) {$logProvider.debugEnabled(true);}
@@ -67,6 +59,8 @@
       exceptionHandlerProvider.configure(config.appErrorPrefix);
     }
 
+    google.$inject = ['$window'];
+    /*ngInject*/
     function google($window) {
       var params = $window.location.search.substring(1);
       if (params && $window.opener && $window.opener.location.origin === $window.location.origin) {
@@ -74,9 +68,5 @@
         var code = decodeURIComponent(pair[1]);
         $window.opener.postMessage(code, $window.location.origin);
       }
-    }
-
-    function xEditable(editableOptions) {
-      editableOptions.theme = 'bs3';
     }
 })();
