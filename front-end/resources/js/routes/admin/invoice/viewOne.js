@@ -25,7 +25,7 @@
 
       function invoiceGetOneCallback() {
         return commonsDataService
-          .httpGETRouteParams('view', $stateParams.id, invoiceServiceApi)
+          .httpGETQueryParams('', {id:$stateParams.id}, invoiceServiceApi)
           .then(function(response) {
             return response;
           });

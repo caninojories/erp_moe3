@@ -41,7 +41,7 @@
     .get(io.INVOICE().getList.list);
 
   app.route('/')
-    // .get(io.INVOICE().get.one)
+    .get(io.INVOICE().get.one)
     // .put(io.INVOICE().update.status)
     .delete(io.INVOICE().delete.one);
 

@@ -80,9 +80,11 @@
   };
 
   exports.one = function(req, res, next) {
+    var query = io.url.parse(req.url, true).query;
+
     var options = {
       name: 'Invoice',
-      find: req.params.id,
+      find: query.id,
       merge: {
         bool : true,
         findFrom: 'findFrom',

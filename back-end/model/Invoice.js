@@ -43,12 +43,12 @@
 
   InvoiceSchema.methods.findFrom = function (callback) {
     var invoice = this.toObject();
-    io.InvoiceFromAddress.findOne({name: invoice.from}, callback);
+    io.InvoiceFromAddress.findById(invoice.from, callback);
   };
 
   InvoiceSchema.methods.findTo = function (callback) {
     var invoice = this.toObject();
-    io.InvoiceToAddress.findOne({name: invoice.to}, callback);
+    io.InvoiceToAddress.findById(invoice.to, callback);
   };
 
   module.exports = mongoose.model('Invoice', InvoiceSchema);
