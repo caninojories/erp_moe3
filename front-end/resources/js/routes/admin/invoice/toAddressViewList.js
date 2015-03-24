@@ -3,24 +3,26 @@
 
   angular
     .module('app.invoice')
-    .controller('FromAddressViewList', FromAddressViewList);
+    .controller('ToAddressViewList', ToAddressViewList);
 
-    FromAddressViewList.$inject = ['$compile', '$q', '$rootScope', '$scope', '$timeout', '$window', 'DTInstances',
+    ToAddressViewList.$inject = ['$compile', '$q', '$rootScope', '$scope', '$timeout', '$window', 'DTInstances',
     'DTOptionsBuilder', 'DTColumnBuilder', 'commonsDataService', 'invoiceServiceApi', 'strapAlert', 'strapModal'];
-
-    function FromAddressViewList($compile, $q, $rootScope, $scope, $timeout, $window, DTInstances,
+    /*@ngInject*/
+    function ToAddressViewList($compile, $q, $rootScope, $scope, $timeout, $window, DTInstances,
     DTOptionsBuilder, DTColumnBuilder, commonsDataService, invoiceServiceApi, strapAlert, strapModal) {
-      var vm = this;
+      var vm  = this;
 
-      vm.id  = null;
+      /*Initialization*/
+      vm.id   = null;
 
       $scope.edit = function(id) {
         return $q.all([fromLookupCallback(id)])
           .then(function(response) {
+            console.log(response);
             if(response[0].name !== undefined) {
-              $rootScope.companyName  = response[0].name;
-              $rootScope.addressId    = id;
-              $rootScope.api          = 'fromAddress';
+              $rootScope.companyName    = response[0].name;
+              $rootScope.addressId      = id;
+              $rootScope.api            = 'toAddress';
               var obj             = response[0];
               $rootScope.address  = obj.address;
               $rootScope.country  = obj.country;
@@ -37,7 +39,7 @@
       function fromLookupCallback(id) {
         return commonsDataService
           .httpGETRouteParams(
-            'fromAddress/view',
+            'toAddress/view',
             id,
             invoiceServiceApi)
           .then(function(response) {
@@ -51,30 +53,24 @@
       };
 
       $rootScope.deleteData = function(data) {
-        if(data === true) {
-          return $q.all([deleteCallBack()])
-            .then(function(response) {
-              $timeout(function() {
-                vm.dtInstance.reloadData();
-              }, 200);
-              return response;
-            });
-        }
+        return $q.all([deleteCallBack()])
+          .then(function(response) {
+            $timeout(function() {
+              vm.dtInstance.reloadData();
+            }, 200);
+            return response;
+          });
       };
 
-      function deleteCallBack(id) {
+      function deleteCallBack() {
         return commonsDataService
-          .httpDELETEQueryParams('fromAddress', {id:vm.id}, invoiceServiceApi)
+          .httpDELETEQueryParams('toAddress', {id:vm.id}, invoiceServiceApi)
           .then(function(response) {
             return response;
           });
       }
 
-      $scope.update = function() {
-
-      };
-
-      $scope.dtOptions = DTOptionsBuilder.fromSource($window.location.origin + '/invoiceApi/fromAddress/view/list')
+      $scope.dtOptions = DTOptionsBuilder.fromSource($window.location.origin + '/invoiceApi/toAddress/view/list')
         .withBootstrap()
         .withBootstrapOptions({
           pagination: {

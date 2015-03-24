@@ -2,7 +2,7 @@
   'use strict';
 
   exports.findByIdAndRemove = function(options) {
-    return options.io[options.name]
+    return io[options.name]
       .findByIdAndRemove(options.find)
       .exec()
       .then(function(result) {

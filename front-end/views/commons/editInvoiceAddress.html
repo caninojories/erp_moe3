@@ -1,5 +1,5 @@
-<div class="modal fromAddressEditOne" role='dialog' ng-controller="FromAddressEditOne as vm">
-  <form class="modal-dialog" ng-submit="vm.updateFromAddress(fromAddressId)">
+<div class="modal fromToAddressEditOne" role='dialog' ng-controller="FromToAddressEditOne as vm">
+  <form class="modal-dialog" ng-submit="vm.updateAddress(addressId, api)">
     <div class="modal-content">
       <div class="modal-header">
         <button type='button' class='close' ng-click='$hide()'>&times;</button>
@@ -12,7 +12,7 @@
         </div>
         <div class="form-group">
           <label class='control-label'>Country</label>
-          <input type='text' name='address' ng-model='country' class='form-control'>
+          <input type='text' name='country' ng-model='country' class='form-control'>
         </div>
         <div class="form-group">
           <label class='control-label'>State</label>
@@ -20,19 +20,19 @@
         </div>
         <div class="form-group">
           <label class='control-label'>Zipcode</label>
-          <input type='text' name='zipcode' ng-model='state' class='form-control'>
+          <input type='text' name='zipcode' ng-model='zipcode' class='form-control'>
         </div>
         <div class="form-group">
           <label class='control-label'>Phone</label>
-          <input type='text' name='phone' ng-model='state' class='form-control'>
+          <input type='text' name='phone' ng-model='phone' class='form-control'>
         </div>
         <div class="form-group">
           <label class='control-label'>Fax</label>
-          <input type='text' name='phone' ng-model='fax' class='form-control'>
+          <input type='text' name='fax' ng-model='fax' class='form-control'>
         </div>
         <div class="form-group">
           <label class='control-label'>Email</label>
-          <input type='text' name='phone' ng-model='email' class='form-control'>
+          <input type='text' name='email' ng-model='email' class='form-control'>
         </div>
       </div>
       <div class='modal-footer'>

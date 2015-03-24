@@ -4,13 +4,20 @@
   var app = io.express();
 
   app.route('/fromAddress')
-    .post(io.INVOICE().fromAddress.post.from);
+    .post(io.INVOICE().fromAddress.post.from)
+    .put(io.INVOICE().fromAddress.update.from)
+    .delete(io.INVOICE().fromAddress.remove.from);
 
   app.route('/toAddress')
-    .post(io.INVOICE().toAddress.post.to);
+    .post(io.INVOICE().toAddress.post.to)
+    .put(io.INVOICE().toAddress.update.to)
+    .delete(io.INVOICE().toAddress.remove.to);
 
   app.route('/fromAddress/typeAhead')
     .get(io.INVOICE().fromAddress.getList.typeAheadfromList);
+
+  app.route('/fromAddress/view/list')
+    .get(io.INVOICE().fromAddress.getList.fromList);
 
   app.route('/fromAddress/view/:id')
     .get(io.INVOICE().fromAddress.get.oneFrom);
@@ -18,11 +25,11 @@
   app.route('/toAddress/typeAhead')
     .get(io.INVOICE().toAddress.getList.typeAheadToList);
 
+  app.route('/toAddress/view/list')
+    .get(io.INVOICE().fromAddress.getList.toList);
+
   app.route('/toAddress/view/:id')
     .get(io.INVOICE().toAddress.get.oneTo);
-
-  // app.route('/fromAddress/view/list')
-  //   .get(io.INVOICE().fromAddress.getList.fromList);
 
   app.route('/invoiceToAddress/view/:companyName')
     .get(io.INVOICE().toAddress.get.oneTo);
@@ -33,9 +40,9 @@
   app.route('/view/list')
     .get(io.INVOICE().getList.list);
 
-  app.route('/view/:id')
-    .get(io.INVOICE().get.one)
-    .put(io.INVOICE().update.status)
+  app.route('/')
+    // .get(io.INVOICE().get.one)
+    // .put(io.INVOICE().update.status)
     .delete(io.INVOICE().delete.one);
 
   app.route('/update/:id')

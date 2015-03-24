@@ -37,7 +37,6 @@
 
   exports.status = function(req, res, next) {
     var query = io.url.parse(req.url, true).query;
-    console.log(query);
     var options = {
       name    : 'Invoice',
       find    : req.params.id,
@@ -47,6 +46,52 @@
         status  : 'status',
       }
     };
+
+    io.mongoDB(io.config.dbName)
+      .then(io.update.putById(options));
+  };
+
+  exports.from = function(req, res, next) {
+    var query   = io.url.parse(req.url, true).query,
+        options = {
+          find    : query.id,
+          name    : 'InvoiceFromAddress',
+          query   : query,
+          res     : res,
+          details : {
+            name    : 'name',
+            address : 'address',
+            country : 'country',
+            state   : 'state',
+            zipcode : 'zipcode',
+            phone   : 'phone',
+            fax     : 'fax',
+            email   : 'email'
+          }
+        };
+
+    io.mongoDB(io.config.dbName)
+      .then(io.update.putById(options));
+  };
+
+  exports.to = function(req, res, next) {
+    var query   = io.url.parse(req.url, true).query,
+        options = {
+          find    : query.id,
+          name    : 'InvoiceToAddress',
+          query   : query,
+          res     : res,
+          details : {
+            name    : 'name',
+            address : 'address',
+            country : 'country',
+            state   : 'state',
+            zipcode : 'zipcode',
+            phone   : 'phone',
+            fax     : 'fax',
+            email   : 'email'
+          }
+        };
 
     io.mongoDB(io.config.dbName)
       .then(io.update.putById(options));

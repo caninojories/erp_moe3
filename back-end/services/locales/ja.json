@@ -39,12 +39,13 @@
 			},
 			"analysis": {
 				"name": "Analysis",
-				"salesForecast": "Sales Forecast"
+				"salesForecast": "売上予測"
 			}
 		},
 		"address": {
 			"name": "Invoice Address",
-			"from": "請求書発行企業"
+			"from": "請求書発行企業",
+			"to": "請求書宛先企業"
 		}
 	}
 }

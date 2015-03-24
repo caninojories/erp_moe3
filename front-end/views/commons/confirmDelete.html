@@ -1,0 +1,18 @@
+ <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+   <div class="modal-content">
+    <form name="form" novalidate>
+     <div class="modal-header">
+      <p class="modal-title"> Delete Permanently </p>
+     </div>
+     <div class="modal-body">
+       <h4 class="modal-title"> Are you sure about this ? </h4>
+     </div>
+     <div class="modal-footer">
+      <button type="button" class="btn btn-default" ng-click="deleteData(false); $hide()"> Cancel </button>
+      <button type="button" class="btn btn-primary" ng-click="deleteData(true); $hide()"> Delete </button>
+     </div>
+    </form>
+   </div>
+  </div>
+ </div>

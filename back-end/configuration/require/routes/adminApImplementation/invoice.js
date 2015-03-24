@@ -7,12 +7,16 @@
       fromAddress : {
         get     : require(adminImplementation + 'getIndex'),
         getList : require(adminImplementation + 'getIndex'),
-        post    : require(adminImplementation + 'postIndex')
+        post    : require(adminImplementation + 'postIndex'),
+        update  : require(adminImplementation + 'putIndex'),
+        remove  : require(adminImplementation + 'deleteIndex')
       },
       toAddress   : {
         get     : require(adminImplementation + 'getIndex'),
         getList : require(adminImplementation + 'getIndex'),
-        post    : require(adminImplementation + 'postIndex')
+        post    : require(adminImplementation + 'postIndex'),
+        update  : require(adminImplementation + 'putIndex'),
+        remove  : require(adminImplementation + 'deleteIndex')
       },
       get       : require(adminImplementation + 'getIndex'),
       getList   : require(adminImplementation + 'getIndex'),

@@ -5,12 +5,15 @@
     .module('app.invoice')
     .controller('ViewList', ViewList);
 
-    ViewList.$inject = ['$compile', '$q', '$scope', '$timeout', '$window', 'DTInstances',
-    'DTOptionsBuilder', 'DTColumnBuilder', 'commonsDataService', 'invoiceServiceApi', 'strapAlert'];
+    ViewList.$inject = ['$compile', '$q', '$rootScope', '$scope', '$timeout', '$window', 'DTInstances',
+    'DTOptionsBuilder', 'DTColumnBuilder', 'commonsDataService', 'invoiceServiceApi', 'strapAlert', 'strapModal'];
 
-    function ViewList($compile, $q, $scope, $timeout, $window, DTInstances,
-    DTOptionsBuilder, DTColumnBuilder, commonsDataService, invoiceServiceApi, strapAlert) {
+    function ViewList($compile, $q, $rootScope, $scope, $timeout, $window, DTInstances,
+    DTOptionsBuilder, DTColumnBuilder, commonsDataService, invoiceServiceApi, strapAlert, strapModal) {
       var vm = this;
+
+      /*Initializaton*/
+      vm.id = null;
 
       $scope.downloadPdf = function(id, number) {
         return $q.all([downloadPdfCallback(id, number)])
@@ -37,18 +40,27 @@
       }
 
       $scope.delete = function(id) {
-        return $q.all([deleteCallBack(id)])
-          .then(function(response) {
-            $timeout(function() {
-              vm.dtInstance.reloadData();
-            }, 200);
-            return response;
-          });
+        vm.id = id;
+        console.log(id);
+        strapModal.show('am-fade-and-scale', 'center', 'commons/confirmDelete.html');
       };
 
-      function deleteCallBack(id) {
+      $rootScope.deleteData = function(data) {
+        if(data === true) {
+          console.log(data);
+          return $q.all([deleteCallBack()])
+            .then(function(response) {
+              $timeout(function() {
+                vm.dtInstance.reloadData();
+              }, 200);
+              return response;
+            });
+        }
+      };
+
+      function deleteCallBack(data) {
         return commonsDataService
-          .httpDELETERouteParams('view', id, invoiceServiceApi)
+          .httpDELETEQueryParams('', {id:vm.id}, invoiceServiceApi)
           .then(function(response) {
             return response;
           });

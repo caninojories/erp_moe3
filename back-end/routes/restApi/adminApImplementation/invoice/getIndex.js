@@ -19,6 +19,27 @@
       .then(io.get.findList(options));
   };
 
+  exports.fromList = function(req, res, next) {
+    var options = {
+      name: 'InvoiceFromAddress',
+      res : res
+    };
+
+    io.mongoDB(io.config.dbName)
+      .then(io.get.findList(options));
+  };
+
+  exports.oneFrom = function(req, res, next) {
+    var options = {
+      find: req.params.id,
+      name: 'InvoiceFromAddress',
+      res : res
+    };
+
+    io.mongoDB(io.config.dbName)
+      .then(io.get.findById(options));
+  };
+
   exports.typeAheadToList = function(req, res, next) {
     var query = io.url.parse(req.url, true).query,
         re    = new RegExp(query.toName, 'i');
@@ -37,17 +58,15 @@
       .then(io.get.findList(options));
   };
 
-  exports.oneFrom = function(req, res, next) {
+  exports.toList = function(req, res, next) {
     var options = {
-      find: req.params.id,
-      name: 'InvoiceFromAddress',
+      name: 'InvoiceToAddress',
       res : res
     };
 
     io.mongoDB(io.config.dbName)
-      .then(io.get.findById(options));
+      .then(io.get.findList(options));
   };
-
 
   exports.oneTo = function(req, res, next) {
     var options = {

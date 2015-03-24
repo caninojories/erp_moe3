@@ -60,12 +60,12 @@
           title: 'FromAddress View List Invoice'
         }
       }, {
-        state: 'fromAddressEditOne',
+        state: 'toAddressViewList',
         config: {
-          url: '/invoice/fromAddress/edit/:id',
-          templateUrl: '/admin/invoice/editOne.html',
-          controller: 'FromAddressEditOne as vm',
-          title: 'FromAdress Edit One'
+          url: '/invoice/toAddress/list',
+          templateUrl: '/admin/invoice/toAddressViewList.html',
+          controller: 'ToAddressViewList as vm',
+          title: 'ToAddress View List Invoice'
         }
       }];
     }

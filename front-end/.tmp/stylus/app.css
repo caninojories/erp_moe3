@@ -200,66 +200,29 @@ span.twitter-typeahead {
   margin-top: -50px;
   margin-left: -100px;
 }
-.invoice .fromAddessViewList .header-image {
-  height: 300px;
-  margin-top: 50px;
-  background-image: url("/images/ensure-success.jpg");
-  background-position: center center;
-  background-size: cover;
-}
-.invoice .fromAddessViewList .header-image .product-header h1 {
-  color: #ecf0f1;
-  font-weight: 300;
-}
-.invoice .fromAddessViewList .header-image .product-header p {
-  color: #bdc3c7;
-  font-weight: 100;
-  font-size: 20px;
-}
-.invoice .viewInvoiceAddress label {
-  font-size: 16px;
-  color: #e74c3c;
-}
-.invoice .viewList alert-invoice-pdf-download,
-.invoice .viewList alert-invoice-update-status {
+.invoice .fromAddressViewList alert-invoice-address-update {
   position: fixed;
+  top: 45%;
+  width: 100%;
   z-index: 999;
-  top: 35%;
-  left: 45%;
   margin-top: -50px;
-  margin-left: -100px;
+  margin-left: -15px;
 }
-.invoice .viewList .body {
-  margin-top: 40px;
-  background-color: #ecf0f1;
-}
-.invoice .viewList .header-image {
+.invoice .fromAddressViewList .header-image {
   height: 300px;
   margin-top: 50px;
   background-image: url("/images/ensure-success.jpg");
   background-position: center center;
   background-size: cover;
 }
-.invoice .viewList .header-image .product-header h1 {
+.invoice .fromAddressViewList .header-image .product-header h1 {
   color: #ecf0f1;
   font-weight: 300;
 }
-.invoice .viewList .header-image .product-header p {
+.invoice .fromAddressViewList .header-image .product-header p {
   color: #bdc3c7;
   font-weight: 100;
   font-size: 20px;
-}
-.invoice .viewList thead > tr > th:first-child {
-  width: 240px;
-}
-.invoice .viewList .select2-container {
-  min-width: 120px;
-  max-width: 120px;
-  margin-left: 4px;
-}
-.invoice .viewList .top-margin {
-  position: relative;
-  top: 8px;
 }
 .invoice .registration alert-invoice-registration {
   position: fixed;
@@ -355,6 +318,75 @@ span.twitter-typeahead {
 }
 .invoice .select2DropDownInvoiceRegistration {
   min-width: 130px !important;
+}
+.invoice .toAddessViewList alert-invoice-address-update {
+  position: fixed;
+  top: 45%;
+  width: 100%;
+  z-index: 999;
+  margin-top: -50px;
+  margin-left: -15px;
+}
+.invoice .toAddessViewList .header-image {
+  height: 300px;
+  margin-top: 50px;
+  background-image: url("/images/ensure-success.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+.invoice .toAddessViewList .header-image .product-header h1 {
+  color: #ecf0f1;
+  font-weight: 300;
+}
+.invoice .toAddessViewList .header-image .product-header p {
+  color: #bdc3c7;
+  font-weight: 100;
+  font-size: 20px;
+}
+.invoice .viewInvoiceAddress label {
+  font-size: 16px;
+  color: #e74c3c;
+}
+.invoice .viewList alert-invoice-pdf-download,
+.invoice .viewList alert-invoice-update-status {
+  position: fixed;
+  z-index: 999;
+  top: 35%;
+  left: 45%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+.invoice .viewList .body {
+  margin-top: 40px;
+  background-color: #ecf0f1;
+}
+.invoice .viewList .header-image {
+  height: 300px;
+  margin-top: 50px;
+  background-image: url("/images/ensure-success.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+.invoice .viewList .header-image .product-header h1 {
+  color: #ecf0f1;
+  font-weight: 300;
+}
+.invoice .viewList .header-image .product-header p {
+  color: #bdc3c7;
+  font-weight: 100;
+  font-size: 20px;
+}
+.invoice .viewList thead > tr > th:first-child {
+  width: 240px;
+}
+.invoice .viewList .select2-container {
+  min-width: 120px;
+  max-width: 120px;
+  margin-left: 4px;
+}
+.invoice .viewList .top-margin {
+  position: relative;
+  top: 8px;
 }
 .select2DropDown {
   min-width: 130px !important;

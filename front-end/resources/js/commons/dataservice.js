@@ -13,7 +13,9 @@
         httpGETRouteParams    : httpGETRouteParams,
         httpGETQueryParams    : httpGETQueryParams,
         httpPUTRouteParams    : httpPUTRouteParams,
+        httpPUTQueryParams    : httpPUTQueryParams,
         httpDELETERouteParams : httpDELETERouteParams,
+        httpDELETEQueryParams : httpDELETEQueryParams,
         checkEmail            : checkEmail,
         signup                : signup,
         login                 : login,
@@ -92,6 +94,19 @@
           }
       }
 
+      function httpPUTQueryParams(api, param, apiService) {
+        return apiService.one(api)
+          .put(param)
+          .then(httpPUTQueryParamsCallback)
+          .catch(function(message) {
+
+          });
+
+          function httpPUTQueryParamsCallback(response, status, header, config) {
+            return Restangular.stripRestangular(response);
+          }
+      }
+
       function httpDELETERouteParams(api, routeParam, apiService) {
         return apiService.one(api, routeParam)
           .remove()
@@ -101,6 +116,19 @@
           });
 
           function httpDELETERouteParamsCallback(response, status, header, config) {
+            return Restangular.stripRestangular(response);
+          }
+      }
+
+      function httpDELETEQueryParams(api, param, apiService) {
+        return apiService.one(api)
+          .remove(param)
+          .then(httpDELETEQueryParamsCallback)
+          .catch(function(message) {
+
+          });
+
+          function httpDELETEQueryParamsCallback(response, status, header, config) {
             return Restangular.stripRestangular(response);
           }
       }

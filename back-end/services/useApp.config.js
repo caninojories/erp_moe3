@@ -18,6 +18,7 @@
         editOne             : require(adminRoutes + 'invoice/editOne'),
         forecast            : require(adminRoutes + 'invoice/forecast'),
         fromAddressViewList : require(adminRoutes + 'invoice/fromAddressViewList'),
+        toAddressViewList   : require(adminRoutes + 'invoice/toAddressViewList'),
         registration        : require(adminRoutes + 'invoice/registration'),
         viewOne             : require(adminRoutes + 'invoice/viewOne'),
         viewList            : require(adminRoutes + 'invoice/viewList'),
