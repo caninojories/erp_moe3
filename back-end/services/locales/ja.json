@@ -43,7 +43,7 @@
 			}
 		},
 		"address": {
-			"name": "Invoice Address",
+			"name": "請求書送付先企業",
 			"from": "請求書発行企業",
 			"to": "請求書宛先企業"
 		}
