@@ -9,7 +9,7 @@
     next();
   });
 
-  router.get('/', io.authorize, io.xPoweredBy, function(req, res, next) {
+  router.get('/', io.xPoweredBy, io.languageLocale, function(req, res, next) {
     res.render('index.html');
   });
 
