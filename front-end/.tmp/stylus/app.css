@@ -53,6 +53,17 @@ alert-info {
   margin-top: -50px;
   margin-left: -15px;
 }
+.row-centered {
+  text-align: center;
+}
+.col-centered {
+  display: inline-block;
+  float: none;
+  text-align: left;
+}
+.marginTop {
+  margin-top: 10px;
+}
 .ui-view-container {
   position: relative;
 }
@@ -416,4 +427,28 @@ span.twitter-typeahead {
 }
 .salesRepresentative .registration input {
   margin-bottom: 5px;
+}
+.index .header-image {
+  height: 500px;
+  margin-top: 50px;
+  background-image: url("/images/ensure-success.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+.index .header-image .product-header h2 {
+  color: #fff;
+  font-weight: 300;
+}
+.index .header-image .product-header p {
+  color: #bdc3c7;
+  font-weight: 100;
+  font-size: 20px;
+}
+.index .body {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #ecf0f1;
+}
+.index .jumbotron {
+  background-color: #bdc3c7;
 }
