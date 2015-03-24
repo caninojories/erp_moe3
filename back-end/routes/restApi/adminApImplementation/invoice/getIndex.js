@@ -121,7 +121,8 @@
               page.render(query.number + '.pdf', function(){
                 var path = root(query.number + '.pdf');
                 io.fse.move(path, '/Users/canino_jories/erp_moe3/' + query.number + '.pdf', {clobber: true},function(err) {
-                  if (err) return console.error(err);
+                  if (err) return ;
+                  // console.error(err);
                   //console.log("success!");
                 });
                 //console.log('Page Rendered');
