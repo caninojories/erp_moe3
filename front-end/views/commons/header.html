@@ -28,10 +28,10 @@
               <a ui-sref='registration'><$ __('invoice.header.registrations.invoice') $></a>
             </li>
             <li ui-sref-active="active" ng-controller="FromAddress as vm">
-              <a href="#" ng-click="vm.fromAddressModal()">Invoice Address - From</a>
+              <a href="#" ng-click="vm.fromAddressModal()"><$ __('invoice.header.registrations.invoiceAddress') $> - <$ __('invoice.header.registrations.from') $></a>
             </li>
             <li ui-sref-active="active" ng-controller="ToAddress as vm">
-              <a href="#" ng-click="vm.toAddressModal()">Invoice Address - To</a>
+              <a href="#" ng-click="vm.toAddressModal()"><$ __('invoice.header.registrations.invoiceAddress') $> - <$ __('invoice.header.registrations.to') $></a>
             </li>
           </ul>
         </li>
@@ -51,13 +51,13 @@
               <a ui-sref="quotationList" target="_self">Quotation Listing</a>
             </li > -->
             <li ui-sef-active="active">
-              <a ui-sref="viewList" target="_self">Invoice</a>
+              <a ui-sref="viewList" target="_self"><$ __('invoice.header.view.invoice') $></a>
             </li>
             <li ui-sef-active="active">
-              <a ui-sref="fromAddressViewList" target="_self">Invoice Address - From</a>
+              <a ui-sref="fromAddressViewList" target="_self"><$ __('invoice.header.view.invoiceAddress') $> - <$ __('invoice.header.view.from') $></a>
             </li>
             <li ui-sef-active="active">
-              <a ui-sref="toAddressViewList" target="_self">Invoice Addresss - To</a>
+              <a ui-sref="toAddressViewList" target="_self"><$ __('invoice.header.view.invoiceAddress') $> - <$ __('invoice.header.view.to') $></a>
             </li>
           </ul>
         </li>

@@ -32,10 +32,17 @@
 		"header": {
 			"registrations": {
 				"name": "Registrations",
-				"invoice": "Invoice"
+				"invoice": "Invoice",
+				"invoiceAddress": "Invoice Address",
+				"from": "From",
+				"to": "To"
 			},
 			"view": {
-				"name": "View"
+				"name": "View",
+				"invoice": "Invoice",
+				"invoiceAddress": "Invoice Address",
+				"from": "From",
+				"to": "To"
 			},
 			"analysis": {
 				"name": "Analysis",

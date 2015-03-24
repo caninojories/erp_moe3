@@ -32,10 +32,17 @@
 		"header": {
 			"registrations": {
 				"name": "登録",
-				"invoice": "請求書"
+				"invoice": "請求書",
+				"invoiceAddress": "請求書送付先企業",
+				"from": "請求書発行企業",
+				"to": "請求書宛先企業"
 			},
 			"view": {
-				"name": "View"
+				"name": "View",
+				"invoice": "請求書",
+				"invoiceAddress": "請求書送付先企業",
+				"from": "請求書発行企業",
+				"to": "請求書宛先企業"
 			},
 			"analysis": {
 				"name": "Analysis",
