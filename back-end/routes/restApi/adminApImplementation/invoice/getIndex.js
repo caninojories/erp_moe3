@@ -116,6 +116,8 @@
           console.log("Phantom Console: " + msg);
         });
         page.open('http://' + req.headers.host + '/invoice/view/' + query.id, function(status) {
+          console.log(req.headers.host);
+          console.log(status);
           page.setPaperSize({format: 'letter'}, function(format) {
             if(status === 'success') {
               page.render(query.number + '.pdf', function(){
