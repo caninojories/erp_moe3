@@ -32,6 +32,9 @@
     }, {
       name: '/userApi',
       url: io.useApiConfig().userSignUpApi
+    }, {
+      name: '/downloadApi',
+      url: io.useApiConfig().download
     }]);
 
     function useApi(param) {

@@ -16,7 +16,8 @@
       userSignUpApi                       : require(routesApi + 'login'),
       registerApi                         : require(routesApi + 'register'),
       login                               : require(routesApi + 'login'),
-      settings                            : require(routesApi + 'settings')
+      settings                            : require(routesApi + 'settings'),
+      download                            : require(routesApi + 'download')
     };
     return useApi;
   };

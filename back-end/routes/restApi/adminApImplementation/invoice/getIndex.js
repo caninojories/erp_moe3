@@ -110,11 +110,9 @@
   exports.pdf = function(req, res, next) {
     var query = io.url.parse(req.url, true).query;
     var phantom = require('phantom');
+
     phantom.create(function(ph){
       ph.createPage(function(page) {
-        page.onConsoleMessage(function (msg) {
-          console.log("Phantom Console: " + msg);
-        });
         page.open('http://' + req.headers.host + '/invoice/view/' + query.id, function(status) {
           console.log(req.headers.host);
           console.log(status);
@@ -122,16 +120,21 @@
             if(status === 'success') {
               page.render(query.number + '.pdf', function(){
                 var path = root(query.number + '.pdf');
-                console.log(path);
-                io.fse.move(path, '/Users/canino_jories/erp_moe3/' + query.number + '.pdf', {clobber: true},function(err) {
-                  if (err) {
-                    return res.json(err);
-                  }
-                  // console.error(err);
-                  //console.log("success!");
-                  res.json({data: 'Page Rendered'});
-                  //ph.exit();
-                });
+                res.json({name: query.number + '.pdf'});
+                ph.exit();
+                //res.sendfile('getIndex.js', {root: __dirname});
+                //res.download(path);
+                //res.json('success');
+
+                // io.fse.move(path, '/Users/canino_jories/erp_moe3/' + query.number + '.pdf', {clobber: true},function(err) {
+                //   if (err) {
+                //     return res.json(err);
+                //   }
+                //   // console.error(err);
+                //   //console.log("success!");
+                //   res.json({data: 'Page Rendered'});
+                //   //ph.exit();
+                // });
                 //console.log('Page Rendered');
 
               });

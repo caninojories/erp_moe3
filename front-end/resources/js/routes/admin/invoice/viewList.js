@@ -19,11 +19,9 @@
         return $q.all([downloadPdfCallback(id, number)])
           .then(function(response) {
             console.log(response);
-            if(response[0].data !== undefined) {
-              strapAlert.show('Success!', 'Invoice #' + number + ' is successfully downloaded', 'success', 'alert-invoice-pdf-download');
-              $timeout(function() {
-                strapAlert.hide();
-              }, 3000);
+            if(response[0].name !== undefined) {
+              $rootScope.name = response[0].name;
+              strapModal.show('am-fade-and-scale', 'center', 'commons/confirmDownload.html');
             }
           });
       };
@@ -92,7 +90,7 @@
         $scope.dtColumns = [
         DTColumnBuilder.newColumn(null).withTitle('Actions').notSortable()
           .renderWith(function(data, type, full, meta) {
-            return '<a href="" class="top-margin">' +
+            return '<a target="_self" href="" class="top-margin">' +
             '<button class="btn btn-xs btn-success" ng-click="downloadPdf(\'' + data._id + '\',\'' + data.number + '\')">' +
             '<i class="ion-android-download"></i>' +
             '</button></a>&nbsp;' +

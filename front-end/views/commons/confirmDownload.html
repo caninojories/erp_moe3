@@ -1,0 +1,20 @@
+ <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+   <div class="modal-content">
+    <form name="form" novalidate>
+     <div class="modal-header">
+      <p class="modal-title"> Save Permanently </p>
+     </div>
+     <div class="modal-body">
+       <h4 class="modal-title"> Save the data on you local disk? </h4>
+     </div>
+     <div class="modal-footer">
+      <button type="button" class="btn btn-default" ng-click="$hide()"> No </button>
+      <button type="button" class="btn btn-primary" ng-click="$hide()">
+        <a target="_self" href="/downloadApi/{{name}}">Yes</a>
+      </button>
+     </div>
+    </form>
+   </div>
+  </div>
+ </div>
