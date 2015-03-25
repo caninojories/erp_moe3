@@ -110,7 +110,9 @@
   exports.pdf = function(req, res, next) {
     var query = io.url.parse(req.url, true).query;
     var phantom = require('phantom');
-    res.json('success');
+    phantom.create(function(ph) {
+      res.json('success');
+    });
     // phantom.create(function(ph){
     //   ph.createPage(function(page) {
     //     // page.onConsoleMessage(function (msg) {
