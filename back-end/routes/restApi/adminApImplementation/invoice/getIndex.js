@@ -115,26 +115,27 @@
         page.onConsoleMessage(function (msg) {
           console.log("Phantom Console: " + msg);
         });
-        page.open('http://' + req.headers.host + '/invoice/view/' + query.id, function(status) {
-          page.setPaperSize({format: 'letter'}, function(format) {
-            if(status === 'success') {
-              page.render(query.number + '.pdf', function(){
-                var path = root(query.number + '.pdf');
-                io.fse.move(path, '/Users/canino_jories/erp_moe3/' + query.number + '.pdf', {clobber: true},function(err) {
-                  if (err) {
-                    return res.json(err);
-                  }
-                  // console.error(err);
-                  //console.log("success!");
-                  res.json({data: 'Page Rendered'});
-                  //ph.exit();
-                });
-                //console.log('Page Rendered');
-
-              });
-            }
-          });
-        });
+        res.json('success');
+        // page.open('http://' + req.headers.host + '/invoice/view/' + query.id, function(status) {
+        //   page.setPaperSize({format: 'letter'}, function(format) {
+        //     if(status === 'success') {
+        //       page.render(query.number + '.pdf', function(){
+        //         var path = root(query.number + '.pdf');
+        //         io.fse.move(path, '/Users/canino_jories/erp_moe3/' + query.number + '.pdf', {clobber: true},function(err) {
+        //           if (err) {
+        //             return res.json(err);
+        //           }
+        //           // console.error(err);
+        //           //console.log("success!");
+        //           res.json({data: 'Page Rendered'});
+        //           //ph.exit();
+        //         });
+        //         //console.log('Page Rendered');
+        //
+        //       });
+        //     }
+        //   });
+        // });
       });
     });
   };
