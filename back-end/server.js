@@ -28,7 +28,10 @@
     io.useApp(app);
     io.useApi(app);
     app.use(afterResponse);
-    app.use('*', catchAll);
+    app.use('/', catchAll);
+    app.use('*', function(req, res, next) {
+      res.status(404).sendFile('index.html', {root: io.rootPath + 'front-end/views'});
+    });
 
     /** io.cluster Configuration **/
     if (io.cluster.isMaster) {io.clusterService(io);}
@@ -38,7 +41,6 @@
         io.chalk.cyan.bold((io.port)));
       });
     }
-
 
   function afterResponse(req, res, next) {
     var response = function(db) {

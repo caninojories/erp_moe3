@@ -40,20 +40,6 @@
     app.use('/commons', node_module.express.static(node_module.html_common));
     app.use('/.tmp', node_module.express.static(node_module.css_compile));
 
-    app.use(function(req, res, next) {
-      var afterResponse = function() {
-        node_module.mongoose.connection.close(function (db) {
-          io.mongoose.disconnectAsync(function() {
-            console.log('Mongoose connection disconnected');
-          });
-        });
-      };
-      res.on('finish', afterResponse);
-      res.on('close', afterResponse);
-
-      next();
-    });
-
     /***
     ** Setup for CORS
     ***/

@@ -56,6 +56,7 @@
 
       $httpProvider.interceptors.push('authInterceptor');
       $httpProvider.interceptors.push('languageInterceptor');
+      $httpProvider.interceptors.push('notFoundInterceptor');
       exceptionHandlerProvider.configure(config.appErrorPrefix);
     }
 

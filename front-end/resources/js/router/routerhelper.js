@@ -52,7 +52,12 @@
               angular.extend(route.config.resolve || {}, routehelperConfig.config.resolveAlways);
             $stateProvider.state(route.state, route.config);
           });
-          $urlRouterProvider.otherwise('/');
+          $urlRouterProvider.otherwise(function($injector, $location){
+            var state = $injector.get('$state');
+            state.go('404');
+            return $location.path();
+          });
+          //$urlRouterProvider.otherwise('/otherwise');
         }
 
         function handleRoutingErrors() {
@@ -70,7 +75,8 @@
                 'unknown target';
               var msg = 'Error routing to ' + destination + '. ' + (rejection.msg || '');
               logger.warning(msg, [current]);
-              $state.go('primary');
+              console.log(event);
+              // $state.go('registration');
             }
          );
         }
