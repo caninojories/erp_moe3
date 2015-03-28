@@ -6,7 +6,6 @@
   /* Express Configuration */
   module.exports = function (app) {
     if (process.env.NODE_ENV === 'production') {
-      console.log(io.nunjucksPathBuild);
       io.nunjucksEnvBuild.express(app);
       io.nunjucks.configure(io.nunjucksPathBuild, {
         autoescape: true,

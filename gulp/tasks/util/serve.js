@@ -13,6 +13,8 @@
       watch: [config.server]
     };
 
+    if(args.nosync || browserSync.active) {return;}
+
     return nodemon(nodeOptions)
         .on('restart', function(ev) {
           logger(util, '*** Nodemon Restarted');
@@ -56,7 +58,6 @@
       notify: true,
       reloadDelay: 1000
     };
-    if(args.nosync || browserSync.active) {return;}
     logger(util, 'Starting browser-sync on port ' + config.defaultPort);
     gulp.watch([config.stylus], ['stylus'])
       .on('change', function(event) { changeEvent(event, util, logger, config); });
