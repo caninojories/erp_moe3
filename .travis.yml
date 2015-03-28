@@ -5,7 +5,8 @@ notifications:
   email:
     recipients:
       - asano.take@gmail.com
-      - joriescanino@gmail.com
+      - caninojories@gmail.com
+      - canino_jories@hotmail.com
     on_success: always
     on_failure: never
 before_install:
