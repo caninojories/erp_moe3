@@ -6,8 +6,8 @@ notifications:
     recipients:
       - asano.take@gmail.com
       - joriescanino@gmail.com
-    on_success: [always|never|change] # default: always
-    on_failure: [always|never|change] # default: never
+    on_success: always
+    on_failure: never
 before_install:
   - npm install -g gulp
 script:
