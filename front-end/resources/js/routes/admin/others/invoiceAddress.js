@@ -6,7 +6,7 @@
     .controller('InvoiceAddress', InvoiceAddress);
 
     InvoiceAddress.$inject = ['$q', '$timeout', 'commonsDataService', 'invoiceServiceApi', 'strapAlert', 'strapModal'];
-
+    /*@ngInject*/
     function InvoiceAddress($q, $timeout, commonsDataService, invoiceServiceApi, strapAlert, strapModal) {
       var vm = this;
 

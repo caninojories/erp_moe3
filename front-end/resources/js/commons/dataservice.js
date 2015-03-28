@@ -6,7 +6,7 @@
     .factory('commonsDataService', commonsDataService);
 
     commonsDataService.$inject = ['Restangular', 'exception', 'userServiceApi'];
-
+    /*@ngInject*/
     function commonsDataService(Restangular, exception, userServiceApi) {
       var service = {
         httpPOSTQueryParams   : httpPOSTQueryParams,
@@ -133,8 +133,8 @@
           }
       }
 
-      function checkEmail(api, param) {
-        return userServiceApi.one(api)
+      function checkEmail(api, param, apiService) {
+        return apiService.one(api)
           .get(param)
           .then(checkEmailCallBack)
           .catch(function(message) {
@@ -143,10 +143,11 @@
             ** then wait for 5 seconds then redirect
             ***/
             exception.catcher('Error in checking email name on all the list of User Data', message);
+            return message;
           });
 
           function checkEmailCallBack(response, status, header, config) {
-            return response;
+            return Restangular.stripRestangular(response);
           }
       }
 

@@ -10,7 +10,7 @@
         .module('blocks.logger')
         .factory('logger', logger);
 
-    logger.$inject = ['$log', 'toastr'];
+    logger.$inject = ['$log', 'toastr', 'isLogger'];
 
      toastr.options = {
          'positionClass' : 'toast-bottom-right'
@@ -21,19 +21,19 @@
      * @desc Application wide logger
      * @memberOf Factories
      */
-    function logger($log, toastr) {
+    /*@ngInject*/
+    function logger($log, toastr, isLogger) {
         var service = {
-            showToasts: true,
-
-            error   : error,
-            info    : info,
-            success : success,
-            warning : warning,
-
+            showToasts: isLogger,
+            error     : error,
+            info      : info,
+            success   : success,
+            warning   : warning,
             // straight to console; bypass toastr
-            log     : $log.log
+            log       : $log.log
         };
-
+        console.log(service.showToasts);
+        console.log(isLogger);
         return service;
         /////////////////////
         /**

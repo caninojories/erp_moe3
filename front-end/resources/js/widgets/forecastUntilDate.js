@@ -6,7 +6,6 @@
     .directive('forecastUntilDate', forecastUntilDate);
 
     forecastUntilDate.$inject = ['$rootScope'];
-
     /*@ngInject*/
     function forecastUntilDate($rootScope) {
       var directive = {

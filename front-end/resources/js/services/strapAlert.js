@@ -2,12 +2,13 @@
   'use strict';
 
   angular
-  .module('app.services')
-  .service('strapAlert', strapAlert);
+    .module('app.services')
+    .service('strapAlert', strapAlert);
 
   strapAlert.$inject = ['$alert'];
   /* @ngInject */
   function strapAlert($alert) {
+    /*jshint validthis:true */
     var vm = this;
 
     /* Literals */

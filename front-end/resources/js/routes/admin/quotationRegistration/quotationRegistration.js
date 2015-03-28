@@ -7,7 +7,7 @@
 
   QuotationRegistration.$inject = ['$q', '$scope', '$rootScope', '$timeout',
     'exception', 'quotationRegistrationDataService'];
-
+  /*@ngInject*/
   function QuotationRegistration($q, $scope, $rootScope, $timeout,
     exception, quotationRegistrationDataService) {
     var vm  = this;

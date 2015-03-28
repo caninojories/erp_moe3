@@ -7,7 +7,7 @@
       POSTREGISTERUSER   = require('../adminApImplementation/register/postIndex.js');
 
   app.route('/userRegister')
-    .post(io.passport.authenticate('local-register'), POSTREGISTERUSER.registerUser);
+    .post(io.preRegister, POSTREGISTERUSER.registerUser);
 
   app.route('/isEmailTaken')
     .get(GETEMAILINFO.getEmail);

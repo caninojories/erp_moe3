@@ -11,6 +11,7 @@
 
   module.exports = {
       rootPath            : rootPath,
+      preRegister        : require('./preRegister'),
       authorize           : require('./authorize'),
       clusterService      : require('./cluster'),
       config              : require('./config'),
@@ -23,7 +24,6 @@
       googleAuth          : require('./googleAuth'),
       i18n                : require('./i18n'),
       languageLocale      : require('./language.locale'),
-      modelConfig         : require('./model.config')(),
       mongoDB             : require('../configuration/mongodb'),
       Customer            : require('../model/Customer'),
       Invoice             : require('../model/Invoice'),
@@ -62,6 +62,7 @@
       numCPUs        : require('os').cpus().length,
       nunjucks       : require('nunjucks'),
       nunjucksEnv    : new nunjucks.Environment(new nunjucks.FileSystemLoader(path.join(rootPath, 'views'))),
+      nunjucksEnvBuild  : new nunjucks.Environment(new nunjucks.FileSystemLoader(path.join(rootPath, 'build'))),
       ObjectId       : require('mongodb').ObjectID,
       passport       : require('passport'),
       path           : path,
@@ -72,9 +73,11 @@
       url            : require('url'),
 
       port              : process.env.PORT || 3000,
+      environment       : process.env.NODE_ENV || 'development',
 
       faviconPath       : rootPath + 'front-end/resources/favicon.ico',
       nunjucksPath      : path.join(rootPath, 'front-end/views'),
+      nunjucksPathBuild : path.join(rootPath, 'build'),
       cssPath           : path.join(rootPath, 'front-end/resources/css'),
       fonts             : path.join(rootPath, 'front-end/resources/fonts'),
       images            : path.join(rootPath, 'front-end/resources/img'),
@@ -82,6 +85,12 @@
       css_compile       : path.join(rootPath, 'front-end/.tmp'),
       bower_components  : path.join(rootPath, 'front-end/bower'),
       html_common       : path.join(rootPath, 'front-end/views/commons'),
+
+      buildCss          : path.join(rootPath, 'build/css'),
+      buildFonts        : path.join(rootPath, 'build/fonts'),
+      buildImg          : path.join(rootPath, 'build/img'),
+      buildJs           : path.join(rootPath, 'build/js'),
+      commonViewsBuild  : path.join(rootPath, 'build/commons'),
 
       /* AdminImplementation Routes */
       INVOICE           : require(rootPath + 'back-end/configuration/require/routes/adminApImplementation/invoice'),

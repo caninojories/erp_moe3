@@ -8,7 +8,7 @@
   SalesRepresentativeListing.$inject = ['$q', '$compile', '$filter', '$rootScope', '$scope',
   '$state', '$timeout', '$window', 'Restangular', 'DTInstances', 'DTOptionsBuilder', 'DTColumnBuilder',
   'reload', 'salesRepresentativeListingDataService'];
-
+  /*@ngInject*/
   function SalesRepresentativeListing($q, $compile, $filter, $rootScope, $scope, $state, $timeout, $window, Restangular,
     DTInstances, DTOptionsBuilder, DTColumnBuilder, reload, salesRepresentativeListingDataService) {
       var vm = this;

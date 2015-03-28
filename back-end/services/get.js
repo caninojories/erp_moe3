@@ -16,8 +16,13 @@
       .findOne(options.find)
       .exec()
       .then(function(result) {
-        if(!result) {return options.res.json({data:'not found'});}
-        options.res.json(result);
+        if(!result) {
+          return options.res.json(404, {
+            message: 'Check Email',
+            status: 404
+          });
+        }
+        options.res.json({message: 'Check Mail', status: 200, data: result});
       });
   };
 

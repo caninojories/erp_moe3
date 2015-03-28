@@ -6,7 +6,7 @@
     .factory('salesRepresentativeListingDataService', salesRepresentativeListingDataService);
 
     salesRepresentativeListingDataService.$inject = ['$state', 'exception', 'salesRepresentativeServiceApi'];
-
+    /*@ngInject*/
     function salesRepresentativeListingDataService($state, exception, salesRepresentativeServiceApi) {
       var service = {
         getSalesRepresentative: getSalesRepresentative,

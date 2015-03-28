@@ -6,7 +6,7 @@
     .factory('quotationListDataService', quotationListDataService);
 
     quotationListDataService.$inject = ['quotationServiceApi'];
-
+    /*@ngInject*/
     function quotationListDataService(quotationServiceApi) {
       var service = {
         httpGET: httpGET,

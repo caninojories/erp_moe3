@@ -7,7 +7,7 @@
 
     EditSalesRepresentativeListing.$inject = ['$q', '$state', '$timeout', 'Restangular',
     'salesRepresentativeListingDataService', 'strapAlert', 'formReset'];
-
+    /*@ngInject*/
     function EditSalesRepresentativeListing($q, $state, $timeout, Restangular,
     salesRepresentativeListingDataService, strapAlert, formReset) {
       var vm = this;

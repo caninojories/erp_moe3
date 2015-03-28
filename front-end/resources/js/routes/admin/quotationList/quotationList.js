@@ -7,7 +7,7 @@
 
     QuotationList.$inject = ['$compile', '$q', '$scope', '$timeout', '$window', 'DTInstances',
     'DTOptionsBuilder', 'DTColumnBuilder', 'quotationListDataService'];
-
+    /*@ngInject*/
     function QuotationList($compile, $q, $scope, $timeout, $window, DTInstances,
     DTOptionsBuilder, DTColumnBuilder, quotationListDataService) {
       var vm = this;

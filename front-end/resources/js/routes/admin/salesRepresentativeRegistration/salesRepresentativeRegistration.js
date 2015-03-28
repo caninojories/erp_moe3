@@ -7,7 +7,7 @@
 
     SalesRepresentativeRegistration.$inject = ['$q', '$timeout', 'strapAlert', 'formReset',
     'salesRepresentativeRegistrationDataService'];
-
+    /*@ngInject*/
     function SalesRepresentativeRegistration($q, $timeout, strapAlert, formReset,
     salesRepresentativeRegistrationDataService) {
       var vm = this;

@@ -6,7 +6,7 @@
     .controller('Language', Language);
 
     Language.$inject = ['$timeout', '$window', 'commonsDataService', 'languageToken', 'settingServiceApi'];
-
+    /*@ngInject*/
     function Language($timeout, $window, commonsDataService, languageToken, settingServiceApi) {
       var vm = this;
 

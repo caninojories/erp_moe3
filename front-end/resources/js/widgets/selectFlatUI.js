@@ -6,7 +6,7 @@
     .directive('select2FlatUi', select2FlatUi);
 
     select2FlatUi.$inject = ['$rootScope'];
-
+    /*@ngInject*/
     function select2FlatUi($rootScope) {
       var directive = {
         restrict: 'AEC',

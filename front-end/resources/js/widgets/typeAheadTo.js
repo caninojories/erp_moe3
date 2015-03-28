@@ -6,7 +6,7 @@
     .directive('typeAheadTo', typeAheadTo);
 
     typeAheadTo.$inject = ['$rootScope'];
-
+    /*@ngInject*/
     function typeAheadTo($rootScope) {
       var directive = {
         restrict: 'AEC',

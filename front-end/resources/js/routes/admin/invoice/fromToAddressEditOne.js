@@ -7,7 +7,7 @@
 
     FromToAddressEditOne.$inject = ['$q', '$scope', '$timeout', 'commonsDataService',
     'invoiceServiceApi', 'strapAlert', 'strapModal'];
-
+    /*@ngInject*/
     function FromToAddressEditOne($q, $scope, $timeout, commonsDataService,
     invoiceServiceApi, strapAlert, strapModal) {
       var vm = this;

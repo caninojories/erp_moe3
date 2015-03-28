@@ -6,7 +6,7 @@
     .factory('customerDataService', customerDataService);
 
     customerDataService.$inject = ['exception', 'customerServiceApi'];
-
+    /*@ngInject*/
     function customerDataService(exception, customerServiceApi) {
       var service = {
         httpGET     : httpGET,

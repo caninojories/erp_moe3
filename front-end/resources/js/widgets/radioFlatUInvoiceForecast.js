@@ -6,7 +6,6 @@
     .directive('radioInvoiceForecast', radioInvoiceForecast);
 
     radioInvoiceForecast.$inject = ['$rootScope'];
-
     /*@ngInject*/
     function radioInvoiceForecast($rootScope) {
       var directive = {

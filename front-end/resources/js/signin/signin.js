@@ -6,7 +6,7 @@
     .controller('Signin', Signin);
 
     Signin.$inject = ['$timeout', '$auth', 'strapAlert', 'strapModal'];
-
+    /*@ngInject*/
     function Signin($timeout, $auth, strapAlert, strapModal) {
       var vm = this;
 

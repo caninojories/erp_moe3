@@ -7,7 +7,7 @@
 
     CustomerList.$inject = ['$q', '$compile', '$scope', '$timeout', '$window',
     'Restangular', 'DTInstances', 'DTOptionsBuilder', 'DTColumnBuilder', 'customerDataService'];
-
+    /*@ngInject*/
     function CustomerList($q, $compile, $scope, $timeout, $window,
       Restangular, DTInstances, DTOptionsBuilder, DTColumnBuilder, customerDataService) {
       var vm = this;

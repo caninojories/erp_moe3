@@ -6,7 +6,7 @@
     .controller('EditQuotationList', EditQuotationList);
 
     EditQuotationList.$inject = ['$q', '$state', 'Restangular', 'quotationListDataService'];
-
+    /*@ngInject*/
     function EditQuotationList($q, $state, Restangular, quotationListDataService) {
       var vm = this;
 

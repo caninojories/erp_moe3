@@ -8,6 +8,7 @@
     strapModal.$inject = ['$modal'];
     /* @ngInject */
     function strapModal($modal) {
+      /*jshint validthis:true */
       var vm = this;
 
       vm.modalObj = null;

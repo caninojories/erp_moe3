@@ -7,7 +7,7 @@
 
     Registration.$inject = ['$q', '$rootScope', '$scope', '$timeout', '$window', 'exception', 'strapAlert',
     'strapModal', 'commonsDataService', 'invoiceServiceApi'];
-
+    /*@ngInject*/
     function Registration($q, $rootScope, $scope, $timeout, $window, exception, strapAlert,
     strapModal, commonsDataService, invoiceServiceApi) {
       var vm = this;

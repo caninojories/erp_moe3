@@ -6,7 +6,7 @@
     .controller('ViewOne', ViewOne);
 
     ViewOne.$inject = ['$q', '$stateParams', 'commonsDataService', 'invoiceServiceApi'];
-
+    /*@ngInject*/
     function ViewOne($q, $stateParams, commonsDataService, invoiceServiceApi){
       var vm = this;
       vm.item = null;

@@ -6,7 +6,7 @@
     .controller('Others', Others);
 
     Others.$inject = ['strapModal'];
-
+    /*@ngInject*/
     function Others(strapModal) {
       var vm = this;
 

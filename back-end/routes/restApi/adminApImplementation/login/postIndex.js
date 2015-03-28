@@ -2,14 +2,7 @@
   'use strict';
 
   exports.postUserLogin = function(req, res, next) {
-    global.io.passport.authenticate('local-login', function(err, user) {
-     if (err) {next(err);}
-
-      req.login(user, function(err) {
-       if (err) {return next(err);}
-        io.createSendToken(io, user, res);
-      });
-    })(req, res, next);
+    io.createSendToken(io, req.user, res);
   };
 
   exports.postGoogleLogin = function(req, res, next) {

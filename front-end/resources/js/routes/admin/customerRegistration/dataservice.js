@@ -6,7 +6,7 @@
     .factory('customerRegistrationDataService', customerRegistrationDataService);
 
     customerRegistrationDataService.$inject = ['exception', 'customerServiceApi'];
-
+    /*@ngInject*/
     function customerRegistrationDataService(exception, customerServiceApi) {
       var service = {
         httpPOST: httpPOST,

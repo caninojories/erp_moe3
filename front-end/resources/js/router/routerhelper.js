@@ -26,7 +26,7 @@
       };
     };
   }
-
+    /*@ngInject*/
     function routehelper($location, $rootScope, $q, $state, $timeout, $window,
       logger, routehelperConfig, commonsDataservice) {
         var handlingRouteChangeError = false;

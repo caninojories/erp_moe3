@@ -7,7 +7,7 @@
 
     FromAddressViewList.$inject = ['$compile', '$q', '$rootScope', '$scope', '$timeout', '$window', 'DTInstances',
     'DTOptionsBuilder', 'DTColumnBuilder', 'commonsDataService', 'invoiceServiceApi', 'strapAlert', 'strapModal'];
-
+    /*@ngInject*/
     function FromAddressViewList($compile, $q, $rootScope, $scope, $timeout, $window, DTInstances,
     DTOptionsBuilder, DTColumnBuilder, commonsDataService, invoiceServiceApi, strapAlert, strapModal) {
       var vm = this;

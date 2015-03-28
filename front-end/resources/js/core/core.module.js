@@ -18,6 +18,7 @@
         'app.services',
         'app.signin',
         'app.widgets',
+        'ngConfig',
 
         /*
          * Our reusable cross app code modules

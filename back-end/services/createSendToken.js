@@ -10,6 +10,8 @@
 
     var token = node_module.jwt.encode(payload, 'shhh..');
     return res.status(200).send({
+      message: 'User Token Upon Log-in',
+      status : 200,
       user: user.toJSON(),
       token: token
     });

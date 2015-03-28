@@ -6,7 +6,7 @@
         .controller('Shell', Shell);
 
     Shell.$inject = ['$timeout', 'config', 'logger'];
-
+    /*@ngInject*/
     function Shell($timeout, config, logger) {
         /*jshint validthis: true */
         var vm = this;

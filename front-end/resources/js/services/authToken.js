@@ -5,7 +5,7 @@
     .factory('authToken', authToken);
 
     authToken.$inject = ['$window'];
-
+    /*@ngInject*/
     function authToken($window) {
       var storage = $window.localStorage;
       var cachedToken;

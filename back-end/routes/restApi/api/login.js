@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var app = global.io.express(),
+  var app = io.express(),
 
       POSTFACEBOOKLOGIN  = require('../adminApImplementation/login/postIndex.js'),
       POSTGOOGLELOGIN    = require('../adminApImplementation/login/postIndex.js'),

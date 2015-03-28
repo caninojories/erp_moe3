@@ -5,9 +5,9 @@
     .module('app.register')
     .controller('Register', Register);
 
-    Register.$inject = ['$q', '$timeout', '$auth', 'strapAlert', 'strapModal', 'commonsDataService'];
-
-    function Register($q, $timeout, $auth, strapAlert, strapModal, commonsDataService) {
+    Register.$inject = ['$q', '$timeout', '$auth', 'strapAlert', 'strapModal', 'commonsDataService', 'userServiceApi'];
+    /*@ngInject*/
+    function Register($q, $timeout, $auth, strapAlert, strapModal, commonsDataService, userServiceApi) {
       var vm = this;
       /*Function*/
       vm.isAuthenticated      = $auth.isAuthenticated;
@@ -20,7 +20,7 @@
         return $q.all([checkEmailInBlurredCallBack()])
           .then(function(response) {
             console.log(response);
-            if (response[0] !== undefined) {
+            if (response[0].status !== 404) {
               signupForm.email.$setValidity('taken', false);
             }
             else {
@@ -32,10 +32,8 @@
       }
 
       function checkEmailInBlurredCallBack() {
-        console.log(vm.email);
-        
         return commonsDataService
-          .checkEmail('isEmailTaken', {email: vm.email})
+          .checkEmail('isEmailTaken', {email: vm.email}, userServiceApi)
           .then(function(response) {
             return response;
           });

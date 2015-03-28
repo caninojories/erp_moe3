@@ -7,7 +7,7 @@
 
     ViewList.$inject = ['$compile', '$q', '$rootScope', '$scope', '$timeout', '$window', 'DTInstances',
     'DTOptionsBuilder', 'DTColumnBuilder', 'commonsDataService', 'invoiceServiceApi', 'strapAlert', 'strapModal'];
-
+    /*@ngInject*/
     function ViewList($compile, $q, $rootScope, $scope, $timeout, $window, DTInstances,
     DTOptionsBuilder, DTColumnBuilder, commonsDataService, invoiceServiceApi, strapAlert, strapModal) {
       var vm = this;

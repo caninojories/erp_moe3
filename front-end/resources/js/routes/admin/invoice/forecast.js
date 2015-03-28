@@ -6,7 +6,7 @@
     .controller('Forecast', Forecast);
 
     Forecast.$inject = ['$q', '$rootScope', '$scope', 'commonsDataService', 'invoiceServiceApi'];
-
+    /*@ngInject*/
     function Forecast($q, $rootScope, $scope, commonsDataService, invoiceServiceApi) {
       var vm = this;
 

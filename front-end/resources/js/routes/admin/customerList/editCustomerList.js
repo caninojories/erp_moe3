@@ -6,7 +6,7 @@
     .controller('EditCustomerList', EditCustomerList);
 
     EditCustomerList.$inject = ['$q', '$state', '$timeout', 'Restangular', 'strapAlert', 'customerDataService'];
-
+    /*@ngInject*/
     function EditCustomerList($q, $state, $timeout, Restangular, strapAlert, customerDataService) {
       var vm = this;
 

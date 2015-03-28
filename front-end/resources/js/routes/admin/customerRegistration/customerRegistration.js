@@ -7,7 +7,7 @@
 
   CustomerRegistration.$inject = ['$q', '$timeout', 'strapAlert', 'formReset',
   'commonsDataService', 'customerServiceApi'];
-
+  /*@ngInject*/
   function CustomerRegistration($q, $timeout, strapAlert, formReset,
   commonsDataService, customerServiceApi) {
     var vm = this;

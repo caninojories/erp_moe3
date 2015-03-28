@@ -5,12 +5,24 @@
       mongoose  = require('mongoose');
 
   var UserSchema = new mongoose.Schema({
-    email: String,
+    email:  {
+      type  : String,
+      unique: true,
+    },
     username: String,
     password: String,
-    googleId: String,
-    facebookId: String,
-    displayName: String
+    googleId: {
+      type: String,
+      default: null
+    },
+    facebookId:  {
+      type    : String,
+      default : null
+    },
+    displayName:  {
+      type    : String,
+      default : null
+    }
   });
 
   UserSchema.pre('save', function(next) {

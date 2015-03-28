@@ -28,16 +28,20 @@
     io.useApp(app);
     io.useApi(app);
     app.use(afterResponse);
-    app.use('/', catchAll);
-    app.use('*', function(req, res, next) {
-      res.status(404).sendFile('index.html', {root: io.rootPath + 'front-end/views'});
+    app.use('*', catchAll);
+    app.use(function(err, req, res, next) {
+      res.status(err.status || 500).send({
+        message: err.message,
+        status: err.status || 500
+      });
     });
+    /*cannot use 404 in server side*/
 
     /** io.cluster Configuration **/
     if (io.cluster.isMaster) {io.clusterService(io);}
     else {
       app.listen(global.io.port, function() {
-      console.log(io.chalk.red.reset.underline('listening to port ') +
+        console.log(io.chalk.red.reset.underline('listening to port ') +
         io.chalk.cyan.bold((io.port)));
       });
     }

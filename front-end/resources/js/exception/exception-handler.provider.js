@@ -33,6 +33,7 @@
   * @ngInject
   */
   config.$inject = ['$provide'];
+  /*@ngInject*/
   function config($provide) {
     $provide.decorator('$exceptionHandler', extendExceptionHandler);
   }
@@ -45,6 +46,7 @@
   * @return {Function} the decorated $exceptionHandler service
   */
   extendExceptionHandler.$inject = ['$delegate', 'exceptionHandler', 'logger'];
+  /*@ngInject*/
   function extendExceptionHandler($delegate, exceptionHandler, logger) {
     return function(exception, cause) {
       var appErrorPrefix = exceptionHandler.config.appErrorPrefix || '';

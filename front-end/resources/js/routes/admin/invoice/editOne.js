@@ -7,7 +7,7 @@
 
   EditOne.$inject = ['$q', '$rootScope', '$scope', '$stateParams', '$timeout', '$window',
   'commonsDataService', 'invoiceServiceApi', 'strapModal', 'strapAlert'];
-
+  /*@ngInject*/
   function EditOne($q, $rootScope, $scope, $stateParams, $timeout, $window,
   commonsDataService, invoiceServiceApi, strapModal, strapAlert) {
     var vm = this;

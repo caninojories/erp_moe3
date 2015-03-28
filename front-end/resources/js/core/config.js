@@ -27,7 +27,7 @@
     function loginConfig($authProvider, cfpLoadingBarProvider) {
       cfpLoadingBarProvider.latencyThreshold = 100;
       $authProvider.loginUrl = window.location.origin + '/userApi/userLogIn';
-      $authProvider.signupUrl = window.location.origin + '/userApi/userSignUp';
+      $authProvider.signupUrl = window.location.origin + '/userApi/userRegister';
       $authProvider.tokenPrefix = 'erp_moe3';
 
       $authProvider.google({
@@ -56,7 +56,6 @@
 
       $httpProvider.interceptors.push('authInterceptor');
       $httpProvider.interceptors.push('languageInterceptor');
-      $httpProvider.interceptors.push('notFoundInterceptor');
       exceptionHandlerProvider.configure(config.appErrorPrefix);
     }
 

@@ -5,7 +5,7 @@
     .factory('languageToken', languageToken);
 
     languageToken.$inject = ['$window'];
-
+    /*@ngInject*/
     function languageToken($window) {
       var storage = $window.localStorage;
       var cachedToken;

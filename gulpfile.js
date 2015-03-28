@@ -9,9 +9,12 @@
       ifs           = require('gulp-if'),
       inject        = require('gulp-inject'),
       imagemin      = require('gulp-imagemin'),
+      jasmine       = require('gulp-jasmine'),
+      jasmineReport = require('jasmine-reporters'),
       jshint        = require('gulp-jshint'),
       jscs          = require('gulp-jscs'),
       minifyHtml    = require('gulp-minify-html'),
+      ngConstant    = require('gulp-ng-constant'),
       nodemon       = require('gulp-nodemon'),
       prefixer      = require('gulp-autoprefixer'),
       print         = require('gulp-print'),
@@ -52,4 +55,6 @@
   require('./gulp/tasks/optimize')(gulp, annotate, csso, filter, inject, uglify, useref, util, logger, config);
   require('./gulp/tasks/copy')(gulp, util, logger, config);
   require('./gulp/tasks/test')(gulp, util, logger, config);
+  require('./gulp/tasks/jasmine-test')(gulp, jasmine, jasmineReport);
+  require('./gulp/tasks/constants')(gulp, ngConstant);
 }());

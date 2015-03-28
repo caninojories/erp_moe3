@@ -6,7 +6,7 @@
   .controller('Sample', Sample);
 
   Sample.$inject = ['logger'];
-
+  /*@ngInject*/
   function Sample(logger) {
     var vm = this;
 

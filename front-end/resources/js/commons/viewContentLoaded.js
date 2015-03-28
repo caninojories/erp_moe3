@@ -6,7 +6,7 @@
     .factory('viewContentLoaded', viewContentLoaded);
 
     viewContentLoaded.$inject = ['$rootScope', 'logger'];
-
+    /*@ngInject*/
     function viewContentLoaded ($rootScope, logger) {
       /***
        ** Sample external jquery call
