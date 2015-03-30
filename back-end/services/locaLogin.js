@@ -4,7 +4,6 @@
   module.exports = function(req, res, next) {
     var email     = req.body.email,
         password  = req.body.password;
-
     io.mongoDB(io.config.dbName)
       .then(findUser);
 
@@ -20,6 +19,7 @@
         }
 
         user.comparePasswords(password, function(err, isMatch) {
+          console.log(isMatch);
           if (err) {return next(err);}
           if (!isMatch) {
             err         = new Error('Invalid Password');

@@ -5,15 +5,14 @@
     .module('app.signin')
     .controller('Signin', Signin);
 
-    Signin.$inject = ['$timeout', '$auth', 'strapAlert', 'strapModal'];
+    Signin.$inject = ['$timeout', '$scope', '$auth', 'strapAlert', 'strapModal'];
     /*@ngInject*/
-    function Signin($timeout, $auth, strapAlert, strapModal) {
+    function Signin($timeout, $scope, $auth, strapAlert, strapModal) {
       var vm = this;
 
       /*Functions*/
       vm.authenticate     = authenticate;
       vm.isAuthenticated  = $auth.isAuthenticated;
-      vm.loginUser        = loginUser;
       vm.login            = login;
 
       function login(isLoginFormValid) {
@@ -26,15 +25,11 @@
           //$rootScope.username = response.data.user.username;
           strapModal.hide();
         }).catch(function(error) {
-          strapAlert.show('Something, went wrong!', 'Wrong email/password', 'alert-logIn');
+          strapAlert.show('Warning: ', error.data.message, 'danger', 'alert-login');
           $timeout(function() {
             strapAlert.hide();
           }, 2000);
         });
-      }
-
-      function loginUser() {
-        strapModal.show('am-fade-and-scale', 'center', 'commons/login.html');
       }
 
       function authenticate(provider) {

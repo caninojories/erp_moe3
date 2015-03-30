@@ -25,16 +25,17 @@
     require('./configuration/passport')(io.passport);
 
     /** Routes **/
+    app.use(afterResponse);
     io.useApp(app);
     io.useApi(app);
-    app.use(afterResponse);
-    app.use('*', catchAll);
     app.use(function(err, req, res, next) {
       res.status(err.status || 500).send({
         message: err.message,
         status: err.status || 500
       });
     });
+    app.use('*', catchAll);
+
     /*cannot use 404 in server side*/
 
     /** io.cluster Configuration **/

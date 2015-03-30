@@ -5,10 +5,10 @@
     .module('app.services')
     .factory('authInterceptor', authInterceptor);
 
-    authInterceptor.$inject = ['authToken'];
+    authInterceptor.$inject = ['$q', '$rootScope', 'authToken'];
     /* @ngInject */
-    function authInterceptor(authToken) {
-      return {
+    function authInterceptor($q, $rootScope, authToken) {
+      var interceptor =  {
         request: function(config) {
           var token = authToken.getToken();
           if (token) {config.headers.Authorization = 'Bearer ' + token;}
@@ -16,7 +16,12 @@
         },
         response: function(response) {
           return response;
+        },
+        responseError: function(error) {
+          return $q.reject(error);
         }
       };
+
+      return interceptor;
     }
 }());
