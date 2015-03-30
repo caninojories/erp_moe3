@@ -11,11 +11,6 @@
       var vm = this;
 
       vm.add              = add;
-      vm.fromAddressModal = fromAddressModal;
-
-      function fromAddressModal() {
-        strapModal.show('am-fade-and-scale', 'center', 'commons/addInvoiceFromAddress.html');
-      }
 
       function add() {
         return $q.all([addCallback()])

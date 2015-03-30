@@ -27,10 +27,10 @@
             <li ui-sref-active="active">
               <a ui-sref='registration'><$ __('invoice.header.registrations.invoice') $></a>
             </li>
-            <li ui-sref-active="active" ng-controller="FromAddress as vm">
+            <li ui-sref-active="active" ng-controller="HeaderModal as vm">
               <a href="#" ng-click="vm.fromAddressModal()"><$ __('invoice.header.registrations.invoiceAddress') $> - <$ __('invoice.header.registrations.from') $></a>
             </li>
-            <li ui-sref-active="active" ng-controller="ToAddress as vm">
+            <li ui-sref-active="active" ng-controller="HeaderModal as vm">
               <a href="#" ng-click="vm.toAddressModal()"><$ __('invoice.header.registrations.invoiceAddress') $> - <$ __('invoice.header.registrations.to') $></a>
             </li>
           </ul>

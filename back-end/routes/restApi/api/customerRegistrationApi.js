@@ -4,8 +4,8 @@
   var express = require('express'),
       app     = express(),
 
-      POST_CustomerRegistration = require('../adminApImplementation/customerRegistration/postIndex.js'),
-      GET_CustomerRegistration  = require('../adminApImplementation/customerRegistration/getIndex.js');
+      POST_CustomerRegistration = require('../apImpl/admin/customerRegistration/postIndex.js'),
+      GET_CustomerRegistration  = require('../apImpl/admin/customerRegistration/getIndex.js');
 
     app.route('/customerRegistration')
       .get(GET_CustomerRegistration.getOne)

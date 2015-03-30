@@ -5,10 +5,10 @@
   router        = express.Router(),
   app           = express(),
 
-  getSalesRepresentativeList          = require('../adminApImplementation/salesRepresentativeListing/getIndex.js'),
-  DELETE_SalesRepresentativeInTheList = require('../adminApImplementation/salesRepresentativeListing/deleteIndex.js'),
-  GET_OneSalesRepresentative          = require('../adminApImplementation/salesRepresentativeListing/getIndex.js'),
-  PUT_SalesRepresentative             = require('../adminApImplementation/salesRepresentativeListing/putIndex.js');
+  getSalesRepresentativeList          = require('../apImpl/admin/salesRepresentativeListing/getIndex.js'),
+  DELETE_SalesRepresentativeInTheList = require('../apImpl/admin/salesRepresentativeListing/deleteIndex.js'),
+  GET_OneSalesRepresentative          = require('../apImpl/admin/salesRepresentativeListing/getIndex.js'),
+  PUT_SalesRepresentative             = require('../apImpl/admin/salesRepresentativeListing/putIndex.js');
 
   app.route('/getSalesRepresentativeList')
     .get(getSalesRepresentativeList.getSalesRepresentativeList);

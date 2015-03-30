@@ -3,9 +3,9 @@
 
   var app = io.express(),
 
-      POSTFACEBOOKLOGIN  = require('../adminApImplementation/login/postIndex.js'),
-      POSTGOOGLELOGIN    = require('../adminApImplementation/login/postIndex.js'),
-      POSTUSERLOGIN      = require('../adminApImplementation/login/postIndex.js');
+      POSTFACEBOOKLOGIN  = require('../apImpl/admin/login/postIndex.js'),
+      POSTGOOGLELOGIN    = require('../apImpl/admin/login/postIndex.js'),
+      POSTUSERLOGIN      = require('../apImpl/admin/login/postIndex.js');
 
   app.route('/logInUserFacebook')
     .post(POSTFACEBOOKLOGIN.postFacebookLogin);

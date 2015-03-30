@@ -4,7 +4,7 @@
   var express = require('express'),
       app     = express(),
 
-      POST_InvoiceRegistration = require('../adminApImplementation/invoiceRegistration/postIndex');
+      POST_InvoiceRegistration = require('../apImpl/admin/invoiceRegistration/postIndex');
 
   app.route('/invoiceRegistration')
     .post(POST_InvoiceRegistration.post);

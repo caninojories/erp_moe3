@@ -3,6 +3,7 @@
 
   module.exports = function() {
     var routesApi = global.io.rootPath + 'back-end/routes/restApi/api/';
+    var serviceApi = io.rootPath + 'back-end/routes/restApi/services/';
     //
     var useApi = {
       salesRepresentativeRegistrationApi  : require(routesApi + 'salesRepresentativeRegistrationApi'),
@@ -16,7 +17,7 @@
       userSignUpApi                       : require(routesApi + 'login'),
       registerApi                         : require(routesApi + 'register'),
       login                               : require(routesApi + 'login'),
-      settings                            : require(routesApi + 'settings'),
+      settings                            : require(serviceApi + 'settings'),
       download                            : require(routesApi + 'download')
     };
     return useApi;

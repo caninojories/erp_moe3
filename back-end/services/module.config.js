@@ -94,7 +94,12 @@
       commonViewsBuild  : path.join(rootPath, 'build/commons'),
 
       /* AdminImplementation Routes */
-      INVOICE           : require(rootPath + 'back-end/configuration/require/routes/adminApImplementation/invoice'),
-      SETTINGS          : require(rootPath + 'back-end/configuration/require/routes/adminApImplementation/settings')
+      INVOICE           : require(rootPath + 'back-end/configuration/routes/admin/invoice'),
+      //SETTINGS          : require(rootPath + 'back-end/configuration/routes/adminApImplementation/settings'),
+
+      /* SERVICES API */
+      USER              : require(rootPath + 'back-end/configuration/routes/services'),
+      SERVICES          : require(rootPath + 'back-end/configuration/routes/services')
+
   };
 }());

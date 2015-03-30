@@ -3,11 +3,11 @@
 
   var app = io.express(),
 
-  GET_InoviceList     = require('../adminApImplementation/invoiceList/getIndex.js'),
-  DELETE_InvoiceList  = require('../adminApImplementation/invoiceList/deleteIndex.js'),
+  GET_InoviceList     = require('../apImpl/admin/invoiceList/getIndex.js'),
+  DELETE_InvoiceList  = require('../apImpl/admin/invoiceList/deleteIndex.js'),
 
-  GET_OneInvoice      = require('../adminApImplementation/invoiceList/getIndex.js'),
-  PUT_OneInvoice      = require('../adminApImplementation/invoiceList/putIndex.js');
+  GET_OneInvoice      = require('../apImpl/admin/invoiceList/getIndex.js'),
+  PUT_OneInvoice      = require('../apImpl/admin/invoiceList/putIndex.js');
 
   app.route('/invoiceList')/* /view/list */
   .get(GET_InoviceList.getList)

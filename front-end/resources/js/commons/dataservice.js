@@ -16,6 +16,7 @@
         httpPUTQueryParams    : httpPUTQueryParams,
         httpDELETERouteParams : httpDELETERouteParams,
         httpDELETEQueryParams : httpDELETEQueryParams,
+        userCredentials       : userCredentials,
         checkEmail            : checkEmail,
         signup                : signup,
         login                 : login,
@@ -129,6 +130,24 @@
           });
 
           function httpDELETEQueryParamsCallback(response, status, header, config) {
+            return Restangular.stripRestangular(response);
+          }
+      }
+
+      function userCredentials(api, param, apiService) {
+        return apiService.one(api)
+          .get(param)
+          .then(userCredentialsCallback)
+          .catch(function(message) {
+            /***
+            ** Call the exception factory to show the error in the client for Development
+            ** then wait for 5 seconds then redirect
+            ***/
+            exception.catcher('Error in checking email name on all the list of User Data', message);
+            return message;
+          });
+
+          function userCredentialsCallback(response, status, header, config) {
             return Restangular.stripRestangular(response);
           }
       }

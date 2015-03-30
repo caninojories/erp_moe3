@@ -4,11 +4,11 @@
   var express = require('express'),
       app     = express(),
 
-      GET_QuotationList     = require('../adminApImplementation/quotationList/getIndex.js'),
-      DELETE_QuotationList  = require('../adminApImplementation/quotationList/deleteIndex.js'),
+      GET_QuotationList     = require('../apImpl/admin/quotationList/getIndex.js'),
+      DELETE_QuotationList  = require('../apImpl/admin/quotationList/deleteIndex.js'),
 
-      GET_OneQuotation      = require('../adminApImplementation/quotationList/getIndex.js'),
-      PUT_OneQuotation      = require('../adminApImplementation/quotationList/putIndex.js');
+      GET_OneQuotation      = require('../apImpl/admin/quotationList/getIndex.js'),
+      PUT_OneQuotation      = require('../apImpl/admin/quotationList/putIndex.js');
 
   app.route('/quotationList')
     .get(GET_QuotationList.getList)

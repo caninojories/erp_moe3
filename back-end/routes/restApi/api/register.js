@@ -3,8 +3,8 @@
 
   var app = io.express(),
 
-      GETEMAILINFO       = require('../adminApImplementation/register/getIndex.js'),
-      POSTREGISTERUSER   = require('../adminApImplementation/register/postIndex.js');
+      GETEMAILINFO       = require('../apImpl/admin/register/getIndex.js'),
+      POSTREGISTERUSER   = require('../apImpl/admin/register/postIndex.js');
 
   app.route('/userRegister')
     .post(io.preRegister, POSTREGISTERUSER.registerUser);
