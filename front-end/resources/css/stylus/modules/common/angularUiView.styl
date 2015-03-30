@@ -1,13 +1,8 @@
-.ui-view-container {
-  position: relative;
-}
-
-[ui-view].ng-enter,
-[ui-view].ng-leave {
+[ui-view].ng-enter, [ui-view].ng-leave {
   position: absolute;
   left: 0;
   right: 0;
-  transition: all .70s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 [ui-view].ng-enter {
@@ -19,8 +14,7 @@
 }
 
 [ui-view].ng-leave {
-  opacity: 0;
-  transform: translate3d(0, 0, 0);
+  opacity: 1;
 }
 
 [ui-view].ng-leave-active {

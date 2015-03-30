@@ -64,15 +64,12 @@ alert-info {
 .marginTop {
   margin-top: 10px;
 }
-.ui-view-container {
-  position: relative;
-}
 [ui-view].ng-enter,
 [ui-view].ng-leave {
   position: absolute;
   left: 0;
   right: 0;
-  transition: all 0.7s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 [ui-view].ng-enter {
   opacity: 0;
@@ -86,11 +83,10 @@ alert-info {
           filter: none;
 }
 [ui-view].ng-leave {
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  -ms-filter: none;
+  -webkit-filter: none;
+          filter: none;
 }
 [ui-view].ng-leave-active {
   opacity: 0;

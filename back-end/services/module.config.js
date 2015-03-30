@@ -11,7 +11,7 @@
 
   module.exports = {
       rootPath            : rootPath,
-      preRegister        : require('./preRegister'),
+      preRegister         : require('./preRegister'),
       authorize           : require('./authorize'),
       clusterService      : require('./cluster'),
       config              : require('./config'),
@@ -24,6 +24,7 @@
       googleAuth          : require('./googleAuth'),
       i18n                : require('./i18n'),
       languageLocale      : require('./language.locale'),
+      locaLogin          : require('./locaLogin'),
       mongoDB             : require('../configuration/mongodb'),
       Customer            : require('../model/Customer'),
       Invoice             : require('../model/Invoice'),

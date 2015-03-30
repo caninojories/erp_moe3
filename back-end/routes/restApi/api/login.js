@@ -14,7 +14,7 @@
     .post(POSTGOOGLELOGIN.postGoogleLogin);
 
   app.route('/userLogin')
-    .post(POSTUSERLOGIN.postUserLogin);
+    .post(io.locaLogin, POSTUSERLOGIN.postUserLogin);
 
   module.exports = app;
 }());
