@@ -13,7 +13,7 @@
       }, function(err, user) {
         if (err) {return next(err);}
         if (!user) {
-          err         = new Error('Invalid Username');
+          err         = new Error('Invalid Email');
           err.status  = 401;
           return next(err);
         }

@@ -5,11 +5,11 @@
     .module('app.services')
     .controller('HeaderModal', HeaderModal);
 
-    HeaderModal.$inject = ['strapModal'];
+    HeaderModal.$inject = ['$rootScope', '$auth', 'strapModal'];
     /*@ngInject*/
-    function HeaderModal(strapModal) {
+    function HeaderModal($rootScope, $auth, strapModal) {
       var vm = this;
-
+      // $rootScope.isAuthenticated  = $auth.isAuthenticated;
       vm.loginUser = loginUser;
 
       function loginUser() {

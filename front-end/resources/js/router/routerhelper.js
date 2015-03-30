@@ -100,7 +100,6 @@
         function updateDocTitle() {
           $rootScope.$on('$stateChangeSuccess',
             function(event, toState, toParams, fromState, fromParams) {
-              console.log(angular.element('body').css('opacity', '1'));
 
               if ((toState.name === 'salesRepresentativeListing' ||
                 toState.name === 'customerList' || toState.name === 'quotationList') &&

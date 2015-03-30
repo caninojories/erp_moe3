@@ -4,7 +4,7 @@
   var express = require('express'),
   router      = express.Router();
 
-  router.get('/admin/invoice/registration.html', io.authorize, io.xPoweredBy, io.languageLocale, function(req, res) {
+  router.get('/admin/invoice/registration.html', io.xPoweredBy, io.languageLocale, io.authorize, function(req, res) {
     res.render('admin/invoice/registration.html');
   });
 

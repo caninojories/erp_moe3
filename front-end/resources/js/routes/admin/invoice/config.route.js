@@ -33,7 +33,12 @@
           url: '/invoice/list',
           templateUrl: '/admin/invoice/viewList.html',
           controller: 'ViewList as vm',
-          title: 'Invoice View List'
+          title: 'Invoice View List',
+          resolve: {
+            authorize: function() {
+              
+            }
+          }
         }
       }, {
         state: 'editOne',

@@ -24,7 +24,7 @@
       googleAuth          : require('./googleAuth'),
       i18n                : require('./i18n'),
       languageLocale      : require('./language.locale'),
-      locaLogin          : require('./locaLogin'),
+      locaLogin           : require('./locaLogin'),
       mongoDB             : require('../configuration/mongodb'),
       Customer            : require('../model/Customer'),
       Invoice             : require('../model/Invoice'),

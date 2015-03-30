@@ -79,16 +79,16 @@
           </ul>
         </li> -->
       </ul>
-      <ul class='nav navbar-nav navbar-right' ng-controller='Register as vm'>
-        <li ng-hide='vm.isAuthenticated()'>
+      <ul class='nav navbar-nav navbar-right'>
+        <li ng-hide='vm.isAuthenticated()' ng-controller='Register as vm'>
           <a href='#' ng-click='vm.registerUser()'>Register</a>
         </li>
-        <li ng-show='vm.isAuthenticated()'>
+        <li ng-show='isAuthenticated()' ng-controller="Signin as vm">
           <a href='' ng-click='vm.logout()'>Logout</a>
         </li>
-        <li ng-hide='vm.isAuthenticated()' class="dropdown login1" ng-controller="HeaderModal as vm">
-          <a href='#' class="dropdown-toggle" data-toggle="dropdown">
-            Log-in
+        <li ng-hide='isAuthenticated()' class="dropdown login1" ng-controller="HeaderModal as vm">
+          <a href='#' class="dropdown-toggle" data-toggle="dropdown" ng-controller="Signin as vm">
+            Log-in {{isAuthenticated}}
             <span class="caret"></span>
           </a>
           <ul class="login1 dropdown-menu" role="menu">

@@ -32,8 +32,6 @@
             // straight to console; bypass toastr
             log       : $log.log
         };
-        console.log(service.showToasts);
-        console.log(isLogger);
         return service;
         /////////////////////
         /**

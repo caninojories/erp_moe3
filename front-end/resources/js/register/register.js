@@ -12,14 +12,12 @@
       /*Function*/
       vm.isAuthenticated      = $auth.isAuthenticated;
       vm.checkEmailInBlurred  = checkEmailInBlurred;
-      vm.logout               = logout;
       vm.register             =  register;
       vm.registerUser         = registerUser;
 
       function checkEmailInBlurred(signupForm) {
         return $q.all([checkEmailInBlurredCallBack()])
           .then(function(response) {
-            console.log(response);
             if (response[0].status !== 404) {
               signupForm.email.$setValidity('taken', false);
             }
@@ -61,8 +59,6 @@
           });
       }
 
-      function logout() {
-        $auth.logout();
-      }
+
     }
 }());

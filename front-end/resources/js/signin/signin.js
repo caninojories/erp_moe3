@@ -5,15 +5,17 @@
     .module('app.signin')
     .controller('Signin', Signin);
 
-    Signin.$inject = ['$timeout', '$scope', '$auth', 'strapAlert', 'strapModal'];
+    Signin.$inject = ['$timeout', '$rootScope', '$auth', 'strapAlert', 'strapModal'];
     /*@ngInject*/
-    function Signin($timeout, $scope, $auth, strapAlert, strapModal) {
+    function Signin($timeout, $rootScope, $auth, strapAlert, strapModal) {
       var vm = this;
 
+      /*Variable Initialization*/
+      $rootScope.isAuthenticated  = $auth.isAuthenticated;
       /*Functions*/
       vm.authenticate     = authenticate;
-      vm.isAuthenticated  = $auth.isAuthenticated;
       vm.login            = login;
+      vm.logout           = logout;
 
       function login(isLoginFormValid) {
         if (!isLoginFormValid) {return;}
@@ -22,7 +24,7 @@
           email: vm.email,
           password: vm.password
         }).then(function(response) {
-          //$rootScope.username = response.data.user.username;
+          $rootScope.isAuthenticated  = $auth.isAuthenticated;
           strapModal.hide();
         }).catch(function(error) {
           strapAlert.show('Warning: ', error.data.message, 'danger', 'alert-login');
@@ -34,12 +36,15 @@
 
       function authenticate(provider) {
         $auth.authenticate(provider)
-        .then(function(response) {
-          //$rootScope.username = response.data.user.displayName || response.data.user.username;
+          .then(function(response) {
           vm.isAuthenticated = $auth.isAuthenticated;
-        }, function(err) {
-          if (err) {throw err;}
+        }).catch(function(error) {
+          
         });
+      }
+
+      function logout() {
+        $auth.logout();
       }
     }
 }());

@@ -5,9 +5,9 @@
     .module('app.services')
     .factory('authInterceptor', authInterceptor);
 
-    authInterceptor.$inject = ['$q', '$rootScope', 'authToken'];
+    authInterceptor.$inject = ['$injector', '$q', '$rootScope', '$window', 'authToken'];
     /* @ngInject */
-    function authInterceptor($q, $rootScope, authToken) {
+    function authInterceptor($injector, $q, $rootScope, $window, authToken) {
       var interceptor =  {
         request: function(config) {
           var token = authToken.getToken();
@@ -18,6 +18,10 @@
           return response;
         },
         responseError: function(error) {
+          var $state = $injector.get('state');
+          if (error.data.message === 'Unauthorized Routes' && error.data.status === 401) {
+            $state.unauthorized();
+          }
           return $q.reject(error);
         }
       };
