@@ -4,7 +4,7 @@
   var app = io.express();
 
   app.route('/userCredentials')
-    .post(io.USER().get.one);
+    .get(io.SERVICES().user);
 
   module.exports = app;
 }());

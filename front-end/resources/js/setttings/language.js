@@ -15,9 +15,10 @@
       function language(lang) {
         languageToken.setToken(lang);
         commonsDataService
-          .httpGETRouteParams('',
+          .httpGETRouteParams('settings',
             lang, settingServiceApi)
           .then(function(response) {
+            console.log(response);
             if (response.language !== undefined) {
               $timeout(function() {
                 $window.location.reload();

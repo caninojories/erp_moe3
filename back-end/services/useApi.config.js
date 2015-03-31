@@ -3,7 +3,7 @@
 
   module.exports = function() {
     var routesApi = global.io.rootPath + 'back-end/routes/restApi/api/';
-    var serviceApi = io.rootPath + 'back-end/routes/restApi/services/';
+    var serviceApi = io.rootPath + 'back-end/routes/restApi/apImpl/services/';
     //
     var useApi = {
       salesRepresentativeRegistrationApi  : require(routesApi + 'salesRepresentativeRegistrationApi'),
@@ -17,8 +17,9 @@
       userSignUpApi                       : require(routesApi + 'login'),
       registerApi                         : require(routesApi + 'register'),
       login                               : require(routesApi + 'login'),
-      settings                            : require(serviceApi + 'settings'),
-      download                            : require(routesApi + 'download')
+      settings                            : require(routesApi + 'settings'),
+      download                            : require(routesApi + 'download'),
+      user                                : require(routesApi + 'user')
     };
     return useApi;
   };

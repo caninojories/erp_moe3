@@ -10,13 +10,13 @@
     function userAuthorize($q, commonsDataService, userServiceApi) {
       var user = {
         credentials: function() {
-          $q.all([user.credentialsCallback])
+          return $q.all([user.credentialsCallback()])
             .then(function(response) {
               return response;
             });
         },
         credentialsCallback: function() {
-          commonsDataService
+          return commonsDataService
             .userCredentials('userCredentials', {}, userServiceApi)
             .then(function(response) {
               return response;

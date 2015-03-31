@@ -2,9 +2,9 @@
   'use strict';
 
   var app = io.express();
-
-  app.route('/:language')
-    .get(io.languageLocale, io.SETTINGS().get.language);
+  
+  app.route('/settings/:language')
+    .get(io.languageLocale, io.SERVICES().settings);
 
   module.exports = app;
 }());

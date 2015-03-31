@@ -15,8 +15,15 @@
       vm.toAddressModal   = toAddressModal;
 
       function fromAddressModal() {
-        console.log(userAuthorize.credentials());
-        strapModal.show('am-fade-and-scale', 'center', 'commons/addInvoiceFromAddress.html');
+        userAuthorize.credentials()
+          .then(function(response) {
+            if (response[0].data !== undefined) {
+              strapModal.show('am-fade-and-scale', 'center', 'commons/addInvoiceFromAddress.html');
+            }
+            else {
+              strapModal.show('am-fade-and-scale', 'center', 'commons/unauthorizedAccess.html');
+            }
+          });
       }
 
       function loginUser() {
@@ -24,7 +31,15 @@
       }
 
       function toAddressModal() {
-        strapModal.show('am-fade-and-scale', 'center', 'commons/addInvoiceToAddress.html');
+        userAuthorize.credentials()
+          .then(function(response) {
+            if (response[0].data !== undefined) {
+              strapModal.show('am-fade-and-scale', 'center', 'commons/addInvoiceToAddress.html');
+            }
+            else {
+              strapModal.show('am-fade-and-scale', 'center', 'commons/unauthorizedAccess.html');
+            }
+          });
       }
     }
 }());
