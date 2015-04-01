@@ -81,7 +81,7 @@
   },
   "scripts": {
     "start": "nodemon backend/server.js",
-    "postinstall": "bower install"
+    "postinstall": "npm install && bower install"
   },
   "repository": {
     "type": "git",
