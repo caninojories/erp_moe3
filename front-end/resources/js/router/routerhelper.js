@@ -6,7 +6,7 @@
     .provider('routehelperConfig', routehelperConfig)
     .factory('routehelper', routehelper);
 
-  routehelper.$inject = ['$location', '$rootScope', '$q', '$state', '$timeout', '$window',
+  routehelper.$inject = ['$injector', '$location', '$rootScope', '$q', '$state', '$timeout', '$window',
     'logger', 'routehelperConfig'];
 
   // Must configure via the routehelperConfigProvider
@@ -27,7 +27,7 @@
     };
   }
     /*@ngInject*/
-    function routehelper($location, $rootScope, $q, $state, $timeout, $window,
+    function routehelper($injector, $location, $rootScope, $q, $state, $timeout, $window,
       logger, routehelperConfig, commonsDataservice) {
         var handlingRouteChangeError = false;
         // var routeCounts = {
@@ -100,6 +100,9 @@
         function updateDocTitle() {
           $rootScope.$on('$stateChangeSuccess',
             function(event, toState, toParams, fromState, fromParams) {
+              if($rootScope.error === true) {
+                return $state.go('401');
+              }
 
               if ((toState.name === 'salesRepresentativeListing' ||
                 toState.name === 'customerList' || toState.name === 'quotationList') &&

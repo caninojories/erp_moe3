@@ -5,7 +5,9 @@
   "main": "back-end/server.js",
   "devDependencies": {
     "browser-sync": "^2.0.1",
+    "concat-stream": "^1.4.7",
     "del": "^1.1.1",
+    "gridfs-stream": "^1.1.0",
     "gulp": "^3.8.8",
     "gulp-angular-templatecache": "^1.5.0",
     "gulp-autoprefixer": "^2.1.0",
@@ -34,6 +36,7 @@
     "jshint-stylish": "^1.0.1",
     "karma": "^0.12.31",
     "nib": "^1.1.0",
+    "shortid": "^2.2.1",
     "should": "^5.2.0",
     "supertest": "^0.15.0",
     "wiredep": "^2.2.2",

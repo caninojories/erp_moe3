@@ -11,7 +11,7 @@
     } else {
       req.isAuthenticated = false;
       var err     = new Error('Unauthorized Routes');
-      err.status  = 401;
+      err.status  = 200;
       return next(err);
     }
   };

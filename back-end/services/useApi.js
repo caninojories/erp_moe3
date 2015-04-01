@@ -38,6 +38,9 @@
     }, {
       name: '/downloadApi',
       url: io.useApiConfig().download
+    }, {
+      name: '/uploadApi',
+      url: io.useApiConfig().upload
     }]);
 
     function useApi(param) {

@@ -18,7 +18,12 @@
           url: '/invoice/register',
           templateUrl: '/admin/invoice/registration.html',
           controller: 'Registration as vm',
-          title: 'Invoice Registration'
+          title: 'Invoice Registration',
+          resolve: {
+            routesAuthenticated: function($rootScope, $state) {
+          
+            }
+          }
         }
       }, {
         state: 'viewOne',
@@ -36,7 +41,7 @@
           title: 'Invoice View List',
           resolve: {
             authorize: function() {
-              
+
             }
           }
         }

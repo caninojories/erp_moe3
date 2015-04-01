@@ -5,10 +5,10 @@
     .module('app.invoice')
     .controller('Registration', Registration);
 
-    Registration.$inject = ['$q', '$rootScope', '$scope', '$timeout', '$window', 'exception', 'strapAlert',
+    Registration.$inject = ['$q', '$rootScope', '$scope', '$state', '$timeout', '$window', 'exception', 'strapAlert',
     'strapModal', 'commonsDataService', 'invoiceServiceApi'];
     /*@ngInject*/
-    function Registration($q, $rootScope, $scope, $timeout, $window, exception, strapAlert,
+    function Registration($q, $rootScope, $scope, $state, $timeout, $window, exception, strapAlert,
     strapModal, commonsDataService, invoiceServiceApi) {
       var vm = this;
 

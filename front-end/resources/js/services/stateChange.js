@@ -10,7 +10,6 @@
     function state($state){
       var stateObj = {
         unauthorized: function() {
-          console.log($state);
           $state.go('401');
         }
       };

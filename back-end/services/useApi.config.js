@@ -19,7 +19,8 @@
       login                               : require(routesApi + 'login'),
       settings                            : require(routesApi + 'settings'),
       download                            : require(routesApi + 'download'),
-      user                                : require(routesApi + 'user')
+      user                                : require(routesApi + 'user'),
+      upload                              : require(routesApi + 'upload')
     };
     return useApi;
   };

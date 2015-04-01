@@ -15,13 +15,14 @@
           return config;
         },
         response: function(response) {
+          if (response.data.message === 'Unauthorized Routes' && response.data.status === 200) {
+            $rootScope.error = true;
+          } else {
+            $rootScope.error = false;
+          }
           return response;
         },
         responseError: function(error) {
-          var $state = $injector.get('state');
-          if (error.data.message === 'Unauthorized Routes' && error.data.status === 401) {
-            $state.unauthorized();
-          }
           return $q.reject(error);
         }
       };
