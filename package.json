@@ -35,7 +35,6 @@
     "jshint-stylish": "^1.0.1",
     "karma": "^0.12.31",
     "nib": "^1.1.0",
-    "shortid": "^2.2.1",
     "should": "^5.2.0",
     "supertest": "^0.15.0",
     "wiredep": "^2.2.2",
@@ -77,6 +76,7 @@
     "request-promise": "^0.3.2",
     "run-sequence": "^0.3.6",
     "serve-favicon": "~2.0.1",
+    "shortid": "^2.2.1",
     "underscore": "^1.6.0"
   },
   "scripts": {
