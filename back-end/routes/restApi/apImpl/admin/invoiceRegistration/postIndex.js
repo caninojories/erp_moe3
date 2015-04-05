@@ -2,7 +2,6 @@
   'use strict';
 
   exports.post = function(req, res, next) {
-    console.log(req.body);
     var invoice = req.body,
         options = {
           io      : global.io,

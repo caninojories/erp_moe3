@@ -19,11 +19,6 @@
           templateUrl: '/admin/invoice/registration.html',
           controller: 'Registration as vm',
           title: 'Invoice Registration',
-          resolve: {
-            routesAuthenticated: function($rootScope, $state) {
-          
-            }
-          }
         }
       }, {
         state: 'viewOne',

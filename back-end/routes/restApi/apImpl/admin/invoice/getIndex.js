@@ -80,11 +80,9 @@
   };
 
   exports.one = function(req, res, next) {
-    var query = io.url.parse(req.url, true).query;
-
     var options = {
       name: 'Invoice',
-      find: query.id,
+      find: req.params.id,
       merge: {
         bool : true,
         findFrom: 'findFrom',
@@ -111,32 +109,14 @@
     var query = io.url.parse(req.url, true).query;
     var phantom = require('phantom');
 
-    phantom.create(function(ph){
+    phantom.create(function(ph) {
       ph.createPage(function(page) {
         page.open('http://' + req.headers.host + '/invoice/view/' + query.id, function(status) {
-          console.log(req.headers.host);
-          console.log(status);
           page.setPaperSize({format: 'letter'}, function(format) {
-            if(status === 'success') {
-              page.render(query.number + '.pdf', function(){
-                var path = root(query.number + '.pdf');
+            if (status === 'success') {
+              page.render(query.number + '.pdf', function() {
                 res.json({name: query.number + '.pdf'});
                 ph.exit();
-                //res.sendfile('getIndex.js', {root: __dirname});
-                //res.download(path);
-                //res.json('success');
-
-                // io.fse.move(path, '/Users/canino_jories/erp_moe3/' + query.number + '.pdf', {clobber: true},function(err) {
-                //   if (err) {
-                //     return res.json(err);
-                //   }
-                //   // console.error(err);
-                //   //console.log("success!");
-                //   res.json({data: 'Page Rendered'});
-                //   //ph.exit();
-                // });
-                //console.log('Page Rendered');
-
               });
             }
           });
@@ -153,7 +133,6 @@
     var total   = [];
     var monthsCounter = 0;
 
-
     // if(from === until) {
     //   var days = io.moment(query.from).endOf('month').format('DD');
     // }
@@ -163,12 +142,12 @@
       var endDate   = io.moment(query.untilDate);
 
       var dateDiff = endDate.diff(startDate, 'month');
-      for(var i = 0; i <= dateDiff; i++) {
+      for (var i = 0; i <= dateDiff; i++) {
         var fromNames = io.moment(query.fromDate).add(i, 'months').format('MMMM');
         months.push(fromNames);
       }
 
-      for(var j = 0; j < dateDiff; j++) {
+      for (var j = 0; j < dateDiff; j++) {
         total.push(0);
       }
     }
@@ -178,22 +157,19 @@
         io.mongoDB(io.config.dbName)
           .then(function() {
             /** shows that we have same month**/
-            if(months.length === 1) {
+            if (months.length === 1) {
               monthByMonth(query.fromDate, query.untilDate, monthsCounter);
             } else {
-              for(var i = 0; i < months.length; i++) {
+              for (var i = 0; i < months.length; i++) {
                 var fromDate  = io.moment(query.fromDate).add(i, 'months').format('MMMM DD YYYY');
                 var untilDate = io.moment(query.fromDate).add(i + 1, 'months').format('MMMM DD YYYY');
                     untilDate = io.moment(untilDate).subtract(1, 'days').format('MMMM DD YYYY');
-
                 monthByMonth(fromDate, untilDate);
               }
             }
           });
 
         function monthByMonth(fromDate, untilDate) {
-          console.log(fromDate);
-          console.log(untilDate);
           io.Invoice
             .find({'date': {'$gte': fromDate, '$lte': untilDate}, currency: query.currency})
             .exec()
@@ -202,7 +178,6 @@
               var numMonth;
               if (result.length === 0) {
                 numMonth = io.moment(untilDate).format('M');
-                //total.push(0);
                 monthsCounter++;
                 total.splice(numMonth - 1, 0, 0);
               } else {
@@ -210,9 +185,8 @@
                 for (var i = 0; i < result.length; i++) {
                   sum += parseInt(result[i].total.split(' ')[1]);
                   console.log(parseInt(result[i].total.split(' ')[1]));
-                  if((i + 1) === result.length) {
+                  if ((i + 1) === result.length) {
                     total.splice(numMonth - 1, 0, sum);
-                    //total.push(sum);
                     monthsCounter++;
                   }
                 }

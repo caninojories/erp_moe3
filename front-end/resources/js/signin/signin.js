@@ -39,7 +39,7 @@
           .then(function(response) {
           vm.isAuthenticated = $auth.isAuthenticated;
         }).catch(function(error) {
-          
+          /*catch error here*/
         });
       }
 

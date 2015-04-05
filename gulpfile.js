@@ -57,4 +57,6 @@
   require('./gulp/tasks/test')(gulp, util, logger, config);
   require('./gulp/tasks/jasmine-test')(gulp, jasmine, jasmineReport);
   require('./gulp/tasks/constants')(gulp, ngConstant);
+  require('./gulp/tasks/build-specs')(gulp, inject, wiredep, util, logger, config);
+  require('./gulp/tasks/serve-spec')(args, browserSync, gulp, nodemon, util, logger, serve, config);
 }());

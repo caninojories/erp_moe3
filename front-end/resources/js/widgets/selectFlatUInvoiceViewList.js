@@ -5,7 +5,7 @@
     .module('app.widgets')
     .directive('select2FlatUiInvoiceViewList', select2FlatUi);
 
-    select2FlatUi.$inject = ['$q','$rootScope', '$timeout', 'commonsDataService', 'invoiceServiceApi', 'strapAlert'];
+    select2FlatUi.$inject = ['$q', '$rootScope', '$timeout', 'commonsDataService', 'invoiceServiceApi', 'strapAlert'];
     /*@ngInject*/
     function select2FlatUi($q, $rootScope, $timeout, commonsDataService, invoiceServiceApi, strapAlert) {
       var directive = {
@@ -17,23 +17,12 @@
 
       function link(scope, element, attrs) {
         element.val(attrs.select2FlatUiInvoiceViewList);
-        // scope.$on('currency', function(event, data) {
-        //   switch(data.toString()) {
-        //     case '$ ':
-        //       element.select2('val', 'Dollar');
-        //       break;
-        //     case '¥ ':
-        //       element.select2('val', 'Dollar');
-        //       console.log('yen');
-        //       break;
-        //   }
-        // });
         element.select2({dropdownCssClass: 'select2DropDown'});
         element.on('change', function(e) {
           var val = element.val();
           $q.all([putInvoiceListCallback(attrs.id , val)])
             .then(function(response) {
-              if(response[0].number !== undefined) {
+              if (response[0].number !== undefined) {
                 strapAlert.show('Success!', 'Status update success ', 'success', 'alert-invoice-update-status');
                 $timeout(function() {
                   strapAlert.hide();
@@ -58,7 +47,7 @@
       }
 
       function currencySymbol(currency) {
-        switch(currency) {
+        switch (currency) {
           case 'Yen':
             $rootScope.currency = '¥ ';
             break;

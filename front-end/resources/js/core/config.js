@@ -1,6 +1,12 @@
 (function() {
     'use strict';
 
+    var config = {
+        appErrorPrefix: '[Magens Error] ',
+        appTitle: 'Magens Boilerplate',
+        version: '0.0.0'
+    };
+
     angular
       .module('app.core')
       .value('config', config)
@@ -15,12 +21,6 @@
       toastr.options.timeOut = 4000;
       toastr.options.positionClass = 'toast-top-right';
     }
-
-    var config = {
-        appErrorPrefix: '[Magens Error] ',
-        appTitle: 'Magens Boilerplate',
-        version: '0.0.0'
-    };
 
     loginConfig.$inject = ['$authProvider', 'cfpLoadingBarProvider'];
     /*@ngInject*/

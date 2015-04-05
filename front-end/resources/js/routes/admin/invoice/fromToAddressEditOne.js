@@ -20,7 +20,8 @@
             if (response[0]._id !== undefined) {
               strapModal.hide();
               $timeout(function() {
-                strapAlert.show(' ', $scope.companyName + ' is successfully updated ', 'success', 'alert-invoice-address-update');
+                strapAlert.show(' ', $scope.companyName + ' is successfully updated ', 'success',
+                'alert-invoice-address-update');
                 $timeout(function() {
                   strapAlert.hide();
                 }, 2000);

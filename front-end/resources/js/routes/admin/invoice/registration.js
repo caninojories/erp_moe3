@@ -57,12 +57,15 @@
         vm.total        = $rootScope.currency || 0;
         var sum         = 0;
         vm.tempSubTotal = 0;
+
         for (var obj in vm.invoiceList) {
-          sum += vm.invoiceList[obj].amount;
+          if (vm.invoiceList.hasOwnProperty(obj)) {
+            sum += vm.invoiceList[obj].amount;
+          }
         }
 
         if (vm.tax.length !== 0 && vm.tax !== '0') {
-          vm.tempSubTotal += (sum * (vm.tax/100));
+          vm.tempSubTotal += (sum * (vm.tax / 100));
           vm.tempSubTotal  += sum;
         } else {
           vm.tempSubTotal = sum;
@@ -84,7 +87,8 @@
       function saveInvoice() {
         return $q.all([saveInvoiceCallBack()])
           .then(function(response) {
-            strapAlert.show('Success!', 'Invoice #' + vm.number + ' is successfully saved ', 'success', 'alert-invoice-registration');
+            strapAlert.show('Success!', 'Invoice #' + vm.number + ' is successfully saved ', 'success',
+            'alert-invoice-registration');
             $timeout(function() {
               strapAlert.hide();
               $window.location.reload();
@@ -120,7 +124,7 @@
       function fromLookup() {
         return $q.all([fromLookupCallback()])
           .then(function(response) {
-            if(response[0].name !== undefined) {
+            if (response[0].name !== undefined) {
               $rootScope.companyName = $rootScope.companyNameFrom;
               var obj = response[0];
               $rootScope.address  = obj.address;
@@ -153,7 +157,7 @@
       function toLookup() {
         return $q.all([tolookupCallback()])
           .then(function(response) {
-            if(response[0].name !== undefined) {
+            if (response[0].name !== undefined) {
               $rootScope.companyName = $rootScope.companyNameTo;
               var obj = response[0];
               $rootScope.address  = obj.address;

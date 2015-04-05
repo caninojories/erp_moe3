@@ -1,9 +1,11 @@
-(function() {
+ (function() {
   'use strict';
 
   module.exports = function() {
-    var wiredep = require('wiredep');
-    var bowerFiles = wiredep({devDependencies: true}).js;
+    var client          = 'front-end/views/',
+        wiredep         = require('wiredep'),
+        bowerFiles      = wiredep({devDependencies: true}).js,
+        specRunnerFile  = 'specs.html';
     var config = {
       adminRoutes: 'front-end/views/admin/**/*.*',
 
@@ -14,7 +16,7 @@
         'back-end/**/*.js'
       ],
       build: './build/',
-      client: 'front-end/views/',
+      client: client,
       clientRoutes: 'front-end/views/client/**/*.*',
       commons: 'front-end/views/commons/**/*.*',
       css: 'front-end/.tmp/stylus/app.css',
@@ -29,7 +31,9 @@
         'front-end/resources/js/app.js',
         'front-end/resources/js/**/*.module.js',
         'front-end/resources/js/services/restangular.js',
-        'front-end/resources/js/**/*.js'
+        'front-end/resources/js/**/*.js',
+        '!' + 'front-end/resources/test/*.spec.js',
+        '!' + 'front-end/resources/speclib/**/*.js'
       ],
       stylus: 'front-end/resources/css/stylus/app.styl',
       server: './back-end',
@@ -56,8 +60,15 @@
           }
         }
       },
+
+      /**
+       * Spec Runner.html
+       */
+      specs: [client + 'test/*.spec.js'],
+      specRunner: client + specRunnerFile,
+      specRunnerFile: specRunnerFile,
       specHelpers: ['front-end/test-helpers/*.js'],
-      serverIntegrationSpecs: ['front-end/tests/server-integration/**/*.spec.js'],
+      serverIntegrationSpecs: ['back-end/spec/test/*.spec.js'],
       /* Node Server*/
       defaultPort: 3004,
       nodeServer: './back-end/server.js'
@@ -82,10 +93,11 @@
       var options = {
         files: [].concat(
           bowerFiles,
-          config.specHelpers,
+          //config.specHelpers,
           'front-end/resources/js/**/*.module.js',
           'front-end/resources/js/**/*.js',
-          'front-end/.tmp/templates.js'
+          'front-end/.tmp/templates.js',
+          'front-end/resources/test/*.spec.js'
           //config.serverIntegrationSpecs
         ),
         exclude: [],
@@ -97,9 +109,7 @@
             {type: 'text-summary'}
           ]
         },
-        preprocessors: {
-
-        }
+        preprocessors: {}
       };
       options.preprocessors['front-end/' + '**/!(*.spec)+(.js)'] = ['coverage'];
       return options;

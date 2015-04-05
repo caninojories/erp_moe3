@@ -1,17 +1,21 @@
 (function() {
   'use strict';
 
-  module.exports = function(isDev, args, gulp, browserSync, nodemon, util, logger, config) {
+  module.exports = function(isDev, isSpecRunner, args, gulp, browserSync, nodemon, util, logger, config) {
     var port = process.env.PORT || config.defaultPort;
     var nodeOptions = {
       script: config.nodeServer,
       delayTime: 1,
       env: {
         'PORT': port,
-        'NODE_ENV': isDev ? 'development': 'production'
+        'NODE_ENV': isDev ? (isSpecRunner? 'specRunner' : 'specRunner') : 'production'
       },
       watch: [config.server]
     };
+
+    //'NODE_ENV': isDev ? 'development': 'production'
+
+
 
     if(args.nosync || browserSync.active) {return;}
 
@@ -28,7 +32,7 @@
         .on('start', function() {
           logger(util, '*** nodemon started');
           setTimeout(function() {
-            startBrowserSync(args, browserSync, gulp, util, logger, config);
+            startBrowserSync(isDev, isSpecRunner, args, browserSync, gulp, util, logger, config);
           }, 3000);
         })
         .on('crash', function() {
@@ -40,7 +44,7 @@
 
   };
 
-  function startBrowserSync(args, browserSync, gulp, util, logger, config) {
+  function startBrowserSync(isDev, isSpecRunner, args, browserSync, gulp, util, logger, config) {
     var options = {
       proxy: 'localhost:' + config.defaultPort,
       port: 3001,
@@ -58,10 +62,25 @@
       notify: true,
       reloadDelay: 1000
     };
+
+    if (isSpecRunner) {
+      options.startPath = config.specRunnerFile;
+    }
+
     logger(util, 'Starting browser-sync on port ' + config.defaultPort);
-    gulp.watch([config.stylus], ['stylus'])
-      .on('change', function(event) { changeEvent(event, util, logger, config); });
-    browserSync(options);
+    if (isDev) {
+      gulp.watch([config.stylus], ['stylus'])
+        .on('change', function(event) { changeEvent(event, util, logger, config); });
+      browserSync(options);
+    } else {
+      /**
+       * Todo: add the config.js and config.html in the watch
+       */
+      gulp.watch([config.stylus], ['stylus'])
+        .on('change', function(event) { changeEvent(event, util, logger, config); });
+      browserSync(options);
+    }
+
   }
 
   function changeEvent(event, util, logger, config) {

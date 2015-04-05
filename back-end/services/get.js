@@ -16,7 +16,7 @@
       .findOne(options.find)
       .exec()
       .then(function(result) {
-        if(!result) {
+        if (!result) {
           return options.res.json(404, {
             message: 'Check Email',
             status: 404
@@ -32,7 +32,7 @@
       .exec()
       .then(function(result) {
         /* invoice FindById */
-        if(options.merge) {
+        if (options.merge) {
           result[options.merge.findFrom](function(err, from) {
             var fromObj = from.toJSON();
             result[options.merge.findTo](function(err, to) {

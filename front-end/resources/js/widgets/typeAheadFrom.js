@@ -48,12 +48,12 @@
           $rootScope.companyNameFrom = datum.name;
         }).on('keydown', function(event) {
           var str = element.val();
-          if(event.keyCode === 8){
+          if (event.keyCode === 8) {
             str = element.val();
-            $rootScope.companyNameFrom = str.slice(0, str.length-1);
+            $rootScope.companyNameFrom = str.slice(0, str.length - 1);
           } else if (event.keyCode === 70) {
             str = element.val();
-            $rootScope.companyNameFrom = str.slice(0, str.length-1);
+            $rootScope.companyNameFrom = str.slice(0, str.length - 1);
           }
         });
       }

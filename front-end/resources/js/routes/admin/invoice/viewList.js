@@ -19,7 +19,7 @@
         return $q.all([downloadPdfCallback(id, number)])
           .then(function(response) {
             console.log(response);
-            if(response[0].name !== undefined) {
+            if (response[0].name !== undefined) {
               $rootScope.name = response[0].name;
               strapModal.show('am-fade-and-scale', 'center', 'commons/confirmDownload.html');
             }
@@ -39,12 +39,11 @@
 
       $scope.delete = function(id) {
         vm.id = id;
-        console.log(id);
         strapModal.show('am-fade-and-scale', 'center', 'commons/confirmDelete.html');
       };
 
       $rootScope.deleteData = function(data) {
-        if(data === true) {
+        if (data === true) {
           console.log(data);
           return $q.all([deleteCallBack()])
             .then(function(response) {
@@ -91,7 +90,8 @@
         DTColumnBuilder.newColumn(null).withTitle('Actions').notSortable()
           .renderWith(function(data, type, full, meta) {
             return '<a target="_self" href="" class="top-margin">' +
-            '<button class="btn btn-xs btn-success" ng-click="downloadPdf(\'' + data._id + '\',\'' + data.number + '\')">' +
+            '<button class="btn btn-xs btn-success" ng-click="downloadPdf(\'' + data._id + '\',\'' +
+              data.number + '\')">' +
             '<i class="ion-android-download"></i>' +
             '</button></a>&nbsp;' +
             '<a href="/invoice/view/' + data._id + '"' + ' class="top-margin">' +
@@ -105,7 +105,8 @@
             '<button class="btn btn-xs btn-danger top-margin" ng-click="delete(\'' + (data._id.toString()) + '\')">' +
             '<i class="ion-backspace"></i>' +
             '</button>' +
-            '<select data-toggle="select" class="form-control select select-primary select-xs"' + ' data-id="' + data._id.toString() + '"' +
+            '<select data-toggle="select" class="form-control select select-primary select-xs"' + ' data-id="' +
+              data._id.toString() + '"' +
              'select2-flat-ui-invoice-view-list="' + data.status + '">' +
               '<option value="Approved">Approved</option>' +
               '<option value="Pending">Pending</option>' +

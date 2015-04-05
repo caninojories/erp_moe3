@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for resources/js/routes/admin/invoice/editOne.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">resources/js/routes/admin/invoice/editOne.js</span></h1>
+    <h2>
+        Statements: <span class="metric">17.14% <small>(18 / 105)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">3.85% <small>(1 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">17.14% <small>(18 / 105)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">resources/js/routes/admin/invoice/</a> &#187; editOne.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function() {
+  'use strict';
+&nbsp;
+  angular
+  .module('app.invoice')
+  .controller('EditOne', EditOne);
+&nbsp;
+  EditOne.$inject = ['$q', '$rootScope', '$scope', '$stateParams', '$timeout', '$window',
+  'commonsDataService', 'invoiceServiceApi', 'strapModal', 'strapAlert'];
+  /*@ngInject*/
+<span class="fstat-no" title="function not covered" >  function EditOne($q, $rootScope, $scope, $stateParams, $timeout, $window,</span>
+  commonsDataService, invoiceServiceApi, strapModal, strapAlert) {
+<span class="cstat-no" title="statement not covered" >    var vm = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    vm.addInvoice         = addInvoice;</span>
+<span class="cstat-no" title="statement not covered" >    vm.afterSave          = afterSave;</span>
+<span class="cstat-no" title="statement not covered" >    vm.calculateSubnTotal = calculateSubnTotal;</span>
+<span class="cstat-no" title="statement not covered" >    vm.cancel             = cancel;</span>
+<span class="cstat-no" title="statement not covered" >    vm.deleteItem         = deleteItem;</span>
+<span class="cstat-no" title="statement not covered" >    vm.invoiceUpdateOne   = invoiceUpdateOne;</span>
+<span class="cstat-no" title="statement not covered" >    vm.itemList           = [];</span>
+<span class="cstat-no" title="statement not covered" >    vm.fromLookup         = fromLookup;</span>
+<span class="cstat-no" title="statement not covered" >    vm.toLookup           = toLookup;</span>
+<span class="cstat-no" title="statement not covered" >    vm.xEditable          = xEditable;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    invoiceGetOne();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.$on('select2', <span class="fstat-no" title="function not covered" >function() {</span></span>
+      /* use to update model after listening changes in the dropdown currency menu */
+<span class="cstat-no" title="statement not covered" >      $scope.$apply(calculateSubnTotal());</span>
+    });
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function addInvoice() {</span>
+<span class="cstat-no" title="statement not covered" >      vm.itemList.push({</span>
+        name: vm.itemTitle || 'item',
+        description: vm.description,
+        amount: vm.amount,
+        show: false
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      vm.itemTitle = '';</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function afterSave(invoice) {</span>
+<span class="cstat-no" title="statement not covered" >      invoice.show  = !invoice.show;</span>
+<span class="cstat-no" title="statement not covered" >      console.log(invoice);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function calculateSubnTotal() {</span>
+<span class="cstat-no" title="statement not covered" >      vm.subTotal = $rootScope.currency || 0;</span>
+<span class="cstat-no" title="statement not covered" >      vm.total    = $rootScope.currency || 0;</span>
+<span class="cstat-no" title="statement not covered" >      var sum     = 0;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      for (var obj in vm.itemList) {</span>
+<span class="cstat-no" title="statement not covered" >        if (vm.itemList.hasOwnProperty(obj)) {</span>
+<span class="cstat-no" title="statement not covered" >          sum += vm.itemList[obj].amount;</span>
+        }
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      vm.subTotal += sum;</span>
+<span class="cstat-no" title="statement not covered" >      vm.total    += sum;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function cancel(invoice) {</span>
+<span class="cstat-no" title="statement not covered" >      invoice.show = !invoice.show;</span>
+&nbsp;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function deleteItem(invoice) {</span>
+<span class="cstat-no" title="statement not covered" >      var position = vm.itemList.indexOf(invoice);</span>
+<span class="cstat-no" title="statement not covered" >      vm.itemList.splice(position, 1);</span>
+<span class="cstat-no" title="statement not covered" >      calculateSubnTotal();</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function invoiceGetOne() {</span>
+<span class="cstat-no" title="statement not covered" >      return $q.all([invoiceGetOneCallback()])</span>
+        .then(<span class="fstat-no" title="function not covered" >function(response) {</span>
+<span class="cstat-no" title="statement not covered" >          vm.obj = response[0];</span>
+<span class="cstat-no" title="statement not covered" >          vm.number                   = vm.obj.data.number;</span>
+<span class="cstat-no" title="statement not covered" >          vm.date                     = vm.obj.data.date;</span>
+<span class="cstat-no" title="statement not covered" >          vm.terms                    = vm.obj.data.terms;</span>
+<span class="cstat-no" title="statement not covered" >          vm.dueDate                  = vm.obj.data.dueDate;</span>
+<span class="cstat-no" title="statement not covered" >          $rootScope.companyNameFrom  = vm.obj.data.from;</span>
+<span class="cstat-no" title="statement not covered" >          $rootScope.companyNameTo    = vm.obj.data.to;</span>
+<span class="cstat-no" title="statement not covered" >          vm.itemList                 = vm.obj.data.item;</span>
+<span class="cstat-no" title="statement not covered" >          vm.subTotal                 = vm.obj.data.subTotal;</span>
+<span class="cstat-no" title="statement not covered" >          vm.total                    = vm.obj.data.total;</span>
+<span class="cstat-no" title="statement not covered" >          $scope.$broadcast('currency', vm.obj.data.currency);</span>
+<span class="cstat-no" title="statement not covered" >          return response;</span>
+        });
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function invoiceGetOneCallback() {</span>
+<span class="cstat-no" title="statement not covered" >      return commonsDataService</span>
+        .httpGETRouteParams('view', $stateParams.id, invoiceServiceApi)
+        .then(<span class="fstat-no" title="function not covered" >function(response) {</span>
+<span class="cstat-no" title="statement not covered" >          return response;</span>
+        });
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function invoiceUpdateOne() {</span>
+<span class="cstat-no" title="statement not covered" >      return $q.all([invoiceUpdateOneCallBack()])</span>
+        .then(<span class="fstat-no" title="function not covered" >function(response) {</span>
+<span class="cstat-no" title="statement not covered" >          console.log(response);</span>
+<span class="cstat-no" title="statement not covered" >          if (response[0].number !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >            strapAlert.show('Success!', 'Invoice #' + vm.number + ' is successfully updated ', 'success',</span>
+            'alert-invoice-update');
+          }
+<span class="cstat-no" title="statement not covered" >          $timeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            strapAlert.hide();</span>
+<span class="cstat-no" title="statement not covered" >            $window.location.reload();</span>
+          }, 3000);
+        });
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function invoiceUpdateOneCallBack() {</span>
+<span class="cstat-no" title="statement not covered" >      var itemList = [];</span>
+<span class="cstat-no" title="statement not covered" >      itemList.push(vm.itemList);</span>
+<span class="cstat-no" title="statement not covered" >      return commonsDataService</span>
+        .httpPUT('update', $stateParams.id, {
+          number  : vm.number,
+          date    : vm.date,
+          terms   : vm.terms,
+          dueDate : vm.dueDate,
+          from    : $rootScope.companyNameFrom,
+          to      : $rootScope.companyNameTo,
+          item    : itemList,
+          currency: $rootScope.currency,
+          subTotal: vm.subTotal,
+          total   : vm.total
+        }, invoiceServiceApi)
+        .then(<span class="fstat-no" title="function not covered" >function(response) {</span>
+<span class="cstat-no" title="statement not covered" >          return response;</span>
+        });
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function fromLookup() {</span>
+<span class="cstat-no" title="statement not covered" >      console.log('jories');</span>
+<span class="cstat-no" title="statement not covered" >      return $q.all([fromLookupCallback()])</span>
+        .then(<span class="fstat-no" title="function not covered" >function(response) {</span>
+<span class="cstat-no" title="statement not covered" >          if (response[0].name !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.companyName = $rootScope.companyNameFrom;</span>
+<span class="cstat-no" title="statement not covered" >            var obj = response[0];</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.address  = obj.address;</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.country  = obj.country;</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.state    = obj.state;</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.zipcode  = obj.zipcode;</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.phone    = obj.phone;</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.fax      = obj.fax;</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.email    = obj.email;</span>
+<span class="cstat-no" title="statement not covered" >            strapModal.show('am-fade-and-slide-top', 'center', 'commons/viewInvoiceAddress.html');</span>
+          }
+        });
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function fromLookupCallback() {</span>
+<span class="cstat-no" title="statement not covered" >      return commonsDataService</span>
+        .httpGETRouteParams(
+          'invoiceFromAddress/view',
+          $rootScope.companyNameFrom,
+          invoiceServiceApi)
+        .then(<span class="fstat-no" title="function not covered" >function(response) {</span>
+<span class="cstat-no" title="statement not covered" >          return response;</span>
+        });
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function toLookup() {</span>
+<span class="cstat-no" title="statement not covered" >      return $q.all([tolookupCallback()])</span>
+        .then(<span class="fstat-no" title="function not covered" >function(response) {</span>
+<span class="cstat-no" title="statement not covered" >          if (response[0].name !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.companyName = $rootScope.companyNameTo;</span>
+<span class="cstat-no" title="statement not covered" >            var obj = response[0];</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.address  = obj.address;</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.country  = obj.country;</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.state    = obj.state;</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.zipcode  = obj.zipcode;</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.phone    = obj.phone;</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.fax      = obj.fax;</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.email    = obj.email;</span>
+<span class="cstat-no" title="statement not covered" >            strapModal.show('am-fade-and-slide-top', 'center', 'commons/viewInvoiceAddress.html');</span>
+          }
+        });
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function tolookupCallback() {</span>
+<span class="cstat-no" title="statement not covered" >      return commonsDataService</span>
+        .httpGETRouteParams(
+          'invoiceToAddress/view',
+          $rootScope.companyNameTo,
+          invoiceServiceApi)
+        .then(<span class="fstat-no" title="function not covered" >function(response) {</span>
+<span class="cstat-no" title="statement not covered" >          return response;</span>
+        });
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function xEditable(invoice) {</span>
+<span class="cstat-no" title="statement not covered" >      console.log(invoice);</span>
+<span class="cstat-no" title="statement not covered" >      invoice.show = !invoice.show;</span>
+    }
+  }
+}());
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 03 2015 22:05:00 GMT+0800 (PHT)</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

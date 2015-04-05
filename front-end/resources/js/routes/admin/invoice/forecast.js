@@ -55,15 +55,13 @@
           }]
         },
         series: [{
-          name: "",
+          name: '',
           data: [
             [3, 5]
           ],
-          // connectNulls: true,
-          // id: "series-1"
         }],
         title: {
-          text: "Invoice"
+          text: 'Invoice'
         },
         credits: {
           enabled: true

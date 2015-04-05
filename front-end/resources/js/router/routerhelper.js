@@ -52,7 +52,7 @@
               angular.extend(route.config.resolve || {}, routehelperConfig.config.resolveAlways);
             $stateProvider.state(route.state, route.config);
           });
-          $urlRouterProvider.otherwise(function($injector, $location){
+          $urlRouterProvider.otherwise(function($injector, $location) {
             var state = $injector.get('$state');
             state.go('404');
             return $location.path();
@@ -100,7 +100,7 @@
         function updateDocTitle() {
           $rootScope.$on('$stateChangeSuccess',
             function(event, toState, toParams, fromState, fromParams) {
-              if($rootScope.error === true) {
+              if ($rootScope.error === true) {
                 return $state.go('401');
               }
 

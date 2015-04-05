@@ -15,7 +15,7 @@
 
       function details(result) {
         for (var obj in options.details) {
-          if( options.details.hasOwnProperty(obj)) {
+          if (options.details.hasOwnProperty(obj)) {
             result[obj] = options.query[obj];
           }
         }
@@ -35,8 +35,8 @@
       });
 
     function details(result) {
-      for(var obj in options.details) {
-        if(options.query[obj].indexOf('[') !== 0) {
+      for (var obj in options.details) {
+        if (options.query[obj].indexOf('[') !== 0) {
           result[obj] = options.query[obj];
         }
       }
@@ -56,15 +56,13 @@
       });
 
     function itemDetails(result) {
-      for(var obj in options.details) {
-        if(options.query[obj].indexOf('[') === 0) {
+      for (var obj in options.details) {
+        if (options.query[obj].indexOf('[') === 0) {
           var itemList = JSON.parse(options.query[obj]);
-          for(var i = 0; i < itemList.length; i++) {
-            if(itemList[i]._id) {
-              if(result[obj][i]._id.toString() === itemList[i]._id) {
-                for(var item in options.itemDetails) {
-                  result[obj][i][item] = itemList[i][item];
-                }
+          for (var i = 0; i < itemList.length; i++) {
+            if (itemList[i]._id) {
+              if (result[obj][i]._id.toString() === itemList[i]._id) {
+                optionsItemDetails(options.itemDetails, result[obj], itemList, i);
               }
             } else {
               var create = result[obj].create(itemList[i]);
@@ -72,6 +70,14 @@
             }
           }
           return result;
+        }
+      }
+    }
+
+    function optionsItemDetails(itemDetails, result, itemList, i) {
+      for (var item in itemDetails) {
+        if (itemDetails.hasOwnProperty(item)) {
+          result[i][item] = itemList[i][item];
         }
       }
     }

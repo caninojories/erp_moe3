@@ -12,7 +12,7 @@
   exports.User = function(options) {
     var document = io[options.name](options.details);
       document.save(function(err) {
-        if(err) {return options.next(err);}
+        if (err) {return options.next(err);}
         options.req.message = 'User Login';
         options.req.status  = 200;
         options.req.user    = document;

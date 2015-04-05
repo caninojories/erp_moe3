@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for resources/js/routes/admin/quotationRegistration/quotationRegistration.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">resources/js/routes/admin/quotationRegistration/quotationRegistration.js</span></h1>
+    <h2>
+        Statements: <span class="metric">20.69% <small>(12 / 58)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">7.69% <small>(1 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">20.69% <small>(12 / 58)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">resources/js/routes/admin/quotationRegistration/</a> &#187; quotationRegistration.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function() {
+  'use strict';
+&nbsp;
+  angular
+  .module('app.quotationRegistration')
+  .controller('QuotationRegistration', QuotationRegistration);
+&nbsp;
+  QuotationRegistration.$inject = ['$q', '$scope', '$rootScope', '$timeout',
+    'exception', 'quotationRegistrationDataService'];
+  /*@ngInject*/
+<span class="fstat-no" title="function not covered" >  function QuotationRegistration($q, $scope, $rootScope, $timeout,</span>
+    exception, quotationRegistrationDataService) {
+<span class="cstat-no" title="statement not covered" >    var vm  = this;</span>
+    /***
+     ** String Literals
+     ***/
+<span class="cstat-no" title="statement not covered" >    vm.selectedDate = new Date();</span>
+&nbsp;
+    /***
+    ** Functions and Arrays
+    ***/
+<span class="cstat-no" title="statement not covered" >    vm.addQuotation    = addQuotation;</span>
+<span class="cstat-no" title="statement not covered" >    vm.afterSave       = afterSave;</span>
+<span class="cstat-no" title="statement not covered" >    vm.cancel          = cancel;</span>
+<span class="cstat-no" title="statement not covered" >    vm.deleteItem      = deleteItem;</span>
+<span class="cstat-no" title="statement not covered" >    vm.openDate        = openDate;</span>
+<span class="cstat-no" title="statement not covered" >    vm.saveQuotation   = saveQuotation;</span>
+<span class="cstat-no" title="statement not covered" >    vm.xEditable       = xEditable;</span>
+<span class="cstat-no" title="statement not covered" >    vm.quotationRegistrationList = [];</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function addQuotation() {</span>
+<span class="cstat-no" title="statement not covered" >      vm.quotationRegistrationList.push({</span>
+        item: {
+          name: vm.itemTitle || 'item',
+          show: true
+        },
+        quantity: vm.quantity,
+        unitPrice: vm.unitPrice,
+        amount: vm.amount,
+        status: vm.status,
+        condition: vm.condition,
+        remark: vm.remark,
+        salesProgress: vm.salesProgress,
+        SPOT: vm.SPOT,
+        noteForQuotation: vm.noteForQuotation,
+        comment: vm.comment,
+        note: vm.note
+&nbsp;
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      vm.itemTitle = '';</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function afterSave(quotation) {</span>
+<span class="cstat-no" title="statement not covered" >      quotation.item.show = true;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function cancel(quotation) {</span>
+<span class="cstat-no" title="statement not covered" >      quotation.item.show = true;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function deleteItem(quotation) {</span>
+<span class="cstat-no" title="statement not covered" >      var position = vm.quotationRegistrationList.indexOf(quotation);</span>
+<span class="cstat-no" title="statement not covered" >      vm.quotationRegistrationList.splice(position, 1);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function openDate($event) {</span>
+<span class="cstat-no" title="statement not covered" >      $event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >      $event.stopPropagation();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      $rootScope.opened = true;</span>
+<span class="cstat-no" title="statement not covered" >      setTimeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        $rootScope.opened = false;</span>
+      }, 10);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function saveQuotation() {</span>
+<span class="cstat-no" title="statement not covered" >      vm.tempQuotationList = angular.copy(vm.quotationRegistrationList);</span>
+<span class="cstat-no" title="statement not covered" >      for (var i = 0; i &lt; vm.quotationRegistrationList.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        try {</span>
+<span class="cstat-no" title="statement not covered" >          vm.tempQuotationList[i].item.name = vm.quotationRegistrationList[i].item.name;</span>
+<span class="cstat-no" title="statement not covered" >          vm.tempQuotationList[i].quantity  = vm.values['quantity_' + i.toString()];</span>
+<span class="cstat-no" title="statement not covered" >          vm.tempQuotationList[i].unitPrice = vm.values['unitPrice_' + i.toString()];</span>
+<span class="cstat-no" title="statement not covered" >          vm.tempQuotationList[i].amount    = vm.values['amount_' + i.toString()];</span>
+<span class="cstat-no" title="statement not covered" >          vm.tempQuotationList[i].status    = vm.values['status_' + i.toString()];</span>
+<span class="cstat-no" title="statement not covered" >          vm.tempQuotationList[i].condition = vm.values['condition_' + i.toString()];</span>
+<span class="cstat-no" title="statement not covered" >          vm.tempQuotationList[i].remark    = vm.values['remark_' + i.toString()];</span>
+<span class="cstat-no" title="statement not covered" >          vm.tempQuotationList[i].salesProgress    = vm.values['salesProgress_' + i.toString()];</span>
+<span class="cstat-no" title="statement not covered" >          vm.tempQuotationList[i].SPOT             = vm.values['SPOT_' + i.toString()];</span>
+<span class="cstat-no" title="statement not covered" >          vm.tempQuotationList[i].noteForQuotation = vm.values['noteForQuotation_' + i.toString()];</span>
+<span class="cstat-no" title="statement not covered" >          vm.tempQuotationList[i].comment          = vm.values['comment_' + i.toString()];</span>
+<span class="cstat-no" title="statement not covered" >          vm.tempQuotationList[i].note             = vm.values['note_' + i.toString()];</span>
+        }catch (error) {
+<span class="cstat-no" title="statement not covered" >          console.log('**Use for error Messgaes**');</span>
+<span class="cstat-no" title="statement not covered" >          console.log('Exception Module: cannot be seen until the debug is false');</span>
+<span class="cstat-no" title="statement not covered" >          exception.catcher('Exception Module: try catch solution: ' + error);</span>
+        }
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return $q.all([saveQuotationCallBack()])</span>
+        .then(<span class="fstat-no" title="function not covered" >function(response) {</span>
+<span class="cstat-no" title="statement not covered" >          console.log(response);</span>
+<span class="cstat-no" title="statement not covered" >          return response;</span>
+        });
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function saveQuotationCallBack() {</span>
+<span class="cstat-no" title="statement not covered" >      console.log(vm.selectedDate);</span>
+<span class="cstat-no" title="statement not covered" >      return quotationRegistrationDataService</span>
+        .httpPOST('quotationRegistration', {
+          date: vm.selectedDate,
+          quotationNumber: vm.quotationNumber,
+          postalCode: vm.postalCode,
+          salesRepFirstName: vm.salesRepFirstName,
+          salesRepLastName : vm.salesRepLastName,
+          salesOfficeAddress1: vm.salesOfficeAddress1,
+          salesOfficeAddress2: vm.salesOfficeAddress2,
+          salesOfficeAddress3: vm.salesOfficeAddress3,
+          salesOfficePhoneNumber: vm.salesOfficePhoneNumber,
+          customerFirstName: vm.customerFirstName,
+          customerLastName: vm.customerLastName,
+          subject: vm.subject,
+          quotationObj: vm.tempQuotationList
+        })
+        .then(<span class="fstat-no" title="function not covered" >function(response) {</span>
+<span class="cstat-no" title="statement not covered" >          return response;</span>
+        });
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function xEditable(quotation) {</span>
+<span class="cstat-no" title="statement not covered" >      quotation.item.show = false;</span>
+    }
+  }
+})();
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 03 2015 22:05:00 GMT+0800 (PHT)</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

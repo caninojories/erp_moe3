@@ -17,13 +17,12 @@
         var chunks = [];
         var size = 0;
 
-
-        gfs.files.find({  }).toArray(function (err, files) {
+        gfs.files.find({}).toArray(function (err, files) {
           done(files);
         });
 
         function done(files) {
-            if (index == files.length) {
+            if (index === files.length) {
               return res.json(contents);
             }
             setTimeout(function() {

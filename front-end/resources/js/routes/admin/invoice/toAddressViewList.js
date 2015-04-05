@@ -19,7 +19,7 @@
         return $q.all([fromLookupCallback(id)])
           .then(function(response) {
             console.log(response);
-            if(response[0].name !== undefined) {
+            if (response[0].name !== undefined) {
               $rootScope.companyName    = response[0].name;
               $rootScope.addressId      = id;
               $rootScope.api            = 'toAddress';

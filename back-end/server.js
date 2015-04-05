@@ -9,7 +9,6 @@
     return io.path.normalize(__dirname + '../../' + name);
   };
 
-
   global.io = appRequire('services/module.config');
 
     var catchAll  = require('./routes');
@@ -36,8 +35,10 @@
     });
     app.use('*', catchAll);
 
-    /*cannot use 404 in server side*/
-
+    if(io.args.serverTest) {
+       module.exports = app;
+       return module.exports;
+    }
     /** io.cluster Configuration **/
     if (io.cluster.isMaster) {io.clusterService(io);}
     else {

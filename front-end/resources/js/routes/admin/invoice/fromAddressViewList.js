@@ -17,7 +17,7 @@
       $scope.edit = function(id) {
         return $q.all([fromLookupCallback(id)])
           .then(function(response) {
-            if(response[0].name !== undefined) {
+            if (response[0].name !== undefined) {
               $rootScope.companyName  = response[0].name;
               $rootScope.addressId    = id;
               $rootScope.api          = 'fromAddress';
@@ -51,7 +51,7 @@
       };
 
       $rootScope.deleteData = function(data) {
-        if(data === true) {
+        if (data === true) {
           return $q.all([deleteCallBack()])
             .then(function(response) {
               $timeout(function() {

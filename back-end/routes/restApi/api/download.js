@@ -8,8 +8,8 @@
       res.download(io.rootPath + req.params.file);
       setTimeout(function() {
         io.fse.remove(io.rootPath + req.params.file, function(err) {
-          if (err) return console.error(err);
-            console.log("success!");
+          if (err) {return next(err);}
+          console.log('success!');
         });
       }, 1000);
     });

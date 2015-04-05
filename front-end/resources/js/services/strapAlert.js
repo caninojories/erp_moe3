@@ -19,7 +19,7 @@
     vm.hide  = hide;
 
     function show(title, content, type, container) {
-      vm.alerObj = vm.alert(title, content, type, container );
+      vm.alerObj = vm.alert(title, content, type, container);
     }
 
     function hide() {

@@ -16,7 +16,7 @@
       //get the extenstion of the file
       var extension = req.files.file.path.split(/[. ]+/).pop();
       is = fs.createReadStream(req.files.file.path);
-      os = gfs.createWriteStream({ filename: shortId.generate()+'.'+extension });
+      os = gfs.createWriteStream({filename: shortId.generate() + '.' + extension});
       is.pipe(os);
 
       os.on('close', function (file) {

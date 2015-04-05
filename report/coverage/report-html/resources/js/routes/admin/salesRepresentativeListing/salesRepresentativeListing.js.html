@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for resources/js/routes/admin/salesRepresentativeListing/salesRepresentativeListing.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">resources/js/routes/admin/salesRepresentativeListing/salesRepresentativeListing.js</span></h1>
+    <h2>
+        Statements: <span class="metric">28% <small>(7 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">7.14% <small>(1 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">28% <small>(7 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">resources/js/routes/admin/salesRepresentativeListing/</a> &#187; salesRepresentativeListing.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function() {
+  'use strict';
+&nbsp;
+  angular
+  .module('app.salesRepresentativeListing')
+  .controller('SalesRepresentativeListing', SalesRepresentativeListing);
+&nbsp;
+  SalesRepresentativeListing.$inject = ['$q', '$compile', '$filter', '$rootScope', '$scope',
+  '$state', '$timeout', '$window', 'Restangular', 'DTInstances', 'DTOptionsBuilder', 'DTColumnBuilder',
+  'reload', 'salesRepresentativeListingDataService'];
+  /*@ngInject*/
+<span class="fstat-no" title="function not covered" >  function SalesRepresentativeListing($q, $compile, $filter, $rootScope, $scope, $state, $timeout, $window, Restangular,</span>
+    DTInstances, DTOptionsBuilder, DTColumnBuilder, reload, salesRepresentativeListingDataService) {
+<span class="cstat-no" title="statement not covered" >      var vm = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.delete = <span class="fstat-no" title="function not covered" >function(id) {</span></span>
+<span class="cstat-no" title="statement not covered" >      $q.all([deleteCallBack(id)])</span>
+      .then(<span class="fstat-no" title="function not covered" >function(response) {</span>
+<span class="cstat-no" title="statement not covered" >        $timeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >          vm.dtInstance.reloadData();</span>
+        }, 200);
+<span class="cstat-no" title="statement not covered" >        return response;</span>
+      });
+    };
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function deleteCallBack(id) {</span>
+<span class="cstat-no" title="statement not covered" >      salesRepresentativeListingDataService</span>
+      .httpDelete('salesRepresentativeList', {id: id})
+      .then(<span class="fstat-no" title="function not covered" >function(response) {</span>
+<span class="cstat-no" title="statement not covered" >        return response;</span>
+      });
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.dtOptions = DTOptionsBuilder.fromSource($window.location.origin +</span>
+    '/salesRepresentativeApi/getSalesRepresentativeList')
+&nbsp;
+      .withTableTools('/js/vendor/table-tools/swf/copy_csv_xls_pdf.swf')
+      .withTableToolsButtons([
+        'copy',
+        'print', {
+          'sExtends': 'collection',
+          'sButtonText': 'Save',
+          'aButtons': ['csv', 'pdf'],
+        }
+      ])
+      .withOption('createdRow', <span class="fstat-no" title="function not covered" >function(row, data, dataIndex) {</span>
+            // Recompiling so we can bind Angular directive to the DT
+<span class="cstat-no" title="statement not covered" >            $compile(angular.element(row).contents())($scope);</span>
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $scope.dtColumns = [</span>
+    DTColumnBuilder.newColumn(null).withTitle('Actions').notSortable()
+      .renderWith(<span class="fstat-no" title="function not covered" >function(data, type, full, meta) {</span>
+<span class="cstat-no" title="statement not covered" >        return '&lt;a href="/salesRepresentativeListing/edit/' + data._id + '"&gt;' +</span>
+          '&lt;button class="btn btn-xs btn-warning"&gt;' +
+          '&lt;i class="ion-compose"&gt;&lt;/i&gt;' +
+          '&lt;/button&gt;&lt;/a&gt;&amp;nbsp;' +
+          '&lt;button class="btn btn-xs btn-danger" ng-click="delete(\'' + (data._id.toString()) + '\')"&gt;' +
+          '   &lt;i class="ion-backspace"&gt;&lt;/i&gt;' +
+          '&lt;/button&gt;';
+      }),
+    DTColumnBuilder.newColumn('firstName')
+      .withTitle('First name')
+      .notSortable(),
+    DTColumnBuilder.newColumn('lastName')
+      .withTitle('Last name')
+      .notSortable(),
+    DTColumnBuilder.newColumn('postalCode')
+      .withTitle('Postal Code')
+      .notSortable(),
+    DTColumnBuilder.newColumn('salesOfficeAddress1')
+      .withTitle('Sales Office Address 1')
+      .notSortable(),
+    DTColumnBuilder.newColumn('salesOfficeAddress2')
+      .withTitle('Sales Office Address 2')
+      .withOption('defaultContent', '')
+      .notSortable(),
+    DTColumnBuilder.newColumn('salesOfficeAddress3')
+      .withTitle('Sales Office Address 3')
+      .withOption('defaultContent', '')
+      .notSortable(),
+    DTColumnBuilder.newColumn('salesOfficePhoneNumber')
+      .withTitle('Sales Office Phone Number')
+      .notSortable(),
+    ];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return DTInstances.getLast().then(<span class="fstat-no" title="function not covered" >function (dtInstance) {</span></span>
+<span class="cstat-no" title="statement not covered" >        vm.dtInstance = dtInstance;</span>
+      });
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getSalesRepresentativeList() {</span>
+<span class="cstat-no" title="statement not covered" >      $q.all([getSalesRepresentativeListCallBack()])</span>
+        .then(<span class="fstat-no" title="function not covered" >function(response) {</span>
+<span class="cstat-no" title="statement not covered" >          return response;</span>
+        });
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getSalesRepresentativeListCallBack() {</span>
+<span class="cstat-no" title="statement not covered" >      return salesRepresentativeListingDataService</span>
+        .getSalesRepresentative('getSalesRepresentativeList', {})
+        .then(<span class="fstat-no" title="function not covered" >function(response) {</span>
+<span class="cstat-no" title="statement not covered" >          return response;</span>
+        });
+    }
+  }
+})();
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 03 2015 22:05:00 GMT+0800 (PHT)</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

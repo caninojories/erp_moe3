@@ -20,6 +20,7 @@
     vm.invoiceUpdateOne   = invoiceUpdateOne;
     vm.itemList           = [];
     vm.fromLookup         = fromLookup;
+    vm.taxChange          = taxChange;
     vm.toLookup           = toLookup;
     vm.xEditable          = xEditable;
 
@@ -47,15 +48,26 @@
     }
 
     function calculateSubnTotal() {
-      vm.subTotal = $rootScope.currency || 0;
-      vm.total    = $rootScope.currency || 0;
-      var sum = 0;
+      vm.subTotal     = $rootScope.currency || 0;
+      vm.total        = $rootScope.currency || 0;
+      var sum         = 0;
+      vm.tempSubTotal = 0;
+
       for (var obj in vm.itemList) {
-        sum += vm.itemList[obj].amount;
+        if (vm.itemList.hasOwnProperty(obj)) {
+          sum += vm.itemList[obj].amount;
+        }
       }
 
-      vm.subTotal += sum;
-      vm.total    += sum;
+      if (vm.tax.length !== 0 && vm.tax !== '0') {
+        vm.tempSubTotal += (sum * (vm.tax / 100));
+        vm.tempSubTotal  += sum;
+      } else {
+        vm.tempSubTotal = sum;
+      }
+
+      vm.subTotal     += sum;
+      vm.total        += vm.tempSubTotal;
     }
 
     function cancel(invoice) {
@@ -72,15 +84,19 @@
     function invoiceGetOne() {
       return $q.all([invoiceGetOneCallback()])
         .then(function(response) {
+          console.log(response[0]);
           vm.obj = response[0];
           vm.number                   = vm.obj.data.number;
           vm.date                     = vm.obj.data.date;
           vm.terms                    = vm.obj.data.terms;
           vm.dueDate                  = vm.obj.data.dueDate;
-          $rootScope.companyNameFrom  = vm.obj.data.from;
-          $rootScope.companyNameTo    = vm.obj.data.to;
+          $rootScope.companyNameFrom  = vm.obj.from.name;
+          vm.companyIdFrom            = vm.obj.from._id;
+          $rootScope.companyNameTo    = vm.obj.to.name;
+          vm.companyIdTo              = vm.obj.to._id;
           vm.itemList                 = vm.obj.data.item;
           vm.subTotal                 = vm.obj.data.subTotal;
+          vm.tax                      = vm.obj.data.tax;
           vm.total                    = vm.obj.data.total;
           $scope.$broadcast('currency', vm.obj.data.currency);
           return response;
@@ -100,7 +116,8 @@
         .then(function(response) {
           console.log(response);
           if (response[0].number !== undefined) {
-            strapAlert.show('Success!', 'Invoice #' + vm.number + ' is successfully updated ', 'success', 'alert-invoice-update');
+            strapAlert.show('Success!', 'Invoice #' + vm.number + ' is successfully updated ', 'success',
+            'alert-invoice-update');
           }
           $timeout(function() {
             strapAlert.hide();
@@ -131,10 +148,10 @@
     }
 
     function fromLookup() {
-      console.log('jories');
       return $q.all([fromLookupCallback()])
         .then(function(response) {
-          if(response[0].name !== undefined) {
+          console.log(response);
+          if (response[0].name !== undefined) {
             $rootScope.companyName = $rootScope.companyNameFrom;
             var obj = response[0];
             $rootScope.address  = obj.address;
@@ -150,20 +167,25 @@
     }
 
     function fromLookupCallback() {
+      console.log(vm.companyIdFrom);
       return commonsDataService
         .httpGETRouteParams(
-          'invoiceFromAddress/view',
-          $rootScope.companyNameFrom,
+          'fromAddress/view',
+          vm.companyIdFrom,
           invoiceServiceApi)
         .then(function(response) {
           return response;
         });
     }
 
+    function taxChange() {
+      calculateSubnTotal();
+    }
+
     function toLookup() {
       return $q.all([tolookupCallback()])
         .then(function(response) {
-          if(response[0].name !== undefined) {
+          if (response[0].name !== undefined) {
             $rootScope.companyName = $rootScope.companyNameTo;
             var obj = response[0];
             $rootScope.address  = obj.address;
@@ -181,8 +203,8 @@
     function tolookupCallback() {
       return commonsDataService
         .httpGETRouteParams(
-          'invoiceToAddress/view',
-          $rootScope.companyNameTo,
+          'toAddress/view',
+          vm.companyIdTo,
           invoiceServiceApi)
         .then(function(response) {
           return response;
@@ -190,7 +212,6 @@
     }
 
     function xEditable(invoice) {
-      console.log(invoice);
       invoice.show = !invoice.show;
     }
   }

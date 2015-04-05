@@ -7,7 +7,7 @@
 
     state.$inject = ['$state'];
 
-    function state($state){
+    function state($state) {
       var stateObj = {
         unauthorized: function() {
           $state.go('401');

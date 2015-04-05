@@ -51,7 +51,6 @@
           }
       }
 
-
       function httpPOSTQueryParams(api, param, apiService) {
         return apiService.all(api)
           .post(param)

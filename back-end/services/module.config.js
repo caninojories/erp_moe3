@@ -41,6 +41,7 @@
       User                : require('../model/User'),
       xPoweredBy          : require('./xPoweredBy'),
 
+      args           : require('yargs').argv,
       async          : require('async'),
       bodyParser     : require('body-parser'),
       chalk          : require('chalk'),
@@ -80,6 +81,7 @@
 
       faviconPath       : rootPath + 'front-end/resources/favicon.ico',
       nunjucksPath      : path.join(rootPath, 'front-end/views'),
+      nunjucksSpecRunner: path.join(rootPath, 'frone-end/views'),
       nunjucksPathBuild : path.join(rootPath, 'build'),
       cssPath           : path.join(rootPath, 'front-end/resources/css'),
       fonts             : path.join(rootPath, 'front-end/resources/fonts'),
@@ -94,6 +96,9 @@
       buildImg          : path.join(rootPath, 'build/img'),
       buildJs           : path.join(rootPath, 'build/js'),
       commonViewsBuild  : path.join(rootPath, 'build/commons'),
+
+      specBuild         : path.join(rootPath, 'front-end/resources/speclib'),
+      specTest          : path.join(rootPath, 'front-end/resources/test'),
 
       /* AdminImplementation Routes */
       INVOICE           : require(rootPath + 'back-end/configuration/routes/admin/invoice'),

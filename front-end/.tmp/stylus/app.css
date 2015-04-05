@@ -64,6 +64,9 @@ alert-info {
 .marginTop {
   margin-top: 10px;
 }
+.image-header {
+  background-image: url("/images/ensure-success.jpg");
+}
 [ui-view].ng-enter,
 [ui-view].ng-leave {
   position: absolute;
@@ -169,8 +172,8 @@ span.twitter-typeahead {
 }
 @media (min-width: 768px) {
   .navbar-collapse .navbar-nav.navbar-left:first-child > li:first-child a {
-    border-bottom-left-radius: 0px;
-    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
   }
 }
 @media (min-width: 768px) {
@@ -218,11 +221,10 @@ span.twitter-typeahead {
 .invoice .fromAddressViewList .header-image {
   height: 300px;
   margin-top: 50px;
-  background-image: url("/images/ensure-success.jpg");
   background-position: center center;
   background-size: cover;
 }
-.invoice .fromAddressViewList .header-image .product-header h1 {
+.invoice .fromAddressViewList .header-image .product-header .header {
   color: #1f1f1f;
   font-weight: 300;
 }
@@ -272,11 +274,10 @@ span.twitter-typeahead {
 .invoice .registration .header-image {
   height: 300px;
   margin-top: 50px;
-  background-image: url("/images/ensure-success.jpg");
   background-position: center center;
   background-size: cover;
 }
-.invoice .registration .header-image .product-header h1 {
+.invoice .registration .header-image .product-header .header {
   color: #ecf0f1;
   font-weight: 300;
 }
@@ -337,11 +338,10 @@ span.twitter-typeahead {
 .invoice .toAddessViewList .header-image {
   height: 300px;
   margin-top: 50px;
-  background-image: url("/images/ensure-success.jpg");
   background-position: center center;
   background-size: cover;
 }
-.invoice .toAddessViewList .header-image .product-header h1 {
+.invoice .toAddessViewList .header-image .product-header .header {
   color: #1f1f1f;
   font-weight: 300;
 }
@@ -370,11 +370,10 @@ span.twitter-typeahead {
 .invoice .viewList .header-image {
   height: 300px;
   margin-top: 50px;
-  background-image: url("/images/ensure-success.jpg");
   background-position: center center;
   background-size: cover;
 }
-.invoice .viewList .header-image .product-header h1 {
+.invoice .viewList .header-image .product-header .header {
   color: #1f1f1f;
   font-weight: 300;
 }
@@ -408,11 +407,10 @@ span.twitter-typeahead {
 .salesRepresentative .registration .header-image {
   height: 300px;
   margin-top: 50px;
-  background-image: url("/images/ensure-success.jpg");
   background-position: center center;
   background-size: cover;
 }
-.salesRepresentative .registration .header-image .product-header h1 {
+.salesRepresentative .registration .header-image .product-header .header {
   color: #ecf0f1;
   font-weight: 300;
 }
@@ -427,11 +425,10 @@ span.twitter-typeahead {
 .index .header-image {
   height: 500px;
   margin-top: 50px;
-  background-image: url("/images/ensure-success.jpg");
   background-position: center center;
   background-size: cover;
 }
-.index .header-image .product-header h2 {
+.index .header-image .product-header .header {
   color: #fff;
   font-weight: 300;
 }

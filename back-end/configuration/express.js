@@ -5,6 +5,7 @@
 
   /* Express Configuration */
   module.exports = function (app) {
+
     if (process.env.NODE_ENV === 'production') {
       io.nunjucksEnvBuild.express(app);
       io.nunjucks.configure(io.nunjucksPathBuild, {
@@ -41,7 +42,7 @@
     app.use(io.multer({
       dest:'back-end/uploads',
       rename: function (fieldname, filename) {
-        return filename+Date.now();
+        return filename + Date.now();
       },
       onFileUploadStart: function (file) {
         console.log(file.originalname + ' is starting ...');
@@ -59,7 +60,10 @@
       }
     }));
     app.use(io.passport.initialize());
-
+    if (process.env.NODE_ENV === 'specRunner') {
+      app.use('/speclib', io.express.static(io.specBuild));
+      app.use('/test', io.express.static(io.specTest));
+    }
     if (process.env.NODE_ENV === 'production') {
       app.set('json spaces', 0);
       app.use('/css', io.express.static(io.buildCss));

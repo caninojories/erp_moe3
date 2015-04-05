@@ -10,7 +10,11 @@
   });
 
   router.get('/', io.xPoweredBy, io.languageLocale, function(req, res, next) {
-    res.render('index.html');
+    if (process.env.NODE_ENV === 'specRunner') {
+      res.render('specs.html');
+    } else {
+      res.render('index.html');
+    }
   });
 
   module.exports = router;

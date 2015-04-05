@@ -40,9 +40,9 @@
   app.route('/view/list')
     .get(io.INVOICE().getList.list);
 
-  app.route('/')
+  app.route('/view/:id')
     .get(io.INVOICE().get.one)
-    // .put(io.INVOICE().update.status)
+    //.put(io.INVOICE().update.status)
     .delete(io.INVOICE().delete.one);
 
   app.route('/update/:id')
