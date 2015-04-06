@@ -24,23 +24,50 @@
   };
 
   exports.putByIdParent = function(options) {
+    var index = 1;
     return io[options.name]
       .findById(options.find)
       .exec()
-      .then(details)
-      .then(function(result) {
-        result.save(function(err, result) {
-          return result;
-        });
-      });
+      .then(details);
 
     function details(result) {
       for (var obj in options.details) {
-        if (options.query[obj].indexOf('[') !== 0) {
-          result[obj] = options.query[obj];
+        if(options.details.hasOwnProperty(obj)) {
+          (function(obj) {
+            setTimeout(function() {
+              if (obj === 'total') {
+                result.save(function(err, result) {
+                  console.log('result');
+                  console.log(result);
+                  return result;
+                });
+              }
+              console.log(Object.keys(options.details).length);
+              if (options.query[obj].indexOf('[') !== 0) {
+                if(obj === 'personInCharge') {
+                  var personInCharge = JSON.parse(options.query[obj]);
+                  result[obj] = personInCharge;
+                } else {
+                  result[obj] = options.query[obj];
+                }
+              }
+            }, 0);
+          })(obj);
         }
       }
-      return result;
+    }
+
+    function done(obj, details, result) {
+      if (index === details.length) {
+        return result;
+      }
+      if (options.query[obj].indexOf('[') !== 0) {
+        console.log(obj);
+        console.log(options.query);
+        var parse = JSON.parse(options.query[obj]);
+        result[obj] = options.query[obj];
+        index++;
+      }
     }
   };
 

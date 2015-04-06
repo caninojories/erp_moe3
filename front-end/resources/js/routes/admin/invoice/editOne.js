@@ -17,7 +17,7 @@
     vm.calculateSubnTotal = calculateSubnTotal;
     vm.cancel             = cancel;
     vm.deleteItem         = deleteItem;
-    vm.invoiceUpdateOne   = invoiceUpdateOne;
+    vm.updateOne          = updateOne;
     vm.itemList           = [];
     vm.fromLookup         = fromLookup;
     vm.taxChange          = taxChange;
@@ -44,7 +44,6 @@
 
     function afterSave(invoice) {
       invoice.show  = !invoice.show;
-      console.log(invoice);
     }
 
     function calculateSubnTotal() {
@@ -72,7 +71,6 @@
 
     function cancel(invoice) {
       invoice.show = !invoice.show;
-
     }
 
     function deleteItem(invoice) {
@@ -85,7 +83,7 @@
       return $q.all([invoiceGetOneCallback()])
         .then(function(response) {
           console.log(response[0]);
-          vm.obj = response[0];
+          vm.obj                      = response[0];
           vm.number                   = vm.obj.data.number;
           vm.date                     = vm.obj.data.date;
           vm.terms                    = vm.obj.data.terms;
@@ -94,6 +92,8 @@
           vm.companyIdFrom            = vm.obj.from._id;
           $rootScope.companyNameTo    = vm.obj.to.name;
           vm.companyIdTo              = vm.obj.to._id;
+          vm.firstName                = vm.obj.data.personInCharge.firstName;
+          vm.lastName                 = vm.obj.data.personInCharge.lastName;
           vm.itemList                 = vm.obj.data.item;
           vm.subTotal                 = vm.obj.data.subTotal;
           vm.tax                      = vm.obj.data.tax;
@@ -111,8 +111,8 @@
         });
     }
 
-    function invoiceUpdateOne() {
-      return $q.all([invoiceUpdateOneCallBack()])
+    function updateOne() {
+      return $q.all([updateOneCallback()])
         .then(function(response) {
           console.log(response);
           if (response[0].number !== undefined) {
@@ -126,21 +126,27 @@
         });
     }
 
-    function invoiceUpdateOneCallBack() {
+    function updateOneCallback() {
       var itemList = [];
       itemList.push(vm.itemList);
+      vm.personInCharge = {
+        firstName: vm.firstName,
+        lastName: vm.lastName
+      };
       return commonsDataService
-        .httpPUT('update', $stateParams.id, {
-          number  : vm.number,
-          date    : vm.date,
-          terms   : vm.terms,
-          dueDate : vm.dueDate,
-          from    : $rootScope.companyNameFrom,
-          to      : $rootScope.companyNameTo,
-          item    : itemList,
-          currency: $rootScope.currency,
-          subTotal: vm.subTotal,
-          total   : vm.total
+        .httpPUTRouteParams('update', $stateParams.id, {
+          number        : vm.number,
+          date          : vm.date,
+          terms         : vm.terms,
+          dueDate       : vm.dueDate,
+          from          : vm.companyIdFrom,
+          to            : vm.companyIdTo,
+          personInCharge: vm.personInCharge,
+          item          : itemList,
+          currency      : $rootScope.currency,
+          subTotal      : vm.subTotal,
+          tax           : vm.tax,
+          total         : vm.total
         }, invoiceServiceApi)
         .then(function(response) {
           return response;

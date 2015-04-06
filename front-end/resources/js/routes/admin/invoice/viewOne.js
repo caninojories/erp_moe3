@@ -17,7 +17,7 @@
         return $q.all([invoiceGetOneCallback()])
           .then(function(response) {
             console.log(response);
-            vm.obj = response[0].data;
+            vm.obj  = response[0].data;
             vm.from = response[0].from;
             vm.to   = response[0].to;
           });

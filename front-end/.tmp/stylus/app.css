@@ -204,11 +204,94 @@ span.twitter-typeahead {
 }
 .invoice .editOne alert-invoice-update {
   position: fixed;
+  top: 45%;
+  width: 100%;
   z-index: 999;
-  top: 35%;
-  left: 35%;
   margin-top: -50px;
-  margin-left: -100px;
+  margin-left: -15px;
+}
+.invoice .editOne .am-collapse {
+  -webkit-animation-duration: 0.5s !important;
+  -o-animation-duration: 0.5s !important;
+  animation-duration: 0.5s !important;
+  -webkit-animation-timing-function: ease !important;
+  -o-animation-timing-function: ease !important;
+  animation-timing-function: ease !important;
+  -webkit-animation-fill-mode: backwards !important;
+  -o-animation-fill-mode: backwards !important;
+  animation-fill-mode: backwards !important;
+  overflow: hidden;
+}
+.invoice .editOne .body {
+  margin-top: 40px;
+  background-color: #ecf0f1;
+}
+.invoice .editOne .form-group {
+  position: relative;
+}
+.invoice .editOne .form-group .lookup {
+  padding: 0;
+}
+.invoice .editOne .form-group .lookup .glyphicon {
+  position: absolute;
+  right: 0;
+  padding: 50px 12px;
+}
+.invoice .editOne .form-group .lookup .glyphicon-eye-open:hover:before {
+  cursor: pointer;
+}
+.invoice .editOne .header-image {
+  height: 300px;
+  margin-top: 50px;
+  background-position: center center;
+  background-size: cover;
+}
+.invoice .editOne .header-image .product-header .header {
+  color: #ecf0f1;
+  font-weight: 300;
+}
+.invoice .editOne .header-image .product-header p {
+  color: #bdc3c7;
+  font-weight: 100;
+  font-size: 20px;
+}
+.invoice .editOne label {
+  font-weight: 300;
+  color: #34495e;
+}
+.invoice .editOne .panel-group {
+  margin-top: 40px;
+}
+.invoice .editOne .panel-group .panel-title > a {
+  color: #428bca;
+  text-decoration: none;
+}
+.invoice .editOne .panel-group .panel-title > a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.invoice .editOne .panel-group .panel-title a:not(:first-child) {
+  position: relative;
+  top: -4px;
+  margin-right: 5px;
+}
+.invoice .editOne .personInCharge label {
+  padding-left: 0;
+}
+.invoice .editOne .save button {
+  width: 100%;
+  margin-top: 5px;
+}
+.invoice .editOne .save .form-group {
+  margin-top: 5px;
+}
+.invoice .editOne .save .warning {
+  color: #c0392b;
+}
+.invoice .editOne .select2-container {
+  min-width: 120px;
+  max-width: 120px;
+  margin-left: 4px;
 }
 .invoice .fromAddressViewList alert-invoice-address-update {
   position: fixed;
@@ -395,6 +478,9 @@ span.twitter-typeahead {
   top: 8px;
 }
 .select2DropDown {
+  min-width: 130px !important;
+}
+.select2DropDownInvoiceRegistration {
   min-width: 130px !important;
 }
 .salesRepresentative {

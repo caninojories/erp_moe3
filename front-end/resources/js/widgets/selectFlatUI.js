@@ -23,7 +23,7 @@
               element.select2('val', 'Dollar');
               break;
             case '¥ ':
-              element.select2('val', 'Dollar');
+              element.select2('val', 'Yen');
               console.log('yen');
               break;
           }

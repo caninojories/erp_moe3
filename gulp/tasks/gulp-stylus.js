@@ -13,6 +13,7 @@
       .on('error', handleErrors )
       .pipe(gulp.dest('front-end/.tmp/stylus' ))
       .pipe(csslint({
+        'font-sizes': false,
         'gradients': false,
         'important': false,
         'compatible-vendor-prefixes': false,

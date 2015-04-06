@@ -41,12 +41,15 @@
     .get(io.INVOICE().getList.list);
 
   app.route('/view/:id')
-    .get(io.INVOICE().get.one)
+    .get(io.INVOICE().get.one);
     //.put(io.INVOICE().update.status)
-    .delete(io.INVOICE().delete.one);
+    //.delete(io.INVOICE().delete.one);
 
   app.route('/update/:id')
     .put(io.INVOICE().update.one);
+
+  app.route('/status/:id')
+    .put(io.INVOICE().update.status);
 
   app.route('/download/pdf')
     .get(io.INVOICE().get.pdf);

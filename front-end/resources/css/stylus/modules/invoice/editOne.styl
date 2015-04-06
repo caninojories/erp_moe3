@@ -1,10 +1,97 @@
 .editOne {
   alert-invoice-update {
     position: fixed;
+    top: 45%;
+    width: 100%;
     z-index: 999;
-    top: 35%;
-    left: 35%;
     margin-top: -50px;
-    margin-left: -100px;
+    margin-left: -15px;
+  }
+  .am-collapse {
+    animation-duration: .5s !important;
+    animation-timing-function: ease !important;
+    animation-fill-mode: backwards !important;
+    overflow: hidden;
+  }
+  .body {
+    margin-top: 40px;
+    background-color: #ecf0f1;
+  }
+  .form-group {
+    position: relative;
+    .lookup {
+      padding: 0;
+      .glyphicon {
+        position: absolute;
+        right: 0;
+        padding: 50px 12px;
+      }
+      .glyphicon-eye-open {
+        &:hover:before {
+          cursor: pointer
+        }
+      }
+    }
+  }
+  .header-image {
+    height: 300px;
+    margin-top: 50px;
+    background-position: center center;
+    background-size: cover;
+    .product-header {
+      .header {
+        color: #ecf0f1;
+        font-weight: 300;
+      }
+      p {
+        color: #bdc3c7
+        font-weight: 100;
+        font-size: 20px;
+      }
+    }
+  }
+  label {
+    font-weight: 300;
+    color: #34495e;
+  }
+  .panel-group {
+    margin-top: 40px;
+    .panel-title > a {
+      color: #428bca;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+    .panel-title {
+      a:not(:first-child) {
+        position: relative;
+        top: -4px;
+        margin-right: 5px;
+      }
+    }
+  }
+  .personInCharge {
+    label {
+      padding-left: 0;
+    }
+  }
+  .save {
+    button {
+      width: 100%;
+      margin-top: 5px;
+    }
+    .form-group {
+      margin-top: 5px;
+    }
+    .warning {
+      color: #c0392b;
+    }
+  }
+  .select2-container {
+    min-width: 120px;
+    max-width: 120px;
+    margin-left: 4px;
   }
 }

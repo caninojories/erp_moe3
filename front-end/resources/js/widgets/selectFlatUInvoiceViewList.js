@@ -39,9 +39,8 @@
 
       function putInvoiceListCallback(id, status) {
         return commonsDataService
-          .httpPUTRouteParams('view', id, {status: status}, invoiceServiceApi)
+          .httpPUTRouteParams('status', id, {status: status}, invoiceServiceApi)
           .then(function(response) {
-            console.log(response);
             return response;
           });
       }

@@ -1,7 +1,10 @@
 {% include 'commons/header.html' %}
 
 <div class="invoice">
-  <div class="registration">
+  <div class="editOne">
+    <div class="container-fluid">
+      <alert-invoice-update class="text-center"></alert-invoice-update>
+    </div>
     <div class="header-image image-header">
       <div class="container display-table">
         <div class="display-table-inner">
@@ -13,9 +16,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="container-fluid">
-      <alert-invoice-registration class="text-center"></alert-invoice-registration>
     </div>
     <div class='container-fluid body'>
       <div class='col-sm-4'>
@@ -186,7 +186,7 @@
             <div class="form-group">
               <label class="col-sm-4 control-label"></label>
               <div class="col-sm-8">
-                <button type="button" class="btn btn-sm btn-primary pull-right" ng-click="vm.saveInvoice()" ng-show="vm.invoiceList[0].amount">
+                <button type="button" class="btn btn-sm btn-primary pull-right" ng-click="vm.updateOne()" ng-show="vm.itemList[0].amount">
                   <$ __('invoice.registration.save') $>
                 </button>
               </div>
