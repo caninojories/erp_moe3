@@ -64,6 +64,6 @@
         };
 
     io.mongoDB(io.config.dbName)
-      .then(global.io.save(options));
+      .then(io.save._(options));
   };
 }());

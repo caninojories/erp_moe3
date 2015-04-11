@@ -477,6 +477,13 @@ span.twitter-typeahead {
   position: relative;
   top: 8px;
 }
+.invoice .forecast {
+  height: 100vh;
+  margin-top: 53px;
+}
+.invoice .forecast .highcharts-container {
+  padding-top: 20px;
+}
 .select2DropDown {
   min-width: 130px !important;
 }

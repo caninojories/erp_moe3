@@ -12,6 +12,7 @@
 
       vm.forecastSearch   = forecastSearch;
       vm.untilDateChange  = untilDateChange;
+      vm.month            = true;
 
       $scope.$on('radioForecast', function() {
         vm.fromDate   = null;
@@ -70,20 +71,24 @@
         size: {}
       };
 
+      //forecastSearch();
+
       function forecastSearch() {
         $q.all([forecastSearchYen()])
           .then(function(yen) {
+            console.log(yen[0]);
             $q.all([forecastSearchDollar()])
               .then(function(dollar) {
-                var concatSeries = yen[0][0].seriesData.concat(dollar[0][0].seriesData);
-                vm.chartConfig.xAxis.categories = yen[0][0].xAxis;
+                console.log(dollar);
+                var concatSeries = yen[0].data.series;
+                vm.chartConfig.xAxis.categories = yen[0].data.xAxisCategory;
                 vm.chartConfig.series   = concatSeries;
               });
-
           });
       }
 
       function forecastSearchYen() {
+        console.log(moment().format('MMMM'));
         return commonsDataService
           .httpGETQueryParams('forecast', {
             fromDate  : vm.fromDate,

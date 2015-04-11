@@ -80,6 +80,7 @@
   };
 
   exports.one = function(req, res, next) {
+    console.log('jories');
     var options = {
       name: 'Invoice',
       find: req.params.id,
@@ -126,12 +127,12 @@
   };
 
   exports.forecast = function(req, res, next) {
-    var query   = io.url.parse(req.url, true).query;
-    var from    = io.moment(query.fromDate).format('MMMM');
-    var until   = io.moment(query.untilDate).format('MMMM');
-    var months  = [];
-    var total   = [];
-    var monthsCounter = 0;
+    var query         = io.url.parse(req.url, true).query;
+    var from          = io.moment(query.fromDate).format('MMMM');
+    var until         = io.moment(query.untilDate).format('MMMM');
+    var months        = [];
+    var total         = [];
+    var counterIndex  = 0;
 
     // if(from === until) {
     //   var days = io.moment(query.from).endOf('month').format('DD');
@@ -143,63 +144,106 @@
 
       var dateDiff = endDate.diff(startDate, 'month');
       for (var i = 0; i <= dateDiff; i++) {
-        var fromNames = io.moment(query.fromDate).add(i, 'months').format('MMMM');
-        months.push(fromNames);
+        (function(i) {
+          setTimeout(function() {
+            var fromNames = io.moment(query.fromDate).add(i, 'months').format('MMMM');
+            months.push(fromNames);
+            if (i === dateDiff) {
+              monthsBuild();
+            }
+          }, 0);
+        }(i));
       }
-
-      for (var j = 0; j < dateDiff; j++) {
-        total.push(0);
+      for (var j = 0; j <= dateDiff; j++) {
+        (function() {
+          setTimeout(function() {
+            //total.push(0);
+          }, 0);
+        }());
       }
     }
 
-    io.async.series([
-      function(callback) {
-        io.mongoDB(io.config.dbName)
-          .then(function() {
-            /** shows that we have same month**/
-            if (months.length === 1) {
-              monthByMonth(query.fromDate, query.untilDate, monthsCounter);
-            } else {
-              for (var i = 0; i < months.length; i++) {
-                var fromDate  = io.moment(query.fromDate).add(i, 'months').format('MMMM DD YYYY');
-                var untilDate = io.moment(query.fromDate).add(i + 1, 'months').format('MMMM DD YYYY');
-                    untilDate = io.moment(untilDate).subtract(1, 'days').format('MMMM DD YYYY');
-                monthByMonth(fromDate, untilDate);
-              }
-            }
-          });
 
-        function monthByMonth(fromDate, untilDate) {
-          io.Invoice
-            .find({'date': {'$gte': fromDate, '$lte': untilDate}, currency: query.currency})
-            .exec()
-            .then(function(result) {
-              var sum   = 0;
-              var numMonth;
-              if (result.length === 0) {
-                numMonth = io.moment(untilDate).format('M');
-                monthsCounter++;
-                total.splice(numMonth - 1, 0, 0);
-              } else {
-                numMonth = io.moment(untilDate).format('M');
-                for (var i = 0; i < result.length; i++) {
-                  sum += parseInt(result[i].total.split(' ')[1]);
-                  console.log(parseInt(result[i].total.split(' ')[1]));
-                  if ((i + 1) === result.length) {
-                    total.splice(numMonth - 1, 0, sum);
-                    monthsCounter++;
+
+    function monthsBuild() {
+      io.mongoDB(io.config.dbName)
+        .then(function() {
+          /** shows that we have same month**/
+          if (months.length === 1) {
+            monthByMonth(query.fromDate, query.untilDate);
+          } else {
+            for (var i = 0; i < months.length; i++) {
+              var fromDate  = io.moment(query.fromDate).add(i, 'months').format('MMMM DD YYYY');
+              var untilDate = io.moment(query.fromDate).add(i + 1, 'months').format('MMMM DD YYYY');
+                  untilDate = io.moment(untilDate).subtract(1, 'days').format('MMMM DD YYYY');
+                  (function(i, fromDate, untilDate) {
+                    setTimeout(function() {
+                      monthByMonth(i, fromDate, untilDate);
+                    }, 0);
+                  }(i, fromDate, untilDate));
+            }
+          }
+        });
+    }
+
+
+    function monthByMonth(counter, fromDate, untilDate) {
+      io.Invoice
+        .find({'date': {'$gte': fromDate, '$lte': untilDate}, currency: query.currency})
+        .exec()
+        .then(function(result) {
+          var sum       = 0;
+          var numMonth  = null;
+          var firstMonth = io.moment().month('January').format('M');
+          var endMonth   = io.moment(query.fromDate).format('M');
+          var dateAxis   = endMonth - firstMonth;
+          for (var i = 0; i <= result.length; i++) {
+            (function(i, result, sum, fromDate, untilDate) {
+              setTimeout(function() {
+                if (result.length === 0) {
+                  numMonth = io.moment(untilDate).format('M');
+                  total.splice((numMonth - dateAxis) - 1, 0, 0);
+                  counterIndex++;
+                  if (counterIndex === months.length) {
+                    return res.json({
+                        message: 'Invoice Forecast',
+                        status: 200,
+                        data:{
+                          series: [{
+                            name: query.name,
+                            data: total
+                          }],
+                          xAxisCategory: months
+                        }
+                      });
+                  }
+                } else {
+                  if (result.length !== i) {
+                    numMonth = io.moment(untilDate).format('M');
+                    sum += parseInt(result[i].total.split(' ')[1]);
+                  }
+                  if ((i+ 1) === result.length) {
+                    total.splice((numMonth - dateAxis) - 1, 0, sum);
+                    counterIndex++;
+                    if (counterIndex === months.length) {
+                      return res.json({
+                          message: 'Invoice Forecast',
+                          status: 200,
+                          data:{
+                            series: [{
+                              name: query.name,
+                              data: total
+                            }],
+                            xAxisCategory: months
+                          }
+                        });
+                    }
                   }
                 }
-              }
-
-              callback(null, {xAxis: months, seriesData: [{name: query.name, data: total}], currency: query.currency});
-            });
-        }
-    }], function(err, results) {
-      results[0].seriesData[0].data.splice(months.length, months.length - 1);
-      if (monthsCounter === months.length) {
-        res.json(results);
-      }
-    });
+              }, 0);
+            }(i, result, sum, fromDate, untilDate));
+          }
+        });
+    }
   };
 }());

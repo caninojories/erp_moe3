@@ -87,12 +87,14 @@
       function saveInvoice() {
         return $q.all([saveInvoiceCallBack()])
           .then(function(response) {
-            strapAlert.show('Success!', 'Invoice #' + vm.number + ' is successfully saved ', 'success',
-            'alert-invoice-registration');
-            $timeout(function() {
-              strapAlert.hide();
-              $window.location.reload();
-            }, 3000);
+            if (response[0].data.number !== undefined) {
+              strapAlert.show('Success!', 'Invoice #' + vm.number + ' is successfully saved ', 'success',
+              'alert-invoice-registration');
+              $timeout(function() {
+                strapAlert.hide();
+                $window.location.reload();
+              }, 3000);
+            }
           });
       }
 

@@ -44,7 +44,6 @@
 
       $rootScope.deleteData = function(data) {
         if (data === true) {
-          console.log(data);
           return $q.all([deleteCallBack()])
             .then(function(response) {
               $timeout(function() {

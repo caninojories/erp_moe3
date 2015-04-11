@@ -5,7 +5,7 @@
     var document = io[options.name](options.details);
       document.save(function() {
         if (options.done) {options.done(null, document);}
-        else {options.res.json('success');}
+        else {options.res.json({message: 'Invoice Registration', status: 200, data: document});}
       });
   };
 

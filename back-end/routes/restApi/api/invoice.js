@@ -45,6 +45,9 @@
     //.put(io.INVOICE().update.status)
     //.delete(io.INVOICE().delete.one);
 
+  app.route('/')
+    .delete(io.INVOICE().delete.one);
+
   app.route('/update/:id')
     .put(io.INVOICE().update.one);
 

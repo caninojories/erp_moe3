@@ -2,6 +2,7 @@
   'use strict';
 
   exports.one = function(req, res, next) {
+    console.log('delete');
     var query = io.url.parse(req.url, true).query;
     var options = {
         find: query.id,
