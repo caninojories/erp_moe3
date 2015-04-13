@@ -504,13 +504,13 @@ span.twitter-typeahead {
   background-size: cover;
 }
 .salesRepresentative .registration .header-image .product-header .header {
-  color: #ecf0f1;
-  font-weight: 300;
+  color: #1abc9c;
+  font-weight: 500;
 }
 .salesRepresentative .registration .header-image .product-header p {
-  color: #bdc3c7;
-  font-weight: 100;
-  font-size: 20px;
+  color: #1abc9c;
+  font-weight: 400;
+  font-size: 25px;
 }
 .salesRepresentative .registration input {
   margin-bottom: 5px;

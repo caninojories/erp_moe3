@@ -5,12 +5,12 @@
   </div> -->
   <div class="salesRepresentative">
     <div class="registration">
-      <div class="header-image">
+      <div class="header-image image-header">
         <div class="container display-table">
           <div class="display-table-inner">
             <div class="row">
               <div class="col-xs-12 product-header">
-                <h1><$ __('invoice.registration.heading.Invoice') $> </h1>
+                <h1 class="header">Sales Representative</h1>
                 <p><$ __('invoice.registration.heading.Registration') $></p>
               </div>
             </div>
@@ -21,94 +21,117 @@
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
           <form name="registerSalesRepresentativeForm" ng-submit="vm.registerSalesRepresentative(registerSalesRepresentativeForm,
             vm.firstName, vm.lastName, vm.postalCode, vm.salesOfficeAdd1, vm.salesOfficeAdd2, vm.salesOfficeAdd3, vm.salesOfficePhoneNumber)"
-          ng-controller='SalesRepresentativeRegistration' novalidate>
-            <div class="row name">
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="form-group" ng-class="{ 'has-error' : (registerSalesRepresentativeForm.firstName.$invalid &&
-                  registerSalesRepresentativeForm.firstName.$dirty) || (registerSalesRepresentativeForm.firstName.$invalid &&
-                  registerSalesRepresentativeForm.$submitted)}">
-                  <input type="text" name="firstName" class="form-control input-md" placeholder="First Name" ng-model='vm.firstName' required>
-                  <div class='help-block' ng-show='registerSalesRepresentativeForm.firstName.$dirty &&
-                    registerSalesRepresentativeForm.firstName.$error.required'>
-                    First Name is required
+            ng-controller='SalesRepresentativeRegistration' class="form-horizontal" novalidate>
+              <div class="form-group" ng-class="{ 'has-error' : (registerSalesRepresentativeForm.firstName.$invalid &&
+                registerSalesRepresentativeForm.firstName.$dirty) || (registerSalesRepresentativeForm.firstName.$invalid &&
+                registerSalesRepresentativeForm.$submitted)}">
+                  <label class="col-sm-4 control-label">First Name</label>
+                  <div class="col-sm-8">
+                    <input type="text" name="firstName" class="form-control input-md" placeholder="First Name" ng-model='vm.firstName' required>
+                    <div class='help-block' ng-show='registerSalesRepresentativeForm.firstName.$dirty &&
+                      registerSalesRepresentativeForm.firstName.$error.required'>
+                      First Name is required
+                    </div>
+                    <div class='help-block' ng-show='registerSalesRepresentativeForm.firstName.$pristine &&
+                      registerSalesRepresentativeForm.firstName.$error.required && registerSalesRepresentativeForm.$submitted'>
+                      First Name is required
+                    </div>
                   </div>
-                  <div class='help-block' ng-show='registerSalesRepresentativeForm.firstName.$pristine &&
-                    registerSalesRepresentativeForm.firstName.$error.required && registerSalesRepresentativeForm.$submitted'>
-                    First Name is required
-                  </div>
-                </div>
               </div>
-              <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="form-group" ng-class="{ 'has-error' : (registerSalesRepresentativeForm.lastName.$invalid &&
+
+              <div class="form-group" ng-class="{ 'has-error' : (registerSalesRepresentativeForm.lastName.$invalid &&
                 registerSalesRepresentativeForm.lastName.$dirty) || (registerSalesRepresentativeForm.lastName.$invalid &&
                 registerSalesRepresentativeForm.$submitted)}">
-                  <input type="text" name="lastName" class="form-control input-md" placeholder="Last Name" ng-model='vm.lastName' required>
-                  <div class='help-block' ng-show='registerSalesRepresentativeForm.lastName.$dirty &&
-                    registerSalesRepresentativeForm.lastName.$error.required'>
-                    Last Name is required
-                  </div>
-                  <div class='help-block' ng-show='registerSalesRepresentativeForm.lastName.$pristine &&
-                    registerSalesRepresentativeForm.lastName.$error.required && registerSalesRepresentativeForm.$submitted'>
-                    Last Name is required
+                  <label class="col-sm-4 control-label">Last Name</label>
+                  <div class="col-sm-8">
+                    <input type="text" name="lastName" class="form-control input-md" placeholder="Last Name" ng-model='vm.lastName' required>
+                    <div class='help-block' ng-show='registerSalesRepresentativeForm.lastName.$dirty &&
+                      registerSalesRepresentativeForm.lastName.$error.required'>
+                      Last Name is required
+                    </div>
+                    <div class='help-block' ng-show='registerSalesRepresentativeForm.lastName.$pristine &&
+                      registerSalesRepresentativeForm.lastName.$error.required && registerSalesRepresentativeForm.$submitted'>
+                        Last Name is required
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class='form-group' ng-class="{ 'has-error' : registerSalesRepresentativeForm.postalCode.$invalid &amp;&amp;
-            (!registerSalesRepresentativeForm.postalCode.$pristine || registerSalesRepresentativeForm.$submitted)}">
-              <input type="text" name="postalCode" class="form-control input-md" placeholder="Postal Code" ng-model='vm.postalCode'
-              number-valid='vm.postalCode' required>
-              <div class='help-block' ng-show='registerSalesRepresentativeForm.postalCode.$dirty &&
-                registerSalesRepresentativeForm.postalCode.$invalid && !registerSalesRepresentativeForm.postalCode.$error.number'>
-                Postal Code is required
-              </div>
-              <div class='help-block' ng-show='registerSalesRepresentativeForm.postalCode.$pristine &&
-                registerSalesRepresentativeForm.$submitted'>
-                Postal Code is required
-              </div>
-              <div class='help-block' ng-show='registerSalesRepresentativeForm.postalCode.$error.number'>
-                Must be a Number
-              </div>
-            </div>
-            <div class='form-group' ng-class="{ 'has-error' : registerSalesRepresentativeForm.salesOfficeAdd1.$invalid &amp;&amp;
-              (!registerSalesRepresentativeForm.salesOfficeAdd1.$pristine || registerSalesRepresentativeForm.$submitted)}">
-              <input type="text" name="salesOfficeAdd1" class="form-control input-md" placeholder="Sales Office Address 1" ng-model='vm.salesOfficeAdd1' required>
-              <div class="help-block" ng-show="registerSalesRepresentativeForm.salesOfficeAdd1.$dirty &&
-                registerSalesRepresentativeForm.salesOfficeAdd1.$error.required">
-                Sales Office Address 1 is required
-              </div>
-              <div class="help-block" ng-show="registerSalesRepresentativeForm.salesOfficeAdd1.$pristine &&
-                registerSalesRepresentativeForm.$submitted">
-                Sales Office Address 1 is required
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="text" name="salesOfficeAdd2" class="form-control input-md" placeholder="Sales Office Address 2" ng-model='vm.salesOfficeAdd2'>
-            </div>
-            <div class="form-group">
-              <input type="text" name="salesOfficeAdd3" class="form-control input-md" placeholder="Sales Office Address 3" ng-model='vm.salesOfficeAdd3'>
-            </div>
-            <div class='form-group' ng-class="{ 'has-error' : registerSalesRepresentativeForm.salesOfficePhoneNumber.$invalid &amp;&amp;
-              (!registerSalesRepresentativeForm.salesOfficePhoneNumber.$pristine || registerSalesRepresentativeForm.$submitted)}">
-              <input type="text" name="salesOfficePhoneNumber" class="form-control input-md" placeholder="Sales Office Phone Number"
-                ng-model='vm.salesOfficePhoneNumber' number-valid='vm.salesOfficePhoneNumber' required>
-              <div class='help-block' ng-show='registerSalesRepresentativeForm.salesOfficePhoneNumber.$dirty &&
-              registerSalesRepresentativeForm.salesOfficePhoneNumber.$invalid && !registerSalesRepresentativeForm.salesOfficePhoneNumber.$error.number'>
-                A Phone Number is required
-              </div>
-              <div class='help-block' ng-show='registerSalesRepresentativeForm.salesOfficePhoneNumber.$pristine &&
-                registerSalesRepresentativeForm.$submitted'>
-                A Phone Number is required
-              </div>
-              <div class='help-block' ng-show='registerSalesRepresentativeForm.salesOfficePhoneNumber.$error.number'>
-                Must be a Number
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12 col-md-12">
-                <button type="submit" class="btn btn-primary btn-block btn-lg">Register</button>
-              </div>
-            </div>
+
+                <div class='form-group' ng-class="{ 'has-error' : registerSalesRepresentativeForm.salesOfficePhoneNumber.$invalid &amp;&amp;
+                  (!registerSalesRepresentativeForm.salesOfficePhoneNumber.$pristine || registerSalesRepresentativeForm.$submitted)}">
+                    <label class="col-sm-2 control-label">Phone #</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="salesOfficePhoneNumber" class="form-control input-md"
+                        ng-model='vm.salesOfficePhoneNumber' number-valid='vm.salesOfficePhoneNumber' required>
+                      <div class='help-block' ng-show='registerSalesRepresentativeForm.salesOfficePhoneNumber.$dirty &&
+                      registerSalesRepresentativeForm.salesOfficePhoneNumber.$invalid && !registerSalesRepresentativeForm.salesOfficePhoneNumber.$error.number'>
+                        A Phone Number is required
+                      </div>
+                      <div class='help-block' ng-show='registerSalesRepresentativeForm.salesOfficePhoneNumber.$pristine &&
+                        registerSalesRepresentativeForm.$submitted'>
+                        A Phone Number is required
+                      </div>
+                      <div class='help-block' ng-show='registerSalesRepresentativeForm.salesOfficePhoneNumber.$error.number'>
+                        Must be a Number
+                      </div>
+                    </div>
+                </div>
+
+                <div class='form-group' ng-class="{ 'has-error' : registerSalesRepresentativeForm.address.$invalid &amp;&amp;
+                  (!registerSalesRepresentativeForm.address.$pristine || registerSalesRepresentativeForm.$submitted)}">
+                  <label class="col-sm-2 control-label">Address</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="address" class="form-control input-md" ng-model='vm.address' required>
+                    <div class="help-block" ng-show="registerSalesRepresentativeForm.address.$dirty &&
+                      registerSalesRepresentativeForm.address.$error.required">
+                        Address is required
+                    </div>
+                    <div class="help-block" ng-show="registerSalesRepresentativeForm.address.$pristine &&
+                      registerSalesRepresentativeForm.$submitted">
+                        Address is required
+                    </div>
+                  </div>
+                </div>
+
+                <div class='form-group' ng-class="{ 'has-error' : registerSalesRepresentativeForm.city.$invalid &amp;&amp;
+                  (!registerSalesRepresentativeForm.city.$pristine || registerSalesRepresentativeForm.$submitted)}">
+                  <label class="col-sm-2 control-label">City/Town</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="city" class="form-control input-md" ng-model='vm.city' required>
+                    <div class="help-block" ng-show="registerSalesRepresentativeForm.city.$dirty &&
+                      registerSalesRepresentativeForm.city.$error.required">
+                        City/Town is required
+                    </div>
+                    <div class="help-block" ng-show="registerSalesRepresentativeForm.city.$pristine &&
+                      registerSalesRepresentativeForm.$submitted">
+                        City/Town is required
+                    </div>
+                  </div>
+                </div>
+
+                <div class='form-group' ng-class="{ 'has-error' : registerSalesRepresentativeForm.postalCode.$invalid &amp;&amp;
+                (!registerSalesRepresentativeForm.postalCode.$pristine || registerSalesRepresentativeForm.$submitted)}">
+                  <label class="col-sm-2 control-label">Zip</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="postalCode" class="form-control input-md" ng-model='vm.postalCode' number-valid='vm.postalCode' required>
+                    <div class='help-block' ng-show='registerSalesRepresentativeForm.postalCode.$dirty &&
+                      registerSalesRepresentativeForm.postalCode.$invalid && !registerSalesRepresentativeForm.postalCode.$error.number'>
+                        Zip Code is required
+                    </div>
+                    <div class='help-block' ng-show='registerSalesRepresentativeForm.postalCode.$pristine &&
+                      registerSalesRepresentativeForm.$submitted'>
+                        Zip Code is required
+                    </div>
+                    <div class='help-block' ng-show='registerSalesRepresentativeForm.postalCode.$error.number'>
+                      Must be a Number
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-12 col-md-12">
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Register</button>
+                  </div>
+                </div>
           </form>
         </div>
       </div>
