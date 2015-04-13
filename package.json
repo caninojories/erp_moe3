@@ -45,7 +45,6 @@
     "should": "^5.2.0",
     "supertest": "^0.15.0",
     "wiredep": "^2.2.2",
-    "yargs": "^3.0.4"
   },
   "dependencies": {
     "async": "^0.9.0",
@@ -84,7 +83,8 @@
     "run-sequence": "^0.3.6",
     "serve-favicon": "~2.0.1",
     "shortid": "^2.2.1",
-    "underscore": "^1.6.0"
+    "underscore": "^1.6.0",
+    "yargs": "^3.0.4"
   },
   "scripts": {
     "start": "nodemon backend/server.js",

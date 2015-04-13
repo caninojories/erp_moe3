@@ -35,7 +35,7 @@
     });
     app.use('*', catchAll);
 
-    if(io.args.serverTest) {
+    if (io.args.serverTest) {
        module.exports = app;
        return module.exports;
     }
