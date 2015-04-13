@@ -18,11 +18,12 @@
       function link(scope, element, attrs) {
         currencySymbol(element.val());
         scope.$on('currency', function(event, data) {
+          console.log(data);
           switch (data.toString()) {
-            case '$ ':
+            case '$':
               element.select2('val', 'Dollar');
               break;
-            case '¥ ':
+            case '¥':
               element.select2('val', 'Yen');
               console.log('yen');
               break;
@@ -36,6 +37,8 @@
       }
 
       function currencySymbol(currency) {
+        console.log(currency);
+
         switch (currency) {
           case 'Yen':
             $rootScope.currency = '¥ ';

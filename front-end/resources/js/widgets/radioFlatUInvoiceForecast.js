@@ -18,7 +18,8 @@
       function link(scope, element, attrs) {
         element.radiocheck();
         element.on('click', function() {
-          scope.$broadcast('radioForecast');
+          console.log(attrs.radioInvoiceForecast);
+          scope.$broadcast('radioForecast', attrs.radioInvoiceForecast);
         });
       }
 

@@ -27,6 +27,7 @@
     invoiceGetOne();
 
     $scope.$on('select2', function() {
+      console.log($rootScope.currency + 'a');
       /* use to update model after listening changes in the dropdown currency menu */
       $scope.$apply(calculateSubnTotal());
     });
@@ -115,7 +116,7 @@
       return $q.all([updateOneCallback()])
         .then(function(response) {
           console.log(response);
-          if (response[0].number !== undefined) {
+          if (response[0].data.number !== undefined) {
             strapAlert.show('Success!', 'Invoice #' + vm.number + ' is successfully updated ', 'success',
             'alert-invoice-update');
           }
@@ -133,6 +134,8 @@
         firstName: vm.firstName,
         lastName: vm.lastName
       };
+      console.log($rootScope.currency);
+
       return commonsDataService
         .httpPUTRouteParams('update', $stateParams.id, {
           number        : vm.number,
@@ -143,7 +146,7 @@
           to            : vm.companyIdTo,
           personInCharge: vm.personInCharge,
           item          : itemList,
-          currency      : $rootScope.currency,
+          currency      : $rootScope.currency.trim(),
           subTotal      : vm.subTotal,
           tax           : vm.tax,
           total         : vm.total

@@ -77,9 +77,10 @@
       .exec()
       .then(itemDetails)
       .then(function(result) {
-        result.save(function(err, result) {
-          options.res.json(result);
-        });
+        return result;
+        // //result.save(function(err, result) {
+        //   options.res.json(result);
+        // });
       });
 
     function itemDetails(result) {

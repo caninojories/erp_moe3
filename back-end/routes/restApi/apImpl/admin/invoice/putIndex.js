@@ -31,8 +31,16 @@
     };
 
     io.mongoDB(io.config.dbName)
-      .then(io.update.putByIdParent(options))
-      .then(io.update.putByIdChildren(options));
+      .then(function() {
+        return io.update.putByIdParent(options);
+      })
+      .then(function(resultParent) {
+        return io.update.putByIdChildren(options);
+      })
+      .then(function(resultChildren) {
+        console.log(resultChildren);
+        res.json({message: 'Invoice Update', status: 200, data: resultChildren});
+      });
   };
 
   exports.status = function(req, res, next) {

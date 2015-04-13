@@ -163,8 +163,6 @@
       }
     }
 
-
-
     function monthsBuild() {
       io.mongoDB(io.config.dbName)
         .then(function() {

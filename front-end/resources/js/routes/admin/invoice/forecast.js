@@ -14,12 +14,17 @@
       vm.untilDateChange  = untilDateChange;
       vm.month            = true;
 
-      $scope.$on('radioForecast', function() {
+      $scope.$on('radioForecast', function(env, value) {
+        console.log(typeof value);
         vm.fromDate   = null;
         vm.untilDate  = null;
         /* use to update model */
         $scope.$apply(function() {
-          vm.month = !vm.month;
+          if (value !== 'true') {
+            vm.month = false;
+          } else {
+            vm.month = true;
+          }
         });
       });
 
@@ -76,11 +81,9 @@
       function forecastSearch() {
         $q.all([forecastSearchYen()])
           .then(function(yen) {
-            console.log(yen[0]);
             $q.all([forecastSearchDollar()])
               .then(function(dollar) {
-                console.log(dollar);
-                var concatSeries = yen[0].data.series;
+                var concatSeries = yen[0].data.series.concat(dollar[0].data.series);
                 vm.chartConfig.xAxis.categories = yen[0].data.xAxisCategory;
                 vm.chartConfig.series   = concatSeries;
               });
