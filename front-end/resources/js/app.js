@@ -21,7 +21,7 @@
      ***/
     'app.sample',
     'app.primary',
-    'app.salesRepresentativeRegistration',
+    'app.salesRepresentative',
     'app.salesRepresentativeListing',
     'app.customerRegistration',
     'app.customerList',

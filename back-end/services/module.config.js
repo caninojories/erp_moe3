@@ -101,7 +101,8 @@
       specTest          : path.join(rootPath, 'front-end/resources/test'),
 
       /* AdminImplementation Routes */
-      INVOICE           : require(rootPath + 'back-end/configuration/routes/admin/invoice'),
+      INVOICE             : require(rootPath + 'back-end/configuration/routes/admin/invoice'),
+      SALESREPRESENTATIVE : require(rootPath + 'back-end/configuration/routes/admin/salesRepresentative'),
       //SETTINGS          : require(rootPath + 'back-end/configuration/routes/adminApImplementation/settings'),
 
       /* SERVICES API */

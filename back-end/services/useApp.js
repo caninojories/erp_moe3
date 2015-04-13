@@ -4,7 +4,7 @@
   module.exports = function(app) {
     useApp([
       io.useAppConfig().primary,
-      io.useAppConfig().salesRepresentativeRegistration,
+      io.useAppConfig().salesRepresentative.registration,
       io.useAppConfig().salesRepresentativeListing,
       io.useAppConfig().editSalesRepresentativeListing,
       io.useAppConfig().customerRegistration,

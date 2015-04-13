@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.salesRepresentativeRegistration')
+    .module('app.salesRepresentative')
     .factory('salesRepresentativeRegistrationDataService', salesRepresentativeRegistrationDataService);
 
     salesRepresentativeRegistrationDataService.$inject = ['salesRepresentativeServiceApi', 'exception'];

@@ -494,6 +494,14 @@ span.twitter-typeahead {
   padding-bottom: 50px;
   background-color: #ecf0f1;
 }
+.salesRepresentative .registration alert-salesRep-registration {
+  position: fixed;
+  top: 45%;
+  width: 100%;
+  z-index: 999;
+  margin-top: -50px;
+  margin-left: -15px;
+}
 .salesRepresentative .registration .body {
   padding-top: 50px;
 }

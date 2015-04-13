@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.salesRepresentativeRegistration')
+    .module('app.salesRepresentative')
     .run(appRun);
 
     appRun.$inject = ['routehelper'];
@@ -15,8 +15,8 @@
       return [{
         state: 'salesRepresentativeRegistration',
         config: {
-          url: '/salesRepresentativeRegistration',
-          templateUrl: '/admin/salesRepresentativeRegistration/index.html',
+          url: '/salesRepresentative/registration',
+          templateUrl: '/admin/salesRepresentative/registration.html',
           controller: 'SalesRepresentativeRegistration as vm',
           title: 'SalesRepresentativeRegistration'
         }

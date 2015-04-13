@@ -1,14 +1,10 @@
 (function() {
   'use strict';
 
-    var express   = require('express'),
-    router        = express.Router(),
-    app           = express(),
+    var app = io.express();
 
-    postRegisterSalesRepresentative = require('../apImpl/admin/salesRepresentativeRegistration/postIndex.js');
-
-    app.route('/saveSalesRepresentative')
-    .post(postRegisterSalesRepresentative.saveSalesRepresentative);
+    app.route('/registration')
+      .post(io.SALESREPRESENTATIVE().post.one);
 
     module.exports = app;
 }());

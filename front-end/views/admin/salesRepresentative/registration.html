@@ -5,6 +5,9 @@
   </div> -->
   <div class="salesRepresentative">
     <div class="registration">
+      <div class="container-fluid">
+        <alert-salesRep-registration class="text-center"></alert-salesRep-registration>
+      </div>
       <div class="header-image image-header">
         <div class="container display-table">
           <div class="display-table-inner">
@@ -61,7 +64,7 @@
                     <label class="col-sm-2 control-label">Phone #</label>
                     <div class="col-sm-10">
                       <input type="text" name="salesOfficePhoneNumber" class="form-control input-md"
-                        ng-model='vm.salesOfficePhoneNumber' number-valid='vm.salesOfficePhoneNumber' required>
+                        ng-model='vm.phoneNumber' number-valid='vm.salesOfficePhoneNumber' required>
                       <div class='help-block' ng-show='registerSalesRepresentativeForm.salesOfficePhoneNumber.$dirty &&
                       registerSalesRepresentativeForm.salesOfficePhoneNumber.$invalid && !registerSalesRepresentativeForm.salesOfficePhoneNumber.$error.number'>
                         A Phone Number is required
