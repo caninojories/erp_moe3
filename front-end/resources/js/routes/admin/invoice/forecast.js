@@ -15,7 +15,6 @@
       vm.month            = true;
 
       $scope.$on('radioForecast', function(env, value) {
-        console.log(typeof value);
         vm.fromDate   = null;
         vm.untilDate  = null;
         /* use to update model */
@@ -76,12 +75,11 @@
         size: {}
       };
 
-      //forecastSearch();
-
-      function forecastSearch() {
-        $q.all([forecastSearchYen()])
+      forecastSearch(moment().startOf('month').format('MMMM DD YYYY'), moment().endOf('month').format('MMMM DD YYYY'));
+      function forecastSearch(startDate, endDate) {
+        $q.all([forecastSearchYen(startDate, endDate)])
           .then(function(yen) {
-            $q.all([forecastSearchDollar()])
+            $q.all([forecastSearchDollar(startDate, endDate)])
               .then(function(dollar) {
                 var concatSeries = yen[0].data.series.concat(dollar[0].data.series);
                 vm.chartConfig.xAxis.categories = yen[0].data.xAxisCategory;
@@ -90,12 +88,11 @@
           });
       }
 
-      function forecastSearchYen() {
-        console.log(moment().format('MMMM'));
+      function forecastSearchYen(startDate, endDate) {
         return commonsDataService
           .httpGETQueryParams('forecast', {
-            fromDate  : vm.fromDate,
-            untilDate : vm.tempUntilDate || vm.untilDate,
+            fromDate  : startDate || vm.fromDate,
+            untilDate : endDate || vm.tempUntilDate || vm.untilDate,
             currency  : '¥',
             name      : 'Yen',
             isMonth   : vm.month || false
@@ -105,11 +102,11 @@
           });
       }
 
-      function forecastSearchDollar() {
+      function forecastSearchDollar(startDate, endDate) {
         return commonsDataService
           .httpGETQueryParams('forecast', {
-            fromDate  : vm.fromDate,
-            untilDate : vm.tempUntilDate || vm.untilDate,
+            fromDate  : startDate || vm.fromDate,
+            untilDate : endDate || vm.tempUntilDate || vm.untilDate,
             currency  : '$',
             name      : 'Dollar',
             isMonth   : vm.month || false

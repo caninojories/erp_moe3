@@ -168,6 +168,8 @@
         .then(function() {
           /** shows that we have same month**/
           if (months.length === 1) {
+            console.log(query.fromDate);
+            console.log(query.untilDate);
             monthByMonth(query.fromDate, query.untilDate);
           } else {
             for (var i = 0; i < months.length; i++) {
@@ -176,7 +178,7 @@
                   untilDate = io.moment(untilDate).subtract(1, 'days').format('MMMM DD YYYY');
                   (function(i, fromDate, untilDate) {
                     setTimeout(function() {
-                      monthByMonth(i, fromDate, untilDate);
+                      monthByMonth(fromDate, untilDate);
                     }, 0);
                   }(i, fromDate, untilDate));
             }
@@ -185,7 +187,7 @@
     }
 
 
-    function monthByMonth(counter, fromDate, untilDate) {
+    function monthByMonth(fromDate, untilDate) {
       io.Invoice
         .find({'date': {'$gte': fromDate, '$lte': untilDate}, currency: query.currency})
         .exec()
