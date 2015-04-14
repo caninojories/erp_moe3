@@ -210,11 +210,26 @@
                         status: 200,
                         data:{
                           series: [{
+                            type: 'column',
                             name: query.name,
                             data: total
                           }],
                           xAxisCategory: months
-                        }
+                        },
+                        pie: [{
+                          type: 'pie',
+                          name: 'Invoice',
+                          data: [{
+                            name: query.name,
+                            y: total
+                          }],
+                          center: [100, 80],
+                          size: 100,
+                          showInLegend: false,
+                          dataLabels: {
+                              enabled: false
+                          }
+                        }]
                       });
                   }
                 } else {
@@ -231,11 +246,26 @@
                           status: 200,
                           data:{
                             series: [{
+                              type: 'column',
                               name: query.name,
                               data: total
                             }],
                             xAxisCategory: months
-                          }
+                          },
+                          pie: [{
+                            type: 'pie',
+                            name: 'Invoice',
+                            data: [{
+                              name: query.name,
+                              y: total
+                            }],
+                            center: [100, 80],
+                            size: 100,
+                            showInLegend: false,
+                            dataLabels: {
+                                enabled: false
+                            }
+                          }]
                         });
                     }
                   }

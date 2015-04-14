@@ -77,11 +77,43 @@
 
       forecastSearch(moment().startOf('month').format('MMMM DD YYYY'), moment().endOf('month').format('MMMM DD YYYY'));
       function forecastSearch(startDate, endDate) {
+        if(startDate === undefined && (vm.fromDate === undefined || vm.untilDate === undefined)){
+          return;
+        }
         $q.all([forecastSearchYen(startDate, endDate)])
           .then(function(yen) {
+            console.log(yen);
             $q.all([forecastSearchDollar(startDate, endDate)])
               .then(function(dollar) {
+                var pie = [{
+                  type: 'pie',
+                  name: 'Invoice',
+                  data: [],
+                  center: [50, 10],
+                  size: 100,
+                  showInLegend: false,
+                  dataLabels: {
+                    enabled: false
+                  }
+                }];
+
+                if (vm.month) {
+                  var yenTotal = yen[0].pie[0].data[0].y;
+                  var yenTemp  = 0;
+                  yenTotal.forEach(function(value) {
+                    yenTemp += value;
+                  });
+                  var dollarTotal = dollar[0].pie[0].data[0].y;
+                  var dollarTemp  = 0;
+                  dollarTotal.forEach(function(value) {
+                    dollarTemp += value;
+                  });
+                  pie[0].data.push({name: yen[0].pie[0].data[0].name, y: yenTemp});
+                  pie[0].data.push({name: dollar[0].pie[0].data[0].name, y: dollarTemp});
+                }
+
                 var concatSeries = yen[0].data.series.concat(dollar[0].data.series);
+                concatSeries = concatSeries.concat(pie);
                 vm.chartConfig.xAxis.categories = yen[0].data.xAxisCategory;
                 vm.chartConfig.series   = concatSeries;
               });
