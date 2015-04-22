@@ -18,7 +18,7 @@
     };
 
     io.mongoDB(io.config.dbName)
-      .then(io.save(options));
+      .then(io.save._(options));
   };
 
   exports.to = function(req, res, next) {
@@ -38,7 +38,7 @@
     };
 
     io.mongoDB(io.config.dbName)
-      .then(io.save(options));
+      .then(io.save._(options));
   };
 
   exports.one = function(req, res, next) {
