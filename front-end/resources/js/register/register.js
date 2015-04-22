@@ -14,6 +14,7 @@
       vm.checkEmailInBlurred  = checkEmailInBlurred;
       vm.register             =  register;
       vm.registerUser         = registerUser;
+      vm.response             = null;
 
       function checkEmailInBlurred(signupForm) {
         return $q.all([checkEmailInBlurredCallBack()])
@@ -24,8 +25,8 @@
             else {
               signupForm.email.$setValidity('taken', true);
             }
-
-            return response;
+            vm.response = response;
+            return vm.response;
           });
       }
 

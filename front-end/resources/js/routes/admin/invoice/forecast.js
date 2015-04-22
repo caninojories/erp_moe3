@@ -77,7 +77,7 @@
 
       forecastSearch(moment().startOf('month').format('MMMM DD YYYY'), moment().endOf('month').format('MMMM DD YYYY'));
       function forecastSearch(startDate, endDate) {
-        if(startDate === undefined && (vm.fromDate === undefined || vm.untilDate === undefined)){
+        if (startDate === undefined && (vm.fromDate === undefined || vm.untilDate === undefined)) {
           return;
         }
         $q.all([forecastSearchYen(startDate, endDate)])

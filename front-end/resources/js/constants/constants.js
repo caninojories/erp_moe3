@@ -1,5 +1,3 @@
-angular.module("ngConfig", [])
+angular.module('ngConfig', [])
 
-.constant("isLogger", true)
-
-;
+.constant('isLogger', true);

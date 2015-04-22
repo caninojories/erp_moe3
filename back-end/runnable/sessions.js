@@ -9,6 +9,5 @@
 
   promises.push(
     db.collection('questions').insert({
-      
     }));
 }());

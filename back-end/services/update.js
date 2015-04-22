@@ -32,7 +32,7 @@
 
     function details(result) {
       for (var obj in options.details) {
-        if(options.details.hasOwnProperty(obj)) {
+        if (options.details.hasOwnProperty(obj)) {
           (function(obj) {
             setTimeout(function() {
               if (obj === 'total') {
@@ -44,7 +44,7 @@
               }
               console.log(Object.keys(options.details).length);
               if (options.query[obj].indexOf('[') !== 0) {
-                if(obj === 'personInCharge') {
+                if (obj === 'personInCharge') {
                   var personInCharge = JSON.parse(options.query[obj]);
                   result[obj] = personInCharge;
                 } else {

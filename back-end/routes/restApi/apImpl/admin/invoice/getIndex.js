@@ -186,7 +186,6 @@
         });
     }
 
-
     function monthByMonth(fromDate, untilDate) {
       io.Invoice
         .find({'date': {'$gte': fromDate, '$lte': untilDate}, currency: query.currency})
@@ -237,7 +236,7 @@
                     numMonth = io.moment(untilDate).format('M');
                     sum += parseInt(result[i].total.split(' ')[1]);
                   }
-                  if ((i+ 1) === result.length) {
+                  if ((i + 1) === result.length) {
                     total.splice((numMonth - dateAxis) - 1, 0, sum);
                     counterIndex++;
                     if (counterIndex === months.length) {

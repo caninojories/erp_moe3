@@ -49,7 +49,7 @@
       bower: {
         json: require('./bower.json'),
         directory: '.bowerrc'.directory,
-        exclude: ['front-end/bower/bootstrap/dist/js/bootstrap.js'],
+        exclude: ['front-end/bower/bootstrap/dist/js/bootstrap.js', 'front-end/bower/angular-mocks/*.js'],
         ignorePath: '../bower',
         fileTypes: {
           html: {
@@ -94,10 +94,15 @@
         files: [].concat(
           bowerFiles,
           //config.specHelpers,
+          'front-end/resources/js/vendor/**/*.js',
+          'front-end/resources/js/custom/*.js',
+          'front-end/resources/js/app.js',
           'front-end/resources/js/**/*.module.js',
+          'front-end/resources/js/services/restangular.js',
           'front-end/resources/js/**/*.js',
           'front-end/.tmp/templates.js',
-          'front-end/resources/test/*.spec.js'
+          'front-end/resources/test/*.spec.js',
+          'front-end/bower/angular-mocks/angular-mocks.js'
           //config.serverIntegrationSpecs
         ),
         exclude: [],

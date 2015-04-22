@@ -55,13 +55,18 @@
     "globals": {
         "angular": false,
         "appRequire": false,
+        "$auth": false,
+        "beforeEach": false,
         "Bloodhound": false,
         "describe": false,
         "expect": false,
+        "inject": false,
         "it": false,
         "io": false,
         "jcaLayout": false,
         "moment": false,
+        "spyOn": false,
+        "toastr": false,
         "$": false
     }
 }
