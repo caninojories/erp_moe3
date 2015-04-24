@@ -133,6 +133,7 @@
     var months        = [];
     var total         = [];
     var counterIndex  = 0;
+    var sum           = 0;
 
     // if(from === until) {
     //   var days = io.moment(query.from).endOf('month').format('DD');
@@ -191,13 +192,13 @@
         .find({'date': {'$gte': fromDate, '$lte': untilDate}, currency: query.currency})
         .exec()
         .then(function(result) {
-          var sum       = 0;
+          // var sum       = 0;
           var numMonth  = null;
           var firstMonth = io.moment().month('January').format('M');
           var endMonth   = io.moment(query.fromDate).format('M');
           var dateAxis   = endMonth - firstMonth;
           for (var i = 0; i <= result.length; i++) {
-            (function(i, result, sum, fromDate, untilDate) {
+            (function(i, result, fromDate, untilDate) {
               setTimeout(function() {
                 if (result.length === 0) {
                   numMonth = io.moment(untilDate).format('M');
@@ -235,6 +236,7 @@
                   if (result.length !== i) {
                     numMonth = io.moment(untilDate).format('M');
                     sum += parseInt(result[i].total.split(' ')[1]);
+                    console.log(sum);
                   }
                   if ((i + 1) === result.length) {
                     total.splice((numMonth - dateAxis) - 1, 0, sum);
@@ -270,7 +272,7 @@
                   }
                 }
               }, 0);
-            }(i, result, sum, fromDate, untilDate));
+            }(i, result, fromDate, untilDate));
           }
         });
     }
