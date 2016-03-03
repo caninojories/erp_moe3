@@ -43,7 +43,7 @@
     if (io.cluster.isMaster) {io.clusterService(io);}
     else {
       app.listen(global.io.port, function() {
-        console.log(io.chalk.red.reset.underline('listening to port ') +
+        console.log(io.chalk.cyan.reset.underline('listening to port ') +
         io.chalk.cyan.bold((io.port)));
       });
     }
